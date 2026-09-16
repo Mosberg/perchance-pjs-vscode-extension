@@ -1,0 +1,59 @@
+{
+  "List Definition": {
+    "prefix": "list",
+    "body": ["${1:listName} =", "\t${2:item1}", "\t${3:item2}"],
+    "description": "Create a new Perchance list"
+  },
+  "Output List": {
+    "prefix": "output",
+    "body": ["$output =", "\t${1:Hello, world!}"],
+    "description": "Create the $output list"
+  },
+  "Meta Import": {
+    "prefix": "metaimport",
+    "body": ["meta:import ${1:username}/${2:generatorName}"],
+    "description": "Import another Perchance generator"
+  },
+  "Meta Position": {
+    "prefix": "metapos",
+    "body": ["meta:position ${1|top,bottom,replace|}"],
+    "description": "Set meta:position for this list"
+  },
+  "Plugin Import": {
+    "prefix": "plugin",
+    "body": ["meta:import ${1:username}/${2:pluginName}.plugin"],
+    "description": "Import a Perchance plugin"
+  },
+  "HTML Scaffold": {
+    "prefix": "html",
+    "body": [
+      "html :",
+      "\t<!DOCTYPE html>",
+      "\t<html>",
+      "\t<head>",
+      "\t\t<meta charset=\"UTF-8\">",
+      "\t\t<title>${1:Page Title}</title>",
+      "\t</head>",
+      "\t<body>",
+      "\t\t${2:<!-- Content -->}",
+      "\t</body>",
+      "\t</html>"
+    ],
+    "description": "HTML mode scaffold"
+  },
+  "Async Property": {
+    "prefix": "asyncprop",
+    "body": ["${1:propertyName} : async", "\t${2:// async logic here}"],
+    "description": "Async property function"
+  },
+  "Empty List": {
+    "prefix": "emptylist",
+    "body": ["${1:listName} = {|}"],
+    "description": "Define an empty list"
+  },
+  "Placeholder Marker": {
+    "prefix": "placeholder",
+    "body": ["<<<${1:placeholderName}>>>"],
+    "description": "Insert a placeholder marker"
+  }
+}

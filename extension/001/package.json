@@ -1,0 +1,79 @@
+{
+  "name": "perchance-pjs",
+  "displayName": "Perchance.org *.pjs Language Support",
+  "description": "Comprehensive language support for Perchance.org *.pjs code: syntax highlighting, completion, diagnostics.",
+  "version": "0.1.0",
+  "publisher": "mosberg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mosberg/perchance-pjs-vscode-extension.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onLanguage:perchance-pjs"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "perchance-pjs",
+        "aliases": [
+          "Perchance PJS",
+          "perchance-pjs"
+        ],
+        "extensions": [
+          ".pjs"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/perchance-icon-light.png",
+          "dark": "./icons/perchance-icon-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "perchance-pjs",
+        "scopeName": "source.perchance.pjs",
+        "path": "./syntaxes/perchance-pjs.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "perchance-pjs",
+        "path": "./snippets/perchance-pjs.code-snippets.json"
+      }
+    ],
+    "commands": [],
+    "configuration": {
+      "title": "Perchance PJS",
+      "properties": {
+        "perchancePjs.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time error checking for .pjs files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/parser": "^7",
+    "eslint": "^8",
+    "typescript": "^5.4"
+  }
+}
