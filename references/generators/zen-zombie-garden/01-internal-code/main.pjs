@@ -1,0 +1,13 @@
+$meta
+  title = Zen Zombie Garden
+  description = A wave-based zombie survival shooter in a moonlit zen garden. Full controller support with rumble, remappable bindings, mobile controls, calling cards, and more.
+  tags = game, zombie, shooter, survival, relaxing, zen, arcade
+  image = https://user.uploads.dev/file/04c43cd6037c6ce20fe8b28c7b266700.jpg
+  header
+    mode = minimal
+
+createServerSocket = {import:server-plugin}
+commentsPlugin = {import:comments-plugin}
+generateText = {import:ai-text-plugin}
+generateImage = {import:text-to-image-plugin}
+ 

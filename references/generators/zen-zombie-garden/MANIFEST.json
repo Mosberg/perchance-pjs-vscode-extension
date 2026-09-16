@@ -1,0 +1,245 @@
+{
+  "package": "zen-zombie-garden-complete-package",
+  "generator": "Zen Zombie Garden (Perchance)",
+  "generated": "2026-09-16T19:10:55.267Z",
+  "fileCount": 48,
+  "totalBytes": 66149116,
+  "note": "sha256 for every file in the archive except MANIFEST.json itself (a file cannot contain its own digest).",
+  "files": [
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 1063362,
+      "sha256": "7ec3557926439431ffedfded4873af8f4e7573681298cb813248c132dcd907da"
+    },
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 554,
+      "sha256": "69a7f9308c78073a110ba28557132366f605ecc2345c38e7e8808d3fae83511f"
+    },
+    {
+      "path": "01-internal-code/src/Midnight_Ascent.mp3",
+      "bytes": 4196534,
+      "sha256": "1a36f7ca22c88dbde272f7e905c9c2296d8918486cb43bc61f7d08e70626cb09"
+    },
+    {
+      "path": "01-internal-code/src/README.md",
+      "bytes": 34776,
+      "sha256": "9c56667601db418174744f0ebb25909b56dbb9d156357e3e12f07d5d696f5ff9"
+    },
+    {
+      "path": "02-external-code/EXTERNAL-DEPENDENCIES.md",
+      "bytes": 4058,
+      "sha256": "20bbf23746bba8e391336448bd6baa6d3bc648b133e1809f6b87439d7fd194b1"
+    },
+    {
+      "path": "02-external-code/imports/ai-text-plugin/main.pjs",
+      "bytes": 58048,
+      "sha256": "f57d9efbf330aef13ede6becde8251ae982d99d1bf571b3388946d1300ff1a72"
+    },
+    {
+      "path": "02-external-code/imports/comments-plugin/main.pjs",
+      "bytes": 38261,
+      "sha256": "4b20ff48b15882e15623c1f1048f58179e52c94129a61a12d7d185deccac8619"
+    },
+    {
+      "path": "02-external-code/imports/server-plugin/main.pjs",
+      "bytes": 31881,
+      "sha256": "102dc3e9121ec363c03718470df734687157cd1cac3a22f6bfe246aae741d693"
+    },
+    {
+      "path": "02-external-code/imports/text-to-image-plugin/main.pjs",
+      "bytes": 37978,
+      "sha256": "9245fbf9b4041da7a12095fd8d45313ca8eb1aae584d1d7afd3b9a7b10aaf86a"
+    },
+    {
+      "path": "03-third-party-assets/LICENSE-NOTICE.md",
+      "bytes": 2317,
+      "sha256": "7ba8c6ff281b0e41198d349911f21c1a33a01b9fe7f653db8c6782b4702e8956"
+    },
+    {
+      "path": "03-third-party-assets/three-0.160.0/three.module.js",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "path": "04-project-resources/ASSET-INVENTORY.md",
+      "bytes": 8032,
+      "sha256": "fb8e5ac54021daac64bdb42923d5f87327268eb39e37e8232d97b1bfb787ac29"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/blackout.mp3",
+      "bytes": 4155156,
+      "sha256": "9fdbeef2288e6b12acea2f5ea1196dcfbba5dc4a07c0448a6272466308448d4e"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/blue-moon.mp3",
+      "bytes": 3991525,
+      "sha256": "9d9d83c6bdbb7f44c3bf2405f4298edbaa4ac989116ed14d5b8fb83fec5688f9"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/chaos-glitch.mp3",
+      "bytes": 4150138,
+      "sha256": "dcae9a54dcbe111a9fd2c13e871beddf60de5448c724c8d50882354a27e57016"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/crimson-howl.mp3",
+      "bytes": 4183997,
+      "sha256": "4a479182fa741ca519036b226876270d854a60f4af4132a7fc7631589e588849"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/fatal-error.mp3",
+      "bytes": 4016602,
+      "sha256": "045b1081f4d579a7973dc34d21a9860d5c6d0d41b53e103a120ea10bf8f2c4ee"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/red-static.mp3",
+      "bytes": 4031649,
+      "sha256": "74aa664a4850bb8c09d271e2fe5c2ed262c178ec2873cc0ca7eade2b82e40c86"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/sakura-serenade.mp3",
+      "bytes": 2794699,
+      "sha256": "903f4b33a03de8991c058bdbf1a42b2c0da9b6ffd138ff5af7881d1ee6bc645f"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/smoke-card.mp3",
+      "bytes": 4124437,
+      "sha256": "2a7fb880b9665f5ac74aa11b9101ede4568506566d2ce5cf7d11db1191d14ea4"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/solar-halo.mp3",
+      "bytes": 3841061,
+      "sha256": "02eb462b7c670021999bd9069d04bbcd420669a8354a83da6d533e5784a73f08"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/star-glitch.mp3",
+      "bytes": 3743259,
+      "sha256": "c2c44e4c6d2fb9b852e760870fcbd3996e405d9fb86826f865589a749ce15459"
+    },
+    {
+      "path": "04-project-resources/audio/music/calling-cards/zen-zombie.mp3",
+      "bytes": 4170206,
+      "sha256": "d7fe8b15af32a39117a6cf2babdbdc5ef99f00f9ef679e0fa65207a73b839012"
+    },
+    {
+      "path": "04-project-resources/audio/music/maps/bamboo-forest.mp3",
+      "bytes": 4103122,
+      "sha256": "4d0adfb25a96733b2e395a3cba7340c51ebf0817ca6cdc6d433a1f45c4b9f991"
+    },
+    {
+      "path": "04-project-resources/audio/music/maps/crimson-shrine.mp3",
+      "bytes": 3913159,
+      "sha256": "7e6e0f16b2bd4d586da86ce89d961e6497ae4b1d04c9be436da531ae86a15245"
+    },
+    {
+      "path": "04-project-resources/audio/music/maps/moonlit-zen-garden.mp3",
+      "bytes": 3120708,
+      "sha256": "79cf6c2c12f1bc7ef83efde334250c6d2f22673abb00811e6d9cd923f3aacc0a"
+    },
+    {
+      "path": "04-project-resources/audio/music/maps/undertale-the-ruins.mp3",
+      "bytes": 4186502,
+      "sha256": "6adb208f46c848faf6a4b606abff8caf20fa84dff7ddff4d27b6bebe43d59aea"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/handgun-click.mp3",
+      "bytes": 27058,
+      "sha256": "40618308e3743a92defe1dcf2d4850874a10fd42588148d4d6c98fb8d35816a8"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/handgun-movement.mp3",
+      "bytes": 20095,
+      "sha256": "86aae8631c2693ce6065d36e1a1c31bbe7b15fd0684dffa4194457027ec7c3af"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/handgun-release.mp3",
+      "bytes": 8560,
+      "sha256": "f87eef755cdcbd21c4a418ae27ff48eff6700cdeb1d367c893a99f876d24b2db"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/laser-cannon.mp3",
+      "bytes": 40920,
+      "sha256": "f9eaaaf981ad86dcc9805a91e9e505498997c19e55270eeecb38cf8ccf0129ec"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/laser-shot.mp3",
+      "bytes": 29389,
+      "sha256": "fb27075fdbe1c7cc6d6d33eeef70b929fa67688892ec62edc7e17b7952f2635d"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/revolver-spin.mp3",
+      "bytes": 7724,
+      "sha256": "baff34e4bac81159141b920156eb76546b6467998c990a86c3731bc1abd88b9c"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/shotgun-hard-pump.mp3",
+      "bytes": 13937,
+      "sha256": "d35c2fd7a77f539a588e24058ce5f71ea7ff719bf2ab097cbf280f18c21deb48"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/shotgun-long-pump.mp3",
+      "bytes": 27662,
+      "sha256": "f07f874380ce64d788b8b7e3cdaf0903365c52cead7b653cdcfefecf366109bc"
+    },
+    {
+      "path": "04-project-resources/audio/sfx/weapons/shotgun-pump.mp3",
+      "bytes": 14719,
+      "sha256": "28b17f06eb1d360895416ec8aad3a8a2e50ba5d6f1cbeaaffde65958d6bdcc2a"
+    },
+    {
+      "path": "04-project-resources/images/card-cosmic-spiral.jpg",
+      "bytes": 87032,
+      "sha256": "4a891ac9fe3f21f8ec8599d90ba92ffc4c8a697ebcac0ca7a1b36c65d7fdd307"
+    },
+    {
+      "path": "04-project-resources/images/card-flowery.jpg",
+      "bytes": 39547,
+      "sha256": "65b174a97bf1718bb679ea71b144d65babd0520042eae599db1841d811c82b74"
+    },
+    {
+      "path": "04-project-resources/images/card-thunder-strike-banner.jpg",
+      "bytes": 86829,
+      "sha256": "d09496cabf4ec0e40d640fd11e8417604908c8d1f164264579d9e42e1fd34687"
+    },
+    {
+      "path": "04-project-resources/images/card-thunder-strike.jpg",
+      "bytes": 105439,
+      "sha256": "64cde82480766580954b198ae49b6a3d689ca86e60b6c359375de85289226191"
+    },
+    {
+      "path": "04-project-resources/images/social-preview.jpg",
+      "bytes": 97542,
+      "sha256": "5995b09f403c01f81db71c623c15e4430b2c7829964e7125771768af445030e5"
+    },
+    {
+      "path": "04-project-resources/images/weapon-cid-slime-sword.png",
+      "bytes": 119396,
+      "sha256": "9fa96b9b71bf53487e14f59ee1690c373afc4b97e95c2caf6db0a8f57b430f46"
+    },
+    {
+      "path": "04-project-resources/images/weapon-real-knife.png",
+      "bytes": 104926,
+      "sha256": "dded36226b39f544c90ed1575352a1c5c63e49619928c2d0671a76c025972af7"
+    },
+    {
+      "path": "05-build-config/BUILD.md",
+      "bytes": 5958,
+      "sha256": "38904578d88180e3889d502175679fc8a05cd9b62f4f1dc11b4a9605236483b9"
+    },
+    {
+      "path": "05-build-config/SAVE-DATA-KEYS.md",
+      "bytes": 5955,
+      "sha256": "9b34ba9e3b52ed11d97864ac8f80ff2d88a9ff527fa5e6533f848b58d426e42f"
+    },
+    {
+      "path": "05-build-config/build-package.mjs",
+      "bytes": 8256,
+      "sha256": "3c21997e55dcbba1f257ad285bd7e9f897a56396568b3557dda36972fc7e536c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 23179,
+      "sha256": "4dbe130b3e96ac18f36909d324cdccc34258b002f717175439ce4368c5230e56"
+    }
+  ]
+}
