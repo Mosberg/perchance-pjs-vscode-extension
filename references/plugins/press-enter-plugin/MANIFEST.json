@@ -1,0 +1,53 @@
+{
+  "generator": "press-enter-plugin",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5418,
+      "sha256": "5efe2395f7140077d5b537dab3f52bf8de71d47a229a1220a5c5f71bc057b748",
+      "category": "README.md"
+    },
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 234,
+      "sha256": "5cf6d69de03d828e7adb6f367279b97d7d9e60d3f8681aa5273b25e5a8660a70",
+      "category": "internal-code"
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 824,
+      "sha256": "1b28e6fea96c44b0b63d2d81b344b2e37ff19b25b3a15ec1aea643391c4b29ce",
+      "category": "internal-code"
+    },
+    {
+      "path": "external-code/tap-anywhere-plugin/main.pjs",
+      "bytes": 208,
+      "sha256": "f902561bab6655330e5734e5ca4b424be71448206b18ccc9ea6b63a4fc3d00ad",
+      "category": "external-code"
+    },
+    {
+      "path": "external-code/tap-anywhere-plugin/index.html",
+      "bytes": 708,
+      "sha256": "615f8cf39e3717adca292f3d07bae477e1d1f49881661c261845a4b17a370643",
+      "category": "external-code"
+    },
+    {
+      "path": "external-code/tap-anywhere-plugin/SOURCE.txt",
+      "bytes": 795,
+      "sha256": "6bd182ab50a144c9ef4149375bad8cbdd8962ea9f3e1cd7655655d29cf458f97",
+      "category": "external-code"
+    },
+    {
+      "path": "assets/ASSETS.md",
+      "bytes": 1031,
+      "sha256": "7b7f666a314ba1c256f1180bad4aa759b9318307fa8a1c56878d20e40846d896",
+      "category": "assets"
+    },
+    {
+      "path": "build-config/BUILD.md",
+      "bytes": 2377,
+      "sha256": "d47ed62336a0d17819de1adda9befe11bbe8607b8504edca3d0cda41b166501c",
+      "category": "build-config"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+No external code: zero imports, zero libs, zero CDN/npm dependencies.

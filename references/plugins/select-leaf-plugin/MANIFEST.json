@@ -1,0 +1,33 @@
+{
+  "project": "select-leaf-plugin",
+  "publicUrl": "https://perchance.org/select-leaf-plugin",
+  "generatedFrom": "perchance editor workspace",
+  "totalProjectBytes": 2936,
+  "categories": {
+    "internal-code": [
+      "select-leaf-plugin/internal-code/main.pjs",
+      "select-leaf-plugin/internal-code/index.html"
+    ],
+    "external-code": [],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-and-config-files": []
+  },
+  "files": [
+    {
+      "path": "select-leaf-plugin/internal-code/main.pjs",
+      "bytes": 653,
+      "sha256": "98c736212e5d07f16cbd9bfbd49614142976edf6f60161cca168e8e869b4fe9b"
+    },
+    {
+      "path": "select-leaf-plugin/internal-code/index.html",
+      "bytes": 2287,
+      "sha256": "a35eb86edff00a6870efabe03a2495696f3120e40c556ab1a1170383a58e607f"
+    },
+    {
+      "path": "select-leaf-plugin/README.md",
+      "bytes": 3140,
+      "sha256": "a1e18106f3f1cf19e7d11f81d0dbf6f66defddc8740fe2e6149280bc27ee2033"
+    }
+  ]
+}

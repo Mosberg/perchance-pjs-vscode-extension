@@ -1,0 +1,14 @@
+tap-anywhere-plugin — third-party reference copy
+================================================
+
+Public URL: https://perchance.org/tap-anywhere-plugin
+
+Status: NOT a dependency of press-enter-plugin. This generator contains no {import:...} statements.
+The files here were downloaded only because press-enter-plugin's documentation page links to this
+sister plugin under "Notes". Retained in the package for completeness/reference.
+
+Behaviour: registers a window click/tap listener that calls window.update(), mirroring the
+press-enter-plugin approach (a window keydown listener on key code 13 calling window.update()).
+
+Ownership: authored by its own generator owner on perchance.org; not authored by, nor licensed to,
+the owner of press-enter-plugin. Do not redistribute as if first-party.
