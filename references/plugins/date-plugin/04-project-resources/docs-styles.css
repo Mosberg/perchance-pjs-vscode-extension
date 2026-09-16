@@ -1,0 +1,44 @@
+/* Extracted inline <style> blocks from index.html, in document order */
+
+/* ---- style block 1 ---- */
+.format {
+      color:orange; 
+    }
+    .tokens-table th, .tokens-table td {
+      border: 1px solid #bdbdbd;
+      padding: 3px 10px;
+      text-align: left;
+    }
+    .tokens-table th:nth-of-type(1), .tokens-table td:nth-of-type(1) {
+      white-space: pre;
+      text-align: right;
+      width: 0;
+    }
+    .tokens-table th:last-of-type, .tokens-table td:last-of-type {
+      width: 100%;
+    }
+
+/* ---- style block 2 ---- */
+body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.13em 0.2em
+	}
+	ul li { margin-top:0.4em; }
+  	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+	}
+	pre {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}

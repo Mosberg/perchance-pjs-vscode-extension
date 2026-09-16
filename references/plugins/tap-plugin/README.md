@@ -1,53 +1,56 @@
 # Perchance "Tap Plugin" — Complete Source Package
 
-Generator: **tap-plugin** (perchance.org/tap-plugin)
-Generator type: Perchance plugin / generator (runs on the Perchance engine)
+Generator: tap-plugin  (https://perchance.org/tap-plugin)
+Platform: Perchance (main.pjs + index.html compiled server-side by the engine)
 
-This package contains every file that makes up the generator, plus a
-dependency/asset audit explaining what does and does not exist.
+Every file that makes up this generator is included, plus a dependency/asset
+audit proving which categories are empty.
 
 ## Category index
 
-| Category | Location | Status |
-|---|---|---|
-| 1. Internal code | `01-internal-code/` | 2 files — all source |
-| 2. External code | `02-external-code/` | NONE — see DEPENDENCIES.md |
-| 3. Third-party assets | `03-third-party-assets/` | NONE |
-| 4. Project resources (text/content) | `04-project-resources/` | See content-source.txt |
-| 5. Build / config files | `05-build-config/` | No build pipeline — see build-notes.md |
+| # | Category | Location | Count |
+|---|----------|----------|-------|
+| 1 | Internal code | 01-internal-code/ | 2 files |
+| 2 | External code (deps) | 02-external-code/ | 0 — audit in DEPENDENCIES.md |
+| 3 | Third-party assets | 03-third-party-assets/ | 0 — audit in ASSETS.md |
+| 4 | Project resources | 04-project-resources/ | tutorial text + 2 lists |
+| 5 | Build / config | 05-build-config/ | no build step; manifest + notes |
 
 ## 1. Internal code
-- `01-internal-code/main.pjs` — the generator's Perchance-JS code: the
-  \$output function that implements the tap plugin, plus the `animal` and
-  `adjective` demo lists.
-- `01-internal-code/index.html` — the entire page markup, tutorial text,
-  inline demo output blocks, and the <style> block.
+- 01-internal-code/main.pjs   — $output function implementing the tap plugin,
+                                plus demo lists `animal` and `adjective`.
+- 01-internal-code/index.html — page markup, tutorial prose, live demo blocks,
+                                and the <style> block.
 
 ## 2. External code
-The generator imports NO other generators/plugins/libraries at runtime.
-There are no `{import:...}` statements, no CDN scripts, no npm packages.
-See `02-external-code/DEPENDENCIES.md`.
+None. No {import:...} statements, no CDN scripts, no npm packages, no fonts.
+Generators named in the docs (a-an-plugin, locker-plugin, nestable-tap-plugin,
+tap-plugin-example*) are hyperlinks only — never fetched, imported, or bundled.
 
 ## 3. Third-party assets
-None. No images, audio, fonts, models, or textures are used. The only
-imagery is emoji/Unicode glyphs typed directly into index.html
-(👆 🖱️ ⚄ and a few HTML entities), which are rendered by the reader's OS.
+None. No images, audio, video, 3D models, shaders, animations, or licences.
+Only Unicode glyphs typed inline (👆 \uFE0E, 🖱️ \uFE0E, ⚄), rendered by the OS.
 
 ## 4. Project resources
-The only "data" resources are the two Perchance lists inside main.pjs
-(`animal`, `adjective`) and the tutorial prose in index.html.
-`04-project-resources/content-source.txt` extracts them.
+Data lives inside main.pjs as Perchance lists; prose lives in index.html.
+04-project-resources/content-source.txt extracts both, plus every demo
+invocation block shown on the page.
 
 ## 5. Build / config
-There is no build step, bundler, or config. Perchance compiles main.pjs
-and index.html server-side at load. `05-build-config/build-notes.md`
-documents this, and `05-build-config/manifest.json` records a hash of
-every file.
+No bundler, minifier, package manager, environment file, or CI. Saving the
+generator in the Perchance editor IS the deploy step.
+05-build-config/manifest.json holds a SHA-256 of every shipped file.
 
 ## How the plugin works
-`tap(listOrStr, style)` returns an object whose `toString()` yields a
-clickable <span>/<button>. Each call stores the list on `window[listRefId]`
-and wires an onclick that re-evaluates `window[listRefId].evaluateItem`
-(laminating a new random selection) and repaints every element sharing
-that `tap-id-<ref>` class. Variants: `noTap`, `noTapNoUpdate`, and a
-third arg treated as inline CSS.
+tap(listOrStr, style) returns an object whose toString() yields a clickable
+<span>/<button>. Each call stores the list on window[ref] and wires an onclick
+that re-evaluates window[ref].evaluateItem (laminating a new random pick) and
+repaints every element sharing class `tap-id-<ref>`. Variants: noTap,
+noTapNoUpdate (raw selected text), and a third arg used as inline CSS,
+with "button" as a special case producing a real <button>.
+
+## Reproduce
+1. Create a Perchance generator.
+2. Paste main.pjs and index.html from 01-internal-code/.
+3. Save. Because main.pjs defines a top-level $output, any generator doing
+   {import:tap-plugin} receives the tap function itself.

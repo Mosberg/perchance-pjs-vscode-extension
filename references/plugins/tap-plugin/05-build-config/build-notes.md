@@ -1,16 +1,34 @@
-# Build notes
+# Build / configuration notes
 
-There is no build pipeline. Perchance generators are authored directly:
+Build pipeline:        NONE
+Bundler:               NONE
+Transpiler:            NONE
+Minifier:              NONE
+Package manager:       NONE
+Lockfile:              NONE
+Env/config files:      NONE
+CI/CD:                 NONE
+Dependencies manifest: NONE
 
-- `main.pjs` is parsed and evaluated by the Perchance engine (list tree +
-  square-bracket JS blocks + arrow-function definitions).
-- `index.html` is the body markup; the engine evaluates [ ] / { } template
-  blocks inside text nodes and attributes before running <script> tags.
-- Deployment = saving the generator in the Perchance editor. No bundler,
-  no minifier, no package manager, no environment variables, no CI.
+## How compilation actually happens
+The Perchance engine, server-side, parses the two source files when the
+generator loads:
+
+1. main.pjs
+   - Indented hierarchy -> list tree (`animal`, `adjective`).
+   - `name(args) =>` headers -> JS functions.
+   - Top-level `$output = expr` -> sets what {import:generator} yields
+     (here the tap function object).
+   - [ ] square blocks -> JS evaluated at render time.
+2. index.html
+   - The engine evaluates [ ] / { } template blocks in text nodes and in
+     non-event attributes BEFORE running <script> tags.
+   - <style> is passed through untouched.
+
+## Deploy
+Saving in the Perchance editor publishes the generator. There is no artifact
+to upload and no target environment to configure.
 
 ## Reproducing this package
-Copy `main.pjs` and `index.html` into a generator named `tap-plugin`
-(or any name) in the Perchance editor. Because main.pjs defines a
-top-level `$output`, any generator that does `{import:tap-plugin}`
-receives the tap function itself.
+Copy 01-internal-code/main.pjs and 01-internal-code/index.html into a new
+Perchance generator and save.

@@ -1,0 +1,13 @@
+$output (...args) =>
+  if(!window._alreadyLoadedDatePluginCode8934792) {
+    loadPluginCode();
+    window._alreadyLoadedDatePluginCode8934792 = true;
+  }
+  return moment(args); 
+
+  
+loadPluginCode() =>
+  (function(window) {
+    // Moment.js v2.27.0
+  [MOMENT_JS_2.27.0_MINIFIED_INLINED_HERE - see ../02-external-dependencies/moment/moment-2.27.0.min.js]
+  })(window);

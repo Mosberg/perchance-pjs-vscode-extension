@@ -1,0 +1,5 @@
+// Removed default (es6) exports and replaced with this:
+  window.AvatarExports=__instantiate("avataaars",!1);
+  
+  
+  

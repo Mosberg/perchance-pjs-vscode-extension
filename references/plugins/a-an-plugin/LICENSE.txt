@@ -1,0 +1,36 @@
+a-an-plugin — licensing summary
+================================
+
+This package contains code and data from two sources. They are licensed separately.
+
+1) PROJECT CODE — internal-code/main.pjs, internal-code/index.html
+   -----------------------------------------------------------------
+   Author: the owner of the Perchance generator "a-an-plugin"
+           (https://perchance.org/a-an-plugin)
+   The project is published publicly as a Perchance generator. The Perchance generator
+   owner holds whatever rights the Perchance platform grants them over their generator's
+   source, and this package is a snapshot of that source for that owner's use.
+   No separate license file was present in the generator source; nothing here is
+   relicensed by this snapshot.
+
+2) THIRD-PARTY LIBRARY AND DATASET — the "a-vs-an" project, by Eamon Nerbonne
+   -------------------------------------------------------------------------
+   Used as:  the AvsAnSimple implementation inlined in main.pjs ("getAOrAnFunction"),
+             plus the prefix-trie dataset it queries.
+   Upstream: https://github.com/EamonNerbonne/a-vs-an
+   License:  Apache License, Version 2.0
+   Full text: external-code/a-vs-an/LICENSE-Apache-2.0.txt
+
+   The dataset is derived by the upstream project from the July-2014 English Wikipedia
+   text dump, and carries the same Apache-2.0 license.
+
+3) PLATFORM — the Perchance engine
+   ---------------------------------
+   main.pjs / index.html are executed and rendered by the Perchance platform
+   (https://perchance.org). The engine itself is not included in this package; its use is
+   governed by the platform's own terms of service. Two engine-provided helpers are relied
+   upon at runtime: String.prototype.upperCase / .titleCase / .sentenceCase, and the
+   {import:...} / $output mechanism.
+
+   Nothing else from the Perchance platform (plugins, CSS, fonts, images) is used by this
+   generator — the project has no {import:...} dependencies at all.

@@ -1,0 +1,9 @@
+be = {import:be-plugin}
+
+they = {they|she|he|I}
+
+output1
+  I've heard it said that [they] [be()] a very {import:adjective} person.
+  
+output2
+  I think [they] [be("past")] hiding {a} {import:adjective} in their bag.

@@ -1,0 +1,37 @@
+<h1>[title]</h1>
+<p style="opacity:0.5; margin-bottom:1.7em;">[subtitle]</p>
+
+<main>
+	<section>
+		<script>var makeUniqueSelections = false;</script>
+		<p style="font-size:[fontSize]%; color:[fontColor]; margin:0">[var out; if(makeUniqueSelections) { out = $output.consumableList } else { out = $output }; out.selectMany(numberOfItems).joinItems(itemSeperator)]</p>
+		<div style="margin-top:1em;">
+			<button onclick="update();">[buttonText]</button>
+			<input type="text" placeholder="how many?" oninput="numberOfItems = Number(this.value); if(this.value === '0' || this.value === '' || isNaN(numberOfItems)) { numberOfItems = 1; }" style="text-align:center; width: 7em;" />
+			<span>&nbsp;<input type="checkbox" style="vertical-align:middle;" onchange="this.checked ? makeUniqueSelections = true : makeUniqueSelections = false;" /> unique?</span>
+		</div>
+	</section>
+	<section style="text-align:left; padding: 0.75em 1.5em;">
+		[description]
+	</section>
+	<p style="text-align:center; font-size:200%; opacity:0.2; margin-top:0.5em;"><span>⚄&#xFE0E;</span></p>
+	<br/>
+</main>
+
+
+<style>
+	main {
+		max-width:750px;
+		margin:0 auto;
+	}
+	section {
+		background:#fff;
+		padding:1em;
+		border-radius:3px;
+		box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+		margin-top:1em;
+	}
+	body {
+		background-color:#f6f6f6;	
+	}
+</style>

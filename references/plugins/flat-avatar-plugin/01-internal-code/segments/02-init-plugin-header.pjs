@@ -1,0 +1,5 @@
+// testing generator here (unminified): https://perchance.org/lc6u20f5rz#edit
+initPlugin() => 
+  window.alreadyInitialisedAvatarPlugin2394059 = true;
+  
+  

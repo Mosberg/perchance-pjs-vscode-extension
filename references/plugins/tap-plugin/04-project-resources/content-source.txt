@@ -1,14 +1,33 @@
---- main.pjs : top-level lists (Perchance data) ---
-animal:    rabbit, hare, mouse, goose, pig, zebra, spider, cricket, moose, cow, chicken
-adjective: happy, sad, sneaky, greedy, silly, friendly, cheeky, tired, sleepy, irritated
+=== Perchance lists defined in main.pjs (the generator's data) ===
 
---- index.html : example invocation blocks (as displayed to the reader) ---
+animal
+  rabbit, hare, mouse, goose, pig, zebra, spider, cricket, moose, cow, chicken
+
+adjective
+  happy, sad, sneaky, greedy, silly, friendly, cheeky, tired, sleepy, irritated
+
+=== Demo invocation blocks rendered in index.html ===
+
 The [$output(animal)] is [$output(adjective)].
 The [$output(animal, "button")] is [$output(adjective, "button")].
-The [$output(animal, "color:red; border:2px solid blue; padding:3px;")] is [$output(adjective, ...)].
+The [$output(animal, "color:red; border:2px solid blue; padding:3px;")] is [$output(adjective, "color:red; border:2px solid blue; padding:3px;")].
 The [$output(animal, "")] is [$output(adjective, "")].
 It's a [a = $output(animal)]. And what {a} [a] it is.
 It's a [a = $output(animal)]. And what {a} [a.noTap] it is.
 It's a [a = $output(animal)]. And what {a} [a.noTapNoUpdate] it is.
-(Note: in the shipped source these are written with tap(...) rather than
-$output(...), per the tutorial. $output is this generator's own export alias.)
+
+(On the live page the tutorial shows these written as tap(...); this generator
+exposes the same function through its own $output export alias.)
+
+=== Public-facing description text (part of the shipped content) ===
+
+H1: "👆 Tap Plugin 🖱️"
+Body: tutorial explaining that Perchance supports multiple independent outputs
+with their own buttons, but that the tap plugin offers a simpler click/tap-to-
+reroll experience for individual lists; covers the button style, custom CSS
+strings, the empty-string no-style case, reusing one selection in multiple
+places, noTap, noTapNoUpdate, the a-an-plugin workaround for stale sibling
+text, and a notes list linking related plugins and crediting the idea source.
+
+=== $meta ===
+None declared. Title/description fall back to platform defaults.

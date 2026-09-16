@@ -1,0 +1,54 @@
+<h1>Be Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:650px;background:white;border-radius:2px;padding:1em; box-sizing:border-box; text-align:left;">
+  <p style="margin-top:0;">This plugin is like <code>\{a\}</code>, except instead of automatically deciding on a/an, it automatically decides on <b>is/are</b>. In other words, it automatically decides on the correct "to be" verb based on the preceding text (which is usually a pronoun in this context).</p>
+  <p>Here's a simple example of how to use it:</p>
+<pre>
+be = \{import:be-plugin\}
+
+they = \{they|she|he\}
+
+output
+  I think \[they\] \[be()\] having fun.
+</pre>
+  
+  <p>You can use <code>\[be().titleCase\]</code> to get Is/Are and <code>\[be().upperCase\]</code> to get IS/ARE.</p>
+  
+  <p>You can use <code>\[be("past")\]</code> to get <b>was/were</b>.</p>
+  
+  <p>The default fallback verbs are <b>is/was</b> (in case the preceding word is not they/she/he/I/we).</p>
+
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><a href="https://perchance.org/be-plugin-example#edit" target="_blank">Here's</a> an example of how to use this plugin.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<p style="text-align:center; font-size:200%; opacity:0.2; margin-top:0.5em;"><span>⚄&#xFE0E;</span></p>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.13em 0.2em
+	}
+	ul li { margin-top:0.4em; }
+  	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+	}
+	pre {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>

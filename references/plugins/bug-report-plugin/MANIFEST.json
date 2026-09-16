@@ -1,0 +1,44 @@
+{
+  "generator": "bug-report-plugin",
+  "exportedFrom": "perchance.org/bug-report-plugin (editable workspace copy)",
+  "description": "Collects encrypted, expiring browser debug info for bug-report/feedback submission.",
+  "buildPipeline": null,
+  "files": [
+    {
+      "path": "external-code/dynamic-import-plugin/main.pjs",
+      "bytes": 4187,
+      "sha256": "a7f2432113a0ccd3c7fc90f64a0066a65bd5ffe68c2efc0e130c765a435de3ce"
+    },
+    {
+      "path": "external-code/secret-plugin/main.pjs",
+      "bytes": 73047,
+      "sha256": "305699d5df697b00d6b2314fdf0f432f36305266bd5063ad2b03fa7f909e267d"
+    },
+    {
+      "path": "external-code/upload-plugin/main.pjs",
+      "bytes": 10271,
+      "sha256": "ebe4e080acb958f0c26ce38e25c7bd76e59cdd8f89b4d78f0d5e9342bf5b3aa4"
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 2572,
+      "sha256": "210902cd4038c82b0b67a72ae7e90e717c44868a77d4fab30a7dddd60a065001"
+    },
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 7718,
+      "sha256": "0a44676097ff2c8fbc04543150e502a9ca1594255d949da433ccda59e31ebd55"
+    },
+    {
+      "path": "third-party-assets/ua-parser-js-2.0.0-rc.1/dist/ua-parser.min.js",
+      "bytes": 30035,
+      "sha256": "7da47cfc6b734e4e5200e78d1875727ebc979306a185e4eff956a0fe675cd756"
+    }
+  ],
+  "runtimeEndpoints": [
+    "https://perchance.org/api/getGeneratorsAndDependencies?generatorNames=dynamic-import-plugin,secret-plugin,upload-plugin",
+    "https://user.uploads.dev/file/f2e26ac127c029f401f2a990a4bafbe8.js",
+    "https://perchance.org/public-key-encryption-tool"
+  ],
+  "licenseNotes": "dynamic-import-plugin / secret-plugin / upload-plugin are Perchance plugin generators (public source). ua-parser-js is MIT."
+}

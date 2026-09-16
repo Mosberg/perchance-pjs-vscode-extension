@@ -1,0 +1,2 @@
+npm tarball: https://registry.npmjs.org/moment/-/moment-2.27.0.tgz
+GitHub: https://github.com/moment/moment/tree/2.27.0

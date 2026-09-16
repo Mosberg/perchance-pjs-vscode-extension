@@ -1,0 +1,182 @@
+{
+  "package": "flat-avatar-plugin-complete",
+  "exportedFrom": "perchance.org generator workspace (window.generatorName = flat-avatar-plugin)",
+  "exportedAt": "2026-09-16",
+  "shippedGenerator": {
+    "note": "The only two files the Perchance platform serves for this generator.",
+    "files": [
+      "01-internal-code/main.pjs",
+      "01-internal-code/index.html"
+    ],
+    "mainPjsSha256": "609d66f7117a5d4d606ab9ef60af7344a08115a0cdca19bee0372fa258867adb"
+  },
+  "integrityVerification": "The six files under 01-internal-code/segments/, concatenated in filename order, reproduce 01-internal-code/main.pjs byte-for-byte (656,792 bytes, sha256 609d66f7...). Verified at export time; re-verify with: node 05-build-config/rebuild.mjs --check",
+  "mainPjsLayerMap": [
+    {
+      "segment": "01-plugin-lists-and-output.pjs",
+      "byteStart": 0,
+      "byteEnd": 3766,
+      "kind": "original plugin code"
+    },
+    {
+      "segment": "02-init-plugin-header.pjs",
+      "byteStart": 3766,
+      "byteEnd": 3921,
+      "kind": "original plugin code"
+    },
+    {
+      "segment": "03-react-17.production.min.js.inc",
+      "byteStart": 3921,
+      "byteEnd": 15052,
+      "kind": "vendored third-party library"
+    },
+    {
+      "segment": "04-react-dom-17.production.min.js.inc",
+      "byteStart": 15052,
+      "byteEnd": 133433,
+      "kind": "vendored third-party library"
+    },
+    {
+      "segment": "05-avataaars.bundle.js.inc",
+      "byteStart": 133433,
+      "byteEnd": 656390,
+      "kind": "vendored third-party library + all artwork"
+    },
+    {
+      "segment": "06-avatarexports-shim.pjs",
+      "byteStart": 656390,
+      "byteEnd": 656509,
+      "kind": "original plugin code"
+    }
+  ],
+  "externalSources": [
+    {
+      "file": "02-external-code/react-17.0.2/react.production.min.js",
+      "url": "https://unpkg.com/react@17/umd/react.production.min.js",
+      "licence": "MIT"
+    },
+    {
+      "file": "02-external-code/react-dom-17.0.2/react-dom.production.min.js",
+      "url": "https://unpkg.com/react-dom@17/umd/react-dom.production.min.js",
+      "licence": "MIT"
+    },
+    {
+      "file": "02-external-code/avataaars-1.2.1/avataaars.bundle.js",
+      "url": "https://cdn.skypack.dev/avataaars",
+      "licence": "MIT (code, Fang-Pen Ling) + Pablo Stanley illustration terms"
+    }
+  ],
+  "resourceFiles": "none - the generator ships no standalone images/audio/models/shaders/data files",
+  "fileCount": 19,
+  "totalBytes": 2047105,
+  "files": [
+    {
+      "path": "README.md",
+      "category": "package-root",
+      "bytes": 9803,
+      "sha256": "1640f17aad0c78d50c695502df4bf1a93d772a9b0e860306d6865bafec3b2a39"
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "category": "internal-code",
+      "bytes": 5742,
+      "sha256": "059e5fe1766b3a3d0c7320d7d2cb78e5e716b6993137b0cae418dadad49017c6"
+    },
+    {
+      "path": "01-internal-code/main.pjs",
+      "category": "internal-code",
+      "bytes": 656792,
+      "sha256": "609d66f7117a5d4d606ab9ef60af7344a08115a0cdca19bee0372fa258867adb"
+    },
+    {
+      "path": "01-internal-code/segments/01-plugin-lists-and-output.pjs",
+      "category": "internal-code",
+      "bytes": 3766,
+      "sha256": "97600a33a7f02f88bbbb2933ff903cc84f8b35ed3b4fb4ba78c8b2e37253d9ea"
+    },
+    {
+      "path": "01-internal-code/segments/02-init-plugin-header.pjs",
+      "category": "internal-code",
+      "bytes": 155,
+      "sha256": "0579d1f38710202d9b9dffb8adbe79050d01e4660fc38ff9fcfed512af5d3528"
+    },
+    {
+      "path": "01-internal-code/segments/03-react-17.production.min.js.inc",
+      "category": "internal-code",
+      "bytes": 11131,
+      "sha256": "2fde1dbd6de719c650796a538a751e74defe674f22258a4c8a748017a535b5e0"
+    },
+    {
+      "path": "01-internal-code/segments/04-react-dom-17.production.min.js.inc",
+      "category": "internal-code",
+      "bytes": 118381,
+      "sha256": "a8164b56248e8ed31ec902b34efb8a2a131a39ac96714953920eba8ca83c05c4"
+    },
+    {
+      "path": "01-internal-code/segments/05-avataaars.bundle.js.inc",
+      "category": "internal-code",
+      "bytes": 523240,
+      "sha256": "be976d3200645b55ffe22270d48d2546faa431e497f5e0233742ae13c709aead"
+    },
+    {
+      "path": "01-internal-code/segments/06-avatarexports-shim.pjs",
+      "category": "internal-code",
+      "bytes": 119,
+      "sha256": "23729b10d2c69dcb3e20180471712d63c899a91520aaea30381c3a01e15be6ec"
+    },
+    {
+      "path": "02-external-code/README.md",
+      "category": "external-code",
+      "bytes": 2309,
+      "sha256": "40d648c7ba964d4f0342a4c5b4ae4c14c67d221f47d55f1082b47848d309bb07"
+    },
+    {
+      "path": "02-external-code/avataaars-1.2.1/avataaars.bundle.js",
+      "category": "external-code",
+      "bytes": 523174,
+      "sha256": "b6d1897a496a580cec8ee5b6e24a67dfa65b567da01361fb23cc5c12d1275a33"
+    },
+    {
+      "path": "02-external-code/react-17.0.2/react.production.min.js",
+      "category": "external-code",
+      "bytes": 11440,
+      "sha256": "229bbf4d0e7488209564152c6723497f1ac3934136ca1684233d2fa88fa4146f"
+    },
+    {
+      "path": "02-external-code/react-dom-17.0.2/react-dom.production.min.js",
+      "category": "external-code",
+      "bytes": 120585,
+      "sha256": "9db33292007ab6c38527b39d5663e976a305564e19b2a5a8713ea2b2c00f505d"
+    },
+    {
+      "path": "03-third-party-assets/README.md",
+      "category": "third-party-assets",
+      "bytes": 2254,
+      "sha256": "1ad3640e704a2d3d8b224c5cd3064e7379135b30780cb4341ea9e84353859440"
+    },
+    {
+      "path": "04-project-resources/README.md",
+      "category": "project-resources",
+      "bytes": 1174,
+      "sha256": "2f6b37bdccd4ae5f39568e2ec934ce507e2c156733dcf03a464a416ace24b310"
+    },
+    {
+      "path": "05-build-config/AGENTS.md",
+      "category": "build-config",
+      "bytes": 51258,
+      "sha256": "ed93ec9691766453f9e6240996225ccb6661973015d5709d59661d58da530fd4"
+    },
+    {
+      "path": "05-build-config/BUILD.md",
+      "category": "build-config",
+      "bytes": 3894,
+      "sha256": "ae392f5763773b8007ace72bc34be2962068162f81fbc37f8e134fb2bf83c930"
+    },
+    {
+      "path": "05-build-config/rebuild.mjs",
+      "category": "build-config",
+      "bytes": 1888,
+      "sha256": "bd52f9ef6385edf2221a364c41eb485e7e59b725b65249d3e826c9fa2596a160"
+    }
+  ]
+}

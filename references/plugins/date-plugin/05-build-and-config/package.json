@@ -1,0 +1,15 @@
+{
+  "name": "date-plugin",
+  "version": "1.0.0",
+  "description": "Perchance date-plugin generator - complete source and asset export",
+  "perchance": {
+    "generatorName": "date-plugin",
+    "publicId": "80c74164ecebb566d37a0b575625b76b",
+    "entry": "$output",
+    "imports": []
+  },
+  "dependencies": {
+    "moment": "2.27.0 (vendored)"
+  },
+  "license": "MIT (bundled moment.js: MIT, JS Foundation)"
+}

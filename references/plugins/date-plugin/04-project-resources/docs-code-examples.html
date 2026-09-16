@@ -1,0 +1,86 @@
+<!-- Extracted from index.html: every <pre> code sample block, in order -->
+<!-- example 1 -->
+<pre>
+date = \{import:date-plugin\}
+</pre>
+
+<!-- example 2 -->
+<pre>
+output
+  Tomorrow 's date is \[date().add(1, "days").format("YYYY-MM-DD")\].
+</pre>
+
+<!-- example 3 -->
+<pre>
+Tomorrow's date is [$output().add(1, "days").format("YYYY-MM-DD")].
+</pre>
+
+<!-- example 4 -->
+<pre>
+output
+  Six days ago was \[date().subtract(6, "days").format("MMMM Do")\].
+</pre>
+
+<!-- example 5 -->
+<pre>
+Six days ago was [$output().subtract(6, "days").format("MMMM Do")].
+</pre>
+
+<!-- example 6 -->
+<pre>
+\[date().format("<span class="format">MMMM Do, YYYY</span>")\]            =    <span class="format">[$output().format("MMMM Do, YYYY")]</span>
+\[date().format("<span class="format">dddd</span>")\]                     =    <span class="format">[$output().format("dddd")]</span>
+\[date().format("<span class="format">MM Do YY</span>")\]                 =    <span class="format">[$output().format("MM Do YY")]</span>
+\[date().format("<span class="format">YYYY</span>")\]                     =    <span class="format">[$output().format("YYYY")]</span>
+\[date().add(3, "years").format("<span class="format">YYYY</span>")\]     =    <span class="format">[$output().add(3, "years").format("YYYY")]</span>
+\[date().format("<span class="format">MMMM Do YYYY, h:mm:ss a</span>")\]  =    <span class="format">[$output().format("MMMM Do YYYY, h:mm:ss a")]</span>
+\[date().format("<span class="format">dddd \[the\] Do</span>")\]            =    <span class="format">[$output().format("dddd [the] Do")]</span>
+\[date().format("<span class="format">ddd, hA</span>")\]                  =    <span class="format">[$output().format("ddd, hA")]</span>
+\[date().format("<span class="format">YYYY MM DD</span>")\]               =    <span class="format">[$output().format("YYYY MM DD")]</span>
+\[date().format("<span class="format">\[Today is\] dddd</span>")\]          =    <span class="format">[$output().format("[Today is] dddd")]</span>
+\[date().format("<span class="format">DDD</span>")\]                      =    <span class="format">[$output().format("DDD")]</span> <span style="opacity:0.5;">(day of year)</span>
+\[date().format("<span class="format">DDDo</span>")\]                     =    <span class="format">[$output().format("DDDo")]</span> <span style="opacity:0.5;">(day of year)</span>
+\[date().format("<span class="format">DDD/YYYY</span>")\]                 =    <span class="format">[$output().format("DDD/YYYY")]</span>
+\[date().format("<span class="format">W / YYYY</span>")\]                 =    <span class="format">[$output().format("W / YYYY")]</span> <span style="opacity:0.5;">(week / year)</span>
+\[date().format("<span class="format">Wo \[week of\] YYYY</span>")\]        =    <span class="format">[$output().format("Wo [week of] YYYY")]</span>
+\[date().format("<span class="format">d</span>")\]                        =    <span class="format">[$output().format("d")]</span>  <span style="opacity:0.5;">(day of week)</span>
+\[date().format("<span class="format">do</span>")\]                       =    <span class="format">[$output().format("do")]</span> <span style="opacity:0.5;">(day of week)</span>
+\[date().format("<span class="format">dd</span>")\]                       =    <span class="format">[$output().format("dd")]</span>
+\[date().format("<span class="format">ddd</span>")\]                      =    <span class="format">[$output().format("ddd")]</span>
+\[date().format("<span class="format">dddd</span>")\]                     =    <span class="format">[$output().format("dddd")]</span>
+\[date().format("<span class="format">M</span>")\]                        =    <span class="format">[$output().format("M")]</span>  <span style="opacity:0.5;">(month of year)</span>
+\[date().format("<span class="format">Mo</span>")\]                       =    <span class="format">[$output().format("Mo")]</span> <span style="opacity:0.5;">(month of year)</span>
+\[date().format("<span class="format">MM</span>")\]                       =    <span class="format">[$output().format("MM")]</span> <span style="opacity:0.5;">(month of year)</span>
+\[date().format("<span class="format">MMM</span>")\]                      =    <span class="format">[$output().format("MMM")]</span>
+\[date().format("<span class="format">MMMM</span>")\]                     =    <span class="format">[$output().format("MMMM")]</span>
+\[date().add(2, "months").format("<span class="format">MMMM</span>")\]    =    <span class="format">[$output().add(2, "months").format("MMMM")]</span>
+\[date().format("<span class="format">D</span>")\]                        =    <span class="format">[$output().format("D")]</span>  <span style="opacity:0.5;">(day of month)</span>
+\[date().format("<span class="format">Do</span>")\]                       =    <span class="format">[$output().format("Do")]</span> <span style="opacity:0.5;">(day of month)</span>
+\[date().format("<span class="format">DD</span>")\]                       =    <span class="format">[$output().format("DD")]</span> <span style="opacity:0.5;">(day of month)</span>
+</pre>
+
+<!-- example 7 -->
+<pre>
+\[date().add(2, "hours").calendar()\]        =    [$output().add(2, "hours").calendar()]
+\[date().add(24, "days").calendar()\]        =    [$output().add(24, "hours").calendar()]
+\[date().add(4, "days").calendar()\]         =    [$output().add(4, "days").calendar()]
+\[date().add(6, "days").calendar()\]         =    [$output().add(6, "days").calendar()]
+\[date().add(7, "days").calendar()\]         =    [$output().add(7, "days").calendar()]
+\[date().add(20, "days").calendar()\]        =    [$output().add(20, "days").calendar()]
+\[date().add(20, "months").calendar()\]      =    [$output().add(20, "months").calendar()]
+\[date().subtract(20, "hours").calendar()\]  =    [$output().subtract(20, "hours").calendar()]
+\[date().subtract(2, "days").calendar()\]    =    [$output().subtract(2, "days").calendar()]
+</pre>
+
+<!-- example 8 -->
+<pre>
+\[date().add(2, "hours").fromNow()\]        =    [$output().add(2, "hours").fromNow()]
+\[date().add(24, "days").fromNow()\]        =    [$output().add(24, "hours").fromNow()]
+\[date().add(4, "days").fromNow()\]         =    [$output().add(4, "days").fromNow()]
+\[date().add(6, "days").fromNow()\]         =    [$output().add(6, "days").fromNow()]
+\[date().add(7, "days").fromNow()\]         =    [$output().add(7, "days").fromNow()]
+\[date().add(20, "days").fromNow()\]        =    [$output().add(20, "days").fromNow()]
+\[date().add(20, "months").fromNow()\]      =    [$output().add(20, "months").fromNow()]
+\[date().subtract(20, "hours").fromNow()\]  =    [$output().subtract(20, "hours").fromNow()]
+\[date().subtract(2, "days").fromNow()\]    =    [$output().subtract(2, "days").fromNow()]
+</pre>
