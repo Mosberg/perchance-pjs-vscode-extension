@@ -1,0 +1,35 @@
+# =====================================================================
+# Realm Weaver — Perchance declarations (extracted verbatim from main.pjs)
+# =====================================================================
+
+# ---- $meta block ----
+$meta 
+  title = Realm Weaver
+  description = An AI-directed text adventure where you weave your own world, forge heroes, and live endless stories across any genre.
+  tags = ai, rpg, text-adventure, realm-weaver, world-building
+  image = https://user.uploads.dev/file/953974c53a82d8c82d0235f0aca6bd9e.jpg
+  //https://user.uploads.dev/file/9ccf038d9d3424f88e51591f23e29c50.jpg
+  //
+  header
+    mode = minimal
+
+# ---- plugin imports ----
+commentsPlugin = {import:comments-plugin}
+generateText = {import:ai-text-plugin}
+generateImage = {import:text-to-image-plugin}
+kv = {import:kv-plugin}
+uploadPlugin = {import:upload-plugin}
+superFetch = {import:super-fetch-plugin}
+ai = {import:ai-text-plugin} // same plugin as generateText, aliased for the gallery custom-button code
+unsafe = {import:unsafelist} // shared moderation lists (banned users / prompt phrases)
+gallery1 = {import:unsafe-private-gallery-v5} // private local gallery (🛡 button)
+
+# ---- plugin roles ----
+# generateText / ai  -> https://perchance.org/ai-text-plugin          (GM narration, extractors, forges)
+# generateImage      -> https://perchance.org/text-to-image-plugin    (backgrounds, portraits, scenes)
+# kv                 -> https://perchance.org/kv-plugin               (saves, caches, settings)
+# uploadPlugin       -> https://perchance.org/upload-plugin           (shared worlds, image links)
+# superFetch         -> https://perchance.org/super-fetch-plugin      (CORS-free fetches)
+# commentsPlugin     -> https://perchance.org/comments-plugin         (comments dock, gallery channels)
+# unsafe             -> https://perchance.org/unsafelist              (moderation lists)
+# gallery1           -> https://perchance.org/unsafe-private-gallery-v5 (private local gallery)

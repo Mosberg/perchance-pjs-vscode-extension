@@ -1,0 +1,1078 @@
+kv = {import:kv-plugin}
+superFetch = {import:super-fetch-plugin} // for URL-based media imports (see gallery menu)
+
+createMediaGallery = [$output] // just for the demo in the HTML panel
+
+$output(name) =>
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if(!name) name = "";
+  if(!/^[a-zA-Z0-9_]*$/.test(name)) throw new Error("Gallery name must be alphanumeric (underscores are also allowed)");
+  const pre = `localMediaGallery_${name}.`;
+  const galleriesKey = pre + "names";
+  const defaultGallery = "general";
+  let activeGalleryName = localStorage[pre + "activeGalleryName"] || defaultGallery;
+
+  const cleanInfo = i => {
+  if (!i || typeof i !== "object") i = {};
+  const o = {};
+  for (const [k, v] of Object.entries(i)) o[k] = String(v);
+  return o;
+  };
+
+  if (!document.getElementById("localMediaGalleryGlobalStyles")) {
+  const s = document.createElement("style");
+  s.id = "localMediaGalleryGlobalStyles";
+  s.textContent = `
+  .root {
+  --bg-color: #000000;
+
+  --text-color: currentColor;
+
+  --accent-color: #b65cff;
+  --accent-glow: rgba(182, 92, 255, 0.35);
+
+  --panel-bg: #0a0a10;
+  --panel-border: rgba(182, 92, 255, 0.25);
+
+  --button-bg: #b65cff;
+  --button-text: #000;
+
+  --input-bg: #101018;
+  --input-border: rgba(182, 92, 255, 0.3);
+  --highlight-color: #e3c6ff; /* pale violet glow */
+  --menu-bg: #050508;
+  --tab-h: 34px;
+  --radius: 6px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --thumb: 200px;
+  --r: 8px;
+  --header-h: 52px;
+  }
+  #localMediaGallery_root {
+  display: none; flex-direction: column; position: fixed;
+  inset: 0; background: var(--bg-color); z-index: 9999;
+  font-family: system-ui, sans-serif; font-size: 14px; color: var(--text-color);
+  }
+  #localMediaGallery_root.active { display: flex; }
+
+  /* ── Header ── */
+  #lgHeader {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; min-height: var(--header-h);
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--panel-border);
+  box-shadow: 0 2px 8px var(--panel-bg);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap; position: relative; z-index: 2;
+  }
+  #lgHeader .lg-title {
+  font-weight: 700; font-size: 15px; color: var(--accent-color);
+  letter-spacing: .5px; margin-right: 2px;
+  }
+
+  /* ── Buttons ── */
+  #localMediaGallery_root button {
+  background: var(--button-bg); color: var(--button-text); border: none;
+  border-radius: var(--r); padding: 5px 10px; cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: all 0.18s;
+  box-shadow: 0 2px 6px var(--accent-glow); white-space: nowrap;
+  }
+  #localMediaGallery_root button:hover {
+  background: color-mix(in srgb, var(--accent-color), var(--bg-color) 15%); transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+  }
+  #localMediaGallery_root button:active { transform: scale(0.96); }
+  #localMediaGallery_root button.lg-icon-btn {
+  padding: 5px 8px; font-size: 15px; background: transparent;
+  box-shadow: none; color: var(--text-color); border: 1px solid var(--panel-border);
+  }
+  #localMediaGallery_root button.lg-icon-btn:hover {
+  background: var(--accent-color); color: var(--button-text);
+  }
+  #localMediaGallery_root button.lg-close-btn {
+  background: var(--accent-color); padding: 4px 10px; font-size: 15px;
+  }
+  #localMediaGallery_root button.lg-close-btn:hover { background: var(--accent-color); }
+
+  /* ── Selects ── */
+  #localMediaGallery_root select {
+  padding: 5px 8px; border-radius: var(--r);
+  border: 1px solid var(--panel-border); background: var(--input-bg);
+  color: var(--text-color); font-size: 13px; outline: none;
+  transition: border 0.2s, box-shadow 0.2s; cursor: pointer;
+  }
+  #localMediaGallery_root select:focus {
+  border-color: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-glow);
+  }
+
+  /* ── Search box ── */
+  #lgSearch {
+  flex: 1; min-width: 120px; max-width: 260px;
+  padding: 5px 10px; border-radius: var(--r);
+  border: 1px solid var(--panel-border); background: var(--input-bg);
+  color: var(--text-color); font-size: 13px; outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  }
+  #lgSearch:focus { border-color: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+  /* ── Status bar ── */
+  #lgStatusBar {
+  font-size: 12px; color: var(--text-color); opacity: 0.6;
+  padding: 0 12px 4px; text-align: right;
+  }
+
+  /* ── Grid ── */
+  .local-media-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--thumb), 1fr));
+  gap: 10px; padding: 12px; flex: 1; overflow-y: auto;
+  align-content: start;
+  }
+  .gallery-item {
+  border-radius: 10px; overflow: show;
+  background: var(--panel-bg);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; aspect-ratio: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  }
+  .gallery-item:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 24px var(--accent-glow); }
+  .gallery-item img, .gallery-item video {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+  }
+  .gallery-item .lg-item-type-badge {
+  position: absolute; top: 5px; left: 6px;
+  background: var(--panel-bg); color: var(--highlight-color);
+  font-size: 11px; padding: 1px 5px; border-radius: 4px;
+  pointer-events: none;
+  }
+  .gallery-item .lg-rating-badge {
+  position: absolute; top: 5px; right: 6px;
+  background: var(--panel-bg); color: var(--highlight-color);
+  font-size: 11px; padding: 1px 5px; border-radius: 4px;
+  pointer-events: none; display: none;
+  }
+  .gallery-item.has-rating .lg-rating-badge { display: block; }
+
+  /* ── Item Controls Bar ── */
+  [data-local-media-gallery-bar] {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: var(--lgBtnsDisplay, flex);
+  justify-content: center; gap: 2px; padding: 4px 2px;
+  background: linear-gradient(transparent, var(--panel-bg));
+  z-index: 10; opacity: 0; transition: opacity 0.2s;
+  flex-wrap: wrap;
+  }
+  .gallery-item:hover [data-local-media-gallery-bar] { opacity: 1; }
+  [data-local-media-gallery-bar] button {
+  padding: 3px 7px; font-size: 13px; box-shadow: none;
+  }
+
+  /* ── Lightbox ── */
+  [data-local-media-gallery-lightbox] {
+  position: fixed; inset: 0; display: flex; align-items: center;
+  justify-content: center; background: var(--bg-color); z-index: 10000;
+  flex-direction: column;
+  }
+  .lg-lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-size: 36px; background: var(--highlight-color) !important;
+  border-radius: 50% !important; width: 48px; height: 48px;
+  display: flex !important; align-items: center; justify-content: center;
+  padding: 0 !important; transition: background 0.2s !important;
+  }
+  .lg-lb-nav:hover { background: var(--highlight-color) !important; }
+  #lgLbClose {
+  position: absolute; top: 12px; right: 14px; font-size: 22px;
+  background: none !important; box-shadow: none !important; color: var(--highlight-color) !important;
+  }
+  #lgLbCounter {
+  position: absolute; bottom: 14px; color: var(--highlight-color);
+  font-size: 13px; pointer-events: none;
+  }
+  #lgLbInfoPanel {
+  position: absolute; bottom: 40px; left: 12px; right: 12px;
+  color: var(--highlight-color); font-size: 12px;
+  background: var(--panel-bg); border-radius: 6px; padding: 6px 10px;
+  max-height: 80px; overflow-y: auto; display: none; cursor: pointer;
+  }
+
+  /* ── Info Editor ── */
+  [data-local-media-gallery-info-editor] {
+  position: fixed; left: 6%; width: 88%; top: 4%; height: 92%;
+  background: var(--panel-bg); display: flex; justify-content: center;
+  align-items: center; flex-direction: column; z-index: 10001;
+  border-radius: 14px; padding: 14px; overflow-y: auto;
+  box-shadow: 0 12px 40px var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  }
+
+  /* ── Warning Banner ── */
+  .gallery-warning {
+  padding: 10px 14px; display: flex; gap: 10px; flex-wrap: wrap;
+  justify-content: center; align-items: center; border-radius: 10px;
+  border: 1px solid var(--accent-color); font-size: 13px;
+  background: var(--highlight-color); color: var(--text-color);
+  box-shadow: 0 2px 8px var(--panel-bg); margin: 6px 8px;
+  }
+
+  /* ── Empty State ── */
+  .lg-empty-state {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+  color: var(--text-color); opacity: 0.5; user-select: none;
+  font-size: 16px;
+  }
+  .lg-empty-state span { font-size: 64px; }
+
+  /* ── Drop Zone Overlay ── */
+  #lgDropOverlay {
+  position: fixed; inset: 0; background: var(--accent-glow);
+  border: 4px dashed var(--accent-color); z-index: 10002;
+  display: none; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 700; color: var(--accent-color);
+  pointer-events: none;
+  }
+  #lgDropOverlay.active { display: flex; }
+
+  /* ── Scrollbar ── */
+  .local-media-gallery-grid::-webkit-scrollbar { width: 6px; }
+  .local-media-gallery-grid::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 3px; }
+  `;
+  document.head.appendChild(s);
+  }
+
+  const getGalleryNames  = () => { try { return JSON.parse(localStorage.getItem(galleriesKey)) || [defaultGallery]; } catch { return [defaultGallery]; } };
+  const saveGalleryNames = a => localStorage.setItem(galleriesKey, JSON.stringify([...new Set(a)]));
+
+  const $ = (t, p={}, ...kids) => {
+  const el = document.createElement(t);
+  for (const [k, v] of Object.entries(p)) {
+    if (k === "style") el.style.cssText = v;
+    else if (k === "dataset") Object.assign(el.dataset, v);
+    else el[k] = v;
+  }
+  kids.forEach(c => c && el.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+  return el;
+  };
+
+  const dims = b => new Promise(r => {
+  if (b.type.startsWith("image/")) {
+    const u = URL.createObjectURL(b);
+    const i = new Image(); i.onload = () => { URL.revokeObjectURL(u); r({w:i.width, h:i.height}); };
+    i.onerror = () => { URL.revokeObjectURL(u); r({w:300, h:300}); };
+    i.src = u;
+  } else if (b.type.startsWith("video/")) {
+    const u = URL.createObjectURL(b);
+    const v = document.createElement("video"); v.onloadedmetadata = () => { URL.revokeObjectURL(u); r({w:v.videoWidth||300, h:v.videoHeight||300}); };
+    v.onerror = () => { URL.revokeObjectURL(u); r({w:300, h:300}); };
+    v.src = u;
+  } else { r({w:300, h:300}); }
+  });
+
+  const blobs = kv[pre + "blobs"];
+
+  // ── Virtual folder: shows every image/audio/video stored via the kv
+  // plugin in this generator's storage (saved games, settings, anything).
+  // Nothing is copied into the gallery's blob store — media is rendered
+  // straight from kv on the fly. NOTE: single-line comments only.
+  const SAVES_FOLDER = (window.generatorName || "saves").toLowerCase().replace(/[^a-z0-9_]/g, "_") || "saves";
+  const isSavesFolder = () => activeGalleryName === SAVES_FOLDER;
+
+  const getItemInfo = async m => {
+    if (m && m._info) return cleanInfo(m._info);
+    const rec = await blobs.get(m.id);
+    return cleanInfo(rec?.info || {});
+  };
+
+  const mediaTypeOf = x => {
+    if (x instanceof Blob) return x.type.startsWith("image/") ? "image" : x.type.startsWith("video/") ? "video" : x.type.startsWith("audio/") ? "audio" : "";
+    const m = String(x).match(/^data:(image|audio|video)\//);
+    return m ? m[1] : "";
+  };
+
+  async function listKvFolders() {
+    const folders = new Set(["saves"]);
+    try {
+      const dbs = await indexedDB.databases();
+      for (const dbInfo of dbs || []) {
+        let db;
+        try {
+          db = await new Promise((res, rej) => {
+            const req = indexedDB.open(dbInfo.name);
+            req.onsuccess = () => res(req.result);
+            req.onerror = () => rej(req.error);
+          });
+        } catch(e) { continue; }
+        for (const storeName of db.objectStoreNames) {
+          const m = String(storeName).match(/^(.*)-store-kv-plugin$/);
+          if (m && !m[1].startsWith("localMediaGallery_")) folders.add(m[1]);
+        }
+        db.close();
+      }
+    } catch(e) {}
+    return [...folders];
+  }
+
+  function collectKvMedia(folder, key, val, push, depth) {
+    if (depth > 10) return;
+    if (typeof val === "string") {
+      const t = mediaTypeOf(val);
+      if (t) push(folder + "/" + key, {src: val, type: t});
+    } else if (val instanceof Blob) {
+      const t = mediaTypeOf(val);
+      if (t) push(folder + "/" + key, {blob: val, type: t});
+    } else if (val && typeof val === "object") {
+      for (const [k, v] of Object.entries(val)) collectKvMedia(folder, key + "/" + k, v, push, depth + 1);
+    }
+  }
+
+  async function getKvMediaItems() {
+    const items = [];
+    const seen = new Set();
+    const seenSrc = new Set();
+    const addItem = m => {
+      if (m.src && seenSrc.has(m.src)) return;
+      if (m.src) seenSrc.add(m.src);
+      if (seen.has(m.id)) return;
+      seen.add(m.id);
+      items.push(m);
+    };
+
+    let entries = [];
+    try { entries = await kv.saves.entries(); } catch(e) {}
+    for (const [saveId, save] of entries) {
+      if (!save || typeof save !== "object") continue;
+      const imgs = save.state && save.state.story && save.state.story.images;
+      if (!imgs || typeof imgs !== "object") continue;
+      const loc = (save.currentLocation || "") + (save.worldName ? " · " + save.worldName : "");
+      for (const [k, v] of Object.entries(imgs)) {
+        if (typeof v !== "string" || !v || !mediaTypeOf(v)) continue;
+        addItem({
+          id: "saves/" + saveId + "/" + k,
+          src: v,
+          type: mediaTypeOf(v),
+          virtual: true,
+          saveId, saveImageKey: k,
+          date: save.timestamp || 0,
+          rating: 0, w: 0, h: 0,
+          _info: {
+            save: save.saveId || saveId,
+            world: save.worldName || "",
+            location: loc || "",
+            hero: save.heroName || "",
+            "image key": k
+          }
+        });
+      }
+    }
+
+    const folders = await listKvFolders();
+    for (const folder of folders) {
+      let fEntries;
+      try { fEntries = await kv[folder].entries(); } catch(e) { continue; }
+      for (const [key, val] of fEntries) {
+        collectKvMedia(folder, key, val, (path, mm) => {
+          addItem({
+            id: path,
+            ...mm,
+            virtual: true,
+            kvFolder: folder,
+            kvKey: key,
+            deletable: path === folder + "/" + key,
+            date: 0, rating: 0, w: 0, h: 0,
+            _info: {}
+          });
+        }, 0);
+      }
+    }
+    return items;
+  }
+
+  async function deleteSavesItem(m) {
+    const save = await kv.saves.get(m.saveId);
+    if (!save || !save.state || !save.state.story) return;
+    if (save.state.story.images) delete save.state.story.images[m.saveImageKey];
+    if (Array.isArray(save.state.story.messages)) {
+      save.state.story.messages = save.state.story.messages.filter(msg =>
+        !(String(msg).startsWith("IMG: #") && String(msg).slice(5).trim().replace(/^#/, "") === m.saveImageKey)
+      );
+    }
+    await kv.saves.set(m.saveId, save);
+  }
+
+  /* ── JSZip loader ── */
+  let jszipMod = null;
+  const getJSZip = () => jszipMod ? jszipMod : import("https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm").then(m => (jszipMod = m.default || m));
+
+  /* ── Backup / Restore ── */
+  async function saveBackup() {
+  if (!confirm("Download a .zip backup of all galleries?")) return;
+  const files = [];
+  for (const g of getGalleryNames()) {
+    const items = await kv[pre + g].values();
+    for (const m of items) {
+      const rec = await blobs.get(m.id);
+      const b = rec?.blob || rec;
+      if (!b) continue;
+      const ext = (b.type.split("/")[1] || "bin").replace(/[^\w.-]/g, '');
+      files.push({name: `galleries/${g}/${m.id}.${ext}`, blob: b});
+      files.push({name: `galleries/${g}/${m.id}.info.json`, blob: new Blob([JSON.stringify({meta:m, info:rec?.info||null, mime:b.type}, null, 2)], {type:"application/json"})});
+    }
+  }
+  if (!files.length) return alert("No media to backup.");
+  const JSZip = await getJSZip();
+  const zip = new JSZip();
+  files.forEach(f => zip.file(f.name, f.blob));
+  const zipBlob = await zip.generateAsync({type:"blob"});
+  const a = $("a", {href: URL.createObjectURL(zipBlob), download: `media_gallery_backup_${new Date().toISOString().replace(/[:]/g,'-').slice(0,19)}.zip`});
+  a.click(); URL.revokeObjectURL(a.href);
+  }
+
+  async function loadBackup() {
+  return new Promise(resolve => {
+    const inp = $("input", {type:"file", accept:".zip", style:"display:none"});
+    inp.onchange = async () => {
+      try {
+        const file = inp.files[0];
+        if (!file) return;
+        if (!confirm("Importing will MERGE the backup into current galleries. Continue?")) return;
+        const JSZip = await getJSZip();
+        const zip = await JSZip.loadAsync(file);
+        const entries = [];
+        await Promise.all(Object.values(zip.files).map(async z => {
+          if (z.dir) return;
+          entries.push({name: z.name, blob: await z.async("blob")});
+        }));
+        const infoMap = Object.create(null);
+        const mediaMap = Object.create(null);
+        for (const e of entries) {
+          if (e.name.endsWith(".info.json")) {
+            const m = /^galleries\/([^/]+)\/([^/]+)\.info\.json$/.exec(e.name);
+            if (!m) continue;
+            const [, gal, id] = m;
+            infoMap[gal] ??= {}; infoMap[gal][id] = JSON.parse(await e.blob.text());
+          } else {
+            const m = /^galleries\/([^/]+)\/([^/]+)$/.exec(e.name);
+            if (!m) continue;
+            const [, gal, fn] = m;
+            const id = fn.replace(/\.[^.]+$/, '');
+            mediaMap[gal] ??= {}; mediaMap[gal][id] = e.blob;
+          }
+        }
+        let imported = 0;
+        for (const [gal, objs] of Object.entries(mediaMap)) {
+          const current = getGalleryNames();
+          if (!current.includes(gal)) saveGalleryNames([...current, gal]);
+          for (const [id, blob] of Object.entries(objs)) {
+            const skip = await blobs.get(id);
+            if (skip) continue;
+            const inf = infoMap[gal]?.[id] || {};
+            let b = blob;
+            if (!b.type && inf.mime) b = new Blob([await blob.arrayBuffer()], {type: inf.mime});
+            const {w, h} = await dims(b);
+            await blobs.set(id, {blob: b, info: cleanInfo(inf.info || null)});
+            await kv[pre + gal].set(id, {id, date: inf.meta?.date || Date.now(), rating: inf.meta?.rating || 0, w, h});
+            imported++;
+          }
+        }
+        alert(`Import complete! ${imported} new item(s) added.`);
+      } finally { resolve(); }
+    };
+    document.body.appendChild(inp); inp.click(); inp.remove();
+  });
+  }
+
+  async function add(blob, opts = {}) {
+  let folder = opts.folder ?? activeGalleryName;
+  if (folder === SAVES_FOLDER) folder = defaultGallery; // virtual folder is read-only
+  let info = cleanInfo(opts.info ?? null);
+  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  const {w, h} = await dims(blob);
+  await blobs.set(id, {blob, info});
+  await kv[pre + folder].set(id, {id, date: Date.now(), rating: 0, w, h});
+  const names = getGalleryNames();
+  if (!names.includes(folder)) saveGalleryNames([...names, folder]);
+  return id;
+  }
+
+  async function clearAllData() {
+  if (prompt('Type "yes" to permanently delete ALL gallery data:') !== "yes") return;
+  for (const n of getGalleryNames()) await kv[pre + n].clear();
+  await blobs.clear();
+  saveGalleryNames([defaultGallery]);
+  activeGalleryName = defaultGallery;
+  localStorage.removeItem(pre + "activeGalleryName");
+  localStorage.removeItem(pre + "seenPersistenceWarning");
+  localStorage.removeItem(pre + "galleryCols");
+  localStorage.removeItem(pre + "lgBtnsVisible");
+  }
+
+  /* ── Show fullscreen gallery ── */
+  async function show() {
+  const existingRoot = document.getElementById("localMediaGallery_root");
+  if (existingRoot) { existingRoot.classList.add("active"); return; }
+
+  const root = $("div", {id: "localMediaGallery_root", className: "active"});
+  document.body.appendChild(root);
+
+  /* ── Drop overlay ── */
+  const dropOverlay = $("div", {id: "lgDropOverlay"}, "📂 Drop files to add");
+  root.appendChild(dropOverlay);
+
+  /* ── Drag and drop ── */
+  let dragCounter = 0;
+  root.addEventListener("dragenter", e => { e.preventDefault(); dragCounter++; dropOverlay.classList.add("active"); });
+  root.addEventListener("dragleave", () => { dragCounter--; if (dragCounter <= 0) { dragCounter = 0; dropOverlay.classList.remove("active"); } });
+  root.addEventListener("dragover", e => e.preventDefault());
+  root.addEventListener("drop", async e => {
+    e.preventDefault(); dragCounter = 0; dropOverlay.classList.remove("active");
+    const files = [...(e.dataTransfer.files || [])];
+    if (!files.length) return;
+    for (const f of files) await add(f);
+    await loadGallery();
+  });
+
+  const closeGallery = () => {
+    document.removeEventListener("keydown", onKeyGallery);
+    root.classList.remove("active");
+    io?.disconnect();
+  };
+
+  const onKeyGallery = e => {
+    if (e.key === "Escape" && !document.querySelector("[data-local-media-gallery-lightbox]")) closeGallery();
+  };
+  document.addEventListener("keydown", onKeyGallery);
+
+  /* ── Warning banner ── */
+  if (!localStorage[pre + "seenPersistenceWarning"]) {
+    root.appendChild($("div", {className: "gallery-warning"},
+      $("span", {style:"flex:1;text-align:center;font-weight:500;"},
+        "📢 This gallery is stored privately on your device. Your browser may delete it if you clear cache or storage is low — backup regularly via the menu!"
+      ),
+      $("button", {textContent: "✅ Got it", onclick: e => { localStorage[pre + "seenPersistenceWarning"] = 1; e.target.parentNode.remove(); }})
+    ));
+  }
+
+  /* ── Header ── */
+  const headerBarEl = root.appendChild($("div", {id: "lgHeader"}));
+  headerBarEl.appendChild($("div", {className: "lg-title"}, "Unsafe Private"));
+
+  /* ── Menu select ── */
+  const selMenu = $("select", {style: "max-width:100px;"});
+  const menuOpts = () => [
+    {v: "",            t: "📋 Menu"},
+    {v: "saveBackup",  t: "💾 Save Backup"},
+    {v: "loadBackup",  t: "📂 Load Backup"},
+    {v: "importLocal", t: "📥 Import File(s)"},
+    {v: "importURL",   t: "🌐 Import URL"},
+    {v: "toggleBtns",  t: (localStorage[pre + "lgBtnsVisible"] === "0" ? "🔳 Show Buttons" : "🚫 Hide Buttons")},
+    {v: "storageInfo", t: "📊 Storage Info"},
+    {v: "",            t: "—", disabled: true},
+    {v: "clearAll",    t: "🗑️ Clear ALL"},
+  ];
+  const refreshMenu = () => { selMenu.innerHTML = ""; menuOpts().forEach(o => selMenu.appendChild($("option", {value: o.v, textContent: o.t, disabled: !!o.disabled}))); };
+  refreshMenu();
+
+  /* ── Gallery (folder) picker ── */
+  const selGallery = $("select", {style: "max-width:100px;"});
+  const refreshOpts = () => {
+    selGallery.innerHTML = "";
+    getGalleryNames().filter(n => n !== SAVES_FOLDER).forEach(n => selGallery.appendChild($("option", {value: n, textContent: n})));
+    selGallery.appendChild($("option", {value: SAVES_FOLDER, textContent: SAVES_FOLDER + " 💾 (saved media)"}));
+    selGallery.appendChild($("option", {value: "__new__", textContent: "➕ New folder"}));
+    selGallery.appendChild($("option", {value: "__del__", textContent: "🗑️ Delete folder"}));
+    selGallery.value = activeGalleryName;
+  };
+  refreshOpts();
+
+  /* ── Sort ── */
+  const selSort = $("select", {style: "max-width:130px;", innerHTML:`
+    <option value="dateDesc">📅 Newest</option>
+    <option value="dateAsc">📜 Oldest</option>
+    <option value="ratingDesc">⭐ Top Rated</option>
+    <option value="ratingAsc">💔 Low Rated</option>`
+  });
+
+  /* ── Search ── */
+  const searchInp = $("input", {id: "lgSearch", type: "search", placeholder: "🔍 Search info…", title: "Search by info field values"});
+
+  /* ── Column selector ── */
+  const colSelect = $("select", {style: "max-width:100px;"});
+  ["auto","1","2","3","4","5"].forEach(n => {
+    colSelect.appendChild($("option", {value: n, textContent: n === "auto" ? "Auto cols" : n + (n==="1"?" col":" cols")}));
+  });
+  let currentCols = localStorage[pre + "galleryCols"] || "auto";
+  if (!["auto","1","2","3","4","5"].includes(currentCols)) currentCols = "auto";
+  colSelect.value = currentCols;
+
+  /* ── Refresh + close buttons ── */
+  const btnRefresh = $("button", {textContent:"🔄", title:"Refresh", className:"lg-icon-btn", onclick: async () => await loadGallery()});
+  const btnClose   = $("button", {textContent:"✕ Close", title:"Close (Esc)", className:"lg-close-btn", onclick: closeGallery});
+
+  headerBarEl.appendChild(selMenu);
+  headerBarEl.appendChild(selGallery);
+  headerBarEl.appendChild(selSort);
+  headerBarEl.appendChild(searchInp);
+  headerBarEl.appendChild(colSelect);
+  headerBarEl.appendChild(btnRefresh);
+  headerBarEl.appendChild(btnClose);
+
+  /* ── Status bar ── */
+  const statusBar = root.appendChild($("div", {id: "lgStatusBar"}));
+
+  /* ── Apply column count ── */
+  function applyColumnCount(cols) {
+    currentCols = String(cols || "auto");
+    if (!["auto","1","2","3","4","5"].includes(currentCols)) currentCols = "auto";
+    localStorage[pre + "galleryCols"] = currentCols;
+    const g = root.querySelector(".local-media-gallery-grid");
+    if (!g) return;
+    g.style.gridTemplateColumns = currentCols === "auto" ? "" : `repeat(${currentCols}, 1fr)`;
+  }
+  colSelect.addEventListener("change", e => applyColumnCount(e.target.value));
+
+  /* ── Lightbox ── */
+  let filteredArr = [];
+  const lightbox = id0 => {
+    let idx = filteredArr.findIndex(m => m.id === id0);
+    if (idx < 0) { idx = 0; }
+    const ov = $("div", {dataset:{localMediaGalleryLightbox:1}});
+    ov.onclick = e => { if (e.target === ov) close(); };
+
+    const holder = $("div", {style:"display:flex;align-items:center;justify-content:center;max-width:94vw;max-height:86vh;"});
+    const counter = $("div", {id:"lgLbCounter"});
+    let currentInfo = {};
+    const infoPanel = $("div", {id:"lgLbInfoPanel"});
+    infoPanel.style.cursor = "pointer";
+    infoPanel.title = "Click to copy prompt to clipboard";
+    infoPanel.onclick = async () => {
+      const txt = (currentInfo.prompt || "").trim();
+      if (!txt) return;
+      try { await navigator.clipboard.writeText(txt); toast.textContent = "✅ Prompt copied!"; }
+      catch(e) { toast.textContent = "❌ Copy failed"; }
+      toast.style.opacity = "1"; setTimeout(() => toast.style.opacity = "0", 1500);
+    };
+    const toast = $("div", {style:"position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg-color);color:var(--highlight-color);padding:10px 20px;border-radius:8px;font-size:16px;font-weight:600;pointer-events:none;opacity:0;transition:opacity 0.3s;z-index:10001;"});
+
+    const onKey = e => {
+      if (e.key === "ArrowLeft"  && idx > 0)                     { idx--; load(); }
+      else if (e.key === "ArrowRight" && idx < filteredArr.length-1) { idx++; load(); }
+      else if (e.key === "Escape") close();
+    };
+    const close = () => { if (currentUrl) { URL.revokeObjectURL(currentUrl); currentUrl = null; } document.removeEventListener("keydown", onKey); ov.remove(); };
+    document.addEventListener("keydown", onKey);
+
+    let currentUrl = null;
+    const load = async () => {
+      if (currentUrl) { URL.revokeObjectURL(currentUrl); currentUrl = null; }
+      holder.innerHTML = "";
+      const m = filteredArr[idx];
+      counter.textContent = `${idx+1} / ${filteredArr.length}`;
+      let rec = null;
+      let el;
+      if (m.virtual) {
+        const t = m.type || mediaTypeOf(m.src || "");
+        const src = m.src || (m.blob ? (currentUrl = URL.createObjectURL(m.blob)) : "");
+        if (!src) {
+          el = $("div", {style:"color:var(--text-color);"}, "⚠️ media not found");
+        } else if (t === "video") {
+          el = $("video", {src, style:"max-width:90vw;max-height:82vh;object-fit:contain;", controls:true, autoplay:true});
+        } else if (t === "audio") {
+          el = $("audio", {src, controls:true, style:"margin-top:20px;"});
+        } else {
+          el = $("img", {src, style:"max-width:90vw;max-height:82vh;object-fit:contain;border-radius:6px;"});
+        }
+      } else {
+        rec = await blobs.get(m.id);
+        const b = rec?.blob || rec;
+        if (b.type.startsWith("image/"))
+          el = $("img", {src: currentUrl = URL.createObjectURL(b), style:"max-width:90vw;max-height:82vh;object-fit:contain;border-radius:6px;"});
+        else if (b.type.startsWith("video/"))
+          el = $("video", {src: currentUrl = URL.createObjectURL(b), style:"max-width:90vw;max-height:82vh;object-fit:contain;", controls:true, autoplay:true});
+        else
+          el = $("audio", {src: currentUrl = URL.createObjectURL(b), controls:true, style:"margin-top:20px;"});
+      }
+      holder.appendChild(el);
+
+      // Show info if any
+      const inf = m._info ? cleanInfo(m._info) : (rec?.info || {});
+      currentInfo = inf;
+      const infEntries = Object.entries(inf);
+      if (infEntries.length) {
+        infoPanel.style.display = "block";
+        infoPanel.innerHTML = infEntries.map(([k,v]) => `<b>${k}:</b> ${v}`).join(" &nbsp;·&nbsp; ");
+      } else { infoPanel.style.display = "none"; }
+
+      btnPrev.style.opacity = idx === 0 ? "0.3" : "1";
+      btnNext.style.opacity = idx === filteredArr.length-1 ? "0.3" : "1";
+    };
+
+    const btnPrev = $("button", {className:"lg-lb-nav", style:"left:10px;", textContent:"‹", onclick: e => { e.stopPropagation(); if (idx > 0) { idx--; load(); } }});
+    const btnNext = $("button", {className:"lg-lb-nav", style:"right:10px;", textContent:"›", onclick: e => { e.stopPropagation(); if (idx < filteredArr.length-1) { idx++; load(); } }});
+    const btnCl   = $("button", {id:"lgLbClose", textContent:"✕", onclick: close});
+
+    ov.appendChild(btnPrev); ov.appendChild(holder); ov.appendChild(btnNext);
+    ov.appendChild(btnCl); ov.appendChild(counter); ov.appendChild(infoPanel); ov.appendChild(toast);
+    document.body.appendChild(ov);
+    load();
+  };
+
+  /* ── Info editor ── */
+  async function openInfoEditor(m) {
+    const rec = await blobs.get(m.id);
+    if (!rec) return;
+    const infoOrig = cleanInfo(rec.info || {});
+    const origStr = JSON.stringify(infoOrig);
+    const overlay = $("div", {style:"position:fixed;inset:0;background:var(--bg-color);display:flex;align-items:center;justify-content:center;z-index:10001;"});
+    const modal = $("div", {dataset:{localMediaGalleryInfoEditor:1}});
+    const heading = $("div", {style:"font-size:16px;font-weight:700;margin-bottom:10px;color:var(--accent-color);"}, "ℹ️ Edit Item Info");
+    const list = $("div", {style:"flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;width:100%;"});
+    modal.appendChild(heading); modal.appendChild(list);
+
+    const rows = [];
+    const addRow = (k="", v="") => {
+      const keyInp  = $("input",    {value:k, placeholder:"Field name",  style:"width:100%;padding:5px;border-radius:6px;border:1px solid var(--panel-border);background:var(--input-bg);color:var(--text-color);"});
+      const valArea = $("textarea", {value:v, placeholder:"Field value", style:"width:100%;padding:5px;border-radius:6px;border:1px solid var(--panel-border);background:var(--input-bg);color:var(--text-color);resize:vertical;min-height:50px;"});
+      const delBtn  = $("button", {textContent:"✕", style:"align-self:flex-start;background:var(--accent-color);padding:2px 7px;", onclick: () => { row.remove(); rows.splice(rows.indexOf({keyInp,valArea}),1); }});
+      const row = $("div", {style:"display:flex;flex-direction:column;gap:4px;background:var(--highlight-color);padding:8px;border-radius:8px;position:relative;"}, keyInp, valArea, delBtn);
+      rows.push({keyInp, valArea});
+      list.insertBefore(row, plusBtn);
+    };
+
+    const plusBtn = $("button", {textContent:"➕ Add Field", style:"margin-top:4px;", onclick: () => addRow("","")});
+    list.appendChild(plusBtn);
+    for (const [k,v] of Object.entries(infoOrig)) addRow(k, v);
+
+    const gather = () => {
+      const o = {};
+      rows.forEach(({keyInp, valArea}) => { const k = keyInp.value.trim(); if (k) o[k] = String(valArea.value); });
+      return o;
+    };
+    const maybeClose = () => {
+      if (JSON.stringify(gather()) !== origStr && !confirm("Discard unsaved changes?")) return false;
+      overlay.remove(); return true;
+    };
+
+    const saveBtn  = $("button", {textContent:"💾 Save",   onclick: async () => {
+      const keys = rows.map(r=>r.keyInp.value.trim()).filter(k=>k);
+      if (keys.length !== new Set(keys).size) return alert("Field names must be unique.");
+      await blobs.set(m.id, {blob: rec.blob||rec, info: gather()});
+      overlay.remove(); loadGallery();
+    }});
+    const closeBtn = $("button", {textContent:"✕ Cancel", style:"background:var(--accent-color);", onclick: () => maybeClose()});
+    const btnRow = $("div", {style:"display:flex;gap:8px;justify-content:flex-end;margin-top:10px;"});
+    btnRow.appendChild(closeBtn); btnRow.appendChild(saveBtn);
+    modal.appendChild(btnRow);
+
+    overlay.onclick = e => { if (e.target === overlay) maybeClose(); };
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  }
+
+  /* ── Sort function ── */
+  const sortFn = () => {
+    switch (selSort.value) {
+      case "dateAsc":    return (a,b) => a.date - b.date;
+      case "ratingDesc": return (a,b) => b.rating - a.rating;
+      case "ratingAsc":  return (a,b) => a.rating - b.rating;
+      default:           return (a,b) => b.date - a.date;
+    }
+  };
+
+  /* ── Item controls bar ── */
+  const controls = (m, ph) => {
+    const bar = $("div", {dataset:{localMediaGalleryBar:1}});
+
+    if (m.virtual) {
+      if (m.saveId || (m.deletable && m.kvFolder)) {
+        bar.appendChild($("button", {title:"Delete", textContent:"🗑️", onclick: async e => {
+          e.stopPropagation();
+          if (!confirm(m.saveId ? "Remove this image from its saved game?" : "Delete this saved media item?")) return;
+          if (m.saveId) await deleteSavesItem(m);
+          else await kv[m.kvFolder].delete(m.kvKey);
+          mediaArr = mediaArr.filter(x => x.id !== m.id); ph.remove();
+          updateStatus();
+        }}));
+      }
+      bar.appendChild($("button", {title:"Download", textContent:"📥", onclick: async e => {
+        e.stopPropagation();
+        const ext = m.type === "video" ? "mp4" : m.type === "audio" ? "mp3" : "jpg";
+        const dl = m.src || (m.blob ? URL.createObjectURL(m.blob) : null);
+        if (!dl) return;
+        const a = $("a", {href: dl, download:`${(m.saveImageKey || m.kvKey || "media")}.${ext}`});
+        a.click();
+        if (!m.src && m.blob) URL.revokeObjectURL(dl);
+      }}));
+      return bar;
+    }
+
+    bar.appendChild($("button", {title:"Delete", textContent:"🗑️", onclick: async e => {
+      e.stopPropagation();
+      if (!confirm("Delete this item?")) return;
+      await blobs.delete(m.id); await kv[pre + activeGalleryName].delete(m.id);
+      mediaArr = mediaArr.filter(x => x.id !== m.id); ph.remove();
+      updateStatus();
+    }}));
+
+    let lastMoveFolder;
+    bar.appendChild($("button", {title:"Move to folder", textContent:"📁", onclick: async e => {
+      e.stopPropagation();
+      const t = prompt("Move to folder:", lastMoveFolder ?? activeGalleryName);
+      if (!t || t === activeGalleryName) return;
+      lastMoveFolder = t;
+      await kv[pre + t].set(m.id, m);
+      await kv[pre + activeGalleryName].delete(m.id);
+      saveGalleryNames([...getGalleryNames(), t]);
+      refreshOpts(); loadGallery();
+    }}));
+
+    bar.appendChild($("button", {title:"Rate item", textContent:"⭐", onclick: async e => {
+      e.stopPropagation();
+      const v = prompt("Set rating (number):", m.rating);
+      if (v == null) return;
+      m.rating = Number(v);
+      if (isNaN(m.rating)) m.rating = 0;
+      await kv[pre + activeGalleryName].set(m.id, m);
+      render();
+    }}));
+
+    bar.appendChild($("button", {title:"Download", textContent:"📥", onclick: async e => {
+      e.stopPropagation();
+      const rec = await blobs.get(m.id); const b = rec?.blob || rec;
+      const a = $("a", {href: URL.createObjectURL(b), download:`${m.id}.${(b.type.split("/")[1]||"bin")}`});
+      a.click(); URL.revokeObjectURL(a.href);
+    }}));
+
+    bar.appendChild($("button", {title:"Edit info", textContent:"ℹ️", onclick: async e => {
+      e.stopPropagation(); openInfoEditor(m);
+    }}));
+
+    return bar;
+  };
+
+  /* ── Lazy load (IntersectionObserver + visibility-poll fallback) ── */
+  let io;
+  const loadCell = async cell => {
+    if (cell.dataset.loaded) return;
+    cell.dataset.loaded = 1;
+    const id = cell.dataset.id;
+    const vm = mediaById.get(id);
+    if (vm) {
+      const t = vm.type || cell.dataset.type;
+      if (t === "video") {
+        const src = vm.src || (vm.blob ? URL.createObjectURL(vm.blob) : "");
+        if (src) cell.appendChild($("video", {src, muted:true, loop:true, autoplay:true, playsInline:true, onclick: () => lightbox(id)}));
+      } else if (t === "audio") {
+        cell.appendChild($("div", {
+          style:"width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;cursor:pointer;",
+          onclick: () => lightbox(id)
+        }, "🎵"));
+      } else {
+        const src = vm.src || (vm.blob ? URL.createObjectURL(vm.blob) : "");
+        if (src) cell.appendChild($("img", {src, onclick: () => lightbox(id)}));
+      }
+      return;
+    }
+    const rec = await blobs.get(id);
+    const b = rec?.blob || rec;
+    if (!b) return;
+    if (b.type.startsWith("image/")) {
+      cell.appendChild($("img", {src: URL.createObjectURL(b), onclick: () => lightbox(id)}));
+    } else if (b.type.startsWith("video/")) {
+      cell.appendChild($("video", {src: URL.createObjectURL(b), muted:true, loop:true, autoplay:true, playsInline:true, onclick: () => lightbox(id)}));
+    } else {
+      cell.appendChild($("div", {
+        style:"width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;cursor:pointer;",
+        onclick: () => lightbox(id)
+      }, "🎵"));
+    }
+  };
+  const observe = () => {
+    io?.disconnect();
+    const grid = root.querySelector(".local-media-gallery-grid");
+    if (!grid) return;
+    io = new IntersectionObserver(entries => {
+      for (const en of entries) if (en.isIntersecting) loadCell(en.target);
+    }, {root: grid, rootMargin:"400px", threshold:0.01});
+    [...grid.children].forEach(c => { try { io.observe(c); } catch(e) {} });
+    // Fallback: some environments never fire the observer; poll visibility instead.
+    let attempts = 0;
+    const poll = () => {
+      attempts++;
+      const g = root.querySelector(".local-media-gallery-grid");
+      if (!g || attempts > 40) return;
+      const gr = g.getBoundingClientRect();
+      let pending = false;
+      for (const c of g.children) {
+        if (c.dataset.loaded) continue;
+        const r = c.getBoundingClientRect();
+        if (r.top < gr.bottom + 600 && r.bottom > gr.top - 600) { pending = true; loadCell(c); }
+      }
+      if (pending || attempts < 5) setTimeout(poll, 300);
+    };
+    setTimeout(poll, 120);
+  };
+
+  /* ── Status bar updater ── */
+  const updateStatus = () => {
+    const label = isSavesFolder() ? SAVES_FOLDER + " 💾 (saved media)" : activeGalleryName;
+    statusBar.textContent = `${filteredArr.length} of ${mediaArr.length} item(s) in "${label}"`;
+  };
+
+  /* ── Grid & render ── */
+  let mediaArr = [];
+  const srcById = new Map(); // id -> direct src (virtual/saved-game items)
+  let mediaById = new Map(); // id -> virtual media item (type/blob-aware rendering)
+  const revokeGridUrls = grid => { if (!grid) return; for (const img of grid.querySelectorAll("img, video")) { const u = img.src; if (u && u.startsWith("blob:")) URL.revokeObjectURL(u); } };
+  let searchQuery = "";
+
+  const getFiltered = () => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [...mediaArr];
+    // We'll do client-side filtering; info is not in mediaArr, we filter post-load
+    return mediaArr; // fallback; real filtering happens in renderFiltered
+  };
+
+  let infoCache = {};
+  const render = async () => {
+    let grid = root.querySelector(".local-media-gallery-grid");
+    if (!grid) {
+      grid = $("div", {className:"local-media-gallery-grid"});
+      root.appendChild(grid);
+    }
+    revokeGridUrls(grid);
+    grid.innerHTML = "";
+    io?.disconnect();
+
+    const q = searchQuery.trim().toLowerCase();
+    if (q) {
+      // Load info for filtering (from cache or store)
+      filteredArr = [];
+      for (const m of [...mediaArr].sort(sortFn())) {
+        let inf = infoCache[m.id];
+        if (!inf) { inf = infoCache[m.id] = await getItemInfo(m); }
+        const haystack = Object.values(inf).join(" ").toLowerCase() + " " + m.id.toLowerCase();
+        if (haystack.includes(q)) filteredArr.push(m);
+      }
+    } else {
+      filteredArr = [...mediaArr].sort(sortFn());
+    }
+
+    if (!filteredArr.length) {
+      grid.style.display = "flex";
+      grid.innerHTML = "";
+      grid.appendChild($("div", {className:"lg-empty-state"},
+        $("span", {}, q ? "🔍" : "📭"),
+        $("div", {}, q ? `No results for "${q}"` : (isSavesFolder() ? "No saved media found — images, audio or video stored in this generator's storage will appear here." : "No media yet — import files or drag and drop!"))
+      ));
+      updateStatus();
+      return;
+    }
+
+    grid.style.display = "";
+    applyColumnCount(currentCols);
+
+    filteredArr.forEach(m => {
+      const typeLabel = m.w && m.h ? "" : "🎵";
+      const ph = $("div", {
+        dataset:{id: m.id, type: m.type || "", localMediaGalleryItem:1},
+        className:"gallery-item" + (m.rating ? " has-rating" : ""),
+      });
+      if (m.rating) ph.appendChild($("div", {className:"lg-rating-badge"}, `⭐${m.rating}`));
+      ph.appendChild(controls(m, ph));
+      grid.appendChild(ph);
+    });
+
+    applyColumnCount(currentCols);
+    updateStatus();
+    observe();
+  };
+
+  const loadGallery = async () => {
+    infoCache = {};
+    srcById.clear();
+    mediaById = new Map();
+    if (isSavesFolder()) {
+      statusBar.textContent = "Loading saved media…";
+      mediaArr = await getKvMediaItems();
+      for (const m of mediaArr) { mediaById.set(m.id, m); if (m.src) srcById.set(m.id, m.src); }
+    } else {
+      mediaArr = await kv[pre + activeGalleryName].values();
+    }
+    await render();
+  };
+  loadGallery();
+
+  /* ── Events ── */
+  selGallery.onchange = async () => {
+    if (selGallery.value === "__new__") {
+      const n = prompt("New folder name (alphanumeric):");
+      if (!n || !/^[a-zA-Z0-9_]+$/.test(n)) { selGallery.value = activeGalleryName; return; }
+      saveGalleryNames([...getGalleryNames(), n]);
+      activeGalleryName = n; localStorage[pre + "activeGalleryName"] = n;
+      refreshOpts(); selGallery.value = n;
+    } else if (selGallery.value === "__del__") {
+      const n = prompt("Type the exact folder name to delete:");
+      if (!n || n === defaultGallery || !getGalleryNames().includes(n)) { selGallery.value = activeGalleryName; return; }
+      if (!confirm(`Delete folder "${n}" and all its media? This cannot be undone.`)) { selGallery.value = activeGalleryName; return; }
+      await kv[pre + n].clear();
+      saveGalleryNames(getGalleryNames().filter(x => x !== n));
+      if (activeGalleryName === n) { activeGalleryName = defaultGallery; localStorage[pre + "activeGalleryName"] = activeGalleryName; }
+      refreshOpts(); selGallery.value = activeGalleryName;
+    } else {
+      activeGalleryName = selGallery.value;
+      localStorage[pre + "activeGalleryName"] = activeGalleryName;
+    }
+    loadGallery();
+  };
+
+  selSort.onchange = () => render();
+
+  let searchTimer;
+  searchInp.oninput = () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { searchQuery = searchInp.value; render(); }, 280);
+  };
+
+  selMenu.onchange = async () => {
+    const v = selMenu.value;
+    selMenu.value = "";
+    if (v === "saveBackup") { await saveBackup(); }
+    else if (v === "loadBackup") { await loadBackup(); refreshOpts(); await loadGallery(); }
+    else if (v === "importLocal") {
+      const inp = $("input", {type:"file", multiple:true, style:"display:none"});
+      inp.onchange = async () => { for (const f of inp.files) await add(f); await loadGallery(); };
+      document.body.appendChild(inp); inp.click(); inp.remove();
+    } else if (v === "importURL") {
+      const u = prompt("Enter a URL to import:");
+      if (u) {
+        try {
+          const resp = await superFetch(u);
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          const b = await resp.blob();
+          await add(b); await loadGallery();
+        } catch(e) { alert("Failed to import: " + e.message); }
+      }
+    } else if (v === "toggleBtns") {
+      const isHidden = localStorage[pre + "lgBtnsVisible"] === "0";
+      localStorage[pre + "lgBtnsVisible"] = isHidden ? "1" : "0";
+      document.documentElement.style.setProperty("--lgBtnsDisplay", isHidden ? "flex" : "none");
+      refreshMenu();
+    } else if (v === "storageInfo") {
+      const {usage, quota} = await navigator.storage.estimate();
+      const persisted = await navigator.storage.persisted();
+      alert(`Storage: ${(usage/1024**3).toFixed(2)} GB used of ${(quota/1024**3).toFixed(2)} GB.\n\nPersistence: ${persisted ? "✅ Persistent (still back up regularly!)" : "⚠️ Temporary — may be cleared by browser. Enable persistence in your browser or back up often."}`);
+    } else if (v === "clearAll") {
+      await clearAllData(); refreshOpts(); loadGallery();
+    }
+  };
+
+  // Restore button visibility
+  if (localStorage[pre + "lgBtnsVisible"] === "0") {
+    document.documentElement.style.setProperty("--lgBtnsDisplay", "none");
+  }
+  }
+
+  return {add, show, getActiveFolderName: () => activeGalleryName, clearAllData};

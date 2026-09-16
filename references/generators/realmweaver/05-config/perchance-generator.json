@@ -1,0 +1,467 @@
+{
+  "name": "Realm Weaver",
+  "publicPage": "https://perchance.org/realmweaver",
+  "kind": "perchance-generator",
+  "buildStep": null,
+  "files": {
+    "main.pjs": 52572,
+    "index.html": 1487869,
+    "src/README.md": 40449,
+    "src/music/realm-weaver-adventure.mp3": 4090579,
+    "src/music/scifi.mp3": 3659245,
+    "src/music/horror.mp3": 4351385,
+    "src/music/postapoc.mp3": 2837328,
+    "src/music/cyberpunk.mp3": 3526961,
+    "src/music/western.mp3": 2429191,
+    "src/music/noir.mp3": 4259852,
+    "src/music/historical.mp3": 2538278,
+    "src/music/comedy.mp3": 2915695,
+    "src/music/romance.mp3": 3793410,
+    "src/music/survival.mp3": 4328189,
+    "src/music/superhero.mp3": 2842971,
+    "src/music/reallife.mp3": 3012247,
+    "src/music/mature.mp3": 4212205
+  },
+  "dependencies": [
+    {
+      "import": "ai-text-plugin",
+      "source": "https://perchance.org/ai-text-plugin",
+      "bytes": 58048,
+      "lines": 804
+    },
+    {
+      "import": "comments-plugin",
+      "source": "https://perchance.org/comments-plugin",
+      "bytes": 38261,
+      "lines": 680
+    },
+    {
+      "import": "kv-plugin",
+      "source": "https://perchance.org/kv-plugin",
+      "bytes": 4177,
+      "lines": 46
+    },
+    {
+      "import": "super-fetch-plugin",
+      "source": "https://perchance.org/super-fetch-plugin",
+      "bytes": 2857,
+      "lines": 46
+    },
+    {
+      "import": "text-to-image-plugin",
+      "source": "https://perchance.org/text-to-image-plugin",
+      "bytes": 37978,
+      "lines": 772
+    },
+    {
+      "import": "upload-plugin",
+      "source": "https://perchance.org/upload-plugin",
+      "bytes": 10271,
+      "lines": 237
+    },
+    {
+      "import": "unsafelist",
+      "source": "https://perchance.org/unsafelist",
+      "bytes": 3161,
+      "lines": 49
+    },
+    {
+      "import": "unsafe-private-gallery-v5",
+      "source": "https://perchance.org/unsafe-private-gallery-v5",
+      "bytes": 46193,
+      "lines": 1079
+    }
+  ],
+  "hostedImages": [
+    {
+      "url": "https://user.uploads.dev/file/0ec2ce56ee8e63b601ad081b3d5698f1.jpg",
+      "purpose": "Preset world background — The Realm of Eldermere (fantasy)",
+      "bytes": 120366
+    },
+    {
+      "url": "https://user.uploads.dev/file/fdb43e3928059630c34734a49cc4be24.jpg",
+      "purpose": "Preset world background — The Cursed Darklands (horror)",
+      "bytes": 79693
+    },
+    {
+      "url": "https://user.uploads.dev/file/f1b59766c56c64e9c56c6e738d12c964.jpg",
+      "purpose": "Preset world background — The Floating Skylands (fantasy)",
+      "bytes": 126829
+    },
+    {
+      "url": "https://user.uploads.dev/file/27efb155a7e60e5afbf9440be248d146.jpg",
+      "purpose": "Preset world background — The Sunless Underworld (fantasy)",
+      "bytes": 99613
+    },
+    {
+      "url": "https://user.uploads.dev/file/eea2848c63568dc289dfe43868880c77.jpg",
+      "purpose": "Preset world background — The Stone Age (survival)",
+      "bytes": 96259
+    },
+    {
+      "url": "https://user.uploads.dev/file/8255d5b065d225928a1cbb976df31342.jpg",
+      "purpose": "Preset world background — The Hollow Hours (modern horror)",
+      "bytes": 66702
+    },
+    {
+      "url": "https://user.uploads.dev/file/2b2fe1473ab3c11c97abd994c63dfcb4.jpg",
+      "purpose": "Preset world background — The Galactic Frontier (sci-fi)",
+      "bytes": 137174
+    },
+    {
+      "url": "https://user.uploads.dev/file/ae73889ee9f59854ed0c809004913b60.jpg",
+      "purpose": "Preset world background — World of Warcraft (fantasy)",
+      "bytes": 97763
+    },
+    {
+      "url": "https://user.uploads.dev/file/0c2629a074a9e4f7db352ea54ebfa455.jpg",
+      "purpose": "Preset world background — Middle-earth (fantasy)",
+      "bytes": 130033
+    },
+    {
+      "url": "https://user.uploads.dev/file/090552ee5ed6a937a6bbe2afdfe2005e.jpg",
+      "purpose": "Preset world background — Embercrest (mature / 18+)",
+      "bytes": 107561
+    },
+    {
+      "url": "https://user.uploads.dev/file/f527fa28594a177bf98e476e509ffca4.jpg",
+      "purpose": "Global page + gallery background (body::before)",
+      "bytes": 94112
+    },
+    {
+      "url": "https://user.uploads.dev/file/9829d76060f8ea373624053bc92eedee.jpg",
+      "purpose": "Age-gate / overlay background",
+      "bytes": 159754
+    },
+    {
+      "url": "https://user.uploads.dev/file/953974c53a82d8c82d0235f0aca6bd9e.jpg",
+      "purpose": "$meta.image — generator listing + social share card",
+      "bytes": 161201
+    },
+    {
+      "url": "https://user.uploads.dev/file/9ccf038d9d3424f88e51591f23e29c50.jpg",
+      "purpose": "Alternate $meta.image (commented out in main.pjs)",
+      "bytes": 208537
+    }
+  ],
+  "remoteAudio": {
+    "playlist": [
+      {
+        "title": "Celtic Autumn Harvest",
+        "emoji": "🍀",
+        "url": "https://user.uploads.dev/file/729d51bd7f3d73e53f39e40abed63b46.mp3"
+      },
+      {
+        "title": "Retro Synthwave",
+        "emoji": "🛼",
+        "url": "https://user.uploads.dev/file/e376c269e716e1643f79a0f8e60953e1.mp3"
+      },
+      {
+        "title": "Soft Gentle Piano",
+        "emoji": "🎹",
+        "url": "https://user.uploads.dev/file/1e1da2252b897499207306428851ae22.mp3"
+      },
+      {
+        "title": "Cozy Quiet Tavern, Guitar",
+        "emoji": "☕",
+        "url": "https://user.uploads.dev/file/a478e09e8bd083f2f0f4926c11b26f74.mp3"
+      },
+      {
+        "title": "Immersive Epic Fantasy",
+        "emoji": "⚔️",
+        "url": "https://user.uploads.dev/file/6182d658570e7ed2f73279d3f9181ecb.mp3"
+      },
+      {
+        "title": "Soft Elegant Piano",
+        "emoji": "🎹",
+        "url": "https://user.uploads.dev/file/41715fa7a7d1073b1cee22434e8e737f.mp3"
+      },
+      {
+        "title": "Summer Vibes, River",
+        "emoji": "🏞️",
+        "url": "https://user.uploads.dev/file/ed7af5c07ce4377c20d07aeda39d968b.mp3"
+      },
+      {
+        "title": "Preparing for the Quest",
+        "emoji": "📜",
+        "url": "https://user.uploads.dev/file/9e07a06b6549837087c5e7b61a5f01fd.mp3"
+      },
+      {
+        "title": "Forest Adventure, Ambient",
+        "emoji": "🌲",
+        "url": "https://user.uploads.dev/file/b8b0cc48d8fb1e6ee1a314250d3e2307.mp3"
+      },
+      {
+        "title": "Rainy Day, Piano",
+        "emoji": "☕️",
+        "url": "https://user.uploads.dev/file/5eacd0122359eaa89d1b282d1e24bf59.mp3"
+      },
+      {
+        "title": "Morning Vibes, Lofi",
+        "emoji": "🧘‍♀️",
+        "url": "https://user.uploads.dev/file/abf990528e3427eebf79885a5fcbf32a.mp3"
+      },
+      {
+        "title": "80's Lofi Hiphop",
+        "emoji": "🌃",
+        "url": "https://user.uploads.dev/file/1979704506beb8cc5b8fd144c0d9ace7.mp3"
+      },
+      {
+        "title": "Epic Cinematic Awe",
+        "emoji": "🍿",
+        "url": "https://user.uploads.dev/file/24d46ec59d00c174a321b3b3a77f3c89.mp3"
+      },
+      {
+        "title": "Eastern Fantasy Vibes",
+        "emoji": "⛩️",
+        "url": "https://user.uploads.dev/file/fd7672362acd646710b111845b585f27.mp3"
+      },
+      {
+        "title": "Cozy Fairytail Fantasy",
+        "emoji": "🧚‍♀️",
+        "url": "https://user.uploads.dev/file/50a953934d550f9487c249a7b0b80bbd.mp3"
+      },
+      {
+        "title": "Ambient Tranquil Fantasy",
+        "emoji": "🪷",
+        "url": "https://user.uploads.dev/file/acfdbc7c843c29cf286caa3d244a3ee0.mp3"
+      },
+      {
+        "title": "Fantasy Exploration (Calm)",
+        "emoji": "🗺️",
+        "url": "https://user.uploads.dev/file/6252394fcf3c193823018f370d218fda.mp3"
+      },
+      {
+        "title": "Ambient Ethereal Vocals",
+        "emoji": "🌫️",
+        "url": "https://user.uploads.dev/file/31dc821b63f0db13a7b3ede3d891c5b2.mp3"
+      },
+      {
+        "title": "Ambient Hogwarts Vibe",
+        "emoji": "🧹",
+        "url": "https://user.uploads.dev/file/ab8afcfb0aa8883463fc7386efd87472.mp3"
+      },
+      {
+        "title": "Calm Dark Academia Piano",
+        "emoji": "🤎",
+        "url": "https://user.uploads.dev/file/ef26fe8e4895ebe4125b554b287e7e14.mp3"
+      },
+      {
+        "title": "Calming Japanese Instrumental",
+        "emoji": "🎐",
+        "url": "https://user.uploads.dev/file/214833b84e77432e311c2e47ac2ba440.mp3"
+      },
+      {
+        "title": "Celtic Harp",
+        "emoji": "𝄞",
+        "url": "https://user.uploads.dev/file/8ae7e6dec7ff288ff4f4d25b9911544c.mp3"
+      },
+      {
+        "title": "Cozy Hobbit Living Room",
+        "emoji": "🧒",
+        "url": "https://user.uploads.dev/file/469c4fd6a3e83465d6283e0483da5000.mp3"
+      },
+      {
+        "title": "Dark Academia Train Ride",
+        "emoji": "🚂",
+        "url": "https://user.uploads.dev/file/b91c4b0fd0016138e7c721062a284c43.mp3"
+      },
+      {
+        "title": "Gentle Fantasy Anime Vibe",
+        "emoji": "👒",
+        "url": "https://user.uploads.dev/file/1855082aa8fab9675e0341b39a424e3d.mp3"
+      },
+      {
+        "title": "Gentle Inspiring Piano",
+        "emoji": "🍂",
+        "url": "https://user.uploads.dev/file/3b940c4fa4201074a7b112495cf5a14b.mp3"
+      },
+      {
+        "title": "Japanese Instrumentals",
+        "emoji": "🍵",
+        "url": "https://user.uploads.dev/file/7c6df2b832f50bacf1777520acb1ded3.mp3"
+      },
+      {
+        "title": "Japanese Road Trip",
+        "emoji": "🗼",
+        "url": "https://user.uploads.dev/file/ee667bb34fa81e92339b0037dcc5ccc7.mp3"
+      },
+      {
+        "title": "Japanese Upbeat Wistful",
+        "emoji": "🩹",
+        "url": "https://user.uploads.dev/file/e2f34e6fb2c53c91d5ebef6183288d4d.mp3"
+      },
+      {
+        "title": "Kawaii Vocals",
+        "emoji": "🧋",
+        "url": "https://user.uploads.dev/file/4a376965fe387eea741349869e26cd96.mp3"
+      },
+      {
+        "title": "Medieval Folk",
+        "emoji": "📜",
+        "url": "https://user.uploads.dev/file/0486809b5b02408acb3d2ad36942fc1a.mp3"
+      },
+      {
+        "title": "Difficult Journey Orchestral",
+        "emoji": "🏔️",
+        "url": "https://user.uploads.dev/file/aac989d61ca39bd66553ddc13fd93ec8.mp3"
+      },
+      {
+        "title": "Relaxing Celtic",
+        "emoji": "💚",
+        "url": "https://user.uploads.dev/file/073662830cd824d640f28de796e9e465.mp3"
+      },
+      {
+        "title": "Relaxing Iconic Piano",
+        "emoji": "🥇",
+        "url": "https://user.uploads.dev/file/753e04549c0d30e10447b981afcfb0fd.mp3"
+      },
+      {
+        "title": "Soft Hymnal Instrumental",
+        "emoji": "🎼",
+        "url": "https://user.uploads.dev/file/a3378e7e12e1ce7cf3a464056e79ef86.mp3"
+      },
+      {
+        "title": "Scottish Highlands (Bagpipes)",
+        "emoji": "🏴",
+        "url": "https://user.uploads.dev/file/bbfda1aa43149980d104bbc84d9f4da6.mp3"
+      },
+      {
+        "title": "Serene Sci-Fi",
+        "emoji": "🪐",
+        "url": "https://user.uploads.dev/file/f463c6e7c8b6e6abae2acdf423a72f90.mp3"
+      },
+      {
+        "title": "Soft Sci-Fi",
+        "emoji": "☄️",
+        "url": "https://user.uploads.dev/file/5ca2c3e11243c1dec20b274ce6d8d2ec.mp3"
+      },
+      {
+        "title": "Soothing Elven Vocals",
+        "emoji": "🧝‍♀️",
+        "url": "https://user.uploads.dev/file/5d11408fd625df97743095488c2284a5.mp3"
+      },
+      {
+        "title": "Tokyo Vibes",
+        "emoji": "🗼",
+        "url": "https://user.uploads.dev/file/c8100c5ba725441c747a0483bbf3f3fe.mp3"
+      },
+      {
+        "title": "Very Gentle Ethereal",
+        "emoji": "😌",
+        "url": "https://user.uploads.dev/file/0bf90087944ff9b441089fc0d54ad03a.mp3"
+      },
+      {
+        "title": "Wistful Peaceful Forest",
+        "emoji": "🍃",
+        "url": "https://user.uploads.dev/file/2f3b33d14df71a83c371cc51441e9ac7.mp3"
+      },
+      {
+        "title": "Wistful Piano",
+        "emoji": "🕊",
+        "url": "https://user.uploads.dev/file/7f06357b5112c77e1139d38778dacb86.mp3"
+      },
+      {
+        "title": "Wistful Sci-Fi",
+        "emoji": "🌌",
+        "url": "https://user.uploads.dev/file/ca38400ca13388c03fb689b0ab528dbf.mp3"
+      }
+    ],
+    "contextTracks": [
+      {
+        "kind": "menu",
+        "url": "https://user.uploads.dev/file/c0d679bc3f01a0a08feb5cc5a8a9fef0.mp3"
+      },
+      {
+        "kind": "adventure",
+        "url": "https://user.uploads.dev/file/c63a4b23034739f2d8c6fa0995c29050.mp3"
+      },
+      {
+        "kind": "combat",
+        "url": "https://user.uploads.dev/file/e1703ce9f1428da7effa8d3c2953cb9c.mp3"
+      }
+    ]
+  },
+  "presetWorlds": [
+    {
+      "id": "eldermere",
+      "name": "The Realm of Eldermere",
+      "genre": "fantasy",
+      "bgUrl": "https://user.uploads.dev/file/0ec2ce56ee8e63b601ad081b3d5698f1.jpg"
+    },
+    {
+      "id": "darklands",
+      "name": "The Cursed Darklands",
+      "genre": "horror",
+      "bgUrl": "https://user.uploads.dev/file/fdb43e3928059630c34734a49cc4be24.jpg"
+    },
+    {
+      "id": "skylands",
+      "name": "The Floating Skylands",
+      "genre": "fantasy",
+      "bgUrl": "https://user.uploads.dev/file/f1b59766c56c64e9c56c6e738d12c964.jpg"
+    },
+    {
+      "id": "underworld",
+      "name": "The Sunless Underworld",
+      "genre": "fantasy",
+      "bgUrl": "https://user.uploads.dev/file/27efb155a7e60e5afbf9440be248d146.jpg"
+    },
+    {
+      "id": "stoneage",
+      "name": "The Stone Age",
+      "genre": "survival",
+      "bgUrl": "https://user.uploads.dev/file/eea2848c63568dc289dfe43868880c77.jpg"
+    },
+    {
+      "id": "modernhorror",
+      "name": "The Hollow Hours",
+      "genre": "horror",
+      "bgUrl": "https://user.uploads.dev/file/8255d5b065d225928a1cbb976df31342.jpg"
+    },
+    {
+      "id": "galactic",
+      "name": "The Galactic Frontier",
+      "genre": "scifi",
+      "bgUrl": "https://user.uploads.dev/file/2b2fe1473ab3c11c97abd994c63dfcb4.jpg"
+    },
+    {
+      "id": "wow",
+      "name": "World of Warcraft",
+      "genre": "fantasy",
+      "bgUrl": "https://user.uploads.dev/file/ae73889ee9f59854ed0c809004913b60.jpg"
+    },
+    {
+      "id": "middleearth",
+      "name": "Middle-earth",
+      "genre": "fantasy",
+      "bgUrl": "https://user.uploads.dev/file/0c2629a074a9e4f7db352ea54ebfa455.jpg"
+    },
+    {
+      "id": "embercrest",
+      "name": "Embercrest",
+      "genre": "mature",
+      "bgUrl": "https://user.uploads.dev/file/090552ee5ed6a937a6bbe2afdfe2005e.jpg"
+    }
+  ],
+  "cdn": [
+    {
+      "lib": "piexifjs",
+      "url": "https://cdn.jsdelivr.net/npm/piexifjs"
+    },
+    {
+      "lib": "font-awesome",
+      "version": "6.5.2",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    },
+    {
+      "lib": "@huggingface/transformers",
+      "version": "3.3.3",
+      "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.3.3"
+    },
+    {
+      "lib": "model:briaai/RMBG-1.4",
+      "url": "https://huggingface.co/briaai/RMBG-1.4"
+    }
+  ]
+}
