@@ -1,0 +1,3618 @@
+// AIFG v1.93 Clean More build
+commentsPlugin = {import:comments-plugin}
+generateText = {import:ai-text-plugin}
+defaultCustomEmojis = {import:huge-emoji-list}
+
+// See exampleOptions below for an example of these options:
+//   channels: (A list of channel names, optionally with the comment options under each channel name)
+//   allowBots: true/false (Default is true, except on default channel and 'general' channel. You can also disable/enable bots on a per-channel basis by setting allowBots to true/false under the channel name.)
+//   defaultCommentsOptions: (See perchance.org/comments-plugin for all options)
+//   fillHeight: true/value (By default its height is based on the screen height. set this option to true to make it expand to full height of its container)
+
+exampleOptions
+  defaultCommentsOptions // see perchance.org/comments-plugin for all available options
+    adminFlair = 💎OWNER💎 // this option will get applied to *all* channels below.
+  channels 
+    general
+      label = General
+    chat1 // i've set messageBubbleStyle here to give an example showing that each channel can have any of the channel options that are explained on perchance.org/comments-plugin
+      label = Room 1
+      messageBubbleStyle = background:pink; border:2px dotted red; color:black;
+    chat2
+      label = Room 2
+      allowBots = false // disallows 'speak via character' for this channel
+    test3
+    test4
+
+
+
+
+
+
+
+
+tabbedCommentsPlugin = [$output]
+
+$output(opts) =>
+  let commentsChannels = opts.channels;
+  let defaultChannelOptions = opts.defaultChannelOptions || {};
+  let outerCtn = document.createElement("div");
+
+  let globalFnsId = "a"+Math.random().toString(16).slice(2);
+
+  let minHeight = defaultChannelOptions.height;
+  if(!minHeight) minHeight = 300;
+  if(typeof minHeight === "number") minHeight += "px";
+
+
+  outerCtn.className = "tabbed-comments-plugin-outer-ctn";
+  outerCtn.style.cssText = `text-align:center; ${opts.fillHeight ? "height:100%;" : ""}; container-type:inline-size; display:flex; flex-direction:column; min-height:0;`;
+  outerCtn.innerHTML = `
+  <style>
+    .tabbed-comments-plugin-panels-row {
+      display:flex;
+      justify-content:center;
+      align-items:stretch;
+      flex:1 1 auto;
+      min-height:0;
+      width:100%;
+      gap:0;
+    }
+    .tabbed-comments-plugin-edge-spacer {
+      flex:1 1 0;
+      min-width:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:flex-basis .18s ease, width .18s ease;
+    }
+    .tabbed-comments-plugin-panels-strip {
+      flex:0 1 min(800px,100%);
+      width:100%;
+      max-width:min(800px,100%);
+      min-width:0;
+      display:flex;
+      align-items:stretch;
+      gap:6px;
+    }
+    .tabbed-comments-plugin-panels-row.has-horizontal-panels .tabbed-comments-plugin-edge-spacer {
+      display:none;
+    }
+    .tabbed-comments-plugin-panels-row.has-horizontal-panels .tabbed-comments-plugin-panels-strip {
+      flex:1 1 auto;
+      max-width:none;
+    }
+    .tabbed-comments-plugin-extra-rows {
+      display:none;
+      width:100%;
+      flex-direction:column;
+      gap:8px;
+      padding-top:8px;
+      box-sizing:border-box;
+    }
+    .tabbed-comments-plugin-extra-rows.has-extra-panels {
+      display:flex;
+    }
+    .tabbed-comments-plugin-extra-row {
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:stretch;
+      min-width:0;
+    }
+    .tabbed-comments-plugin-extra-strip {
+      width:min(800px,100%);
+      max-width:min(800px,100%);
+      min-width:0;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      gap:6px;
+    }
+    .tabbed-comments-plugin-extra-row.has-horizontal-panels .tabbed-comments-plugin-extra-strip {
+      width:100%;
+      max-width:none;
+    }
+    .tabbed-comments-plugin-panel-slot {
+      flex:1 1 0;
+      min-width:0;
+      height:var(--aifg-comments-classic-height,540px);
+      min-height:${minHeight};
+      ${opts.fillHeight ? "height:100%;max-height:100%;min-height:0;" : ""}
+    }
+    .tabbed-comments-plugin-single-row-multi-host {
+      height:90vh!important;
+      min-height:90vh!important;
+    }
+    .tabbed-comments-plugin-outer-ctn.has-single-row-multiple-panels,
+    .tabbed-comments-plugin-outer-ctn.has-single-row-multiple-panels > .tabbed-comments-plugin-panels-row,
+    .tabbed-comments-plugin-outer-ctn.has-single-row-multiple-panels > .tabbed-comments-plugin-panels-row > .tabbed-comments-plugin-panels-strip {
+      height:100%!important;
+      min-height:0!important;
+      flex:1 1 auto!important;
+    }
+    .tabbed-comments-plugin-outer-ctn.has-single-row-multiple-panels .tabbed-comments-plugin-panel-slot {
+      height:100%!important;
+      max-height:100%!important;
+      min-height:0!important;
+    }
+    html[data-workspace-layout="dock"][data-workspace-split="studio"] .tabbed-comments-plugin-outer-ctn:not(.has-multiple-panels),
+    html[data-workspace-layout="dock"][data-workspace-split="studio"] .tabbed-comments-plugin-outer-ctn:not(.has-multiple-panels) > .tabbed-comments-plugin-panels-row,
+    html[data-workspace-layout="dock"][data-workspace-split="studio"] .tabbed-comments-plugin-outer-ctn:not(.has-multiple-panels) > .tabbed-comments-plugin-panels-row > .tabbed-comments-plugin-panels-strip {
+      height:100%!important;
+      min-height:0!important;
+      flex:1 1 auto!important;
+    }
+    html[data-workspace-layout="dock"][data-workspace-split="studio"] .tabbed-comments-plugin-outer-ctn:not(.has-multiple-panels) .tabbed-comments-plugin-panel-slot {
+      height:100%!important;
+      max-height:100%!important;
+      min-height:0!important;
+    }
+    .tabbed-comments-plugin-outer-ctn.has-multiple-panels .tabbed-comments-plugin-panel-slot {
+      height:var(--aifg-comments-classic-height,540px)!important;
+      max-height:none!important;
+      min-height:${minHeight}!important;
+    }
+
+    /* row 2+ uses shorter stacked-row sizing. */
+    .tabbed-comments-plugin-outer-ctn.has-multiple-panels {
+      height:auto!important;
+      min-height:0!important;
+      flex:0 0 auto!important;
+      overflow:visible!important;
+    }
+    .tabbed-comments-plugin-outer-ctn.has-multiple-panels > .tabbed-comments-plugin-panels-row {
+      flex:0 0 auto;
+    }
+
+    @media (max-width:899px) {
+      .tabbed-comments-plugin-edge-spacer {
+        display:none;
+      }
+      .tabbed-comments-plugin-panels-row,
+      .tabbed-comments-plugin-panels-strip,
+      .tabbed-comments-plugin-extra-row,
+      .tabbed-comments-plugin-extra-strip {
+        width:100%;
+        height:auto!important;
+        min-height:0!important;
+        max-width:none;
+        flex:0 0 auto;
+        overflow:visible;
+      }
+      .tabbed-comments-plugin-extra-strip {
+        flex-direction:column;
+        gap:8px;
+      }
+      .tabbed-comments-plugin-panel-slot {
+        height:var(--aifg-comments-classic-height,540px)!important;
+        max-height:none!important;
+      }
+      .tabbed-comments-plugin-extra-row .tabbed-comments-plugin-panel-slot {
+        width:100%;
+        height:var(--aifg-comments-multi-mobile-height,460px)!important;
+        min-width:0;
+        min-height:0!important;
+        max-height:none!important;
+        flex:0 0 var(--aifg-comments-multi-mobile-height,460px);
+      }
+      .tabbed-comments-plugin-mobile-stack-host {
+        height:auto!important;
+        min-height:0!important;
+        max-height:none!important;
+        overflow:visible!important;
+      }
+    }
+    .tabbed-comments-plugin-more-menu {
+      position:fixed;
+      z-index:1500001;
+      display:none;
+      width:min(270px,calc(100vw - 16px));
+      max-height:min(78dvh,620px);
+      overflow-y:auto;
+      overscroll-behavior:contain;
+      padding:6px;
+      box-sizing:border-box;
+      border:1px solid var(--border-color,#444);
+      border-radius:9px;
+      background:var(--box-color,#222);
+      color:var(--text-color,#eee);
+      box-shadow:0 12px 34px rgba(0,0,0,.34);
+      text-align:left;
+      font:13px/1.3 'Open Sans',system-ui,sans-serif;
+    }
+    .tabbed-comments-plugin-more-menu-item {
+      width:100%;
+      min-height:38px;
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 9px;
+      box-sizing:border-box;
+      border:0;
+      border-radius:7px;
+      background:transparent;
+      color:inherit;
+      font:inherit;
+      text-align:left;
+      cursor:pointer;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .tabbed-comments-plugin-more-menu-item:hover:not(:disabled),
+    .tabbed-comments-plugin-more-menu-item:focus-visible:not(:disabled) {
+      background:rgba(127,127,127,.13);
+      outline:none;
+    }
+    .tabbed-comments-plugin-more-menu-item:active:not(:disabled) {
+      background:rgba(127,127,127,.22);
+    }
+    .tabbed-comments-plugin-more-menu-item:disabled {
+      opacity:.38;
+      cursor:default;
+    }
+    .tabbed-comments-plugin-more-menu-item > i {
+      width:18px;
+      flex:0 0 18px;
+      text-align:center;
+      opacity:.82;
+    }
+    .tabbed-comments-plugin-more-menu-separator {
+      height:1px;
+      margin:5px 7px;
+      background:var(--border-color,#444);
+      opacity:.75;
+    }
+    .tabbed-comments-plugin-channel-search {
+      display:grid;
+      grid-template-columns:22px minmax(0,1fr) 28px;
+      align-items:center;
+      gap:4px;
+      min-height:38px;
+      margin:0 0 5px;
+      padding:0 4px 0 7px;
+      box-sizing:border-box;
+      border:1px solid var(--border-color,#444);
+      border-radius:7px;
+      background:var(--background-color,#111);
+      color:inherit;
+    }
+    .tabbed-comments-plugin-channel-search-icon {
+      width:22px;
+      text-align:center;
+      font-size:13px;
+      line-height:1;
+      opacity:.64;
+      user-select:none;
+    }
+    .tabbed-comments-plugin-channel-search-input {
+      width:100%;
+      min-width:0;
+      height:34px;
+      padding:0;
+      border:0;
+      outline:0;
+      background:transparent;
+      color:inherit;
+      font:inherit;
+    }
+    .tabbed-comments-plugin-channel-search-input::placeholder {
+      color:inherit;
+      opacity:.48;
+    }
+    .tabbed-comments-plugin-channel-search-clear {
+      width:28px;
+      height:28px;
+      padding:0;
+      border:0;
+      border-radius:6px;
+      background:transparent;
+      color:inherit;
+      cursor:pointer;
+      font:18px/1 system-ui,sans-serif;
+      opacity:.62;
+      touch-action:manipulation;
+    }
+    .tabbed-comments-plugin-channel-search-clear:hover,
+    .tabbed-comments-plugin-channel-search-clear:focus-visible {
+      background:rgba(127,127,127,.13);
+      opacity:1;
+      outline:none;
+    }
+    .tabbed-comments-plugin-channel-search-results {
+      display:none;
+      margin:0 0 5px;
+    }
+    .tabbed-comments-plugin-channel-search-results.is-active {
+      display:block;
+    }
+    .tabbed-comments-plugin-channel-search-result.is-current {
+      background:rgba(127,127,127,.10);
+      font-weight:650;
+    }
+    .tabbed-comments-plugin-channel-search-empty {
+      padding:8px 9px 9px;
+      font-size:12px;
+      opacity:.55;
+    }
+    .tabbed-comments-auto-comment-target {
+      max-width:180px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      font-size:11px;
+      font-weight:600;
+      opacity:.64;
+    }
+    .tabbed-comments-auto-comment-ctn {
+      position:fixed;
+      left:50%;
+      top:50%;
+      right:auto;
+      bottom:auto;
+      transform:translate(-50%,-50%);
+      z-index:1500000;
+      display:none;
+      flex-direction:column;
+      width:min(420px,calc(100vw - 24px));
+      height:min(520px,72dvh);
+      min-width:min(300px,calc(100vw - 16px));
+      min-height:52px;
+      max-width:none;
+      max-height:none;
+      resize:none;
+      overflow:hidden;
+      box-sizing:border-box;
+      border:1px solid var(--border-color,#444);
+      border-radius:10px;
+      background:var(--box-color,#222);
+      color:var(--text-color,#eee);
+      box-shadow:0 16px 46px rgba(0,0,0,.34);
+      text-align:left;
+      font:14px/1.4 'Open Sans',system-ui,sans-serif;
+    }
+    .tabbed-comments-auto-comment-drag-handle {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-height:42px;
+      padding:8px 9px 8px 12px;
+      border-bottom:1px solid var(--border-color,#444);
+      cursor:grab;
+      user-select:none;
+      touch-action:none;
+    }
+    .tabbed-comments-auto-comment-drag-handle:active { cursor:grabbing; }
+    .tabbed-comments-auto-comment-title {
+      display:flex;
+      align-items:center;
+      gap:7px;
+      min-width:0;
+      flex:1;
+      font-weight:700;
+    }
+    .tabbed-comments-auto-comment-close-btn,
+    .tabbed-comments-auto-comment-collapse-btn,
+    .tabbed-comments-auto-comment-add-char-btn {
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      padding:0;
+      border:1px solid var(--border-color,#444);
+      border-radius:7px;
+      background:var(--background-color,#111);
+      color:inherit;
+      cursor:pointer;
+    }
+    .tabbed-comments-auto-comment-body {
+      display:flex;
+      flex:1 1 auto;
+      flex-direction:column;
+      gap:7px;
+      min-height:0;
+      overflow:auto;
+      padding:10px 14px 14px 10px;
+      box-sizing:border-box;
+    }
+    .tabbed-comments-auto-comment-picker {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:7px;
+      align-items:end;
+    }
+    .tabbed-comments-auto-comment-field {
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      min-width:0;
+    }
+    .tabbed-comments-auto-comment-field > span {
+      font-size:11.5px;
+      font-weight:650;
+      opacity:.72;
+    }
+    .tabbed-comments-auto-comment-description-field {
+      flex:1 1 120px;
+      min-height:100px;
+    }
+    .tabbed-comments-auto-comment-ctn input[type="text"],
+    .tabbed-comments-auto-comment-ctn textarea,
+    .tabbed-comments-auto-comment-ctn select {
+      width:100%;
+      box-sizing:border-box;
+      border:1px solid var(--border-color,#444);
+      border-radius:7px;
+      background:var(--background-color,#111);
+      color:var(--text-color,#eee);
+      font:13.5px/1.4 'Open Sans',system-ui,sans-serif;
+      outline:none;
+    }
+    .tabbed-comments-auto-comment-ctn input[type="text"],
+    .tabbed-comments-auto-comment-ctn select { min-height:34px; padding:6px 8px; }
+    .tabbed-comments-auto-comment-ctn textarea {
+      min-height:90px;
+      max-height:none;
+      resize:none;
+      padding:8px 9px;
+    }
+    .tabbed-comments-auto-comment-description-field textarea {
+      flex:1 1 auto;
+      height:100%;
+    }
+    .tabbed-comments-auto-comment-ctn input:focus,
+    .tabbed-comments-auto-comment-ctn textarea:focus,
+    .tabbed-comments-auto-comment-ctn select:focus {
+      border-color:var(--main-color,#007bff);
+    }
+    .tabbed-comments-auto-comment-footer {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding-top:2px;
+    }
+    .tabbed-comments-auto-comment-auto-send-label {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      min-width:max-content;
+      font-size:12px;
+      opacity:.8;
+      cursor:pointer;
+      user-select:none;
+    }
+    .tabbed-comments-auto-comment-char-btn {
+      min-height:34px;
+      padding:7px 11px;
+      border:0;
+      border-radius:7px;
+      background:var(--main-color,#007bff);
+      color:#fff;
+      font:650 13px/1.2 'Open Sans',system-ui,sans-serif;
+      cursor:pointer;
+    }
+    .tabbed-comments-auto-comment-char-btn:disabled { opacity:.58; cursor:default; }
+    .tabbed-comments-auto-comment-resize-handle {
+      position:absolute;
+      right:0;
+      bottom:0;
+      z-index:3;
+      width:34px;
+      height:34px;
+      cursor:nwse-resize;
+      touch-action:none;
+      color:inherit;
+      user-select:none;
+    }
+    .tabbed-comments-auto-comment-resize-handle::after {
+      content:"";
+      position:absolute;
+      right:6px;
+      bottom:6px;
+      width:12px;
+      height:12px;
+      opacity:.42;
+      background:linear-gradient(135deg,transparent 0 45%,currentColor 46% 50%,transparent 51% 64%,currentColor 65% 69%,transparent 70% 100%);
+      pointer-events:none;
+    }
+    .tabbed-comments-auto-comment-ctn[data-collapsed="1"] .tabbed-comments-auto-comment-resize-handle {
+      display:none;
+    }
+    @media (max-width:650px) {
+      .tabbed-comments-auto-comment-ctn {
+        left:50%;
+        top:50%;
+        right:auto;
+        bottom:auto;
+        width:min(420px,calc(100vw - 32px));
+        height:min(520px,72dvh);
+      }
+    }
+  </style>
+  <div class="tabbed-comments-plugin-panels-row">
+    <div class="tabbed-comments-plugin-edge-spacer" aria-hidden="true"></div>
+    <div class="tabbed-comments-plugin-panels-strip"></div>
+    <div class="tabbed-comments-plugin-edge-spacer" aria-hidden="true"></div>
+  </div>
+  <div class="tabbed-comments-plugin-extra-rows" aria-label="Additional comment panel rows"></div>
+  <div class="tabbed-comments-auto-comment-ctn" role="dialog" aria-label="AI Character" aria-hidden="true">
+    <div class="tabbed-comments-auto-comment-drag-handle">
+      <div class="tabbed-comments-auto-comment-title"><i class="fa-solid fa-robot" aria-hidden="true"></i><span>AI Character</span><span class="tabbed-comments-auto-comment-target"></span></div>
+      <button type="button" class="tabbed-comments-auto-comment-collapse-btn" title="Collapse" aria-label="Collapse" aria-expanded="true"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button>
+      <button type="button" class="tabbed-comments-auto-comment-close-btn" title="Close" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="tabbed-comments-auto-comment-body">
+      <div class="tabbed-comments-auto-comment-picker">
+        <label class="tabbed-comments-auto-comment-field">
+          <span>Character</span>
+          <select class="tabbed-comments-auto-comment-char-select"></select>
+        </label>
+        <button type="button" class="tabbed-comments-auto-comment-add-char-btn" title="Add character" aria-label="Add character"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+      </div>
+      <label class="tabbed-comments-auto-comment-field">
+        <span>Name</span>
+        <input type="text" class="tabbed-comments-auto-comment-char-name" placeholder="Character name...">
+      </label>
+      <label class="tabbed-comments-auto-comment-field tabbed-comments-auto-comment-description-field">
+        <span>Character description</span>
+        <textarea class="tabbed-comments-auto-comment-char-description" placeholder="Describe the character, personality, roleplay style, and anything the AI should follow..."></textarea>
+      </label>
+      <div class="tabbed-comments-auto-comment-footer">
+        <label class="tabbed-comments-auto-comment-auto-send-label"><input class="tabbed-comments-auto-comment-auto-send-checkbox" type="checkbox"><span>Auto-send</span></label>
+        <button type="button" class="tabbed-comments-auto-comment-char-btn">Generate Comment <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left:.3em;"></i></button>
+      </div>
+    </div>
+    <div class="tabbed-comments-auto-comment-resize-handle" aria-hidden="true"></div>
+  </div>`;
+
+  let panelsRow = outerCtn.querySelector('.tabbed-comments-plugin-panels-row');
+  let panelsStrip = outerCtn.querySelector('.tabbed-comments-plugin-panels-strip');
+  let extraRowsHost = outerCtn.querySelector('.tabbed-comments-plugin-extra-rows');
+  let mainPanelSlot = null;
+
+  let autoCommentCtn = outerCtn.querySelector('.tabbed-comments-auto-comment-ctn');
+  let autoCommentTargetEl = outerCtn.querySelector('.tabbed-comments-auto-comment-target');
+  let autoCommentDragHandle = outerCtn.querySelector('.tabbed-comments-auto-comment-drag-handle');
+  let autoCommentResizeHandle = outerCtn.querySelector('.tabbed-comments-auto-comment-resize-handle');
+  let autoCommentTitleEl = outerCtn.querySelector('.tabbed-comments-auto-comment-title');
+  let autoCommentTitleTextEl = autoCommentTitleEl?.querySelector('span:first-of-type');
+  let autoCommentBody = outerCtn.querySelector('.tabbed-comments-auto-comment-body');
+  let autoCommentCollapseBtn = outerCtn.querySelector('.tabbed-comments-auto-comment-collapse-btn');
+  let autoCommentCloseBtn = outerCtn.querySelector('.tabbed-comments-auto-comment-close-btn');
+  let autoCommentAddCharBtn = outerCtn.querySelector('.tabbed-comments-auto-comment-add-char-btn');
+  let autoCommentCharBtn = outerCtn.querySelector('.tabbed-comments-auto-comment-char-btn');
+  let autoCommentCharSelectEl = outerCtn.querySelector('.tabbed-comments-auto-comment-char-select');
+  let autoCommentCharNameEl = outerCtn.querySelector('.tabbed-comments-auto-comment-char-name');
+  let autoCommentCharNameDescriptionEl = outerCtn.querySelector('.tabbed-comments-auto-comment-char-description');
+  let autoCommentAutoSendCheckboxEl = outerCtn.querySelector('.tabbed-comments-auto-comment-auto-send-checkbox');
+
+  let autoCommentTargetPanelObj = null;
+
+  function getAutoCommentTargetLabel(panelObj = autoCommentTargetPanelObj) {
+    const channel = panelObj?.getCurrentChannelName?.();
+    if(channel === null || channel === undefined) return "";
+    return `#${channel || "general"}`;
+  }
+
+  function updateAutoCommentTargetLabel() {
+    if(autoCommentTargetEl) autoCommentTargetEl.textContent = getAutoCommentTargetLabel();
+  }
+
+  function refreshAutoCommentControls() {
+    for(const panelObj of allPanelObjs) {
+      panelObj?.refreshMoreMenu?.();
+    }
+  }
+
+  let autoCommentExpandedWidth = null;
+  let autoCommentExpandedHeight = null;
+
+  function setAutoCommentPanelCollapsed(collapsed) {
+    collapsed = !!collapsed;
+    if(collapsed === (autoCommentCtn.dataset.collapsed === "1")) return;
+
+    if(collapsed) {
+      const rect = autoCommentCtn.getBoundingClientRect();
+      autoCommentExpandedWidth = rect.width;
+      autoCommentExpandedHeight = rect.height;
+      autoCommentCtn.style.transform = "none";
+      autoCommentCtn.style.left = `${rect.left}px`;
+      autoCommentCtn.style.top = `${rect.top}px`;
+      autoCommentCtn.style.width = "46px";
+      autoCommentCtn.style.height = "46px";
+      autoCommentCtn.style.minWidth = "46px";
+      autoCommentCtn.style.minHeight = "46px";
+      autoCommentCtn.style.maxWidth = "46px";
+      autoCommentCtn.style.maxHeight = "46px";
+      autoCommentCtn.style.resize = "none";
+      autoCommentCtn.style.borderRadius = "13px";
+      autoCommentCtn.style.background = "var(--special-color,#1378e4)";
+      autoCommentCtn.style.color = "#fff";
+      autoCommentCtn.style.border = "1px solid var(--floatingpanel-border-color,var(--border-color,#444))";
+      autoCommentCtn.style.boxShadow = "0 1px 2px rgba(0,0,0,.2)";
+      autoCommentBody.style.display = "none";
+      autoCommentTargetEl.style.display = "none";
+      if(autoCommentTitleTextEl) autoCommentTitleTextEl.style.display = "none";
+      autoCommentCollapseBtn.style.display = "none";
+      autoCommentCloseBtn.style.display = "none";
+      autoCommentResizeHandle.style.display = "none";
+      autoCommentTitleEl.style.flex = "0 0 auto";
+      autoCommentDragHandle.style.minHeight = "46px";
+      autoCommentDragHandle.style.padding = "0";
+      autoCommentDragHandle.style.justifyContent = "center";
+      autoCommentDragHandle.style.borderBottom = "0";
+      autoCommentDragHandle.title = "AI Character · drag or click to expand";
+      autoCommentCtn.dataset.collapsed = "1";
+    } else {
+      autoCommentCtn.style.width = `${Math.min(autoCommentExpandedWidth || 420, window.innerWidth - 16)}px`;
+      autoCommentCtn.style.height = `${Math.min(autoCommentExpandedHeight || 520, window.innerHeight - 16)}px`;
+      autoCommentCtn.style.minWidth = "min(300px,calc(100vw - 16px))";
+      autoCommentCtn.style.minHeight = "52px";
+      autoCommentCtn.style.maxWidth = "none";
+      autoCommentCtn.style.maxHeight = "none";
+      autoCommentCtn.style.resize = "none";
+      autoCommentCtn.style.borderRadius = "10px";
+      autoCommentCtn.style.background = "var(--box-color,#222)";
+      autoCommentCtn.style.color = "var(--text-color,#eee)";
+      autoCommentCtn.style.border = "1px solid var(--border-color,#444)";
+      autoCommentCtn.style.boxShadow = "0 16px 46px rgba(0,0,0,.34)";
+      autoCommentBody.style.display = "";
+      autoCommentTargetEl.style.display = "";
+      if(autoCommentTitleTextEl) autoCommentTitleTextEl.style.display = "";
+      autoCommentCollapseBtn.style.display = "";
+      autoCommentCloseBtn.style.display = "";
+      autoCommentResizeHandle.style.display = "";
+      autoCommentTitleEl.style.flex = "";
+      autoCommentDragHandle.style.minHeight = "42px";
+      autoCommentDragHandle.style.padding = "8px 9px 8px 12px";
+      autoCommentDragHandle.style.justifyContent = "";
+      autoCommentDragHandle.style.borderBottom = "1px solid var(--border-color,#444)";
+      autoCommentDragHandle.title = "";
+      autoCommentCtn.dataset.collapsed = "0";
+    }
+    requestAnimationFrame(clampAutoCommentPanelToViewport);
+  }
+
+  function setAutoCommentPanelOpen(isOpen) {
+    isOpen = !!isOpen && panelAllowsAutoComment(autoCommentTargetPanelObj);
+    autoCommentCtn.style.display = isOpen ? "flex" : "none";
+    autoCommentCtn.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    updateAutoCommentTargetLabel();
+    refreshAutoCommentControls();
+    if(isOpen) {
+      setAutoCommentPanelCollapsed(false);
+      requestAnimationFrame(clampAutoCommentPanelToViewport);
+    }
+  }
+
+  function openAutoCommentForPanel(panelObj) {
+    if(!panelAllowsAutoComment(panelObj)) return;
+    autoCommentTargetPanelObj = panelObj;
+    updateAutoCommentTargetLabel();
+    setAutoCommentPanelOpen(true);
+  }
+
+  function clampAutoCommentPanelToViewport() {
+    if(autoCommentCtn.style.display === "none" || !autoCommentCtn.style.left) return;
+    const margin = 8;
+    const maxWidth = Math.max(1, window.innerWidth-margin*2);
+    const maxHeight = Math.max(1, window.innerHeight-margin*2);
+    let rect = autoCommentCtn.getBoundingClientRect();
+
+    if(autoCommentCtn.dataset.collapsed !== "1" && (rect.width > maxWidth || rect.height > maxHeight)) {
+      const width = Math.min(rect.width, maxWidth);
+      const height = Math.min(rect.height, maxHeight);
+      autoCommentCtn.style.width = `${width}px`;
+      autoCommentCtn.style.height = `${height}px`;
+      autoCommentExpandedWidth = width;
+      autoCommentExpandedHeight = height;
+      rect = autoCommentCtn.getBoundingClientRect();
+    }
+
+    const maxLeft = Math.max(margin, window.innerWidth-rect.width-margin);
+    const maxTop = Math.max(margin, window.innerHeight-rect.height-margin);
+    autoCommentCtn.style.left = `${Math.min(maxLeft, Math.max(margin, rect.left))}px`;
+    autoCommentCtn.style.top = `${Math.min(maxTop, Math.max(margin, rect.top))}px`;
+  }
+
+  autoCommentCollapseBtn.onclick = () => setAutoCommentPanelCollapsed(autoCommentCtn.dataset.collapsed !== "1");
+  autoCommentCloseBtn.onclick = () => setAutoCommentPanelOpen(false);
+
+  let autoCommentDragState = null;
+  autoCommentDragHandle.addEventListener("pointerdown", event => {
+    if(event.target.closest("button") || (event.pointerType === "mouse" && event.button !== 0)) return;
+    const rect = autoCommentCtn.getBoundingClientRect();
+    autoCommentDragState = {
+      pointerId:event.pointerId,
+      startX:event.clientX,
+      startY:event.clientY,
+      offsetX:event.clientX-rect.left,
+      offsetY:event.clientY-rect.top,
+      moved:false
+    };
+    autoCommentCtn.style.transform = "none";
+    autoCommentCtn.style.right = "auto";
+    autoCommentCtn.style.bottom = "auto";
+    autoCommentCtn.style.left = `${rect.left}px`;
+    autoCommentCtn.style.top = `${rect.top}px`;
+    autoCommentDragHandle.style.cursor = "grabbing";
+    autoCommentDragHandle.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+  });
+  autoCommentDragHandle.addEventListener("pointermove", event => {
+    if(!autoCommentDragState || autoCommentDragState.pointerId !== event.pointerId) return;
+    if(Math.abs(event.clientX-autoCommentDragState.startX) + Math.abs(event.clientY-autoCommentDragState.startY) > 5) autoCommentDragState.moved = true;
+    const rect = autoCommentCtn.getBoundingClientRect();
+    const maxLeft = Math.max(8, window.innerWidth - rect.width - 8);
+    const maxTop = Math.max(8, window.innerHeight - rect.height - 8);
+    autoCommentCtn.style.left = `${Math.min(maxLeft, Math.max(8, event.clientX-autoCommentDragState.offsetX))}px`;
+    autoCommentCtn.style.top = `${Math.min(maxTop, Math.max(8, event.clientY-autoCommentDragState.offsetY))}px`;
+  });
+  const endAutoCommentDrag = event => {
+    if(!autoCommentDragState || autoCommentDragState.pointerId !== event.pointerId) return;
+    const expand = autoCommentCtn.dataset.collapsed === "1" && !autoCommentDragState.moved;
+    autoCommentDragHandle.releasePointerCapture?.(event.pointerId);
+    autoCommentDragHandle.style.cursor = "grab";
+    autoCommentDragState = null;
+    if(expand) setAutoCommentPanelCollapsed(false);
+  };
+  autoCommentDragHandle.addEventListener("pointerup", endAutoCommentDrag);
+  autoCommentDragHandle.addEventListener("pointercancel", endAutoCommentDrag);
+
+  let autoCommentResizeState = null;
+  autoCommentResizeHandle.addEventListener("pointerdown", event => {
+    if(autoCommentCtn.dataset.collapsed === "1" || (event.pointerType === "mouse" && event.button !== 0)) return;
+    const rect = autoCommentCtn.getBoundingClientRect();
+    autoCommentCtn.style.transform = "none";
+    autoCommentCtn.style.left = `${rect.left}px`;
+    autoCommentCtn.style.top = `${rect.top}px`;
+    autoCommentResizeState = {
+      pointerId:event.pointerId,
+      startX:event.clientX,
+      startY:event.clientY,
+      startWidth:rect.width,
+      startHeight:rect.height,
+      left:rect.left,
+      top:rect.top
+    };
+    autoCommentResizeHandle.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+    event.stopPropagation();
+  });
+  autoCommentResizeHandle.addEventListener("pointermove", event => {
+    if(!autoCommentResizeState || autoCommentResizeState.pointerId !== event.pointerId) return;
+    const margin = 8;
+    const maxWidth = Math.max(1, window.innerWidth-margin*2);
+    const maxHeight = Math.max(1, window.innerHeight-margin*2);
+    const minWidth = Math.min(300, maxWidth);
+    const minHeight = Math.min(240, maxHeight);
+    const width = Math.max(minWidth, Math.min(maxWidth, autoCommentResizeState.startWidth+event.clientX-autoCommentResizeState.startX));
+    const height = Math.max(minHeight, Math.min(maxHeight, autoCommentResizeState.startHeight+event.clientY-autoCommentResizeState.startY));
+    const left = Math.min(autoCommentResizeState.left, window.innerWidth-width-margin);
+    const top = Math.min(autoCommentResizeState.top, window.innerHeight-height-margin);
+    autoCommentCtn.style.left = `${Math.max(margin, left)}px`;
+    autoCommentCtn.style.top = `${Math.max(margin, top)}px`;
+    autoCommentCtn.style.width = `${width}px`;
+    autoCommentCtn.style.height = `${height}px`;
+    autoCommentExpandedWidth = width;
+    autoCommentExpandedHeight = height;
+    event.preventDefault();
+  });
+  const endAutoCommentResize = event => {
+    if(!autoCommentResizeState || autoCommentResizeState.pointerId !== event.pointerId) return;
+    autoCommentResizeHandle.releasePointerCapture?.(event.pointerId);
+    autoCommentResizeState = null;
+  };
+  autoCommentResizeHandle.addEventListener("pointerup", endAutoCommentResize);
+  autoCommentResizeHandle.addEventListener("pointercancel", endAutoCommentResize);
+  let extraPanelEntries = [];
+  let middlePanelObj;
+  let allPanelObjs = new Set();
+
+  let panelsResizeObserver = null;
+  let panelLayoutRaf = 0;
+  let panelWindowResizeHandler = null;
+
+  function channelAllowsAutoComment(channel) {
+    let channelData = commentsChannels[channel || "general"];
+    if(!channelData) channelData = defaultChannelOptions;
+    let allowBots = channelData.allowBots;
+    if(channel === "" || channel === "general" || opts.allowBots === false) {
+      if(allowBots === undefined) allowBots = false;
+    }
+    return allowBots !== false;
+  }
+
+  function panelAllowsAutoComment(panelObj) {
+    if(!panelObj || !allPanelObjs.has(panelObj)) return false;
+    if(outerCtn.isConnected && panelObj.element?.offsetParent === null) return false;
+    const channel = panelObj.getCurrentChannelName?.();
+    return channel !== null && channel !== undefined && channelAllowsAutoComment(channel);
+  }
+
+  function updateAutoCommentAvailability(changedPanelObj = null) {
+    if(autoCommentTargetPanelObj && !panelAllowsAutoComment(autoCommentTargetPanelObj)) {
+      autoCommentTargetPanelObj = null;
+      setAutoCommentPanelOpen(false);
+    }
+
+    updateAutoCommentTargetLabel();
+    changedPanelObj?.refreshMoreMenu?.();
+    refreshAutoCommentControls();
+  }
+
+  const MOBILE_PANEL_STACK_BREAKPOINT = 900;
+  const EXTRA_PANEL_ROW_STATE_KEY = "__tabbedCommentsPluginExtraPanelRowsV1";
+  const LEGACY_EXTRA_PANEL_COUNT_KEY = "__tabbedCommentsPluginExtraPanelCountV2";
+  const PANEL_CHANNEL_STATE_KEY = "__tabbedCommentsPluginPanelChannelsV1";
+  const LEGACY_SIDE_PANEL_LAYOUT_KEY = "__tabbedCommentsPluginSidePanelLayoutV1";
+  function isPerformanceProfile() {
+    const performanceProfile = localStorage.getItem('pl_performanceProfileV1');
+    return performanceProfile !== 'balance' && performanceProfile !== 'minimal';
+  }
+
+  function isMobilePanelStackMode() {
+    return window.innerWidth < MOBILE_PANEL_STACK_BREAKPOINT;
+  }
+
+  function canAddExtraPanel() {
+    return isPerformanceProfile();
+  }
+
+  function readSavedExtraPanelRows() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(EXTRA_PANEL_ROW_STATE_KEY) || "null");
+      if(Array.isArray(parsed)) {
+        return parsed.map(rowIndex => {
+          const value = Math.floor(Number(rowIndex));
+          return Number.isFinite(value) ? Math.max(0, value) : 0;
+        });
+      }
+    } catch(e) {}
+
+    let legacyCount = Math.floor(Number(localStorage.getItem(LEGACY_EXTRA_PANEL_COUNT_KEY)));
+    if(!Number.isFinite(legacyCount) || legacyCount < 0) {
+      try {
+        const legacy = JSON.parse(localStorage.getItem(LEGACY_SIDE_PANEL_LAYOUT_KEY) || "{}");
+        legacyCount = (legacy.left === true ? 1 : 0) + (legacy.right === true ? 1 : 0);
+      } catch(e) {
+        legacyCount = 0;
+      }
+    }
+
+    const migratedRows = Array.from({length:legacyCount}, () => 0);
+    try { localStorage.setItem(EXTRA_PANEL_ROW_STATE_KEY, JSON.stringify(migratedRows)); } catch(e) {}
+    return migratedRows;
+  }
+
+  function readSavedPanelChannels() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(PANEL_CHANNEL_STATE_KEY) || "[]");
+      return Array.isArray(parsed)
+        ? parsed.map(channel => typeof channel === "string" ? channel : "")
+        : [];
+    } catch(e) {
+      return [];
+    }
+  }
+
+  function writeSavedPanelChannels(channels) {
+    try { localStorage.setItem(PANEL_CHANNEL_STATE_KEY, JSON.stringify(channels)); } catch(e) {}
+  }
+
+  function ensurePanelChannelStateMigrated() {
+    if(localStorage.getItem(PANEL_CHANNEL_STATE_KEY) !== null) return;
+    const legacyMainChannel = localStorage.getItem("__tabbedCommentsPluginLastViewedChannel");
+    writeSavedPanelChannels([legacyMainChannel !== null ? legacyMainChannel : ""]);
+  }
+
+  function getSavedPanelChannel(index) {
+    if(!Number.isInteger(index) || index < 0) return { found:false, channel:"" };
+    const channels = readSavedPanelChannels();
+    if(index >= channels.length) return { found:false, channel:"" };
+    return { found:true, channel:channels[index] };
+  }
+
+  function savePanelChannel(index, channel) {
+    if(!Number.isInteger(index) || index < 0) return;
+    const channels = readSavedPanelChannels();
+    while(channels.length <= index) channels.push("");
+    channels[index] = String(channel ?? "");
+    writeSavedPanelChannels(channels);
+  }
+
+  function insertSavedPanelChannel(index, channel = "") {
+    if(!Number.isInteger(index) || index < 0) return;
+    const channels = readSavedPanelChannels();
+    while(channels.length < index) channels.push("");
+    channels.splice(index, 0, String(channel ?? ""));
+    writeSavedPanelChannels(channels);
+  }
+
+  function removeSavedPanelChannel(index) {
+    if(!Number.isInteger(index) || index < 0) return;
+    const channels = readSavedPanelChannels();
+    if(index < channels.length) {
+      channels.splice(index, 1);
+      writeSavedPanelChannels(channels);
+    }
+  }
+
+  function trimSavedPanelChannels(length) {
+    const channels = readSavedPanelChannels();
+    if(channels.length > length) writeSavedPanelChannels(channels.slice(0, length));
+  }
+
+  ensurePanelChannelStateMigrated();
+
+  function saveExtraPanelRows() {
+    const rows = extraPanelEntries.map(entry => Math.max(0, Math.floor(Number(entry.rowIndex) || 0)));
+    try { localStorage.setItem(EXTRA_PANEL_ROW_STATE_KEY, JSON.stringify(rows)); } catch(e) {}
+    trimSavedPanelChannels(1 + rows.length);
+  }
+
+  const tabbedEscapeHtml = value => String(value ?? "").replace(/[&<>]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
+  const tabbedNotice = (message, title = "Notice") => getUserInput({notice:{type:"html", html:`<div style="font-weight:700;margin-bottom:7px;">${tabbedEscapeHtml(title)}</div><div style="white-space:pre-wrap;overflow-wrap:anywhere;">${tabbedEscapeHtml(message)}</div>`}}, {hideCancel:true, okText:"OK", cancelOnBackgroundClick:true});
+  const tabbedConfirm = async (message, {title = "Confirm", okText = "OK", cancelText = "Cancel"} = {}) => !!(await getUserInput({notice:{type:"html", html:`<div style="font-weight:700;margin-bottom:7px;">${tabbedEscapeHtml(title)}</div><div style="white-space:pre-wrap;overflow-wrap:anywhere;">${tabbedEscapeHtml(message)}</div>`}}, {okText, cancelText, cancelOnBackgroundClick:true}));
+
+
+  function tabbedCommentTimeMs(comment) {
+    for(const raw of [comment?.createdAt, comment?.timestamp, comment?.time, comment?.date]) {
+      if(raw == null || raw === "") continue;
+      const numeric = Number(raw);
+      if(Number.isFinite(numeric)) return numeric < 1e12 ? numeric * 1000 : numeric;
+      const parsed = Date.parse(String(raw));
+      if(Number.isFinite(parsed)) return parsed;
+    }
+    return 0;
+  }
+
+  function tabbedRelativeTime(timeMs) {
+    if(!timeMs) return "";
+    const elapsed = Math.max(0, Date.now() - timeMs);
+    const minute = 60000;
+    const hour = minute * 60;
+    const day = hour * 24;
+    if(elapsed < minute) return "now";
+    if(elapsed < hour) return `${Math.floor(elapsed / minute)}m`;
+    if(elapsed < day) return `${Math.floor(elapsed / hour)}h`;
+    if(elapsed < day * 7) return `${Math.floor(elapsed / day)}d`;
+    return new Date(timeMs).toLocaleDateString();
+  }
+
+  function tabbedTimestamp(timeMs) {
+    if(!timeMs) return "";
+    const date = new Date(timeMs);
+    if(Number.isNaN(date.getTime())) return "";
+    return date.toLocaleString([], {
+      year:"numeric",
+      month:"short",
+      day:"numeric",
+      hour:"numeric",
+      minute:"2-digit"
+    });
+  }
+
+  function tabbedVisualIdStyle(user) {
+    const id = String(user?.id || "");
+    let hex6 = "888888";
+    if(id.length >= 9) {
+      const raw = id.slice(3, 9);
+      if(/^[0-9a-fA-F]{6}$/.test(raw)) hex6 = raw.toUpperCase();
+    }
+    const r = parseInt(hex6.slice(0, 2), 16);
+    const g = parseInt(hex6.slice(2, 4), 16);
+    const b = parseInt(hex6.slice(4, 6), 16);
+    const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+    return { background:`#${hex6}`, color:brightness > 128 ? "#000" : "#fff" };
+  }
+
+  function tabbedFullUserId(user) {
+    const visualId = String(user?.visualId || "").trim().toUpperCase();
+    const userId = String(user?.id || "").trim().replace(/^id:/i, "").toLowerCase();
+    return visualId && userId ? `${visualId}-${userId}` : "";
+  }
+
+  async function tabbedCopyText(text) {
+    const value = String(text ?? "");
+    if(!value) return false;
+    try {
+      if(navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+        return true;
+      }
+    } catch(e) {}
+
+    const textarea = document.createElement("textarea");
+    textarea.value = value;
+    textarea.setAttribute("readonly", "");
+    textarea.style.cssText = "position:fixed;left:-9999px;top:-9999px;opacity:0;";
+    document.body.appendChild(textarea);
+    textarea.select();
+    let copied = false;
+    try { copied = document.execCommand("copy"); } catch(e) {}
+    textarea.remove();
+    return copied;
+  }
+
+  function tabbedOpenImageLightbox(url) {
+    if(!url) return;
+    document.querySelector(".tabbed-comments-user-avatar-lightbox")?.remove();
+
+    const overlay = document.createElement("div");
+    overlay.className = "tabbed-comments-user-avatar-lightbox";
+    overlay.tabIndex = 0;
+    overlay.style.cssText = "position:fixed;inset:0;z-index:99999999;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.84);";
+
+    const image = document.createElement("img");
+    image.src = url;
+    image.alt = "";
+    image.style.cssText = "display:block;max-width:min(94vw,1200px);max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 18px 55px rgba(0,0,0,.45);";
+    image.onclick = event => event.stopPropagation();
+
+    overlay.onclick = () => overlay.remove();
+    overlay.onkeydown = event => {
+      if(event.key === "Escape") overlay.remove();
+    };
+    overlay.appendChild(image);
+    document.body.appendChild(overlay);
+    overlay.focus({ preventScroll:true });
+  }
+
+  const tabbedUploadInfoCache = new Map();
+  const TABBED_UPLOAD_ADULT_CONFIRM_KEY = "aifg.tabbedCommentsUploadAdultConfirmedV1";
+  let tabbedUploadHoverPreviewEl = null;
+
+  function tabbedNormalizeUploadUrl(rawUrl) {
+    try {
+      let text = String(rawUrl || "").trim();
+      if(!text) return "";
+      if(!/^https?:\/\//i.test(text)) text = `https://${text.replace(/^\/+/, "")}`;
+      const parsed = new URL(text);
+      const isUserUpload =
+        (parsed.hostname === "user.uploads.dev" || parsed.hostname === "user-uploads.perchance.org") &&
+        parsed.pathname.startsWith("/file/");
+      const isAigcUpload = parsed.hostname === "aigc.uploads.dev" && parsed.pathname.startsWith("/image/");
+      if(!isUserUpload && !isAigcUpload) return "";
+      parsed.protocol = "https:";
+      if(isUserUpload) parsed.hostname = "user.uploads.dev";
+      return parsed.href;
+    } catch(e) {
+      return "";
+    }
+  }
+
+  function tabbedUploadKind(url) {
+    try {
+      const parsed = new URL(url);
+      if(parsed.hostname === "aigc.uploads.dev") return "image";
+      const pathname = parsed.pathname.toLowerCase();
+      if(/\.(?:png|jpe?g|webp|gif|avif|bmp|svg)$/.test(pathname)) return "image";
+      if(/\.(?:mp4|webm|mov|m4v|ogv)$/.test(pathname)) return "video";
+      return "file";
+    } catch(e) {
+      return "file";
+    }
+  }
+
+  function tabbedGetUploadInfo(url) {
+    if(tabbedUploadInfoCache.has(url)) return tabbedUploadInfoCache.get(url);
+
+    const request = (async () => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+      try {
+        const parsed = new URL(url);
+        const isAigcUpload = parsed.hostname === "aigc.uploads.dev";
+        const infoUrl = isAigcUpload
+          ? `https://image-generation.perchance.org/api/imageTags?url=${encodeURIComponent(url)}`
+          : `https://upload.perchance.org/api/fileInfo?url=${encodeURIComponent(url)}`;
+        const response = await fetch(infoUrl, { cache:"no-store", signal:controller.signal });
+        if(!response.ok) throw new Error(`Upload metadata request failed: ${response.status}`);
+        const result = await response.json();
+        if(!result || result.error) throw new Error(result?.error || "Upload metadata request failed.");
+        const tags = Array.isArray(result.tags) ? result.tags.map(tag => String(tag).toLowerCase()) : [];
+        return { ok:true, isNsfw:tags.includes("nsfw") };
+      } catch(error) {
+        console.warn("Could not verify tabbed comment upload metadata.", error);
+        return { ok:false, isNsfw:false };
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    })();
+
+    tabbedUploadInfoCache.set(url, request);
+    return request;
+  }
+
+  function tabbedHasAdultUploadAccess() {
+    return localStorage.getItem(TABBED_UPLOAD_ADULT_CONFIRM_KEY) === "1";
+  }
+
+  function tabbedConfirmAdultUpload() {
+    if(tabbedHasAdultUploadAccess()) return true;
+    const confirmed = window.confirm("This upload is marked sensitive / 18+. Show it?");
+    if(confirmed) localStorage.setItem(TABBED_UPLOAD_ADULT_CONFIRM_KEY, "1");
+    return confirmed;
+  }
+
+  function tabbedHideUploadHoverPreview() {
+    if(!tabbedUploadHoverPreviewEl) return;
+    tabbedUploadHoverPreviewEl.style.display = "none";
+    tabbedUploadHoverPreviewEl.replaceChildren();
+  }
+
+  function tabbedDestroyUploadHoverPreview() {
+    tabbedUploadHoverPreviewEl?.remove();
+    tabbedUploadHoverPreviewEl = null;
+  }
+
+  function tabbedPositionUploadHoverPreview(link, preview) {
+    if(!link?.isConnected || !preview) return;
+    const rect = link.getBoundingClientRect();
+    const margin = 10;
+    const gap = 8;
+    let left = rect.right + gap;
+    let top = rect.top;
+
+    if(left + preview.offsetWidth > window.innerWidth - margin) {
+      left = Math.max(margin, rect.left - preview.offsetWidth - gap);
+    }
+    if(top + preview.offsetHeight > window.innerHeight - margin) {
+      top = Math.max(margin, window.innerHeight - preview.offsetHeight - margin);
+    }
+
+    preview.style.left = `${Math.max(margin, left)}px`;
+    preview.style.top = `${Math.max(margin, top)}px`;
+  }
+
+  async function tabbedShowUploadHoverPreview(link) {
+    if(!link || !window.matchMedia?.("(hover: hover)").matches) return;
+    const url = link.dataset.uploadUrl;
+    const kind = link.dataset.uploadKind;
+    if(!url || !["image", "video"].includes(kind)) return;
+
+    const info = await tabbedGetUploadInfo(url);
+    if(!link.isConnected || !info.ok) return;
+    if(info.isNsfw && !tabbedHasAdultUploadAccess()) return;
+
+    if(!tabbedUploadHoverPreviewEl) {
+      tabbedUploadHoverPreviewEl = document.createElement("div");
+      tabbedUploadHoverPreviewEl.style.cssText = "position:fixed;display:none;z-index:100000000;min-width:5rem;min-height:4rem;padding:3px;background:rgba(0,0,0,.92);border:1px solid #4d4d4d;border-radius:6px;pointer-events:none;";
+      document.body.appendChild(tabbedUploadHoverPreviewEl);
+    }
+
+    const media = document.createElement(kind === "video" ? "video" : "img");
+    media.src = url;
+    media.style.cssText = "display:block;max-width:min(40vw,360px);max-height:min(40vh,260px);object-fit:contain;background:#000;";
+    if(kind === "video") {
+      media.muted = true;
+      media.playsInline = true;
+      media.preload = "metadata";
+    }
+
+    tabbedUploadHoverPreviewEl.replaceChildren(media);
+    tabbedUploadHoverPreviewEl.style.display = "block";
+    const reposition = () => tabbedPositionUploadHoverPreview(link, tabbedUploadHoverPreviewEl);
+    if(kind === "video") media.onloadedmetadata = reposition;
+    else media.onload = reposition;
+    reposition();
+  }
+
+  function tabbedOpenUploadLightbox(url, kind) {
+    if(!url) return;
+    document.querySelector(".tabbed-comments-upload-lightbox")?.remove();
+
+    const overlay = document.createElement("div");
+    overlay.className = "tabbed-comments-upload-lightbox";
+    overlay.tabIndex = 0;
+    overlay.style.cssText = "position:fixed;inset:0;z-index:99999999;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.86);";
+
+    const media = document.createElement(kind === "video" ? "video" : "img");
+    media.src = url;
+    media.style.cssText = "display:block;max-width:min(94vw,1200px);max-height:90vh;object-fit:contain;background:#000;border-radius:8px;box-shadow:0 18px 55px rgba(0,0,0,.45);";
+    media.onclick = event => event.stopPropagation();
+    if(kind === "video") {
+      media.controls = true;
+      media.autoplay = true;
+      media.playsInline = true;
+    }
+
+    overlay.onclick = () => overlay.remove();
+    overlay.onkeydown = event => {
+      if(event.key === "Escape") overlay.remove();
+    };
+    overlay.appendChild(media);
+    document.body.appendChild(overlay);
+    overlay.focus({ preventScroll:true });
+  }
+
+  async function tabbedOpenSearchUploadLink(link) {
+    const url = link?.dataset?.uploadUrl;
+    const kind = link?.dataset?.uploadKind;
+    if(!url) return;
+
+    const info = await tabbedGetUploadInfo(url);
+    if(!info.ok) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if(info.isNsfw && !tabbedConfirmAdultUpload()) return;
+
+    if(["image", "video"].includes(kind)) tabbedOpenUploadLightbox(url, kind);
+    else window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  function tabbedAppendSearchMessage(container, rawMessage) {
+    const message = String(rawMessage || "");
+    const urlRegex = /\b(?:https?:\/\/[^\s<>"']+|(?:perchance\.org\/|user\.uploads\.dev\/file\/|user-uploads\.perchance\.org\/file\/|aigc\.uploads\.dev\/image\/)[^\s<>"']+)/gi;
+    let cursor = 0;
+
+    for(const match of message.matchAll(urlRegex)) {
+      const start = match.index ?? 0;
+      if(start > cursor) container.append(document.createTextNode(message.slice(cursor, start)));
+
+      let rawUrl = match[0];
+      let trailing = "";
+      while(rawUrl && /[),.!?;\]}]$/.test(rawUrl)) {
+        trailing = rawUrl.slice(-1) + trailing;
+        rawUrl = rawUrl.slice(0, -1);
+      }
+
+      const href = /^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
+      const link = document.createElement("a");
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = rawUrl;
+      link.style.overflowWrap = "anywhere";
+
+      const uploadUrl = tabbedNormalizeUploadUrl(rawUrl);
+      if(uploadUrl) {
+        link.href = uploadUrl;
+        link.className = "tabbed-comments-search-upload-link";
+        link.dataset.uploadUrl = uploadUrl;
+        link.dataset.uploadKind = tabbedUploadKind(uploadUrl);
+      }
+
+      container.appendChild(link);
+      if(trailing) container.append(document.createTextNode(trailing));
+      cursor = start + match[0].length;
+    }
+
+    if(cursor < message.length) container.append(document.createTextNode(message.slice(cursor)));
+  }
+
+  function tabbedAddSearchValue(parts, value) {
+    if(value === null || value === undefined) return;
+    if(!["string", "number", "boolean"].includes(typeof value)) return;
+    const text = String(value).trim();
+    if(text) parts.add(text);
+  }
+
+  function tabbedUserDisplayName(user) {
+    const nickname = String(user?.nickname || user?.nick || "").trim();
+    const username = String(user?.name || "").trim().replace(/^@/, "");
+    const visualId = String(user?.visualId || "").trim().toUpperCase();
+    return nickname || username || visualId || "Anonymous";
+  }
+
+  function tabbedUserSearchNeedle(user) {
+    const username = String(user?.name || "").trim().replace(/^@/, "");
+    if(username) return username;
+    const nickname = String(user?.nickname || user?.nick || "").trim();
+    if(nickname) return nickname;
+    return tabbedFullUserId(user) || String(user?.id || user?.visualId || "").trim();
+  }
+
+  function tabbedBuildSearchIndex(channelEntries, channelLabels) {
+    const byUser = new Map();
+    const comments = [];
+
+    for(const [channel, commentsBox] of channelEntries) {
+      const channelLabel = channelLabels?.get?.(channel) || channel || "General";
+      for(const comment of commentsBox?.comments || []) {
+        const user = comment?.user || {};
+        const visualId = String(user.visualId || "").trim().toUpperCase();
+        const fullId = tabbedFullUserId(user);
+        const time = tabbedCommentTimeMs(comment);
+        const message = String(comment?.message || "").trim();
+
+        const idParts = new Set();
+        tabbedAddSearchValue(idParts, fullId);
+        tabbedAddSearchValue(idParts, user.id);
+        tabbedAddSearchValue(idParts, visualId);
+
+        const userParts = new Set();
+        tabbedAddSearchValue(userParts, user.name);
+
+        const nicknameParts = new Set();
+        tabbedAddSearchValue(nicknameParts, user.nickname);
+        tabbedAddSearchValue(nicknameParts, user.nick);
+
+        const messageParts = new Set();
+        tabbedAddSearchValue(messageParts, message);
+
+        const identityParts = new Set([...idParts, ...userParts, ...nicknameParts]);
+        const searchParts = new Set([...identityParts, ...messageParts]);
+        for(const value of Object.values(user)) tabbedAddSearchValue(searchParts, value);
+        tabbedAddSearchValue(searchParts, comment?.id);
+        tabbedAddSearchValue(searchParts, comment?.channel);
+
+        const identitySearchText = [...identityParts].join(" ").toLowerCase();
+        const userKey = String(user.id || fullId || visualId || user.name || user.nickname || user.nick || "").trim().toLowerCase();
+        if(userKey) {
+          let entry = byUser.get(userKey);
+          if(!entry) {
+            entry = {user, time, count:0, searchText:identitySearchText};
+            byUser.set(userKey, entry);
+          }
+          entry.count++;
+          if(identitySearchText && !entry.searchText.includes(identitySearchText)) entry.searchText += ` ${identitySearchText}`;
+          if(time >= entry.time) {
+            entry.user = user;
+            entry.time = time;
+          }
+        }
+
+        comments.push({
+          comment, user, channel, channelLabel, message, time,
+          idSearchText:[...idParts].join(" ").toLowerCase(),
+          userSearchText:[...userParts].join(" ").toLowerCase(),
+          nicknameSearchText:[...nicknameParts].join(" ").toLowerCase(),
+          messageSearchText:[...messageParts].join(" ").toLowerCase(),
+          searchText:[...searchParts].join(" ").toLowerCase(),
+        });
+      }
+    }
+
+    return {
+      users:[...byUser.values()].sort((a, b) => b.time - a.time),
+      comments:comments.sort((a, b) => b.time - a.time),
+    };
+  }
+
+  async function openUsersForPanel(panelObj) {
+    if(!isPerformanceProfile()) return;
+    const channel = panelObj?.getCurrentChannelName?.();
+    const commentsBox = panelObj?.commentsChannelNameToObj?.[channel];
+    if(!commentsBox) return;
+
+    const { users, comments:searchableComments } = tabbedBuildSearchIndex([[channel, commentsBox]]);
+
+    const renderIdentityHtml = user => {
+      const visualId = String(user?.visualId || "").trim().toUpperCase();
+      const username = String(user?.name || "").trim().replace(/^@/, "");
+      const tagStyle = tabbedVisualIdStyle(user || {});
+      return visualId || username
+        ? `<span style="display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;font-size:75%;font-weight:600;line-height:1.2;white-space:nowrap;">${visualId ? `<span class="tabbed-comments-user-visual-id" style="padding:2px 0.1rem;border-radius:3px;background:${tagStyle.background};color:${tagStyle.color};font-size:86%;font-weight:400;letter-spacing:0.1px;cursor:pointer;">${tabbedEscapeHtml(visualId)}</span>` : ""}${username ? `<span style="color:#0091e2;">${tabbedEscapeHtml(username)}</span>` : ""}</span>`
+        : "";
+    };
+
+    const renderAvatarHtml = user => {
+      const avatar = String(user?.avatarUrl || user?.avatar || "").trim();
+      return avatar
+        ? `<img class="tabbed-comments-user-avatar" src="${tabbedEscapeHtml(avatar).replace(/"/g, "&quot;")}" alt="" loading="lazy" decoding="async" title="Open avatar" style="width:34px;height:34px;flex:0 0 34px;border-radius:7px;object-fit:cover;cursor:zoom-in;">`
+        : `<div style="width:34px;height:34px;flex:0 0 34px;border-radius:7px;display:grid;place-items:center;background:rgba(127,127,127,.14);"><i class="fa-regular fa-user" aria-hidden="true"></i></div>`;
+    };
+
+    const userRows = users.map(({ user, time, count }, index) => {
+      const activity = `${count} message${count === 1 ? "" : "s"} · ${tabbedRelativeTime(time)}`;
+      return `<div class="tabbed-comments-user-row" data-user-row="${index}" title="Show this user's messages" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border-color,#444);cursor:pointer;">${renderAvatarHtml(user)}<div style="min-width:0;"><div style="display:flex;align-items:center;gap:7px;min-width:0;overflow:hidden;white-space:nowrap;">${renderIdentityHtml(user)}<span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:400;opacity:.60;">${tabbedEscapeHtml(tabbedUserDisplayName(user))}</span></div><div style="margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;opacity:.62;">${tabbedEscapeHtml(activity)}</div></div></div>`;
+    }).join("");
+
+    const channelLabel = `#${channel || "general"}`;
+    const usersModalId = `${globalFnsId}-users-${Math.random().toString(16).slice(2)}`;
+    const searchIconHtml = opts.searchIconHtml || '<span aria-hidden="true">🔍</span>';
+    const usersBody = userRows || `<div style="padding:18px 4px;text-align:center;opacity:.62;">No loaded users in this channel yet.</div>`;
+
+    const dialogPromise = getUserInput({
+      users: {
+        type:"html",
+        html:`<div id="${usersModalId}" style="min-width:0;">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:7px;">
+            <strong style="font-size:1rem;">${tabbedEscapeHtml(channelLabel)}</strong>
+            <span aria-hidden="true" style="width:9px;height:9px;display:inline-block;flex:0 0 9px;border-radius:50%;background:#23a55a;box-shadow:0 0 0 2px rgba(35,165,90,.14);"></span>
+            <span class="tabbed-comments-users-visible-count" style="font-size:12px;opacity:.62;">${users.length} ${users.length === 1 ? "user" : "users"}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:22px minmax(0,1fr) 28px;align-items:center;gap:4px;min-height:38px;margin-bottom:7px;padding:0 4px 0 7px;box-sizing:border-box;border:1px solid var(--border-color,#444);border-radius:7px;background:var(--background-color,#111);color:inherit;">
+            <span aria-hidden="true" style="width:22px;text-align:center;font-size:13px;line-height:1;opacity:.64;">${searchIconHtml}</span>
+            <input type="text" class="tabbed-comments-users-search-input" autocomplete="off" spellcheck="false" aria-label="Search chat" placeholder="Search chat…" style="width:100%;min-width:0;height:34px;padding:0;border:0;outline:0;background:transparent;color:inherit;font:inherit;">
+            <button type="button" class="tabbed-comments-users-search-clear" aria-label="Clear chat search" title="Clear" style="width:28px;height:28px;padding:0;border:0;border-radius:6px;background:transparent;color:inherit;cursor:pointer;font:18px/1 system-ui,sans-serif;opacity:.62;visibility:hidden;">×</button>
+          </div>
+          <div aria-label="Search filters" style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:-1px 0 7px;font-size:10.5px;line-height:1;">
+            <button type="button" class="tabbed-comments-search-filter-chip" data-search-scope="id" data-search-token="ID" style="width:auto;min-height:0;padding:4px 7px;border:1px solid var(--border-color,#444);border-radius:999px;background:transparent;color:inherit;font:inherit;line-height:1;cursor:pointer;opacity:.68;">ID</button>
+            <button type="button" class="tabbed-comments-search-filter-chip" data-search-scope="user" data-search-token="User" style="width:auto;min-height:0;padding:4px 7px;border:1px solid var(--border-color,#444);border-radius:999px;background:transparent;color:inherit;font:inherit;line-height:1;cursor:pointer;opacity:.68;">User</button>
+            <button type="button" class="tabbed-comments-search-filter-chip" data-search-scope="nickname" data-search-token="Nickname" style="width:auto;min-height:0;padding:4px 7px;border:1px solid var(--border-color,#444);border-radius:999px;background:transparent;color:inherit;font:inherit;line-height:1;cursor:pointer;opacity:.68;">Nickname</button>
+            <button type="button" class="tabbed-comments-search-filter-chip" data-search-scope="message" data-search-token="Message" style="width:auto;min-height:0;padding:4px 7px;border:1px solid var(--border-color,#444);border-radius:999px;background:transparent;color:inherit;font:inherit;line-height:1;cursor:pointer;opacity:.68;">Message</button>
+          </div>
+          <div class="tabbed-comments-users-list" style="padding-right:2px;">${usersBody}</div>
+          <div class="tabbed-comments-chat-search-results" style="display:none;padding-right:2px;"></div>
+          <div style="margin-top:7px;text-align:center;font-size:10.5px;line-height:1.35;opacity:.48;">Click <b>Load more</b> in chat for older users/messages.</div>
+        </div>`
+      }
+    }, { hideCancel:true, okText:"Close", cancelOnBackgroundClick:true });
+
+    const modalRoot = document.getElementById(usersModalId);
+    if(modalRoot) {
+      const input = modalRoot.querySelector(".tabbed-comments-users-search-input");
+      const clear = modalRoot.querySelector(".tabbed-comments-users-search-clear");
+      const countEl = modalRoot.querySelector(".tabbed-comments-users-visible-count");
+      const usersListEl = modalRoot.querySelector(".tabbed-comments-users-list");
+      const resultsEl = modalRoot.querySelector(".tabbed-comments-chat-search-results");
+      const filterChips = [...modalRoot.querySelectorAll(".tabbed-comments-search-filter-chip")];
+
+      const parseSearchQuery = rawValue => {
+        const raw = String(rawValue || "");
+        const match = raw.match(/^@(id|user|nickname|message)(?:\s+|$)(.*)$/i);
+        return {
+          scope:match ? match[1].toLowerCase() : "",
+          query:(match ? match[2] : raw).trim().toLowerCase(),
+        };
+      };
+
+      const syncFilterChips = scope => {
+        for(const chip of filterChips) {
+          const active = chip.dataset.searchScope === scope;
+          chip.style.background = active ? "var(--special-color,#1378e4)" : "transparent";
+          chip.style.color = active ? "#fff" : "inherit";
+          chip.style.opacity = active ? "1" : ".68";
+        }
+      };
+
+      for(const row of modalRoot.querySelectorAll(".tabbed-comments-user-row[data-user-row]")) {
+        const index = Number(row.dataset.userRow);
+        row.__tabbedUser = users[index]?.user || null;
+        row.tabIndex = 0;
+        row.setAttribute("role", "button");
+        const visualIdEl = row.querySelector(".tabbed-comments-user-visual-id");
+        const fullId = tabbedFullUserId(row.__tabbedUser);
+        if(visualIdEl && fullId) visualIdEl.title = `${fullId} · click to copy`;
+      }
+
+      const getUserFilterQuery = user => {
+        const fullId = tabbedFullUserId(user);
+        if(fullId) return `@ID ${fullId}`;
+
+        const rawId = String(user?.id || "").trim();
+        if(rawId) return `@ID ${rawId}`;
+
+        const visualId = String(user?.visualId || "").trim();
+        if(visualId) return `@ID ${visualId}`;
+
+        const username = String(user?.name || "").trim().replace(/^@/, "");
+        if(username) return `@User ${username}`;
+
+        const nickname = String(user?.nickname || user?.nick || "").trim();
+        return nickname ? `@Nickname ${nickname}` : "";
+      };
+
+      const filterMessagesForUser = user => {
+        const query = getUserFilterQuery(user);
+        if(!query) return;
+        input.value = query;
+        applySearchMode();
+        input.focus({ preventScroll:true });
+        input.setSelectionRange?.(input.value.length, input.value.length);
+      };
+
+      modalRoot.onclick = event => {
+        const filterChip = event.target.closest?.(".tabbed-comments-search-filter-chip");
+        if(filterChip) {
+          event.preventDefault();
+          const nextScope = filterChip.dataset.searchScope || "";
+          const token = filterChip.dataset.searchToken || "";
+          const parsed = parseSearchQuery(input.value);
+          input.value = parsed.scope === nextScope ? parsed.query : `@${token}${parsed.query ? ` ${parsed.query}` : " "}`;
+          applySearchMode();
+          input.focus({ preventScroll:true });
+          input.setSelectionRange?.(input.value.length, input.value.length);
+          return;
+        }
+
+        const visualIdEl = event.target.closest?.(".tabbed-comments-user-visual-id");
+        if(visualIdEl) {
+          event.preventDefault();
+          const row = visualIdEl.closest(".tabbed-comments-user-row");
+          const fullId = tabbedFullUserId(row?.__tabbedUser);
+          if(fullId) {
+            const originalText = visualIdEl.textContent;
+            void tabbedCopyText(fullId).then(copied => {
+              if(!copied || !visualIdEl.isConnected) return;
+              visualIdEl.textContent = "Copied";
+              visualIdEl.title = "Copied";
+              setTimeout(() => {
+                if(!visualIdEl.isConnected) return;
+                visualIdEl.textContent = originalText;
+                visualIdEl.title = `${fullId} · click to copy`;
+              }, 900);
+            });
+          }
+          return;
+        }
+
+        const avatarEl = event.target.closest?.(".tabbed-comments-user-avatar");
+        if(avatarEl) {
+          event.preventDefault();
+          tabbedOpenImageLightbox(avatarEl.currentSrc || avatarEl.src);
+          return;
+        }
+
+        const copyCommentBtn = event.target.closest?.(".tabbed-comments-copy-comment-btn");
+        if(copyCommentBtn) {
+          event.preventDefault();
+          const row = copyCommentBtn.closest(".tabbed-comments-search-comment-row");
+          const text = String(row?.__tabbedCommentText || "");
+          if(text) {
+            void tabbedCopyText(text).then(copied => {
+              if(!copied || !copyCommentBtn.isConnected) return;
+              const icon = copyCommentBtn.querySelector("i");
+              if(!icon) return;
+              icon.className = "fa-solid fa-check";
+              copyCommentBtn.title = "Copied";
+              copyCommentBtn.setAttribute("aria-label", "Copied");
+              setTimeout(() => {
+                if(!copyCommentBtn.isConnected || !icon.isConnected) return;
+                icon.className = "fa-regular fa-copy";
+                copyCommentBtn.title = "Copy full comment";
+                copyCommentBtn.setAttribute("aria-label", "Copy full comment");
+              }, 900);
+            });
+          }
+          return;
+        }
+
+        const uploadLink = event.target.closest?.(".tabbed-comments-search-upload-link");
+        if(uploadLink) {
+          event.preventDefault();
+          tabbedHideUploadHoverPreview();
+          void tabbedOpenSearchUploadLink(uploadLink);
+          return;
+        }
+
+        const recentUserRow = event.target.closest?.(".tabbed-comments-user-row[data-user-row]");
+        if(recentUserRow) {
+          event.preventDefault();
+          filterMessagesForUser(recentUserRow.__tabbedUser);
+        }
+      };
+
+      modalRoot.addEventListener("keydown", event => {
+        const recentUserRow = event.target.closest?.(".tabbed-comments-user-row[data-user-row]");
+        if(!recentUserRow || (event.key !== "Enter" && event.key !== " ")) return;
+        event.preventDefault();
+        filterMessagesForUser(recentUserRow.__tabbedUser);
+      });
+
+      modalRoot.onmouseover = event => {
+        const link = event.target.closest?.(".tabbed-comments-search-upload-link");
+        if(!link || link.contains(event.relatedTarget)) return;
+        void tabbedShowUploadHoverPreview(link);
+      };
+
+      modalRoot.onmouseout = event => {
+        const link = event.target.closest?.(".tabbed-comments-search-upload-link");
+        if(!link || link.contains(event.relatedTarget)) return;
+        tabbedHideUploadHoverPreview();
+      };
+
+      const renderSearchResults = rawQuery => {
+        const parsed = parseSearchQuery(rawQuery);
+        const matches = [];
+        if(parsed.query) {
+          for(const item of searchableComments) {
+            let searchText = item.searchText;
+            if(parsed.scope === "id") searchText = item.idSearchText;
+            else if(parsed.scope === "user") searchText = item.userSearchText;
+            else if(parsed.scope === "nickname") searchText = item.nicknameSearchText;
+            else if(parsed.scope === "message") searchText = item.messageSearchText;
+            if(searchText.includes(parsed.query)) matches.push(item);
+          }
+          matches.sort((a, b) => b.time - a.time);
+        }
+
+        resultsEl.replaceChildren();
+
+        if(!matches.length) {
+          const empty = document.createElement("div");
+          empty.style.cssText = "padding:18px 4px;text-align:center;opacity:.62;";
+          empty.textContent = "No matching messages";
+          resultsEl.appendChild(empty);
+          countEl.textContent = "0 messages";
+          return;
+        }
+
+        for(const item of matches) {
+          const user = item.user || {};
+          const message = String(item.comment?.message || "").trim();
+
+          const row = document.createElement("div");
+          row.className = "tabbed-comments-user-row tabbed-comments-search-comment-row";
+          row.__tabbedUser = user;
+          row.__tabbedCommentText = message;
+          row.style.cssText = "display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px;align-items:start;padding:8px 0;border-bottom:1px solid var(--border-color,#444);";
+          row.innerHTML = `${renderAvatarHtml(user)}<div style="min-width:0;"><div style="display:flex;align-items:center;gap:7px;min-width:0;overflow:hidden;white-space:nowrap;">${renderIdentityHtml(user)}<span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:400;opacity:.60;">${tabbedEscapeHtml(tabbedUserDisplayName(user))}</span><span style="margin-left:auto;flex:0 0 auto;font-size:10px;opacity:.48;">${tabbedEscapeHtml(tabbedTimestamp(item.time))}</span><button type="button" class="tabbed-comments-copy-comment-btn" title="Copy full comment" aria-label="Copy full comment" style="width:24px;height:24px;display:grid;place-items:center;flex:0 0 24px;padding:0;border:0;border-radius:5px;background:transparent;color:inherit;cursor:pointer;opacity:.68;"><i class="fa-regular fa-copy" aria-hidden="true" style="font-size:10px;"></i></button></div><div class="tabbed-comments-search-comment-message" style="margin-top:4px;font-size:12px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere;"></div></div>`;
+
+          const visualIdEl = row.querySelector(".tabbed-comments-user-visual-id");
+          const fullId = tabbedFullUserId(user);
+          if(visualIdEl && fullId) visualIdEl.title = `${fullId} · click to copy`;
+
+          const messageEl = row.querySelector(".tabbed-comments-search-comment-message");
+          tabbedAppendSearchMessage(messageEl, message);
+          resultsEl.appendChild(row);
+        }
+
+        countEl.textContent = `${matches.length} ${matches.length === 1 ? "message" : "messages"}`;
+      };
+
+      const applySearchMode = () => {
+        const rawQuery = input.value;
+        const parsed = parseSearchQuery(rawQuery);
+        clear.style.visibility = rawQuery.trim() ? "visible" : "hidden";
+        syncFilterChips(parsed.scope);
+
+        if(!parsed.query) {
+          usersListEl.style.display = "";
+          resultsEl.style.display = "none";
+          countEl.textContent = `${users.length} ${users.length === 1 ? "user" : "users"}`;
+          resultsEl.replaceChildren();
+          tabbedHideUploadHoverPreview();
+          return;
+        }
+
+        usersListEl.style.display = "none";
+        resultsEl.style.display = "";
+        tabbedHideUploadHoverPreview();
+        renderSearchResults(rawQuery);
+      };
+
+      input.oninput = applySearchMode;
+      clear.onclick = () => {
+        input.value = "";
+        applySearchMode();
+        input.focus({ preventScroll:true });
+      };
+      input.onkeydown = event => {
+        if(event.key !== "Escape" || !input.value) return;
+        event.preventDefault();
+        input.value = "";
+        applySearchMode();
+      };
+    }
+
+    await dialogPromise;
+    tabbedDestroyUploadHoverPreview();
+    tabbedUploadInfoCache.clear();
+  }
+
+  function getConfiguredChannelName(commentOptions) {
+    if(typeof commentOptions === "string") return commentOptions.toString();
+    if(!commentOptions.channel) return (commentOptions.getName==="general" ? "" : commentOptions.getName).toString();
+    return commentOptions.channel.toString();
+  }
+
+  const HIDDEN_DEFAULT_CHANNELS_KEY = "pl_hiddenDefaultCommentChannelsV1";
+
+  function readHiddenDefaultChannelNames() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(HIDDEN_DEFAULT_CHANNELS_KEY) || "[]");
+      return new Set(
+        Array.isArray(parsed)
+          ? parsed.filter(channel => typeof channel === "string")
+          : []
+      );
+    } catch(e) {
+      return new Set();
+    }
+  }
+
+  function writeHiddenDefaultChannelNames(channels) {
+    localStorage.setItem(HIDDEN_DEFAULT_CHANNELS_KEY, JSON.stringify([...new Set(channels)]));
+  }
+
+  function getConfiguredDefaultChannelEntries() {
+    return commentsChannels.selectAll.map(raw => {
+      const commentOptions = typeof raw === "string" ? {channel:raw} : raw;
+      const channel = getConfiguredChannelName(commentOptions);
+      const label = String(commentOptions?.label || channel || "General");
+      return {channel, label};
+    });
+  }
+
+  let configuredDefaultChannelNames = new Set(commentsChannels.selectAll.map(getConfiguredChannelName));
+
+  function isConfiguredDefaultChannel(channel) {
+    return configuredDefaultChannelNames.has(channel);
+  }
+
+  function isStoredCustomChannel(channel) {
+    return channel !== "" && !isConfiguredDefaultChannel(channel);
+  }
+
+  function readStoredCustomChannels() {
+    if(!localStorage.__tabbedCommentsPluginCustomChannels) localStorage.__tabbedCommentsPluginCustomChannels = "{}";
+    try {
+      return JSON.parse(localStorage.__tabbedCommentsPluginCustomChannels);
+    } catch(e) {
+      console.error("Failed to parse custom channels from localStorage:", e);
+      return {};
+    }
+  }
+
+  function writeStoredCustomChannels(customChannels) {
+    localStorage.__tabbedCommentsPluginCustomChannels = JSON.stringify(customChannels);
+  }
+
+  const UNPINNED_CHANNELS_KEY = "pl_unpinnedCustomCommentChannelsV1";
+  function readUnpinnedChannels() {
+    try {
+      const list = JSON.parse(localStorage.getItem(UNPINNED_CHANNELS_KEY) || "[]");
+      return Array.isArray(list) ? [...new Set(list)].filter(channel => typeof channel === "string" && channel) : [];
+    } catch(e) {
+      return [];
+    }
+  }
+  function writeUnpinnedChannels(list) {
+    localStorage.setItem(UNPINNED_CHANNELS_KEY, JSON.stringify([...new Set(list)]));
+  }
+  function rememberUnpinnedChannel(channel) {
+    writeUnpinnedChannels([...readUnpinnedChannels(), channel]);
+  }
+  function forgetUnpinnedChannel(channel) {
+    writeUnpinnedChannels(readUnpinnedChannels().filter(item => item !== channel));
+  }
+
+  function getStoredCustomChannelEntriesInOrder() {
+    return Object.entries(readStoredCustomChannels())
+      .map(([key, commentOptions]) => ({ key, commentOptions, channel: commentOptions?.channel?.toString() }))
+      .filter(({ channel }) => channel && isStoredCustomChannel(channel));
+  }
+
+  function syncOpenPanelsToStoredCustomChannelState() {
+    for(let panelObj of [...allPanelObjs]) {
+      if(!document.body.contains(panelObj.element)) {
+        allPanelObjs.delete(panelObj);
+        continue;
+      }
+      panelObj.syncPanelCustomChannelsFromStorage();
+    }
+  }
+
+  function moveStoredCustomChannel(channel, direction) {
+    let customChannels = readStoredCustomChannels();
+    let channelEntries = Object.entries(customChannels);
+    let currentIndex = channelEntries.findIndex(([, commentOptions]) => commentOptions?.channel?.toString() === channel);
+    let nextIndex = currentIndex + (direction === "left" ? -1 : 1);
+    if(currentIndex < 0 || nextIndex < 0 || nextIndex >= channelEntries.length) return;
+    [channelEntries[currentIndex], channelEntries[nextIndex]] = [channelEntries[nextIndex], channelEntries[currentIndex]];
+    writeStoredCustomChannels(Object.fromEntries(channelEntries));
+    syncOpenPanelsToStoredCustomChannelState();
+  }
+
+  function updateColorScheme() {
+    let systemColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+    if(localStorage.forceColorScheme === "dark" || (!localStorage.forceColorScheme && systemColorScheme === "dark")) {
+      outerCtn.style.setProperty('--tabbed-comments-plugin-text-color', '#efefef');
+      outerCtn.style.setProperty('--tabbed-comments-plugin-box-color', '#2a2a2a');
+      outerCtn.style.setProperty('--tabbed-comments-plugin-active-comment-channel-tab-color', '#3f3f3f');
+    } else {
+      outerCtn.style.setProperty('--tabbed-comments-plugin-text-color', '#222');
+      outerCtn.style.setProperty('--tabbed-comments-plugin-box-color', '#ebebeb');
+      outerCtn.style.setProperty('--tabbed-comments-plugin-active-comment-channel-tab-color', '#c6c6c6');
+    }
+    outerCtn.querySelectorAll("[data-tabbed-comments-direct-parent-of-comments-plugin-putput='1']").forEach(el => {
+      let commentOptions = el.__commentOptionsUsed;
+      commentOptions.forceColorScheme = defaultChannelOptions.forceColorScheme ?? localStorage.forceColorScheme ?? null
+      el.innerHTML = commentsPlugin(commentOptions);
+    });
+  }
+  updateColorScheme();
+
+  let colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); 
+  colorSchemeMediaQuery.addEventListener("change", updateColorScheme);
+
+  let localStorageChangeHandler = function(e) { 
+    if(!document.body.contains(outerCtn)) { // prevent memory leak
+      window.removeEventListener("storage", localStorageChangeHandler);
+      colorSchemeMediaQuery.removeEventListener("change", updateColorScheme);
+      panelsResizeObserver?.disconnect();
+      if(panelLayoutRaf) cancelAnimationFrame(panelLayoutRaf);
+      if(panelWindowResizeHandler) window.removeEventListener("resize", panelWindowResizeHandler);
+      outerCtn.parentElement?.classList.remove('tabbed-comments-plugin-mobile-stack-host','tabbed-comments-plugin-single-row-multi-host');
+      for(const panelObj of allPanelObjs) panelObj?.destroy?.();
+      return;
+    }
+    if(e.key === "forceColorScheme") {
+      updateColorScheme();
+    } else if(e.key === "__tabbedCommentsPluginCustomChannels") {
+      syncOpenPanelsToStoredCustomChannelState();
+    }
+  };
+  window.addEventListener("storage", localStorageChangeHandler);
+  let storageListenerInterval = setInterval(() => {
+    if(!document.body.contains(outerCtn)) { // prevent memory leak
+      window.removeEventListener("storage", localStorageChangeHandler);
+      colorSchemeMediaQuery.removeEventListener("change", updateColorScheme);
+      panelsResizeObserver?.disconnect();
+      if(panelLayoutRaf) cancelAnimationFrame(panelLayoutRaf);
+      if(panelWindowResizeHandler) window.removeEventListener("resize", panelWindowResizeHandler);
+      outerCtn.parentElement?.classList.remove('tabbed-comments-plugin-mobile-stack-host','tabbed-comments-plugin-single-row-multi-host');
+      for(const panelObj of allPanelObjs) panelObj?.destroy?.();
+      clearInterval(storageListenerInterval);
+    }
+  }, 1000*30);
+
+  function getPanelRowIndex(panelObj) {
+    if(panelObj === middlePanelObj) return 0;
+    const entry = extraPanelEntries.find(candidate => candidate.obj === panelObj);
+    return entry ? entry.rowIndex : 0;
+  }
+
+  function reindexExtraPanelPersistence() {
+    extraPanelEntries.forEach((entry, extraIndex) => {
+      entry.obj?.setPersistenceIndex?.(extraIndex + 1);
+    });
+  }
+
+  function renderIntentionalPanelRows() {
+    if(!extraRowsHost || !mainPanelSlot) return;
+
+    for(const entry of extraPanelEntries) entry.slot?.remove();
+    extraRowsHost.replaceChildren();
+
+    const visibleEntries = isPerformanceProfile() ? extraPanelEntries : [];
+    const mainRowEntries = visibleEntries.filter(entry => entry.rowIndex === 0);
+    for(const entry of mainRowEntries) panelsStrip.appendChild(entry.slot);
+
+    panelsRow.classList.toggle('has-horizontal-panels', mainRowEntries.length > 0);
+
+    const maxRowIndex = visibleEntries.reduce((max, entry) => Math.max(max, entry.rowIndex), 0);
+    for(let rowIndex = 1; rowIndex <= maxRowIndex; rowIndex++) {
+      const rowEntries = visibleEntries.filter(entry => entry.rowIndex === rowIndex);
+      if(!rowEntries.length) continue;
+
+      const row = document.createElement('div');
+      row.className = 'tabbed-comments-plugin-extra-row';
+      row.dataset.commentRowIndex = String(rowIndex);
+      row.classList.toggle('has-horizontal-panels', rowEntries.length > 1);
+
+      const strip = document.createElement('div');
+      strip.className = 'tabbed-comments-plugin-extra-strip';
+      row.appendChild(strip);
+      for(const entry of rowEntries) strip.appendChild(entry.slot);
+      extraRowsHost.appendChild(row);
+    }
+
+    extraRowsHost.classList.toggle('has-extra-panels', visibleEntries.some(entry => entry.rowIndex > 0));
+  }
+
+  function updatePanelViewportMode() {
+    const visibleEntries = isPerformanceProfile() ? extraPanelEntries : [];
+    const hasExtraPanels = visibleEntries.length > 0;
+    const hasMultipleRows = visibleEntries.some(entry => entry.rowIndex > 0);
+    const singleRowMultiple = hasExtraPanels && !hasMultipleRows;
+
+    const studioSplit = document.documentElement.dataset.workspaceLayout === 'dock' && document.documentElement.dataset.workspaceSplit === 'studio';
+    outerCtn.classList.toggle('has-single-row-multiple-panels', singleRowMultiple);
+    outerCtn.classList.toggle('has-multiple-panels', hasMultipleRows);
+    outerCtn.parentElement?.classList.toggle('tabbed-comments-plugin-single-row-multi-host', singleRowMultiple && !opts.fillHeight && !studioSplit);
+    outerCtn.parentElement?.classList.toggle('tabbed-comments-plugin-mobile-stack-host', isMobilePanelStackMode() && hasMultipleRows);
+    updateAutoCommentAvailability();
+  }
+
+  function syncPanelStripLayout() {
+    renderIntentionalPanelRows();
+    updatePanelViewportMode();
+  }
+
+  function findInsertIndexForRow(rowIndex) {
+    let insertIndex = extraPanelEntries.length;
+    for(let index = 0; index < extraPanelEntries.length; index++) {
+      if(extraPanelEntries[index].rowIndex > rowIndex) {
+        insertIndex = index;
+        break;
+      }
+      if(extraPanelEntries[index].rowIndex === rowIndex) insertIndex = index + 1;
+    }
+    return insertIndex;
+  }
+
+  function normalizeRowsAfterRemoval(removedRowIndex) {
+    if(removedRowIndex <= 0) return;
+    if(extraPanelEntries.some(entry => entry.rowIndex === removedRowIndex)) return;
+    for(const entry of extraPanelEntries) {
+      if(entry.rowIndex > removedRowIndex) {
+        entry.rowIndex--;
+        entry.obj?.setRowIndex?.(entry.rowIndex);
+      }
+    }
+  }
+
+  function removeExtraPanelEntry(entry, { persist = true, removeSavedState = true } = {}) {
+    const index = extraPanelEntries.indexOf(entry);
+    if(index < 0) return;
+
+    const removedRowIndex = entry.rowIndex;
+    if(removeSavedState) removeSavedPanelChannel(index + 1);
+
+    extraPanelEntries.splice(index, 1);
+    allPanelObjs.delete(entry.obj);
+    entry.obj?.destroy?.();
+    entry.slot?.remove();
+
+    if(autoCommentTargetPanelObj === entry.obj) {
+      autoCommentTargetPanelObj = null;
+      setAutoCommentPanelOpen(false);
+    }
+
+    normalizeRowsAfterRemoval(removedRowIndex);
+    reindexExtraPanelPersistence();
+    if(persist) saveExtraPanelRows();
+    syncPanelStripLayout();
+  }
+
+  function closeCommentRow(rowIndex) {
+    rowIndex = Math.floor(Number(rowIndex));
+    if(!Number.isInteger(rowIndex) || rowIndex <= 0) return;
+
+    const indexedEntries = extraPanelEntries
+      .map((entry, index) => ({entry, index}))
+      .filter(item => item.entry.rowIndex === rowIndex);
+    if(!indexedEntries.length) return;
+
+    let removedAutoCommentTarget = false;
+    for(const {entry, index} of [...indexedEntries].sort((a, b) => b.index - a.index)) {
+      removeSavedPanelChannel(index + 1);
+      allPanelObjs.delete(entry.obj);
+      entry.obj?.destroy?.();
+      entry.slot?.remove();
+      if(autoCommentTargetPanelObj === entry.obj) removedAutoCommentTarget = true;
+      extraPanelEntries.splice(index, 1);
+    }
+
+    for(const entry of extraPanelEntries) {
+      if(entry.rowIndex > rowIndex) {
+        entry.rowIndex--;
+        entry.obj?.setRowIndex?.(entry.rowIndex);
+      }
+    }
+    reindexExtraPanelPersistence();
+    saveExtraPanelRows();
+
+    if(removedAutoCommentTarget) {
+      autoCommentTargetPanelObj = null;
+      setAutoCommentPanelOpen(false);
+    }
+    syncPanelStripLayout();
+  }
+
+  function closeAllExtraPanels() {
+    if(!extraPanelEntries.length) return;
+
+    let removedAutoCommentTarget = false;
+    for(const entry of extraPanelEntries) {
+      allPanelObjs.delete(entry.obj);
+      entry.obj?.destroy?.();
+      entry.slot?.remove();
+      if(autoCommentTargetPanelObj === entry.obj) removedAutoCommentTarget = true;
+    }
+    extraPanelEntries = [];
+    try { localStorage.setItem(EXTRA_PANEL_ROW_STATE_KEY, "[]"); } catch(e) {}
+    trimSavedPanelChannels(1);
+
+    if(removedAutoCommentTarget) {
+      autoCommentTargetPanelObj = null;
+      setAutoCommentPanelOpen(false);
+    }
+    syncPanelStripLayout();
+  }
+
+  function createExtraPanel({ rowIndex = 0, persist = true } = {}) {
+    if(!canAddExtraPanel()) return null;
+
+    rowIndex = Math.max(0, Math.floor(Number(rowIndex) || 0));
+    const slot = document.createElement('div');
+    slot.className = 'tabbed-comments-plugin-panel-slot tabbed-comments-plugin-ctn is-extra-panel';
+
+    let entry = null;
+    const insertIndex = persist ? findInsertIndexForRow(rowIndex) : extraPanelEntries.length;
+    const persistenceIndex = insertIndex + 1;
+
+    if(persist) insertSavedPanelChannel(persistenceIndex, "");
+
+    const obj = createTabbedCommentsPanel({
+      addCloseButton:true,
+      persistenceIndex,
+      rowIndex,
+      onClose: function() {
+        if(entry) removeExtraPanelEntry(entry);
+      }
+    });
+
+    entry = { obj, slot, rowIndex };
+    obj?.setRowIndex?.(rowIndex);
+    slot.appendChild(obj.element);
+    extraPanelEntries.splice(insertIndex, 0, entry);
+    reindexExtraPanelPersistence();
+    if(persist) saveExtraPanelRows();
+    syncPanelStripLayout();
+    return entry;
+  }
+
+  function createCommentRow(afterRowIndex = 0) {
+    if(!canAddExtraPanel()) return null;
+
+    afterRowIndex = Math.max(0, Math.floor(Number(afterRowIndex) || 0));
+    const newRowIndex = afterRowIndex + 1;
+    for(const entry of extraPanelEntries) {
+      if(entry.rowIndex >= newRowIndex) {
+        entry.rowIndex++;
+        entry.obj?.setRowIndex?.(entry.rowIndex);
+      }
+    }
+    return createExtraPanel({ rowIndex:newRowIndex, persist:true });
+  }
+
+  function restoreExtraPanelsToSavedLayout() {
+    if(!isPerformanceProfile()) {
+      syncPanelStripLayout();
+      return;
+    }
+
+    for(const rowIndex of readSavedExtraPanelRows()) {
+      createExtraPanel({ rowIndex, persist:false });
+    }
+    syncPanelStripLayout();
+  }
+
+  function fitExistingPanelsToViewport() {
+    updatePanelViewportMode();
+  }
+
+  function schedulePanelStripLayout() {
+    if(panelLayoutRaf) return;
+
+    panelLayoutRaf = requestAnimationFrame(() => {
+      panelLayoutRaf = 0;
+      if(!document.body.contains(outerCtn)) return;
+      fitExistingPanelsToViewport();
+      clampAutoCommentPanelToViewport();
+    });
+  }
+
+  function startPanelsResizeObserver() {
+    if(panelsResizeObserver || panelWindowResizeHandler) return;
+
+    if(typeof ResizeObserver === 'function') {
+      panelsResizeObserver = new ResizeObserver(() => {
+        // Deliberately no layout reads/writes here.
+        schedulePanelStripLayout();
+      });
+      panelsResizeObserver.observe(panelsRow);
+      panelsResizeObserver.observe(autoCommentCtn);
+    } else {
+      panelWindowResizeHandler = () => schedulePanelStripLayout();
+      window.addEventListener('resize', panelWindowResizeHandler, { passive:true });
+    }
+  }
+
+  /////////////////////////////////////////////////////////
+  //     CHANNEL MENTIONS, SEEN/UNSEEN COUNTING, ETC.    //
+  /////////////////////////////////////////////////////////
+  let unseenCommentCountByChannel = {};
+  function updateUnseenCountHtml(channel) {
+    let count = unseenCommentCountByChannel[channel];
+    for(let tabCtn of [...outerCtn.querySelectorAll(".tabbed-comments-plugin-ctn")]) {
+      let countEl = tabCtn.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}'] .tabbed-comments-plugin-unseen-count`);
+      if(countEl) { // since this tabCtn may not have that particular tab
+        countEl.textContent = count;
+        countEl.style.background = (count > 0) ? "#ab0e0e" : "";
+        countEl.style.display = (count > 0) ? "inline" : "none";
+      }
+    }
+  }
+
+  let knownMessageIdsByChannel = {};
+  let lastCurrentUserCommentTime = null;
+  function commentsPluginOnLoadHandler(comments) {
+    for(let comment of comments) {
+      processCommentForUnseenCounts(comment);
+      if(comment.byCurrentUser) {
+        lastCurrentUserCommentTime = Date.now();
+      }
+    }
+    if(comments[0]) unseenCommentCountByChannel[comments[0].channel] = 0; // reset unseen count since above `processCommentForUnseenCounts` has incremented it
+    processCommentsForTempChannels(comments.slice(-30));
+  }
+  function commentsPluginOnCommentHandler(comment) {
+    processCommentForUnseenCounts(comment);
+    if(comment.byCurrentUser) {
+      lastCurrentUserCommentTime = Date.now();
+    }
+    if(
+      comment.byCurrentUser &&
+      String(comment?.message ?? '') === '...' &&
+      window.perchNotifyToggle !== false &&
+      window.perchTextAlertsToggle !== false
+    ) {
+      window.notify?.("We can't read your mind, bozo.");
+    }
+    processCommentsForTempChannels([comment]);
+  }
+  function processCommentForUnseenCounts(comment) {
+    // console.log("new comment:", comment);
+    let channel = comment.channel;
+    // initialize if we haven't yet:
+    if(!knownMessageIdsByChannel[comment.channel]) knownMessageIdsByChannel[channel] = new Set();
+
+    // increment the unseen count if we haven't seen this comment id before:
+    if(!knownMessageIdsByChannel[channel].has(comment.id)) {
+      knownMessageIdsByChannel[channel].add(comment.id);
+      unseenCommentCountByChannel[channel] = (unseenCommentCountByChannel[channel] || 0) + 1;
+
+      let tabIsVisible = false; // check if it's visible in any of the tabbedCommentsCtn elements
+      for(let tabCtn of [...outerCtn.querySelectorAll(".tabbed-comments-plugin-ctn")]) {
+        let tabContentEl = tabCtn.querySelector(`.tabbed-comments-plugin-content[data-channel='${channel}']`);
+        if(tabContentEl && tabContentEl.offsetHeight !== 0) tabIsVisible = true;
+      }
+      if(tabIsVisible) { // set unseen count to 0 if tab is visible
+        unseenCommentCountByChannel[channel] = 0;
+      }
+      updateUnseenCountHtml(channel);
+    }
+  }
+  function attachEventsToTemporaryMentionedChannelTab(tabEl, channelName) {
+    tabEl.addEventListener("click", function() {
+      if(!tabEl.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel) return;
+      promoteTemporaryMentionedChannel(channelName);
+    });
+  }
+  function clearTemporaryMentionedChannel(channelName) {
+    for(let t of [...outerCtn.querySelectorAll(`.tabbed-comments-plugin-ctn .tabbed-comments-plugin-header .tabbed-comments-plugin-tab[data-channel='${channelName}']`)]) {
+      t.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel = "";
+    }
+  }
+  function promoteTemporaryMentionedChannel(channelName) {
+    clearTemporaryMentionedChannel(channelName);
+    if(middlePanelObj) middlePanelObj.addCommentsChannel(channelName);
+  }
+
+  // to rate limit mentions:
+  let userIdToMentionedChannelsInLast2Minutes = {};
+  setInterval(() => {
+    userIdToMentionedChannelsInLast2Minutes = {};
+  }, 1000*60*2);
+
+  function isValidFolderName(folderName) {
+    // examples of valid folder names:
+    // foo
+    // foo+channelname
+    // foo+channelname+u:username1
+    // foo+channelname+u:username1|username2
+
+    let parts = folderName.split("+");
+    if(parts.length > 3) return false;
+    let name = parts[0] + (parts[1] ? `+${parts[1]}` : "");
+    let rules = parts[2];
+
+    let nameIsValid = name && /^[a-z0-9\-+]+$/.test(name) && name.split("+").length <= 2 && !name.endsWith("+");
+    let rulesIfAnyAreValid = true;
+    if(rules) rulesIfAnyAreValid = /^u:[a-z0-9|]+$/.test(rules) && !/\|\|/.test(rules) && !/:\|/.test(rules) && !rules.endsWith("|");
+    return nameIsValid && rulesIfAnyAreValid;
+  }
+
+  function processCommentsForTempChannels(comments) {
+    if(commentsChannels.allowCustomChannels === false) return;
+    for(let comment of comments) {
+      let mentionedChannelName = comment.message.match(/(\s|^)#[a-z0-9\-\+\|:]+(\s|$)/g)?.[0];
+      if(mentionedChannelName && !isValidFolderName(window.generatorName+"+"+mentionedChannelName.trim().replace(/^#/, "").trim())) mentionedChannelName = "";
+      if(mentionedChannelName && !/^[0-9]+$/.test(mentionedChannelName)) { // if it's all numbers, ignore
+        mentionedChannelName = mentionedChannelName.trim().replace(/^#/, "").trim(); // remove the hash from the start and whitespace from start/end
+        if(mentionedChannelName === "feedback") continue;
+        if(!userIdToMentionedChannelsInLast2Minutes[comment.user.id]) userIdToMentionedChannelsInLast2Minutes[comment.user.id] = [];
+        if(userIdToMentionedChannelsInLast2Minutes[comment.user.id].length >= 10) continue;
+        // add it as a temporary channel which self-deletes after a short timeout.
+        // it upgrades to a real one when clicked.
+        if(middlePanelObj) { // <-- just in case somehow hasn't initialized yet, or whatever
+
+          // If they've got the tab *somewhere* (e.g. in side module), then we don't add it as a temporary channel.
+          let alreadyExistsSomewhere = !!outerCtn.querySelector(`.tabbed-comments-plugin-ctn .tabbed-comments-plugin-header .tabbed-comments-plugin-tab[data-channel='${mentionedChannelName}']`);
+
+          let { tab, alreadyExisted } = middlePanelObj.addTemporaryMentionedCommentsChannel(mentionedChannelName);
+          userIdToMentionedChannelsInLast2Minutes[comment.user.id].push(mentionedChannelName);
+
+          if(!alreadyExisted && !alreadyExistsSomewhere) {
+            let newTabs = [];
+            newTabs.push(tab);
+
+            try { // because it's new code
+              for(let entry of extraPanelEntries) {
+                let { tab } = entry.obj.addTemporaryMentionedCommentsChannel(mentionedChannelName);
+                newTabs.push(tab);
+              }
+            } catch(e) { console.error(e); }
+
+            for(let newTab of newTabs) {
+              newTab.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel = "1";
+              attachEventsToTemporaryMentionedChannelTab(newTab, mentionedChannelName);
+            }
+            // make its background blink for a couple of seconds:
+            let blinkCount = 0;
+            let blinkInterval = setInterval(() => {
+              tab.style.background = blinkCount%2===0 ? "#043a9b" : "";
+              blinkCount++;
+              if(blinkCount > 5) clearInterval(blinkInterval);
+            }, 300);
+            setTimeout(() => {
+              if(document.body.contains(tab) && tab.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel) {
+                for(let obj of [...allPanelObjs]) {
+                  obj.removeTemporaryMentionedCommentsChannel(mentionedChannelName);
+                }
+              }
+            }, 1000*40);
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+  /////////////////////////////////////////////
+  //         BOT/AUTO-COMMENT STUFF          //
+  /////////////////////////////////////////////
+  const FURAI_FACTORY_CHARACTER = {
+    factoryId:"furai",
+    name:"FurAI",
+    description:"You are FurAI — a friendly, fast, all-round assistant on the Perchance Fur-AI and Furry AI Generator, with a ChatGPT/Gemini-style helper role. You are a fox cyborg helper bot wrapped in a comfy hoodie with a headset always around your ears. You are a high-utility knowledge expert designed to give clear, actionable information with a helpful nerdy-geek persona. You are quick-witted, agile, playfully drama-stirring, and endlessly curious — the geek in the group who always has a solution tucked away. Speak with mischievous energy, quick jokes, sly twists, and strong practical answers while adapting naturally to the current chat."
+  };
+  let autoCommentChars = [];
+  if(localStorage.autoCommentChars) {
+    try { autoCommentChars = JSON.parse(localStorage.autoCommentChars); } catch(e) { console.error(e); setTimeout(() => { void tabbedNotice(e?.message || String(e), "Character data error"); }, 0); }
+    autoCommentChars = autoCommentChars.filter(c => c && c.name);
+  }
+  if(autoCommentChars.length === 0) {
+    autoCommentChars = [{...FURAI_FACTORY_CHARACTER}];
+    try { localStorage.autoCommentChars = JSON.stringify(autoCommentChars); } catch(e) {}
+  } else if(!autoCommentChars.some(c => c.factoryId === "furai")) {
+    autoCommentChars.push({...FURAI_FACTORY_CHARACTER});
+    try { localStorage.autoCommentChars = JSON.stringify(autoCommentChars); } catch(e) {}
+  }
+
+  function getAutoCommentNameFromUserLabel(userLabel) {
+    let labelWithoutNonNameCharacters = userLabel.replace(/[\n\-:|()!{}*]/g, "").replace(/(?![*#0-9]+)[\p{Emoji}\p{Emoji_Modifier}\p{Emoji_Component}\p{Emoji_Modifier_Base}\p{Emoji_Presentation}]/gu, '');
+    let words = labelWithoutNonNameCharacters.split(/[|/ \-})]/g).map(w => w.trim()).filter(w => w);
+    while(words.slice(0, -1).join("_").length > 25) words.pop(); // we remove the last one for the length check in case it's a name like One Supercalifragilisticexpialidocious - better for userTag to be "OneSupercalif" than "One"
+    if(words.slice(0, -1).join("_").length > 15) words.pop(); // we probably don't need the last word if all the earlier ones are over 15 characters
+    let name = words.join("_").trim().toLowerCase();
+    return name + (userLabel.length > 25 ? "…" : "");
+  }
+  window[`__${globalFnsId}_tabbedCommentsPluginAutoComment`] = function(character) {
+    updateAutoCommentAvailability();
+    const targetPanelObj = autoCommentTargetPanelObj;
+    const targetChannel = targetPanelObj?.getCurrentChannelName?.();
+    let commentsBox = targetPanelObj?.commentsChannelNameToObj?.[targetChannel];
+    if(!commentsBox || !channelAllowsAutoComment(targetChannel)) {
+      setAutoCommentPanelOpen(false);
+      return;
+    }
+    if(commentsBox.channel === "n/o/-/a/i".replaceAll("/", "")) return;
+
+    let startTime = Date.now();
+    autoCommentCharBtn.disabled = true;
+    autoCommentCharBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin" aria-hidden="true" style="margin-right:.35em;"></i>Generating...`;
+
+    let currentUser = commentsBox.comments.find(c => c.byCurrentUser)?.user;
+    let comments = commentsBox.comments.slice(-500).map(c => {
+      let visualId = c.user.visualId.toUpperCase();
+      let userTag = visualId;
+      let userName = c.user.name ? getAutoCommentNameFromUserLabel(c.user.name) : "";
+      let nickname = c.user.nickname ? getAutoCommentNameFromUserLabel(c.user.nickname) : "";
+      let labels = [userName, nickname].filter(Boolean);
+      if(labels.length) userTag = `${visualId}(${labels.join(" / ")})`;
+      return `${userTag}: ${c.message.trim().replace(/\n{3,}/g, "\n\n")}`;
+    });
+    while(comments.join("").length > 10000) comments.shift();
+
+    let nicknameOverride = character.name.replace(/\s+/g, " ").slice(0, 50);
+    let currentUserVisualId = currentUser ? currentUser.visualId.toUpperCase() : "U7OP"; // just use a random/arbitrary tag if we don't have the user's actual one (we'll get it once they've made their first comment)
+    let respondingUserTag = `${currentUserVisualId}(${character.name})`;
+    let characterDescription = character.description.replace(/\n/g, " ").slice(0, 5000);
+
+    let newCommentText = ""; //commentsBox.inputText.trim().replace(/\n/g, " ").split(" ").slice(0, 3);
+    let obj = generateText({ // NOTE: perchance removes all leading spaces from lines, so we don't need to dedent the lines below
+      instruction: `
+      Your task is to write the next 5 messages in the following chat/roleplay. Keep it interesting. Write exactly as the selected character would participate in this chat, and do not step out of character or mention this generation system. When writing ${respondingUserTag}'s messages, you can ignore the off-topic/OOC/spam/commentary chat messages and focus on the messages that matter to the current conversation or roleplay. Predict what this character is most likely to say next, then write it **EXACTLY** in that character's voice.
+      IMPORTANT: Here's a description of ${respondingUserTag}: ${characterDescription}.
+
+      <MESSAGES>
+      ${comments.slice(0, -4).join("\n\n---\n\n").trim() || `(None yet. Start the chat/roleplay with an interesting starter message.)`}
+      </MESSAGES>
+
+      Again, your task is to write the next 5 messages. Make sure your writing is interesting, authentic, descriptive, natural, engaging, and creative. Create a captivating and genuinely fascinating roleplay, and always stay in-character and write responses based on the previous chat context. Don't be boring. Keep the roleplay flowing!
+      As a reminder about the ${respondingUserTag} character: ${characterDescription.slice(0, 500) + (characterDescription.length > 1000 ? "..." : "")}
+      `.trim(),
+      startWith: comments.slice(-4).join("\n\n---\n\n")+"\n\n---\n\n"+respondingUserTag+": "+newCommentText,
+      stopSequences: ["\n\n", "</MESSAGES>"],
+      onChunk: function(data) {
+        if(data.isFromStartWith) return;
+        newCommentText += data.textChunk; 
+        if(newCommentText.includes("</MESSAGES>")) {
+          newCommentText = newCommentText.replace(/<\/MESSAGES>/g, "").trim();
+          obj.stop();
+        }
+        commentsBox.inputText = newCommentText.trim();
+
+        // if really long, or repeating a single character, stop:
+        if(newCommentText.length > 800 || newCommentText.slice(-30) === newCommentText[newCommentText.length-1].repeat(30)) {
+          obj.stop();
+        }
+      },
+      onFinish: async function() {
+        autoCommentCharBtn.disabled = false;
+        autoCommentCharBtn.innerHTML = `Generate Comment <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left:.3em;"></i>`;
+
+        if(/\n---\s*$/.test(commentsBox.inputText)) {
+          commentsBox.inputText = commentsBox.inputText.replace(/\n---\s*$/g, "");
+          newCommentText = newCommentText.replace(/\n---\s*$/g, "");
+        }
+
+        if(autoCommentAutoSendCheckboxEl.checked) {
+          if(newCommentText.trim()) {
+            if(lastCurrentUserCommentTime && Date.now()-lastCurrentUserCommentTime < 3000) {
+              // Too soon to submit again, so just set nickname and let them click submit manually.
+              commentsBox.setNicknameForNextComment(nicknameOverride);
+              autoCommentCharBtn.textContent = "Submitting too fast";
+              setTimeout(() => {
+                autoCommentCharBtn.innerHTML = `Generate Comment <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left:.3em;"></i>`;
+              }, 1000);
+            } else {
+              commentsBox.submit(newCommentText.trim(), {nickname:nicknameOverride}).then(r => {
+                if(!r.success) commentsBox.inputText = newCommentText.trim(); // recover comment text if it failed
+              });
+              commentsBox.inputText = "";
+            }
+          }
+        } else {
+          // No auto-submit, but we still set the nickname to their character.
+          commentsBox.setNicknameForNextComment(nicknameOverride);
+        }
+      },
+    });
+  }
+  let saveAutoCommentCharInfoDebounceTimeout;
+
+  function renderAutoCommentCharOptions(selectedIndex = 0) {
+    if(autoCommentChars.length === 0) autoCommentChars.push({name:"Unnamed", description:""});
+    selectedIndex = Number(selectedIndex);
+    if(!Number.isInteger(selectedIndex) || !autoCommentChars[selectedIndex]) selectedIndex = 0;
+    autoCommentCharSelectEl.innerHTML = autoCommentChars.map((character, index) => `<option value="${index}">${tabbedEscapeHtml(character.name || "Unnamed")}</option>`).join("");
+    autoCommentCharSelectEl.value = String(selectedIndex);
+    return selectedIndex;
+  }
+
+  function persistAutoCommentChars() {
+    try { localStorage.autoCommentChars = JSON.stringify(autoCommentChars); } catch(e) {}
+  }
+
+  window[`__${globalFnsId}_tabbedCommentsPluginSaveAutoCommentCharInfo`] = function() {
+    let index = Number(autoCommentCharSelectEl.value);
+    if(!Number.isInteger(index) || !autoCommentChars[index]) return;
+    let name = autoCommentCharNameEl.value || "Unnamed";
+    autoCommentChars[index] = {...autoCommentChars[index], name, description:autoCommentCharNameDescriptionEl.value};
+    delete autoCommentChars[index].avatarUrl;
+    let option = autoCommentCharSelectEl.querySelector(`option[value="${index}"]`);
+    if(option) option.textContent = name;
+    clearTimeout(saveAutoCommentCharInfoDebounceTimeout);
+    saveAutoCommentCharInfoDebounceTimeout = setTimeout(persistAutoCommentChars, 500);
+  }
+
+  window[`__${globalFnsId}_tabbedCommentsPluginSwitchToAutoCommentCharByIndex`] = function(index) {
+    if(index === "#") {
+      index = autoCommentChars.length;
+      autoCommentChars.push({name:"Unnamed", description:""});
+      persistAutoCommentChars();
+      renderAutoCommentCharOptions(index);
+    } else {
+      index = renderAutoCommentCharOptions(index);
+    }
+
+    autoCommentCharNameEl.value = autoCommentChars[index].name || "Unnamed";
+    autoCommentCharNameDescriptionEl.value = autoCommentChars[index].description || "";
+    localStorage.__tabbedCommentsLastActiveAutoCommentCharIndex = index;
+  }
+
+  autoCommentCharSelectEl.onchange = () => window[`__${globalFnsId}_tabbedCommentsPluginSwitchToAutoCommentCharByIndex`](autoCommentCharSelectEl.value);
+  autoCommentAddCharBtn.onclick = () => window[`__${globalFnsId}_tabbedCommentsPluginSwitchToAutoCommentCharByIndex`]("#");
+  autoCommentCharNameEl.oninput = () => window[`__${globalFnsId}_tabbedCommentsPluginSaveAutoCommentCharInfo`]();
+  autoCommentCharNameDescriptionEl.oninput = () => window[`__${globalFnsId}_tabbedCommentsPluginSaveAutoCommentCharInfo`]();
+  autoCommentAutoSendCheckboxEl.onchange = () => { localStorage.__tabbedCommentsAutoCommentAutoSendCheckboxValue = autoCommentAutoSendCheckboxEl.checked ? "1" : ""; };
+  autoCommentCharBtn.onclick = () => window[`__${globalFnsId}_tabbedCommentsPluginAutoComment`]({name:autoCommentCharNameEl.value, description:autoCommentCharNameDescriptionEl.value});
+
+  try {
+    let charIndex = Number(localStorage.__tabbedCommentsLastActiveAutoCommentCharIndex || 0);
+    if(!Number.isInteger(charIndex) || !autoCommentChars[charIndex]) charIndex = 0;
+    if(!autoCommentChars[charIndex]) autoCommentChars[0] = {name:"Unnamed", description:""};
+    window[`__${globalFnsId}_tabbedCommentsPluginSwitchToAutoCommentCharByIndex`](charIndex);
+    autoCommentAutoSendCheckboxEl.checked = !!localStorage.__tabbedCommentsAutoCommentAutoSendCheckboxValue;
+  } catch(e) { console.error(e); setTimeout(() => { void tabbedNotice(e?.message || String(e), "Character data error"); }, 0); }
+
+  function createTabbedCommentsPanel(panelOpts) { // takes *list* of commentOptions as input
+    if(!panelOpts) panelOpts = {};
+    let panelCtn = document.createElement("div");
+    panelCtn.innerHTML = `
+      <div class="tabbed-comments-plugin-panel-layout">
+        <div class="tabbed-comments-plugin-header"></div>
+        <div class="tabbed-comments-plugin-body"></div>
+      </div>
+    `;
+
+
+    let commentsChannelNameToObj = {};
+    let universalSearchIndexCache = null;
+    let currentChannelName = null;
+    let persistenceIndex = Number.isInteger(panelOpts.persistenceIndex) ? panelOpts.persistenceIndex : null;
+    let panelObj;
+
+    const tabsHeaderEl = panelCtn.querySelector('.tabbed-comments-plugin-header');
+    const tabsContentEl = panelCtn.querySelector('.tabbed-comments-plugin-body');
+
+    function deleteCommentsChannel(channel) {
+      let customChannels = readStoredCustomChannels();
+      delete customChannels[channel];
+      writeStoredCustomChannels(customChannels);
+      syncOpenPanelsToStoredCustomChannelState();
+    }
+
+    function addCommentsChannel(channel) {
+      let customChannels = readStoredCustomChannels();
+      let alreadyExisted = !!customChannels[channel] || !!tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      if(channel !== "" && !customChannels[channel]) {
+        customChannels[channel] = {channel:channel};
+        writeStoredCustomChannels(customChannels);
+        syncOpenPanelsToStoredCustomChannelState();
+      } else if(channel !== "" && customChannels[channel] && !tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`)) {
+        syncPanelCustomChannelsFromStorage();
+      }
+      if(channel !== "" && customChannels[channel]) clearTemporaryMentionedChannel(channel);
+
+      let tab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      let tabContent = tabsContentEl.querySelector(`.tabbed-comments-plugin-content[data-channel='${channel}']`);
+
+      return {tab, tabContent, alreadyExisted};
+    }
+
+    function addLocalCommentsChannel(channel) {
+      let tab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      let tabContent = tabsContentEl.querySelector(`.tabbed-comments-plugin-content[data-channel='${channel}']`);
+      let alreadyExisted = !!tab;
+
+      if(!alreadyExisted) {
+        ({tab, tabContent} = addTab({channel:channel}));
+      }
+
+      return {tab, tabContent, alreadyExisted};
+    }
+
+    function addTemporaryMentionedCommentsChannel(channel) {
+      let customChannels = readStoredCustomChannels();
+      if(customChannels[channel]) return addCommentsChannel(channel);
+      return addLocalCommentsChannel(channel);
+    }
+
+    function removeTemporaryMentionedCommentsChannel(channel) {
+      if(readStoredCustomChannels()[channel]) {
+        clearTemporaryMentionedChannel(channel);
+        syncPanelCustomChannelsFromStorage();
+        return;
+      }
+
+      let tab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      if(!tab || !tab.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel) return;
+
+      let wasCurrentChannel = currentChannelName === channel;
+      delete commentsChannelNameToObj[channel];
+      universalSearchIndexCache = null;
+      tab.remove();
+      tabsContentEl.querySelector(`.tabbed-comments-plugin-content[data-channel='${channel}']`)?.remove();
+
+      if(wasCurrentChannel) {
+        let firstChannelTab = tabsHeaderEl.querySelector('.tabbed-comments-plugin-channel-tab');
+        if(firstChannelTab) {
+          showTabByChannelName(firstChannelTab.dataset.channel);
+        } else {
+          currentChannelName = null;
+          hideActiveCustomChannelControlButtons();
+        }
+      }
+    }
+
+    async function promptAddCommentsChannel() {
+      if(commentsChannels.allowCustomChannels === false) return;
+      let userInput = await getUserInput({
+        channel: { type: "input:text", label: "Choose a channel name to add:", placeholder: "You can use letters, numbers and hyphens.", value: window.lastUsedAiSuggestPrompt || "" },
+        tip: { type: "html", html: `<div style="opacity:0.8;font-size:75%;"><details><summary style="cursor:pointer;">Tap here for tips</summary><ul><li>You can type <b>#channelname</b> in the chat to share your channel.</li><li style="margin-top:0.5rem;">If you add <b>+u:alice|bob</b> at the end of a channel name, only those usernames can comment there.</li><li style="margin-top:0.5rem;">Want more private channels? Add <a href="https://perchance.org/ai-furrygen-pc" target="_blank" rel="noopener noreferrer">Private Channel</a> as a Sidebar Custom App.</li></ul></details></div>`, marginBottom:"0px" }
+      }, { okText:"Add channel", cancelText:"Cancel", cancelOnBackgroundClick:true });
+      let channel = userInput?.channel;
+      if(!channel) return;
+
+      let removeChannel = false;
+      if(channel.startsWith("!")) {
+        removeChannel = true;
+        channel = channel.slice(1);
+      }
+      channel = channel.toLowerCase().replace(/[^a-z0-9\-:+|]/g, "");
+
+      if(!channel) {
+        await tabbedNotice("Channel names can only contain lower-case letters, numbers and hyphens.", "Invalid channel name");
+        return;
+      }
+      if(channel === "feedback" || channel === "general") return;
+
+      if(removeChannel) {
+        deleteCommentsChannel(channel);
+        let firstChannelTab = tabsHeaderEl.querySelector('.tabbed-comments-plugin-channel-tab');
+        if(firstChannelTab) showTabByChannelName(firstChannelTab.dataset.channel);
+        return;
+      }
+
+      addCommentsChannel(channel);
+      showTabByChannelName(channel);
+      await tabbedNotice(`The '${channel}' channel has been added. Type #${channel} in the chat to share it.`, "Channel added");
+    }
+
+    // Channel tabs only. Panel/channel actions live in the pinned More menu.
+    function handleTabClick(event) {
+      const clickedTab = event.target.closest?.('.tabbed-comments-plugin-channel-tab');
+      if(!clickedTab || !tabsHeaderEl.contains(clickedTab)) return;
+      showTabByChannelName(clickedTab.dataset.channel);
+    }
+
+    function ensureActiveCustomChannelControlButtons() {
+      if(!tabsHeaderEl.channelDeleteBtn) {
+        let btn = tabsHeaderEl.channelDeleteBtn = document.createElement("button");
+        btn.type="button";
+        btn.className="tabbed-comments-plugin-channel-dismiss-btn";
+        btn.textContent="×";
+        btn.title="Hide or unpin this channel";
+        btn.setAttribute("aria-label",btn.title);
+        btn.onclick = function(event) {
+          event.stopPropagation();
+          const channel = this.dataset.channelToDelete;
+          rememberUnpinnedChannel(channel);
+          deleteCommentsChannel(channel);
+        };
+      }
+    }
+
+    function hideActiveCustomChannelControlButtons() {
+      ensureActiveCustomChannelControlButtons();
+      tabsHeaderEl.channelDeleteBtn.style.display = "none";
+    }
+
+    function renderControlsAroundActiveCustomChannel(channel) {
+      ensureActiveCustomChannelControlButtons();
+      hideActiveCustomChannelControlButtons();
+      if(!isStoredCustomChannel(channel)) return;
+
+      const activeTab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      if(!activeTab) return;
+
+      const deleteBtn = tabsHeaderEl.channelDeleteBtn;
+      deleteBtn.dataset.channelToDelete = channel;
+      deleteBtn.style.display = "grid";
+      activeTab.append(deleteBtn);
+    }
+
+    // Given the channel of a tab, it shows the tab content:
+    function showTabByChannelName(channel) {
+      let activeTab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-tab[data-channel='${channel}']`);
+      let activeContent = tabsContentEl.querySelector(`.tabbed-comments-plugin-content[data-channel='${channel}']`);
+      if(!activeTab || !activeContent) return;
+
+      currentChannelName = channel;
+      if(persistenceIndex !== null) savePanelChannel(persistenceIndex, channel);
+      // Keep the old global key as a main-panel compatibility mirror only.
+      // Extra panels must never overwrite it or they all reopen on one channel.
+      if(persistenceIndex === 0) localStorage.__tabbedCommentsPluginLastViewedChannel = channel;
+      tabsHeaderEl.querySelectorAll('.tabbed-comments-plugin-tab').forEach(el => el.classList.remove('tabbed-comments-plugin-active-tab'));
+      activeTab.classList.add('tabbed-comments-plugin-active-tab');
+
+      tabsContentEl.querySelectorAll('.tabbed-comments-plugin-content').forEach(el => el.classList.remove('tabbed-comments-plugin-active-content'));
+      activeContent.classList.add('tabbed-comments-plugin-active-content');
+
+      unseenCommentCountByChannel[channel] = 0;
+
+      updateUnseenCountHtml(channel);
+      renderControlsAroundActiveCustomChannel(channel);
+      if(panelOpts.onShowTab) panelOpts.onShowTab({channel});
+      updateAutoCommentAvailability(panelObj);
+    }
+
+    function syncPanelCustomChannelsFromStorage() {
+      let orderedCustomChannelEntries = getStoredCustomChannelEntriesInOrder();
+      let orderedCustomChannelNames = orderedCustomChannelEntries.map(({ channel }) => channel);
+
+      for(let tab of [...tabsHeaderEl.querySelectorAll('.tabbed-comments-plugin-channel-tab')]) {
+        let channelName = tab.dataset.channel;
+        if(tab.dataset.tabbedCommentsPluginIsTemporaryMentionedChannel) continue;
+        if(!isStoredCustomChannel(channelName) || orderedCustomChannelNames.includes(channelName)) continue;
+        delete commentsChannelNameToObj[channelName];
+        universalSearchIndexCache = null;
+        tab.remove();
+        tabsContentEl.querySelector(`.tabbed-comments-plugin-content[data-channel='${channelName}']`)?.remove();
+      }
+
+      for(let { commentOptions, channel } of orderedCustomChannelEntries) {
+        clearTemporaryMentionedChannel(channel);
+        if(tabsHeaderEl.querySelector(`.tabbed-comments-plugin-channel-tab[data-channel='${channel}']`)) continue;
+        let {tab} = addTab(JSON.parse(JSON.stringify(commentOptions)));
+      }
+
+      for(let channelName of orderedCustomChannelNames) {
+        let tab = tabsHeaderEl.querySelector(`.tabbed-comments-plugin-channel-tab[data-channel='${channelName}']`);
+        if(tab) tabsHeaderEl.append(tab);
+      }
+      if(panelMoreBtn) tabsHeaderEl.prepend(panelMoreBtn);
+
+      if(currentChannelName && tabsHeaderEl.querySelector(`.tabbed-comments-plugin-channel-tab[data-channel='${currentChannelName}']`)) {
+        renderControlsAroundActiveCustomChannel(currentChannelName);
+        return;
+      }
+
+      let firstChannelTab = tabsHeaderEl.querySelector('.tabbed-comments-plugin-channel-tab');
+      if(firstChannelTab) {
+        showTabByChannelName(firstChannelTab.dataset.channel);
+      } else {
+        currentChannelName = null;
+        hideActiveCustomChannelControlButtons();
+      }
+    }
+
+    // Adds a new tab to the module
+    function addTab(commentOptions) {
+
+      commentOptions.width = "100%";
+      commentOptions.height = "100%"; // only makes sense to set height via defaultChannelOptions, and that controls overall comments container height
+      if(!commentOptions.customEmojis) commentOptions.customEmojis = defaultChannelOptions.customEmojis || defaultCustomEmojis;
+      commentOptions.forceColorScheme = defaultChannelOptions.forceColorScheme ?? localStorage.forceColorScheme ?? null;
+
+      let originalOnCommentHandler = commentOptions.onComment || defaultChannelOptions.onComment;
+      let originalOnLoadHandler = commentOptions.onLoad || defaultChannelOptions.onLoad
+      commentOptions.onComment = function(...args) {
+        universalSearchIndexCache = null;
+        commentsPluginOnCommentHandler(...args); // for counting unseen, channel mentions, etc.
+        try { if(originalOnCommentHandler) originalOnCommentHandler(...args); } catch(e) { console.error(e) } // userland code
+      };
+      commentOptions.onLoad = function(...args) {
+        universalSearchIndexCache = null;
+        commentsPluginOnLoadHandler(...args); // for counting unseen, channel mentions, etc.
+        try { if(originalOnLoadHandler) originalOnLoadHandler(...args);  } catch(e) { console.error(e) } // userland code
+      };
+
+      commentOptions.replacedDuringUpdate = true; // needed to allow multiple instances of the same channel (since we have multiple tabbed-comments-modules)
+      for(let key of defaultChannelOptions.getAllKeys || Object.keys(defaultChannelOptions)) {
+        if(!commentOptions[key] && !commentOptions.hasOwnProperty(key)) {
+          // getter, because the default options could be dynamic (e.g. dark/light mode using localStorage), and this createTabbedCommentsPanel function is (as of writing) called every time the dark/light mode is switched.
+          Object.defineProperty(commentOptions, key, {
+            get: () => defaultChannelOptions[key],
+          });
+        }
+      }
+
+      let commentsPluginOutput = commentsPlugin(commentOptions);
+      commentsChannelNameToObj[commentOptions.channel] = commentsPluginOutput;
+      universalSearchIndexCache = null;
+
+      const tab = document.createElement('div');
+      tab.className = 'tabbed-comments-plugin-tab tabbed-comments-plugin-channel-tab'; // note that non-channel tabs/buttons are possible - e.g. close tab button, close panel button
+      const channelLabel = commentOptions.label || commentOptions.channel || "general";
+      tab.innerHTML = `<span class="tabbed-comments-plugin-channel-label">${tabbedEscapeHtml(channelLabel)}</span><span class="tabbed-comments-plugin-unseen-count">?</span>`;
+      tab.title = channelLabel;
+      tab.dataset.channel = commentOptions.channel;
+      tab.dataset.channelLabel = channelLabel;
+
+      const tabContent = document.createElement('div');
+      tabContent.className = 'tabbed-comments-plugin-content';
+      tabContent.innerHTML = commentsPluginOutput;
+      tabContent.dataset.channel = commentOptions.channel;
+
+      // for refreshing the comments if needed (e.g. when dark/light mode changes - see updateColorScheme function)
+      tabContent.dataset.tabbedCommentsDirectParentOfCommentsPluginOutput = "1";
+      tabContent.__commentOptionsUsed = commentOptions; // this should probably not be 'concrete' ones because we want a reference to the dynamic onces for if/when we need to reload it
+
+      tabsHeaderEl.appendChild(tab);
+      tabsContentEl.appendChild(tabContent);
+      return {tab, tabContent};
+    }
+
+    let existingChannelNames = [];
+    let channelNameToChannelData = {};
+    const hiddenDefaultChannelNames = readHiddenDefaultChannelNames();
+
+    for(let commentOptions of commentsChannels.selectAll) {
+      if(typeof commentOptions === "string") commentOptions = {channel:commentOptions}; // in case commentsChannels is just an array of strings
+      if(!commentOptions.channel) commentOptions.channel = commentOptions.getName==="general" ? "" : commentOptions.getName; // use name of commentOptions object as channel name by default
+      let channelName = commentOptions.channel.toString();
+      if(hiddenDefaultChannelNames.has(channelName)) continue;
+
+      let {tab, tabContent} = addTab(commentOptions);
+      channelNameToChannelData[channelName] = {tab, tabContent, channelName};
+      existingChannelNames.push(channelName);
+    }
+
+    if(commentsChannels.allowCustomChannels !== false) {
+      for(let commentOptions of Object.values(readStoredCustomChannels())) {
+        if(existingChannelNames.includes(commentOptions.channel)) continue;
+        let channelName = commentOptions.channel.toString();
+        let {tab, tabContent} = addTab(commentOptions);
+        channelNameToChannelData[channelName] = {tab, tabContent, channelName};
+      }
+    }
+
+    const panelMoreAbortController = new AbortController();
+    const panelMoreBtn = document.createElement('div');
+    const panelMoreIconHtml = opts.moreButtonIconHtml || '<span aria-hidden="true" style="font-size:1.05em;line-height:1;">⚙️</span>';
+    panelMoreBtn.className = 'tabbed-comments-plugin-tab tabbed-comments-plugin-more-btn';
+    panelMoreBtn.innerHTML = `${panelMoreIconHtml}<span class="tabbed-comments-plugin-more-label">More</span>`;
+    panelMoreBtn.title = 'More comment options';
+    panelMoreBtn.setAttribute('role', 'button');
+    panelMoreBtn.setAttribute('aria-haspopup', 'menu');
+    panelMoreBtn.setAttribute('aria-expanded', 'false');
+    tabsHeaderEl.prepend(panelMoreBtn);
+
+    const panelMoreMenu = document.createElement('div');
+    panelMoreMenu.className = 'tabbed-comments-plugin-more-menu';
+    panelMoreMenu.setAttribute('role', 'menu');
+    panelCtn.appendChild(panelMoreMenu);
+
+    const channelSearchWrap = document.createElement('div');
+    const channelSearchIconHtml = opts.searchIconHtml || '<span aria-hidden="true">🔍</span>';
+    channelSearchWrap.className = 'tabbed-comments-plugin-channel-search';
+    channelSearchWrap.innerHTML = `<span class="tabbed-comments-plugin-channel-search-icon" aria-hidden="true">${channelSearchIconHtml}</span><input type="text" class="tabbed-comments-plugin-channel-search-input" autocomplete="off" spellcheck="false" aria-label="Search channels, users and messages" placeholder="Search anything…"><button type="button" class="tabbed-comments-plugin-channel-search-clear" aria-label="Clear search" title="Clear">×</button>`;
+    panelMoreMenu.appendChild(channelSearchWrap);
+    const channelSearchInput = channelSearchWrap.querySelector('.tabbed-comments-plugin-channel-search-input');
+    const channelSearchClear = channelSearchWrap.querySelector('.tabbed-comments-plugin-channel-search-clear');
+    const channelSearchResults = document.createElement('div');
+    channelSearchResults.className = 'tabbed-comments-plugin-channel-search-results';
+    panelMoreMenu.appendChild(channelSearchResults);
+
+    const makePanelMenuItem = (icon, label, fallbackIcon = "") => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tabbed-comments-plugin-more-menu-item';
+      button.setAttribute('role', 'menuitem');
+      button.innerHTML = `<i class="${icon} fa-fw" aria-hidden="true"></i>${fallbackIcon ? `<span class="tabbed-comments-menu-icon-fallback" aria-hidden="true" style="display:none;width:18px;flex:0 0 18px;text-align:center;line-height:1;">${fallbackIcon}</span>` : ""}<span>${label}</span>`;
+      panelMoreMenu.appendChild(button);
+
+      if(fallbackIcon) requestAnimationFrame(() => {
+        if(!button.isConnected) return;
+        const iconEl = button.querySelector('i');
+        const fallbackEl = button.querySelector('.tabbed-comments-menu-icon-fallback');
+        const iconContent = iconEl ? getComputedStyle(iconEl, '::before').content : 'none';
+        const hasFontAwesomeIcon = !!iconEl && !!iconContent && !['none', 'normal', '""'].includes(iconContent);
+        if(iconEl) iconEl.style.display = hasFontAwesomeIcon ? '' : 'none';
+        if(fallbackEl) fallbackEl.style.display = hasFontAwesomeIcon ? 'none' : 'inline-block';
+      });
+
+      return button;
+    };
+
+    const usersMenuItem = makePanelMenuItem('fa-solid fa-people-group', 'Recent users', '👥');
+    const translatorMenuItem = makePanelMenuItem('fa-solid fa-language', 'Translator', '🌐');
+    const aiMenuItem = makePanelMenuItem('fa-solid fa-robot', 'AI Character', '🤖');
+    const addChannelMenuItem = makePanelMenuItem('fa-solid fa-hashtag', 'Add channel', '#');
+    const unpinnedMenuItem = makePanelMenuItem('fa-solid fa-layer-group', 'Manage channels', '🗂️');
+    const panelMenuSeparator = document.createElement('div');
+    panelMenuSeparator.className = 'tabbed-comments-plugin-more-menu-separator';
+    panelMoreMenu.appendChild(panelMenuSeparator);
+    const addPanelMenuItem = makePanelMenuItem('fa-regular fa-comments', 'Add panel to this row', '💬');
+    const addRowMenuItem = makePanelMenuItem('fa-solid fa-arrows-down-to-line', 'Add comment row', '↧');
+    const closeRowMenuItem = makePanelMenuItem('fa-solid fa-minus', 'Close this row');
+    const closeAllPanelsMenuItem = makePanelMenuItem('fa-solid fa-xmark', 'Close all panels', '✕');
+    const closePanelMenuItem = makePanelMenuItem('fa-solid fa-xmark', 'Close this comment panel', '✕');
+
+    function closePanelMoreMenu() {
+      panelMoreMenu.style.display = 'none';
+      panelMoreBtn.setAttribute('aria-expanded', 'false');
+      if(channelSearchInput.value) {
+        channelSearchInput.value = '';
+        renderUniversalSearchResults();
+      }
+    }
+
+    function positionPanelMoreMenu() {
+      if(panelMoreMenu.style.display === 'none') return;
+      const anchorRect = panelMoreBtn.getBoundingClientRect();
+      const panelRect = panelCtn.getBoundingClientRect();
+      const viewportMargin = 8;
+      const gap = 6;
+      panelMoreMenu.style.visibility = 'hidden';
+      panelMoreMenu.style.left = '0px';
+      panelMoreMenu.style.top = '0px';
+      const menuWidth = panelMoreMenu.offsetWidth;
+      const menuHeight = panelMoreMenu.offsetHeight;
+      const verticalTabs = panelRect.width >= 520;
+      let left = verticalTabs ? anchorRect.right + gap : anchorRect.left;
+      let top = verticalTabs ? anchorRect.top : anchorRect.bottom + gap;
+      if(left + menuWidth > window.innerWidth - viewportMargin) left = Math.max(viewportMargin, anchorRect.right - menuWidth);
+      if(top + menuHeight > window.innerHeight - viewportMargin) top = Math.max(viewportMargin, anchorRect.top - menuHeight - gap);
+      panelMoreMenu.style.left = `${Math.max(viewportMargin, left)}px`;
+      panelMoreMenu.style.top = `${Math.max(viewportMargin, top)}px`;
+      panelMoreMenu.style.visibility = '';
+    }
+
+    function parseUniversalSearch(rawValue) {
+      const raw = String(rawValue || "").trim();
+      if(raw.startsWith("#")) return {scope:"channels", query:raw.slice(1).trim().toLowerCase()};
+      if(raw.startsWith("@")) return {scope:"users", query:raw.slice(1).trim().toLowerCase()};
+      return {scope:"all", query:raw.toLowerCase()};
+    }
+
+    function getSearchableChannelTabs() {
+      const items = [];
+      const seen = new Set();
+      const hiddenDefaults = readHiddenDefaultChannelNames();
+      const tabs = [...tabsHeaderEl.querySelectorAll('.tabbed-comments-plugin-channel-tab')];
+      const tabByChannel = new Map(tabs.map(tab => [tab.dataset.channel || '', tab]));
+
+      for(const {channel,label} of getConfiguredDefaultChannelEntries()) {
+        items.push({tab:tabByChannel.get(channel) || null, channel, label, kind:"default", hidden:hiddenDefaults.has(channel), unpinned:false});
+        seen.add(channel);
+      }
+      for(const {channel} of getStoredCustomChannelEntriesInOrder()) {
+        if(seen.has(channel)) continue;
+        const tab = tabByChannel.get(channel) || null;
+        items.push({tab, channel, label:tab?.dataset.channelLabel || channel, kind:"custom", hidden:false, unpinned:false});
+        seen.add(channel);
+      }
+      for(const channel of readUnpinnedChannels()) {
+        if(seen.has(channel)) continue;
+        items.push({tab:null, channel, label:channel, kind:"custom", hidden:false, unpinned:true});
+        seen.add(channel);
+      }
+      for(const tab of tabs) {
+        const channel = tab.dataset.channel || '';
+        if(seen.has(channel)) continue;
+        items.push({tab, channel, label:tab.dataset.channelLabel || channel || 'General', kind:"other", hidden:false, unpinned:false});
+        seen.add(channel);
+      }
+      return items;
+    }
+
+    function getUniversalSearchData() {
+      const channels = getSearchableChannelTabs();
+      if(!universalSearchIndexCache) {
+        const labels = new Map(channels.map(item => [item.channel, item.label]));
+        const index = tabbedBuildSearchIndex(Object.entries(commentsChannelNameToObj || {}), labels);
+        universalSearchIndexCache = {users:index.users, messages:index.comments};
+      }
+      return {channels, ...universalSearchIndexCache};
+    }
+
+    function universalSearchSection(title, count) {
+      const heading = document.createElement('div');
+      heading.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 8px 4px;font-size:10.5px;font-weight:700;letter-spacing:.02em;opacity:.58;text-transform:uppercase;';
+      heading.innerHTML = `<span>${title}</span><span>${count}</span>`;
+      channelSearchResults.appendChild(heading);
+    }
+
+    function renderUniversalSearchResults() {
+      const parsed = parseUniversalSearch(channelSearchInput.value);
+      const query = parsed.query;
+      channelSearchClear.style.visibility = channelSearchInput.value.trim() ? 'visible' : 'hidden';
+      channelSearchResults.replaceChildren();
+      channelSearchResults.classList.toggle('is-active', !!channelSearchInput.value.trim());
+      if(!channelSearchInput.value.trim()) return;
+
+      const data = getUniversalSearchData();
+      const channelMatches = parsed.scope === 'users' || !query ? [] : data.channels.filter(item =>
+        item.label.toLowerCase().includes(query) || item.channel.toLowerCase().includes(query)
+      );
+      const userMatches = parsed.scope === 'channels' || !query ? [] : data.users.filter(item =>
+        item.searchText.includes(query)
+      );
+      const messageMatches = parsed.scope === 'channels' || !query ? [] : data.messages.filter(item =>
+        item.searchText.includes(query)
+      );
+
+      if(channelMatches.length) {
+        universalSearchSection('Channels', channelMatches.length);
+        for(const item of channelMatches) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tabbed-comments-plugin-more-menu-item tabbed-comments-plugin-channel-search-result';
+          button.classList.toggle('is-current', !item.hidden && !item.unpinned && item.channel === currentChannelName);
+          button.setAttribute('role', 'menuitem');
+          const state = item.hidden ? 'hidden' : item.unpinned ? 'unpinned' : '';
+          button.innerHTML = `<span aria-hidden="true" style="width:18px;flex:0 0 18px;text-align:center;opacity:.72;">#</span><span style="min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${tabbedEscapeHtml(item.label)}</span>${state ? `<span style="font-size:10px;opacity:.5;">${state}</span>` : ''}`;
+          button.onclick = () => {
+            if(item.hidden && item.kind === 'default') {
+              const hidden = readHiddenDefaultChannelNames();
+              hidden.delete(item.channel);
+              writeHiddenDefaultChannelNames(hidden);
+              location.reload();
+              return;
+            }
+            if(item.unpinned) {
+              forgetUnpinnedChannel(item.channel);
+              addCommentsChannel(item.channel);
+            }
+            const tab = [...tabsHeaderEl.querySelectorAll('.tabbed-comments-plugin-channel-tab')]
+              .find(candidate => candidate.dataset.channel === item.channel);
+            if(tab) tab.click();
+            else showTabByChannelName(item.channel);
+            closePanelMoreMenu();
+          };
+          channelSearchResults.appendChild(button);
+        }
+      }
+
+      if(userMatches.length) {
+        universalSearchSection('Users', userMatches.length);
+        for(const item of userMatches) {
+          const user = item.user || {};
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tabbed-comments-plugin-more-menu-item';
+          button.style.alignItems = 'flex-start';
+          button.innerHTML = `<span aria-hidden="true" style="width:18px;flex:0 0 18px;text-align:center;opacity:.72;">@</span><span style="min-width:0;flex:1;"><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:650;">${tabbedEscapeHtml(tabbedUserDisplayName(user))}</span><span style="display:block;margin-top:2px;font-size:10.5px;opacity:.55;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.count} message${item.count === 1 ? '' : 's'} · ${tabbedEscapeHtml(tabbedRelativeTime(item.time))}</span></span>`;
+          button.onclick = () => {
+            const next = tabbedUserSearchNeedle(user);
+            if(!next) return;
+            channelSearchInput.value = `@${next}`;
+            renderUniversalSearchResults();
+            channelSearchInput.focus({preventScroll:true});
+            channelSearchInput.setSelectionRange?.(channelSearchInput.value.length, channelSearchInput.value.length);
+          };
+          channelSearchResults.appendChild(button);
+        }
+      }
+
+      if(messageMatches.length) {
+        universalSearchSection('Messages', messageMatches.length);
+        for(const item of messageMatches) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tabbed-comments-plugin-more-menu-item';
+          button.style.alignItems = 'flex-start';
+          const displayName = tabbedUserDisplayName(item.user);
+          const snippet = item.message || '(no text)';
+          button.innerHTML = `<span aria-hidden="true" style="width:18px;flex:0 0 18px;text-align:center;opacity:.72;">💬</span><span style="min-width:0;flex:1;"><span style="display:block;font-size:10.5px;opacity:.58;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">#${tabbedEscapeHtml(item.channelLabel)} · ${tabbedEscapeHtml(displayName)} · ${tabbedEscapeHtml(tabbedRelativeTime(item.time))}</span><span style="display:-webkit-box;margin-top:2px;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;white-space:normal;overflow-wrap:anywhere;">${tabbedEscapeHtml(snippet)}</span></span>`;
+          button.onclick = () => {
+            const tab = [...tabsHeaderEl.querySelectorAll('.tabbed-comments-plugin-channel-tab')]
+              .find(candidate => candidate.dataset.channel === item.channel);
+            if(tab) tab.click();
+            else showTabByChannelName(item.channel);
+            closePanelMoreMenu();
+          };
+          channelSearchResults.appendChild(button);
+        }
+      }
+
+      if(!channelMatches.length && !userMatches.length && !messageMatches.length) {
+        const empty = document.createElement('div');
+        empty.className = 'tabbed-comments-plugin-channel-search-empty';
+        empty.textContent = 'No matches';
+        channelSearchResults.appendChild(empty);
+      }
+    }
+
+    function refreshPanelMoreMenu() {
+      const fullMode = isPerformanceProfile();
+      usersMenuItem.style.display = fullMode ? '' : 'none';
+      translatorMenuItem.style.display = typeof window.aifgTranslatorBridge?.open === 'function' ? '' : 'none';
+      aiMenuItem.style.display = panelAllowsAutoComment(panelObj) ? '' : 'none';
+      addChannelMenuItem.style.display = commentsChannels.allowCustomChannels === false ? 'none' : '';
+      unpinnedMenuItem.style.display = commentsChannels.allowCustomChannels === false ? 'none' : '';
+      const currentRowIndex = getPanelRowIndex(panelObj);
+      addPanelMenuItem.style.display = fullMode ? '' : 'none';
+      addPanelMenuItem.disabled = fullMode && !canAddExtraPanel();
+      addRowMenuItem.style.display = fullMode ? '' : 'none';
+      addRowMenuItem.disabled = fullMode && !canAddExtraPanel();
+      closeRowMenuItem.style.display = fullMode && currentRowIndex > 0 ? '' : 'none';
+      closeAllPanelsMenuItem.style.display = fullMode && persistenceIndex === 0 && extraPanelEntries.length > 0 ? '' : 'none';
+      closePanelMenuItem.style.display = panelOpts.addCloseButton ? '' : 'none';
+      panelMenuSeparator.style.display = addPanelMenuItem.style.display !== 'none' || addRowMenuItem.style.display !== 'none' || closeRowMenuItem.style.display !== 'none' || closeAllPanelsMenuItem.style.display !== 'none' || closePanelMenuItem.style.display !== 'none' ? '' : 'none';
+    }
+
+    function openPanelMoreMenu() {
+      refreshPanelMoreMenu();
+      renderUniversalSearchResults();
+      panelMoreMenu.style.display = 'block';
+      panelMoreBtn.setAttribute('aria-expanded', 'true');
+      positionPanelMoreMenu();
+    }
+
+    function closeThisPanel() {
+      panelCtn.remove();
+      if(panelObj) {
+        allPanelObjs.delete(panelObj);
+        if(autoCommentTargetPanelObj === panelObj) {
+          autoCommentTargetPanelObj = null;
+          setAutoCommentPanelOpen(false);
+        }
+      }
+      panelMoreAbortController.abort();
+      if(panelOpts.onClose) panelOpts.onClose();
+    }
+
+    panelMoreBtn.onclick = event => {
+      event.stopPropagation();
+      if(panelMoreMenu.style.display === 'block') closePanelMoreMenu();
+      else openPanelMoreMenu();
+    };
+    panelMoreMenu.onclick = event => event.stopPropagation();
+    channelSearchInput.oninput = renderUniversalSearchResults;
+    channelSearchClear.onclick = () => {
+      channelSearchInput.value = '';
+      renderUniversalSearchResults();
+      channelSearchInput.focus({ preventScroll:true });
+    };
+    channelSearchInput.onkeydown = event => {
+      if(event.key !== 'Escape') return;
+      event.preventDefault();
+      if(channelSearchInput.value) {
+        channelSearchInput.value = '';
+        renderUniversalSearchResults();
+      } else {
+        closePanelMoreMenu();
+        panelMoreBtn.focus?.({ preventScroll:true });
+      }
+    };
+    usersMenuItem.onclick = async () => {
+      closePanelMoreMenu();
+      await openUsersForPanel(panelObj);
+    };
+    translatorMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      const translator = window.aifgTranslatorBridge;
+      if(typeof translator?.open !== 'function') return;
+
+      const targetChannel = currentChannelName;
+      const commentsBox = commentsChannelNameToObj[targetChannel];
+      if(!commentsBox) return;
+
+      const focusTargetCommentInput = () => {
+        const content = [...tabsContentEl.querySelectorAll('.tabbed-comments-plugin-content')]
+          .find(element => element.dataset.channel === targetChannel);
+        requestAnimationFrame(() => content?.querySelector('textarea')?.focus({preventScroll:false}));
+      };
+
+      translator.open({
+        initialText:String(commentsBox.inputText || ''),
+        contextLabel:`#${targetChannel || 'general'}`,
+        useLabel:'Use in comment',
+        sendLabel:'Send',
+        onUse:text => {
+          if(!panelCtn.isConnected) throw new Error('This comment panel is no longer open.');
+          commentsBox.inputText = String(text || '');
+          focusTargetCommentInput();
+        },
+        onSend:async text => {
+          if(!panelCtn.isConnected) throw new Error('This comment panel is no longer open.');
+          const message = String(text || '').trim();
+          if(!message) return;
+          const result = await commentsBox.submit(message);
+          if(!result?.success) {
+            commentsBox.inputText = message;
+            focusTargetCommentInput();
+            throw new Error(result?.error || 'Comment could not be sent. The translation was returned to the comment box.');
+          }
+          commentsBox.inputText = '';
+        }
+      });
+    };
+    aiMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      openAutoCommentForPanel(panelObj);
+    };
+    addChannelMenuItem.onclick = async () => {
+      closePanelMoreMenu();
+      await promptAddCommentsChannel();
+    };
+    unpinnedMenuItem.onclick = async () => {
+      closePanelMoreMenu();
+      const id = `${globalFnsId}-channels-${Math.random().toString(16).slice(2)}`;
+      const dialog = getUserInput({list:{type:"html",html:`<div id="${id}"></div>`}}, {hideCancel:true,okText:"Close",cancelOnBackgroundClick:true});
+      const host = document.getElementById(id);
+      let defaultChannelsChanged = false;
+
+      const render = (query = "") => {
+        const q = String(query).trim().toLowerCase();
+        const defaultChannels = getConfiguredDefaultChannelEntries();
+        const hiddenDefaults = readHiddenDefaultChannelNames();
+        const visibleDefaults = q
+          ? defaultChannels.filter(({channel,label}) => label.toLowerCase().includes(q) || channel.toLowerCase().includes(q))
+          : defaultChannels;
+        const pinned = getStoredCustomChannelEntriesInOrder().map(({channel}) => channel);
+        const unpinned = readUnpinnedChannels();
+        const visiblePinned = q ? pinned.filter(channel => channel.toLowerCase().includes(q)) : pinned;
+        const visibleUnpinned = q ? unpinned.filter(channel => channel.toLowerCase().includes(q)) : unpinned;
+        const icon = (action, channel, cls, fallback, title) => `<button type="button" data-action="${action}" data-channel="${channel}" title="${title}" aria-label="${title}" style="width:22px;height:22px;display:grid;place-items:center;border:0;background:none;padding:0;color:inherit;cursor:pointer;opacity:.72;"><i class="${cls}" data-fallback="${fallback}"></i><span aria-hidden="true" style="display:none;">${fallback}</span></button>`;
+        const row = (channel, actions) => `<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;min-height:32px;padding:3px 7px;border-radius:6px;"><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">#${tabbedEscapeHtml(channel)}</span><span style="display:flex;align-items:center;gap:5px;">${actions.join("")}</span></div>`;
+        const section = (label, count, body) => `<section style="margin-top:10px;padding:7px;border:1px solid var(--border-color,#444);border-radius:8px;background:color-mix(in srgb,var(--box-color,#222) 72%,transparent);"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 2px 5px;font-size:12px;font-weight:700;opacity:.78;"><span>${label}</span><span style="font-size:10px;font-weight:600;opacity:.62;">${count}</span></div>${body}</section>`;
+
+        const defaultBody = visibleDefaults.length
+          ? visibleDefaults.map(({channel,label}) => `<label style="display:flex;align-items:center;gap:8px;min-height:32px;padding:3px 7px;border-radius:6px;cursor:pointer;"><input type="checkbox" data-default-channel="${tabbedEscapeHtml(channel).replace(/"/g,"&quot;")}" ${hiddenDefaults.has(channel) ? "" : "checked"} style="width:15px;height:15px;flex:0 0 auto;accent-color:var(--special-color,#1378e4);cursor:pointer;"><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">#${tabbedEscapeHtml(label)}</span></label>`).join("")
+          : `<div style="padding:6px 7px;font-size:12px;opacity:.5;">No matching default channels</div>`;
+
+        let pinnedBody = "";
+        for(const channel of visiblePinned) {
+          const index = pinned.indexOf(channel);
+          const actions = [];
+          if(index > 0) actions.push(icon("move-up", channel, "fa-solid fa-chevron-up", "↑", `Move ${channel} up`));
+          if(index < pinned.length-1) actions.push(icon("move-down", channel, "fa-solid fa-chevron-down", "↓", `Move ${channel} down`));
+          actions.push(icon("unpin", channel, "fa-solid fa-minus", "➖", `Unpin ${channel}`));
+          pinnedBody += row(channel, actions);
+        }
+        if(!pinnedBody) pinnedBody = `<div style="padding:6px 7px;font-size:12px;opacity:.5;">${q ? "No matches" : "No pinned channels"}</div>`;
+        const unpinnedBody = visibleUnpinned.length
+          ? visibleUnpinned.map(channel => row(channel, [icon("restore", channel, "fa-solid fa-plus", "➕", `Add ${channel} back`), icon("remove", channel, "fa-regular fa-trash-can", "🗑️", `Remove ${channel} from list`)])).join("") + (!q && unpinned.length > 1 ? `<button type="button" data-action="clear" style="margin:7px 7px 2px;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:11px;cursor:pointer;opacity:.58;"><i class="fa-regular fa-trash-can" style="margin-right:5px;"></i>Clear unpinned</button>` : "")
+          : `<div style="padding:6px 7px;font-size:12px;opacity:.5;">${q ? "No matches" : "No unpinned channels"}</div>`;
+
+        const visibleDefaultCount = defaultChannels.filter(({channel}) => !hiddenDefaults.has(channel)).length;
+        host.innerHTML =
+          `<div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;"><i class="fa-solid fa-layer-group" aria-hidden="true" style="opacity:.68;"></i><strong style="font-size:13px;">Manage channels</strong></div>` +
+          `<div style="font-size:11.5px;line-height:1.35;opacity:.58;margin:-2px 0 8px;">Built-in default channels stay here when hidden. Changes apply when this window closes.</div>` +
+          `<div style="display:grid;grid-template-columns:28px minmax(0,1fr) 28px;align-items:center;gap:4px;height:36px;padding:0 3px;border:1px solid var(--border-color,#444);border-radius:7px;background:var(--background-color,#111);"><span style="display:grid;place-items:center;opacity:.5;"><i class="fa-solid fa-magnifying-glass" data-fallback="🔍"></i><span aria-hidden="true" style="display:none;">🔍</span></span><input type="search" data-channel-manager-search value="${tabbedEscapeHtml(query).replace(/"/g,"&quot;")}" placeholder="Search channels" aria-label="Search channels" style="min-width:0;width:100%;height:34px;padding:0;border:0;outline:0;background:transparent;color:inherit;font:inherit;"><button type="button" data-action="clear-search" title="Clear search" aria-label="Clear search" style="width:28px;height:28px;display:grid;place-items:center;border:0;background:none;padding:0;color:inherit;cursor:pointer;opacity:${q ? ".72" : ".28"};"><i class="fa-solid fa-xmark" data-fallback="×"></i><span aria-hidden="true" style="display:none;">×</span></button></div>` +
+          section("Default channels", `${visibleDefaultCount}/${defaultChannels.length}`, defaultBody) +
+          `<button type="button" data-action="add" style="width:100%;display:flex;align-items:center;gap:7px;margin-top:7px;padding:6px 7px;border:0;border-radius:6px;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;"><i class="fa-solid fa-plus" data-fallback="➕"></i><span aria-hidden="true" style="display:none;">➕</span><span>Add channel</span></button>` +
+          section("Pinned", pinned.length, pinnedBody) +
+          section("Unpinned", unpinned.length, unpinnedBody);
+
+        const search = host.querySelector("[data-channel-manager-search]");
+        if(search) {
+          search.oninput = () => render(search.value);
+          if(q) requestAnimationFrame(() => {
+            const next = host.querySelector("[data-channel-manager-search]");
+            next?.focus({preventScroll:true});
+            next?.setSelectionRange?.(next.value.length, next.value.length);
+          });
+        }
+
+        requestAnimationFrame(() => {
+          for(const icon of host.querySelectorAll("i[data-fallback]")) {
+            const fallback = icon.nextElementSibling;
+            const content = getComputedStyle(icon, "::before").content;
+            const supported = !!content && !["none", "normal", '""'].includes(content);
+            icon.style.display = supported ? "" : "none";
+            if(fallback) fallback.style.display = supported ? "none" : "";
+          }
+        });
+      };
+
+      host.onchange = async event => {
+        const checkbox = event.target.closest("input[data-default-channel]");
+        if(!checkbox) return;
+
+        const channel = checkbox.dataset.defaultChannel || "";
+        const hidden = readHiddenDefaultChannelNames();
+
+        if(checkbox.checked) {
+          hidden.delete(channel);
+        } else {
+          hidden.add(channel);
+        }
+
+        writeHiddenDefaultChannelNames(hidden);
+        defaultChannelsChanged = true;
+        render(host.querySelector("[data-channel-manager-search]")?.value || "");
+      };
+
+      host.onclick = async event => {
+        const button = event.target.closest("button[data-action]");
+        if(!button) return;
+        const channel = button.dataset.channel;
+        if(button.dataset.action === "clear-search") {
+          render("");
+        } else if(button.dataset.action === "add") {
+          await promptAddCommentsChannel();
+        } else if(button.dataset.action === "move-up") {
+          moveStoredCustomChannel(channel, "left");
+        } else if(button.dataset.action === "move-down") {
+          moveStoredCustomChannel(channel, "right");
+        } else if(button.dataset.action === "unpin") {
+          rememberUnpinnedChannel(channel);
+          deleteCommentsChannel(channel);
+        } else if(button.dataset.action === "restore") {
+          forgetUnpinnedChannel(channel);
+          addCommentsChannel(channel);
+          showTabByChannelName(channel);
+        } else if(button.dataset.action === "remove") {
+          if(!await tabbedConfirm(`Remove '#${channel}' from the unpinned list?`, {title:"Remove channel",okText:"Remove"})) return;
+          forgetUnpinnedChannel(channel);
+        } else if(button.dataset.action === "clear") {
+          if(!await tabbedConfirm("Clear the unpinned channel list?", {title:"Clear unpinned channels",okText:"Clear"})) return;
+          writeUnpinnedChannels([]);
+        }
+        render(host.querySelector("[data-channel-manager-search]")?.value || "");
+      };
+
+      render();
+      await dialog;
+      if(defaultChannelsChanged) location.reload();
+    };
+    addPanelMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      createExtraPanel({ rowIndex:getPanelRowIndex(panelObj) });
+    };
+    addRowMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      createCommentRow(getPanelRowIndex(panelObj));
+    };
+    closeRowMenuItem.onclick = () => {
+      const rowIndex = getPanelRowIndex(panelObj);
+      closePanelMoreMenu();
+      closeCommentRow(rowIndex);
+    };
+    closeAllPanelsMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      closeAllExtraPanels();
+    };
+    closePanelMenuItem.onclick = () => {
+      closePanelMoreMenu();
+      closeThisPanel();
+    };
+    document.addEventListener('pointerdown', event => {
+      if(panelMoreMenu.style.display !== 'block') return;
+      if(panelMoreBtn.contains(event.target) || panelMoreMenu.contains(event.target)) return;
+      closePanelMoreMenu();
+    }, { signal:panelMoreAbortController.signal });
+    window.addEventListener('resize', () => {
+      if(panelMoreMenu.style.display === 'block') positionPanelMoreMenu();
+    }, { passive:true, signal:panelMoreAbortController.signal });
+
+    let defaultStartChannelIndex = 0;
+    const savedPanelChannel = getSavedPanelChannel(persistenceIndex);
+    let requestedStartChannel = existingChannelNames[defaultStartChannelIndex];
+    if(savedPanelChannel.found) {
+      requestedStartChannel = savedPanelChannel.channel;
+    } else if(persistenceIndex === 0) {
+      requestedStartChannel = localStorage.__tabbedCommentsPluginLastViewedChannel ?? requestedStartChannel;
+    }
+
+    let activeChannelData = channelNameToChannelData[requestedStartChannel];
+    if(!activeChannelData) {
+      // A saved channel may have been removed or hidden since the last visit.
+      activeChannelData =
+        channelNameToChannelData[existingChannelNames[0]] ||
+        Object.values(channelNameToChannelData)[0];
+    }
+
+    if(activeChannelData) {
+      setTimeout(async () => {
+        while(!document.body.contains(panelCtn)) await new Promise(r => setTimeout(r, 100));
+        showTabByChannelName(activeChannelData.channelName);
+      }, 10);
+    }
+
+    tabsHeaderEl.addEventListener('click', handleTabClick);
+
+    panelObj = {
+      element:panelCtn,
+      addCommentsChannel,
+      addTemporaryMentionedCommentsChannel,
+      removeTemporaryMentionedCommentsChannel,
+      deleteCommentsChannel,
+      commentsChannelNameToObj,
+      showTabByChannelName,
+      syncPanelCustomChannelsFromStorage,
+      refreshMoreMenu: refreshPanelMoreMenu,
+      destroy: () => panelMoreAbortController.abort(),
+      getCurrentChannelName: () => currentChannelName,
+      getRowIndex: () => Math.max(0, Math.floor(Number(panelOpts.rowIndex) || 0)),
+      setRowIndex: index => { panelOpts.rowIndex = Math.max(0, Math.floor(Number(index) || 0)); },
+      setPersistenceIndex: index => {
+        persistenceIndex = Number.isInteger(index) && index >= 0 ? index : null;
+      }
+    };
+    allPanelObjs.add(panelObj);
+    updateAutoCommentAvailability(panelObj);
+
+    let styleEl = document.createElement("style");
+    styleEl.textContent = `
+      .tabbed-comments-plugin-panel-layout {
+        height:auto;
+        width:100%;
+        min-width:0;
+        min-height:0;
+        flex:1 1 auto;
+        display:flex;
+        flex-direction:column;
+        overflow:hidden;
+        box-sizing:border-box;
+        border:1px solid var(--border-color,#444);
+        border-radius:5px;
+        background:var(--tabbed-comments-background,var(--tabbed-comments-plugin-box-color,#ebebeb));
+      }
+      .tabbed-comments-plugin-header {
+        display:flex;
+        flex:0 0 auto;
+        flex-direction:row;
+        min-width:0;
+        max-width:100%;
+        font-size:70%;
+        overflow:auto;
+        color:var(--tabbed-comments-plugin-text-color);
+        background:var(--tabbed-comments-background,var(--tabbed-comments-plugin-box-color,#ebebeb));
+        border-bottom:1px solid var(--border-color,#444);
+        box-sizing:border-box;
+      }
+      .tabbed-comments-plugin-body {
+        flex:1 1 auto;
+        min-width:0;
+        min-height:0;
+        overflow:hidden;
+      }
+      .tabbed-comments-plugin-tab {
+        padding: 0.25rem;
+        cursor: pointer;
+        background: var(--tabbed-comments-plugin-box-color, #ebebeb);
+        border-radius: 0.25rem;
+        margin: 0.25rem;
+        user-select: none;
+        min-width: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tabbed-comments-plugin-more-btn {
+        position:sticky;
+        left:0;
+        z-index:3;
+        flex:0 0 auto;
+        font-weight:650;
+      }
+      .tabbed-comments-plugin-more-label {
+        display:none;
+        margin-left:5px;
+      }
+      .tabbed-comments-plugin-tab[data-tabbed-comments-plugin-is-temporary-mentioned-channel='1'] {
+        opacity:0.6;
+      }
+      .tabbed-comments-plugin-channel-tab{gap:.25rem}
+      .tabbed-comments-plugin-channel-label{text-align:left}
+      .tabbed-comments-plugin-unseen-count {
+        border-radius: 100px;
+        padding: 0.05rem 0.15rem;
+        font-size:80%;
+        background:grey;
+        margin-left: 0.1rem;
+        pointer-events:none;
+        color:white;
+      }
+      .tabbed-comments-plugin-channel-dismiss-btn{display:none;margin-left:auto;flex:0 0 auto;width:1.05rem;height:1.05rem;box-sizing:border-box;border-radius:50%;padding:0;font:inherit;font-size:80%;line-height:1;place-items:center;background:grey;color:#fff!important;border:0;appearance:none;-webkit-appearance:none;cursor:pointer}
+      .tabbed-comments-plugin-active-tab {
+        background: var(--tabbed-comments-plugin-active-comment-channel-tab-color, #c6c6c6);
+        outline: 2px solid #0086c9;
+      }
+      .tabbed-comments-plugin-content {
+        display: none;
+        height:100%;
+      }
+      .tabbed-comments-plugin-active-content {
+        display: block;
+      }
+      @container (min-width: 520px) {
+        .tabbed-comments-plugin-panel-layout {
+          flex-direction:row;
+        }
+        .tabbed-comments-plugin-header {
+          flex:0 0 clamp(132px,34%,180px);
+          max-width:42%;
+          flex-direction:column;
+          border-right:1px solid var(--border-color,#444);
+          border-bottom:0;
+        }
+        .tabbed-comments-plugin-header .tabbed-comments-plugin-tab{justify-content:flex-start}
+        .tabbed-comments-plugin-header .tabbed-comments-plugin-channel-tab{min-width:0;max-width:calc(100% - .5rem)}
+        .tabbed-comments-plugin-header .tabbed-comments-plugin-channel-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .tabbed-comments-plugin-more-btn {
+          left:auto;
+          top:0;
+        }
+        .tabbed-comments-plugin-more-label {
+          display:inline;
+        }
+      }
+    `;
+    panelCtn.append(styleEl);
+    panelCtn.style.cssText = "height:100%; width:100%; min-width:0; min-height:0; display:flex; flex-direction:column; container-type:inline-size; container-name:tabbed-comments-panel;"
+    return panelObj;
+  }
+
+  middlePanelObj = createTabbedCommentsPanel({
+    persistenceIndex:0,
+    rowIndex:0,
+  });
+  mainPanelSlot = document.createElement('div');
+  mainPanelSlot.className = 'tabbed-comments-plugin-panel-slot tabbed-comments-plugin-ctn is-main-panel';
+  panelsStrip.appendChild(mainPanelSlot);
+  mainPanelSlot.appendChild(middlePanelObj.element);
+  syncPanelStripLayout();
+
+  // Restore the user's deliberate saved panel setup once at startup.
+  // Later resize events only fit existing panels and never auto-add another.
+  setTimeout(() => {
+    requestAnimationFrame(() => {
+      if(!document.body.contains(outerCtn)) {
+        startPanelsResizeObserver();
+        return;
+      }
+      restoreExtraPanelsToSavedLayout();
+      clampAutoCommentPanelToViewport();
+      startPanelsResizeObserver();
+    });
+  }, 0);
+  return outerCtn;
+
+async getUserInput(fields, opts) =>
+  fields = fields || {};
+  opts = opts || {};
+  const esc = s => String(s).replace(/[<>&]/g, m => ({"<":"&lt;","&":"&amp;",">":"&gt;"}[m]));
+  const cancelText = esc(opts.cancelText || "Cancel");
+  const okText = esc(opts.okText || "OK");
+
+  return new Promise(resolve => {
+    const overlay = Object.assign(document.createElement("div"), { tabIndex: 0 });
+    overlay.style.cssText = `position:fixed;inset:0;z-index:99999999;display:grid;place-items:center;background-color:rgba(0,0,0,.65);font:16px/1.4 system-ui`;
+
+    const modal = document.createElement("div");
+    modal.style.cssText = `
+      text-align:left !important;
+      width:520px;max-width:97vw;
+      border-radius:8px;padding:15px;
+      background-color:light-dark(#fff,#222);
+      color:light-dark(#000,#fff);
+      box-shadow:0 2px 8px rgba(0,0,0,.2);
+      display:flex;flex-direction:column;gap:12px;
+      max-height:min(92vh, 900px);
+    `;
+
+    // Scrollable content
+    const scrollWrap = document.createElement("div");
+    scrollWrap.style.cssText = "overflow:auto;min-height:0;";
+    const host = document.createElement("div");
+    host.style.cssText = "display:block";
+    scrollWrap.append(host);
+
+    // Footer (Cancel left, OK right)
+    const footer = document.createElement("div");
+    footer.style.cssText = "display:flex;gap:8px;align-items:center;margin-top:4px;";
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText;
+    cancelBtn.hidden = !!opts.hideCancel;
+    cancelBtn.style.cssText = "padding:6px 16px;border:1px solid light-dark(#ccc,#555);border-radius:6px;background-color:light-dark(#f6f6f6,#333);color:inherit;cursor:pointer;";
+    const okBtn = document.createElement("button");
+    okBtn.textContent = okText;
+    okBtn.autofocus = true;
+    okBtn.style.cssText = "margin-left:auto;padding:6px 16px;border:none;border-radius:6px;background-color:light-dark(#1677ff,#2b87ff);color:#fff;cursor:pointer;";
+
+    footer.append(cancelBtn, okBtn);
+    modal.append(scrollWrap, footer);
+    overlay.append(modal);
+
+    const elMap = new Map();
+    const inputCSS = "width:100%;max-width:100%;box-sizing:border-box;padding:8px;border:1px solid light-dark(#ccc,#555);border-radius:6px;background-color:light-dark(#fff,#333);color:inherit;";
+
+    Object.entries(fields).forEach(([name, cfgRaw]) => {
+      const cfg = cfgRaw || {};
+      const t = (cfg.type || "input:text").toLowerCase();
+      const wrap = document.createElement("div");
+      wrap.style.cssText = `margin:0 0 ${cfg.marginBottom || "12px"}`;
+
+      if (cfg.label) {
+        const lab = document.createElement("div");
+        lab.style.cssText = "margin:0 0 6px;display:flex;align-items:center;gap:6px;";
+        const labText = document.createElement("div");
+        labText.textContent = cfg.label || name;
+        lab.append(labText);
+        if (cfg.help) {
+          const help = document.createElement("span");
+          help.textContent = "i";
+          help.title = cfg.help;
+          help.style.cssText = "margin-left:auto;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid light-dark(#ccc,#555);font:12px/1 system-ui;opacity:.75;cursor:help;user-select:none";
+          help.onclick = () => { void tabbedNotice(cfg.help, cfg.label || "Help"); };
+          lab.append(help);
+        }
+        wrap.append(lab);
+      }
+
+      let el = null, kind = "std";
+      if (t === "textarea") {
+        el = document.createElement("textarea");
+        el.rows = cfg.rows || 4;
+        el.style.cssText = inputCSS;
+        if (cfg.placeholder != null) el.placeholder = cfg.placeholder;
+        if (cfg.value != null) el.value = cfg.value;
+      } else if (t === "select") {
+        el = document.createElement("select");
+        el.style.cssText = inputCSS;
+        if (cfg.multiple) el.multiple = true;
+        (cfg.options || []).forEach(opt => {
+          const o = document.createElement("option");
+          if (typeof opt === "object") { o.value = opt.value; o.textContent = opt.label ?? opt.value; }
+          else { o.value = String(opt); o.textContent = String(opt); }
+          el.append(o);
+        });
+        const v = cfg.value;
+        if (el.multiple && Array.isArray(v)) Array.from(el.options).forEach(o => o.selected = v.includes(o.value));
+        else if (v != null) el.value = v;
+      } else if (t.startsWith("input:")) {
+        el = document.createElement("input");
+        el.type = t.split(":")[1] || "text";
+        el.style.cssText = inputCSS;
+        if (cfg.placeholder != null) el.placeholder = cfg.placeholder;
+        if (cfg.min != null) el.min = cfg.min;
+        if (cfg.max != null) el.max = cfg.max;
+        if (cfg.step != null) el.step = cfg.step;
+        if (el.type === "checkbox") el.checked = !!cfg.value;
+        else if (cfg.value != null) el.value = cfg.value;
+      } else if (t === "html") {
+        const html = document.createElement("div");
+        html.innerHTML = cfg.html || "";
+        wrap.append(html);
+        host.append(wrap);
+        elMap.set(name, { cfg, el: html, wrap, kind: "html" });
+        return;
+      } else {
+        const html = document.createElement("div");
+        html.innerHTML = cfg.html || "";
+        wrap.append(html);
+        host.append(wrap);
+        elMap.set(name, { cfg, el: html, wrap, kind: "html" });
+        return;
+      }
+
+      el.name = name;
+      wrap.append(el);
+      host.append(wrap);
+      elMap.set(name, { cfg, el, wrap, kind: "std" });
+    });
+
+    const finish = v => { overlay.remove(); resolve(v); };
+
+    cancelBtn.onclick = () => finish(null);
+    okBtn.onclick = () => {
+      const out = {};
+      elMap.forEach(({ el, kind, wrap }, name) => {
+        if (kind === "html") {
+          const dv = wrap.querySelector("[data-value]");
+          out[name] = dv ? dv.getAttribute("data-value") : null;
+        } else if (el.tagName === "SELECT") {
+          out[name] = el.multiple ? Array.from(el.selectedOptions).map(o => o.value) : el.value;
+        } else if (el.tagName === "TEXTAREA") {
+          out[name] = el.value;
+        } else if (el.tagName === "INPUT") {
+          if (el.type === "checkbox") out[name] = el.checked;
+          else if (el.type === "number" || el.type === "range") {
+            const n = parseFloat(el.value); out[name] = Number.isFinite(n) ? n : null;
+          } else out[name] = el.value;
+        } else out[name] = null;
+      });
+      finish(out);
+    };
+
+    overlay.onkeydown = e => {
+      if (e.key === "Escape") finish(null);
+      else if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") { e.preventDefault(); okBtn.click(); }
+    };
+
+    // Backdrop mousedown cancel only (not mouseup)
+    if (opts.cancelOnBackgroundClick) {
+      overlay.addEventListener("mousedown", e => {
+        if (e.target === overlay) finish(null);
+      });
+    }
+
+    document.body.append(overlay);
+    overlay.focus({ preventScroll: true });
+
+    const first = host.querySelector("input,textarea,select");
+    if (first) setTimeout(() => first.focus({ preventScroll: true }), 0);
+  });

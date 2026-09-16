@@ -1,0 +1,145 @@
+{
+  "generatorName": "ai-furry-generator",
+  "canonicalUrl": "https://perchance.org/ai-furry-generator",
+  "generatorPublicIdPrefix": "dbed7477",
+  "buildTags": {
+    "main.pjs": "AIFG v1.47 Quiet Mind Easter Egg build",
+    "t2i-framework-plugin-v2-furry-v1": "AIFG v1.50 Manual-stop AI translator bridge build",
+    "tabbed-comments-plugin-aifg": "AIFG v1.93 Clean More build"
+  },
+  "meta": {
+    "title": "Perchance AI Furry Generator",
+    "description": "Generate free furry AI art & fursona, free, unlimited, no sign-up. Join the Perchance community for AI character roleplay and prompts, powered by FLUX.",
+    "image": "https://user.uploads.dev/file/ea64aa498f9affdd98f62ad6fd115500.jpg",
+    "tags": "furry, furry AI, AI furry generator, furry art generator, furry AI art, fursona, fursona generator, anthro, anthropomorphic, character generator, AI character art, AI image generator, text to image, FLUX, FLUX AI, free AI art, unlimited AI art, no sign-up, furry prompts, AI art styles, furry roleplay, furry community, Perchance",
+    "headerMode": "minimal"
+  },
+  "imports": {
+    "direct": [
+      "t2i-framework-plugin-v2-furry-v1",
+      "generator-stats-plugin",
+      "favicon-plugin",
+      "ai-furry-generator-style-v17",
+      "furry-banlist",
+      "huge-emojilist-furry-generator",
+      "text-to-image-plugin",
+      "comments-plugin"
+    ],
+    "vendoredCount": 19
+  },
+  "performanceProfile": {
+    "key": "pl_performanceProfileV1",
+    "values": [
+      "performance",
+      "balance",
+      "minimal"
+    ],
+    "default": "performance",
+    "bootstrapScriptId": "aifg-performance-bootstrap",
+    "uiSelectId": "performanceProfileSelect"
+  },
+  "analytics": {
+    "gtagId": "G-6QDMTXJTDD",
+    "source": "https://www.googletagmanager.com/gtag/js?id=G-6QDMTXJTDD"
+  },
+  "feedbackForm": {
+    "provider": "tally",
+    "formId": "mY2kKz",
+    "url": "https://tally.so/r/mY2kKz"
+  },
+  "assetHost": "https://user.uploads.dev/file/",
+  "inlineScriptIds": [
+    "aifg-browser-translation-guard",
+    "aifg-performance-bootstrap",
+    "aifg-wallpaper-system",
+    "aifg-language-system"
+  ],
+  "localStorageKeys": {
+    "main.pjs": [
+      "pl_performanceProfileV1",
+      "_f_unl",
+      "_adultEntryPassV1",
+      "_adultNicknameCorrectionRequiredV1",
+      "lastHardRefreshCommandId",
+      "_moderator_warning_v2",
+      "_moderator_warning_v1",
+      "_passportId",
+      "_myNickname",
+      "_myUsername",
+      "_yeet_curse",
+      "_3d_curse",
+      "_adultMinorPermanentBanV1",
+      "_3d_fullscreen_stage",
+      "_myAvatar",
+      "_pg13ProfileSetupRequiredV1",
+      "autoSaveLinks",
+      "hideTrollPopup",
+      "gallerySaveDestType",
+      "gallerySaveDestName",
+      "gallerySaveStorageMode",
+      "autoSaveDestType",
+      "autoSaveDestName"
+    ],
+    "index.html": [
+      "userConsent",
+      "_adultMinorPermanentBanV1",
+      "_yeet_curse",
+      "_3d_curse",
+      "hidePrivateChannelWarningV1",
+      "_myNickname",
+      "rpRuleDismissedV1",
+      "commentToggleOpen",
+      "galleryCollapsed",
+      "lookForThis",
+      "dontLookForThis",
+      "floatingBtnHintDismissed",
+      "chatMode",
+      "pl_showAppCloseHints",
+      "forceColorScheme",
+      "autoSaveLinks",
+      "pl_rememberGallerySearch",
+      "pl_titleBannerModeV2",
+      "pl_workspaceLayout",
+      "pl_workspaceStudioSplit",
+      "pl_workspaceDockAutoHide",
+      "pl_workspaceDockSwipeDirection",
+      "pl_autoSavePromptHistory",
+      "pl_autoSavePromptHistoryFirstImage",
+      "pl_showInputHints",
+      "pl_workspaceShortcuts",
+      "genSaveDestType",
+      "genSaveDestName",
+      "autoSaveDestType",
+      "autoSaveDestName",
+      "gallerySaveStorageMode",
+      "gallerySaveDestType",
+      "gallerySaveDestName",
+      "promptHistorySaveDestType",
+      "promptHistorySaveDestName"
+    ],
+    "templatedPatterns": [
+      "pl_customAppName${i}",
+      "pl_customAppUrl${i}",
+      "pl_customAppIcon${...}",
+      "pl_showCustomApp${...}",
+      "pl_customAppMemory${index}",
+      "pl_mem_${key}",
+      "mute_chip_*",
+      "pl_*"
+    ]
+  },
+  "runtimeModules": [
+    {
+      "name": "jszip",
+      "version": "3.10.1",
+      "vendored": "03-third-party-vendor/js/jszip-3.10.1.esm.js",
+      "purpose": "client-side ZIP export"
+    }
+  ],
+  "stylesheetLinks": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
+    "https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  ]
+}

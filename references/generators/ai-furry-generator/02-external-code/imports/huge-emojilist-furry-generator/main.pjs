@@ -1,0 +1,236 @@
+// Note: https://perchance.org/huge-emojilist-furry-generator is built on heavy community contributions.
+// Please respect the creators: public cloning or removing credits is strictly prohibited. We also strongly discourage copying this for your own private use. 
+// If you'd like to build your own emoji list, please do the right thing and fork the official blank template instead: https://perchance.org/huge-emoji-list
+// G2G (Generator-to-Generator) friendly: Open to networking and partnerships. Got ideas or feedback? Leave a comment in this generator's comment section, or drop a note here: https://tally.so/r/mY2kKz
+
+favicon = {import:favicon-plugin} 
+
+$meta
+  title = Emoji for AI Furry Generator
+  description = Perchance Free AI Furry Generator | AI Furry Generator | https://perchance.org/ai-furry-generator
+  image = https://user-uploads.perchance.org/file/0696ec9185e18650c6413e11dea7ce50.webp
+   
+// ✏️☠️ Emoji to be removed or edit in .txt ✏️☠️
+  // ☠️remove☠️
+    // wish01_angry       (Couldn't find in .txt, already removed?)
+    // wish01_breakfast
+    // wish01_dinner
+    
+  // ✏️Edit✏️
+    // Update Link to New Image
+      // 
+    
+// 🧐 Pending peer review / Suspicious unsure 🧐 doesn't meant it must be removed, let's decide together
+  // 
+
+// ✅ passed ✅
+  // :headpat_slut: nothing NSFW in emoji  ✅
+  // :DGF_MaidGasm: not exactly explicit but suspicious // ✅ RudBo if this is kept then that should too :wet_ahegao: , so move down
+  // :Shoothead: no gun picturedbut finger gun to side of head // ✅ RudBo: I think either it's threatening or taunting, it's not a big deal?
+  // :modsAreGay: RudBo: we are indeed gay ✅ // already taken off on June 30 update. let me know if you want it back
+  // :ModzAreGay: RudBo: we are indeed gay ✅ // already taken off on June 30 update. let me know if you want it back
+  // :SticksHappy: :SticksSleep: :SticksXD: :SticksYippee: ✅ Controversial and pass (I don't think user should upload those but whatever) - RudBo
+  // :veronica_scared: - excessive cleavage? ✅ RuBo: I think it's okay //
+  // :blink: / :Blink: // ✅ What's wrong? too creepy? not even blinking fast - RudBo // 
+  // :eye_seizure:/:eye_seizure1: // ✅? kinda okay - RudBo // 
+  // DemonShit = flashing  // ✅kinda okay - RudBo
+
+customEmojis
+	@import = https://user.uploads.dev/file/d974f4d206a97233ec5ad6ec93300790.txt // https://user.uploads.dev/file/7613ce5d622bc5a7806da86b6139c681.txt // https://user.uploads.dev/file/6a94a2e57992b3c62fe8a37533209040.txt // last updated 11/Sep/2026 // you should replace this txt url with your new version file when updating it
+  // ⬇️ start here ⬇️ Complicate tag and size example: emoji_name (tags:tag1,tag2,tag3) (size:1) = https://user.uploads.dev/file/example.filetype
+  // v Keep these here for now, frequent edits.
+  // Dire_Angry = https://user.uploads.dev/file/7d0c3fb27522472cf3d3946f7de07502.webp
+  Dire_Awoo = https://user.uploads.dev/file/0fb1ef26a134811344eff33c8ca81f3f.webp
+  // Dire_Bye = https://user.uploads.dev/file/3514839e3f99f4fefcd6b81f6c0fbc81.webp
+  // Dire_Confused = https://user.uploads.dev/file/b4a2b8a272cb719cccfbb5948eee167b.webp
+  Dire_DE (tags:Dire_Domain_Expansion) = https://user.uploads.dev/file/850b76086bf0c3fe87fd4b48baa8a85c.webp
+  // Dire_Deflect = https://user.uploads.dev/file/33839017cdc48bbc55f34b070b508440.webp
+  Dire_Drinking = https://user.uploads.dev/file/dabc9bd7638c4cff30b5efa25ee0ebc6.webp
+  // Dire_Evil_Eye = https://user.uploads.dev/file/91810d641ba1f58a33b3ee38af915626.png
+  Dire_Fuck_You = https://user.uploads.dev/file/8e57e0398ef54fee456e5382fabb7226.webp
+  // Dire_Gaming = https://user.uploads.dev/file/a70a9c6c1a9dec35d32ee7b4ecbeaa5c.webp
+  Dire_Hug = https://user.uploads.dev/file/f836512f182c9c655b9f59538933d28b.webp
+  // Dire_Laugh = https://user.uploads.dev/file/985f002f68f659f651edd378e8e23f8e.webp
+  // Dire_NB = https://user.uploads.dev/file/83b566ae9cb22286e60764bb7f1c3812.webp
+  // Dire_Nope = https://user.uploads.dev/file/195d9337383840cc816801585760cdc2.webp
+  Dire_One_Punch = https://user.uploads.dev/file/7e3a98614a44c9b48fde826f9f8791b3.webp
+  // Dire_Parry = https://user.uploads.dev/file/01e9ce937958b06215b6a6cfcec958c4.webp
+  Dire_Pat = https://user.uploads.dev/file/fe6070a5f7eaefe61cc1b5ff3ad037ee.webp
+  Dire_Pet = https://user.uploads.dev/file/e655ed9f1da1308b2042f521fbc895cc.webp
+  // Dire_Pog = https://user.uploads.dev/file/42e1a26ff8b12ff95e5f1b2d1ca319ba.webp
+  Dire_Sad = https://user.uploads.dev/file/0a31de5e01d8bfba5ccd28c9a04c49c1.webp
+  Dire_Shoot = https://user.uploads.dev/file/86b126961e2847911d42fe1521e9f39a.webp
+  // Dire_Sigh = https://user.uploads.dev/file/75b0e3502a81923ad54b9a22f2ef9527.webp
+  Dire_Smoke = https://user.uploads.dev/file/589be5080bbb2c7e9e77044c57844c1e.webp
+  Dire_Snipe = https://user.uploads.dev/file/e9f2cc0f7bb9eb9a235a2e03f45c13c2.webp
+  // Dire_TFC = https://user.uploads.dev/file/35e855b1e4764cada29e33aac355e3f0.webp
+  // Dire_THINK = https://user.uploads.dev/file/3c6f5c36a1f0c30af3187a995cb21028.webp
+  Dire_Vibe = https://user.uploads.dev/file/25db01ddac14f1c35ddb691bae1e8dae.webp
+  Dire_Wave = https://user.uploads.dev/file/017c8bd6671fe703274b9d733577fd79.webp
+  // Dire_WTF = https://user.uploads.dev/file/d5d30e1d68d313182877135c4ee78a06.webp
+  // Dire_Wheeze = https://user.uploads.dev/file/8d906ef44cb298b14456ee5739521ad6.webp
+  R_a_D_Love = https://user.uploads.dev/file/6d6314ab3043c6f930b0c1b75c43d2b8.jpg
+  Rosie_Awoo = https://user.uploads.dev/file/1da114c859b22f3feb6aa3c7d3d2c3dc.jpg
+  Rosie_Drinking = https://user.uploads.dev/file/58136bbd5e32c5badb7d74637c835e2c.jpg
+  Rosie_Hug = https://user.uploads.dev/file/fc54ea8553eccf6f58dad2287277c300.jpg
+  Rosie_Laugh = https://user.uploads.dev/file/32ab783fc21c40b46c12f35ac583aba2.jpg
+  Rosie_No_Bitches = https://user.uploads.dev/file/adecfe6b25e2b4278db98a60b83c8297.png
+  Rosie_One_Punch = https://user.uploads.dev/file/fbfcf2da0464e1e3b65ae85f722849c1.png
+  Rosie_Pat = https://user.uploads.dev/file/a3d5c48305ed8261503ce28f9b70b03b.jpg
+  Rosie_Pet = https://user.uploads.dev/file/7450802f9b34d7d929de35b286fcaedb.jpg
+  Rosie_Sad = https://user.uploads.dev/file/070ff65802459fbe78d1a1f449b6d14a.jpg
+  Rosie_Shoot = https://user.uploads.dev/file/4f4eb08c57500df73d9517d7aa49458b.jpg
+  Rosie_Smoke = https://user.uploads.dev/file/2f25c0479c8bb5de620f21c50ed7e48a.jpg
+  Rosie_Snipe = https://user.uploads.dev/file/13729c5d1ca4b73ca37e9d09d96fbf24.png
+  Rosie_Vibe = https://user.uploads.dev/file/cf01c2d9445b7dd04f6d83b40e2bbbaf.jpg
+  Rosie_Wave = https://user.uploads.dev/file/f0b41bdfa70d5683f4918ef29f80ae7b.jpg
+  Rosie_Wheeze = https://user.uploads.dev/file/0e978d1158371362596921ceff6fd2d0.png
+
+  kendall_8ball20 (tags:kendall_roll20) = https://user.uploads.dev/file/e7d22b13d2b0e7211c04fcf34dbb771d.png
+  kendall_8ball19 (tags:kendall_roll19) = https://user.uploads.dev/file/123fd4f74018a7ad1c0c7eb994410239.png
+  kendall_8ball18 (tags:kendall_roll18) = https://user.uploads.dev/file/44067aca5cb40ae4d11937a736972c5b.png
+  kendall_8ball17 (tags:kendall_roll17) = https://user.uploads.dev/file/9a80ebcd090843206df995268f9bf8c1.png
+  kendall_8ball16 (tags:kendall_roll16) = https://user.uploads.dev/file/8047f91b9257009d695219fc0302eae3.png
+  kendall_8ball15 (tags:kendall_roll15) = https://user.uploads.dev/file/1898031c54d8bbec696cef45c1b45df4.png
+  kendall_8ball14 (tags:kendall_roll14) = https://user.uploads.dev/file/510876dec31462962976be4620b96dca.png
+  kendall_8ball13 (tags:kendall_roll13) = https://user.uploads.dev/file/a85be30999d19223c500f127f9922f97.png
+  kendall_8ball12 (tags:kendall_roll12) = https://user.uploads.dev/file/3b739882b3a35ce727f5ed608457de54.png
+  kendall_8ball11 (tags:kendall_roll11) = https://user.uploads.dev/file/f6ad44781b22a9462f4929717a192463.png
+  kendall_8ball10 (tags:kendall_roll10) = https://user.uploads.dev/file/fb1c075cf8cc127acc930eac039b72f2.png
+  kendall_8ball9 (tags:kendall_roll9) = https://user.uploads.dev/file/1bf99099520f0bc65ac0985bb6c6417d.png
+  kendall_8ball8 (tags:kendall_roll8) = https://user.uploads.dev/file/a50a3439e356cbd2856efce830c657ab.png
+  kendall_8ball7 (tags:kendall_roll7) = https://user.uploads.dev/file/d615c016091857ce5a23b8c60e84c2cb.png
+  kendall_8ball6 (tags:kendall_roll6) = https://user.uploads.dev/file/bf297e22cd80e7cecde51f92b853dea8.png
+  kendall_8ball5 (tags:kendall_roll5) = https://user.uploads.dev/file/a459c7307b1bdfa507d2f9695ae58033.png
+  kendall_8ball4 (tags:kendall_roll4) = https://user.uploads.dev/file/b57d044de87b1908166d6327641a229f.png
+  kendall_8ball3 (tags:kendall_roll3) = https://user.uploads.dev/file/c07be67351f735985ac13455db3c62e7.png
+  kendall_8ball2 (tags:kendall_roll2) = https://user.uploads.dev/file/b8151dd6c12a1f65e21a0af396a7cbe3.png
+  kendall_8ball1 (tags:kendall_roll1) = https://user.uploads.dev/file/dab37d62c53614d16573ab3d0b9545d6.png
+  kendall_8ballShake (tags:kendall_rolling,kendall_roll,kendall_8ballRoll) = https://user.uploads.dev/file/ae3714fa4335fa49531659a573299843.png
+  kendall_think (tags:kendall_thinking) = https://user.uploads.dev/file/72e0c431884bfa493573b57893ca3829.png
+  kendall_woflpog (tags:wolfpog,wolf_pog,kendallpog,kendall_pog) = https://user.uploads.dev/file/10f15ab934f1852625a0528c1e36ff0f.png
+  
+  ghoul_vanta_headpat = https://user.uploads.dev/file/899eff46a6547a51de0a23021454214e.gif. 
+  ghoul_cat_headpat = https://user.uploads.dev/file/733efa58665dd7d534463491e001f2b5.gif
+  ghoul_indigo_bahaha = https://user.uploads.dev/file/84aa99f648a6d40c4186486b0c2decf9.png
+  ghoul_indigo_blep = https://user.uploads.dev/file/5a9e148a2f296ff25d237686cf443e46.png
+  ghoul_indigo_hearthug = https://user.uploads.dev/file/7970edf1213b38b45e2ed6b030451447.png
+  ghoul_indigo_huhh = https://user.uploads.dev/file/8e3bb2097908263cf47820d960e59e01.png
+  ghoul_indigo_pet = https://user.uploads.dev/file/20a3dbb3a9c32ad5d73300009f6d2801.gif
+  ghoul_indigo_proof = https://user.uploads.dev/file/dc773008658b86666379ab8ed21080e3.png
+  ghoul_indigo_shocked = https://user.uploads.dev/file/8ff7d259b0d824bce4d0479a92f2a8b0.png
+  ghoul_indigo_wink = https://user.uploads.dev/file/0656ea277c0e8e4e37b1155a1ee0f892.png
+  Ghoul_raccolf_headpat = https://user.uploads.dev/file/b928ede565b95e8c3f4b7ab33f842144.gif
+  ghoul_raccolf_indeed = https://user.uploads.dev/file/46ade7ead247329c42765241a2916812.jpg
+  ghoul_raccolf_scowl = https://user.uploads.dev/file/eea23bcc8a03596c6bc1a7f8dbacc98b.jpg
+  ghoul_snep_headpat = https://user.uploads.dev/file/c2bf14ba862f2e89684de3ea79f8d977.gif
+  ghoul_snep_indeed = https://user.uploads.dev/file/2fa54e94baae7dfabff180aa129c23f2.png
+  ghoul_trooper = https://user.uploads.dev/file/0efcda1eb808bf9fc39b7af1d4a87af0.webp
+  ghoul_vanta_cheese = https://user.uploads.dev/file/a5601aeaa1e06b4a2cfed33657063f40.png
+  ghoul_cream_headpat = https://user.uploads.dev/file/404b7e6890f3d590cb5422c2c2914d22.gif
+  ghoul_halloweeen_hug = https://user.uploads.dev/file/2eaf31f29dbabc7e91e099bd4a019fd8.png
+
+  jorggis_bear_1 (tags:jorggis_react,jorggis_bearly) = https://user.uploads.dev/file/0c5dd63732b00b2a902e9c6253b3d629.webp
+  jorggis_blegh (tags:jorggis_react,jorggis_bearly) = https://user.uploads.dev/file/335a7ff0d4cd4335ff7c955a4477892e.webp
+  jorggis_butwhy1 (tags:jorggis_react,jorggis_negative) = https://user.uploads.dev/file/9eabac0b6bb7b991807ce52996b1cb56.webp
+  jorggis_campfire1 (tags:jorggis_nature,jorggis_positive) = https://user.uploads.dev/file/a1307a9818b644b5ef4fcf26e5d5f126.webp
+  jorggis_checkPC1 (tags:jorggis_react,jorggis_why) = https://user.uploads.dev/file/cef83de4867c5528210051e82a65e344.webp
+  jorggis_checkPC2 (tags:jorggis_react,jorggis_why) = https://user.uploads.dev/file/cb1fc1cdaf0455e78c3ae941830b5414.webp
+  jorggis_checkPC3 (tags:jorggis_react,jorggis_why) = https://user.uploads.dev/file/2e995d97ab76bb40cde96b9d97c34aef.webp
+  jorggis_computer1 (tags:jorggis_rage,jorggis_computer) = https://user.uploads.dev/file/9a01e4f82af63826be2f1e1d7b910ec1.webp
+  jorggis_flirt1 (tags:jorggis_positive,jorggis_Affection) = https://user.uploads.dev/file/d6619d169c98cccadedd90652e97080e.webp
+  jorggis_glue1 (tags:jorggis_food,jorggis_why) = https://user.uploads.dev/file/db4b17ff7808345fdac9599d5e936956.webp
+  jorggis_glue2 (tags:jorggis_food,jorggis_why) = https://user.uploads.dev/file/7e0df140ce97080450115a42537f12e9.webp
+  jorggis_haha1 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/fe7abbb8a2d90a21d5dbefe7cbcfe6a6.webp
+  jorggis_happy1 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/b64c953b072b9f027b99475877e58df0.webp
+  jorggis_hey = https://user.uploads.dev/file/f5a8317984917f524f706db1305a1ccb.webp
+  jorggis_hug1 (tags:jorggis_positive,jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/6b7ddac7b8e59800da4ec80459f58e53.webp
+  jorggis_hug2 (tags:jorggis_positive,jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/abff40ffcc18f8329062eb36fad4716d.webp
+  jorggis_hug3 (tags:jorggis_positive,jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/d82e3f680cf8803cbc209af38a339aab.webp
+  jorggis_imfine1 (tags:jorggis_react,jorggis_postitive) = https://user.uploads.dev/file/7eafcd5da4eb333d056054c9acc02661.webp
+  jorggis_imfine2 (tags:jorggis_react,jorggis_postitive) = https://user.uploads.dev/file/dffe00a0f1dab1ccf408422ef1c7e75f.webp
+  jorggis_judges = https://user.uploads.dev/file/2b00df73a6912687f056dc2cdf0c60d8.webp
+  jorggis_lookthat1 (tags:jorggis_react,jorggis_point) = https://user.uploads.dev/file/779013fa40096d05936d84a1a0fa5d6c.webp
+  jorggis_lookthat2 (tags:jorggis_react,jorggis_point) = https://user.uploads.dev/file/4e6a8756cb2faf5454fa7b4820e4d7fc.webp
+  jorggis_naturalsmile1 = https://user.uploads.dev/file/232499be559fab8a3eed10a6b912527a.webp
+  jorggis_peace1 (tags:jorggis_react,jorggis_positive) = https://user.uploads.dev/file/cc7f1ab889365a457d44137e086069fd.webp
+  jorggis_really1 (tags:jorggis_react,jorggis_bothered) = https://user.uploads.dev/file/35431c08cfbd2e3d9a9f5b159423bc70.webp
+  jorggis_smile1 = https://user.uploads.dev/file/ff26f97a889f99d23db3769374d36d69.webp
+  jorggis_socialskills = https://user.uploads.dev/file/ac341ae85746154cab811a1099c22f88.webp
+  jorggis_spooked (tags:jorggis_react,jorggis_bearly) = https://user.uploads.dev/file/a9e53a99dcf6a71b5a426923ed726115.webp
+  jorggis_summoned (tags:jorggis_arrive,jorggis_bearly) = https://user.uploads.dev/file/c6eb3997e4cfafcdc7f7eb47b66ea9a5.webp
+  jorggis_this1 (tags:jorggis_react,jorggis_point) = https://user.uploads.dev/file/0db49750590d6247a7352fea4015595f.webp
+  jorggis_this2 (tags:jorggis_react,jorggis_point) = https://user.uploads.dev/file/778e48127dcea16b7bec7af703e7144d.webp
+  jorggis_toocute1 (tags:jorggis_react,jorggis_affection,jorggis_why) = https://user.uploads.dev/file/16f1b3f7d22f52834b9b87bfa2f06679.webp
+  jorggis_toocute2 (tags:jorggis_react,jorggis_affection,jorggis_why) = https://user.uploads.dev/file/b8cd0a8f8327537da5c3d064a510aa34.webp
+  jorggis_toohot1 (tags:jorggis_react,jorggis_negative) = https://user.uploads.dev/file/4ba60f4333d8e0c4c26a7d4a0fc33e7d.webp
+  jorggis_uhmm2 (tags:jorggis_react,jorggis_negative,jorggis_bothered) = https://user.uploads.dev/file/008ac783be5cadccbc8b6d043ca67e75.webp
+  jorggis_uugh1 (tags:jorggis_react,jorggis_negative,jorggis_bothered) = https://user.uploads.dev/file/ca33b10ec9b0989779124b3314990504.webp
+  jorggis_uugh2 (tags:jorggis_react,jorggis_negative,jorggis_bothered) = https://user.uploads.dev/file/26a06a04a7f7fecc9699bf1b5abfdc22.webp
+  jorggis_WD401 (tags:jorggis_react,jorggis_why) = https://user.uploads.dev/file/c123e86531aa0aa4b7cefcb849131e61.webp
+  jorggis_WD402 (tags:jorggis_react,jorggis_why) = https://user.uploads.dev/file/7400678ef108735ac50699062d876811.webp
+  jorggis_why1 (tags:jorggis_negative,jorggis_react) = https://user.uploads.dev/file/e296dadd2097319f88983a3dff68b281.webp
+  jorggis_ychHug (tags:jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/0609894fe2440e1985945c46ea0fdfab.webp
+  jorggis_ychHug2 (tags:jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/fd3fd10e19c5504f27b5a27cdb964cc4.webp
+  jorggis_ychhug3 (tags:jorggis_affection,jorggis_hug) = https://user.uploads.dev/file/320fa64626db9d0d7a65d19dd32b4670.webp
+  jorggis_yesplease1 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/973c0e7ed577ba59f0fae76acd42661c.webp
+  jorggis_yesplease2 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/56962e4de6993035cb60be09dc2165b6.webp
+  jorggis_yesplease3 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/a73b8289101ffc56ca32d3f0a161f438.webp
+  jorggis_yesplease4 (tags:jorggis_react,jorggis_positive,jorggis_likes) = https://user.uploads.dev/file/ed63f8249c335a42bceee44d35310b1f.webp
+  jorggis_cry1 (tags:jorggis_react,jorggis_negative,jorggis_cry) = https://user.uploads.dev/file/c64d45c2173d8f383fc7cbf487761c81.webp
+  jorggis_cry2 (tags:jorggis_react,jorggis_negative,jorggis_cry) = https://user.uploads.dev/file/6a7ab8adfd3b229eb8bb9fe6aa05c8f0.webp
+  jorggis_cry3 (tags:jorggis_react,jorggis_negative,jorggis_cry) = https://user.uploads.dev/file/d94ec792db459cec209ca1066c5392e9.webp
+  jorggis_cry4 (tags:jorggis_react,jorggis_negative,jorggis_cry) = https://user.uploads.dev/file/2d97f439c841b3fb7995fcff8a564352.webp
+  jorggis_cry5 (tags:jorggis_react,jorggis_negative,jorggis_cry) = https://user.uploads.dev/file/4cd5b75a88a2296e01b38192069f3cea.webp
+  jorggis_grumpy1 (tags:jorggis_react,jorggis_negative) = https://user.uploads.dev/file/dfd438d475c1026f18bf7620041a407a.webp
+  jorggis_disapointed1 (tags:jorggis_react,jorggis_negative) = https://user.uploads.dev/file/78d645efdeeb5730335c7d3e9be77c9b.webp
+  jorggis_ummm2 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/98b4a0b38214f4d3613828f5399ce642.webp
+  jorggis_wakingup1 = https://user.uploads.dev/file/08cb6a2767b777bd33ea9802aa946716.webp
+  jorggis_what2 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/9f1a2a93d6f9c44684afe39e98ae9239.webp
+  jorggis_what1 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/5cac82cb8f2e3ff57d7b6920d11e0c22.webp
+  jorggis_worry1 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/3d9f8095b3d4f19b2cb0e724d779037b.webp
+  jorggis_chad1 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/2442e3e99e91ac5258cd2cf87684a5e1.webp
+  jorggis_drool1 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/b676028ed88fce22d1684556d7291794.webp
+  jorggis_drool2 (tags:jorggis_nobrain) = https://user.uploads.dev/file/baa357b36bbd00e3906133db2c9e7750.webp
+  jorggis_drool3 (tags:jorggis_nobrain) = https://user.uploads.dev/file/0f2699f74d715a7257c07eec78a7f7d5.webp
+  jorggis_imcold1 (tags:jorggis_negative) = https://user.uploads.dev/file/fe48c2eabd1bcf82f4be224ab7f3064e.webp
+  jorggis_imcold2 (tags:jorggis_negative) = https://user.uploads.dev/file/6a30ca2cec831d398a25904392c12fba.webp
+  jorggis_stare1 (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/204fd67053b0ddfd948369549943293b.webp
+  jorggis_ummm1  (tags:jorggis_react,jorggis_simple) = https://user.uploads.dev/file/4c8b2e320569946ccebefc1deedce184.webp
+  jorggis_hiding1 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/014d81f86815abe4647836eb9c8ab9c4.webp
+  jorggis_hiding2 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/666dd929595ba6274713e958df3aa037.webp
+  jorggis_hiding3 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/d991f429e59bf6895c4432273b1388f2.webp
+  jorggis_hiding4 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/14e6c77198d4ce1ff57ee576f8064a48.webp
+  jorggis_hiding5 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/7bd88b8f7eca6f0333d54ca5e8476bad.webp
+  jorggis_hiding6 (tags:jorggis_hide,jorggis_hi) = https://user.uploads.dev/file/630b0c1a5ca7af32f86cec9ef48b0b58.webp
+  
+  // ^ Keep these here for now, frequent edits.
+
+  // v New emotes go here.
+  // hanka_why = https://user.uploads.dev/file/323cc8545fbf229b1edbee1bce69a519.jpg
+  Brody_Chinstroke = https://user.uploads.dev/file/2db6c20168cd60ec15999ac1a7249bf0.gif
+  garou_burst_of_speed = https://user.uploads.dev/file/f1d039e578bc25b4325f75b4f90d9982.webp
+  rudbo_pup_sip = https://user.uploads.dev/file/d3058ec93188cd5cb8a910afe811893b.webp
+  baby_wizard_spell = https://user.uploads.dev/file/9ecccc06c083b42d7c37d71bcd7a0828.webp
+  Yosha_Lurk = https://user.uploads.dev/file/c977864b0f77c50ee41fb9025d1ab715.png
+  Yosha_Angry = https://user.uploads.dev/file/219394393c61265f747f1c8a4be79a28.png
+  Yosha_Blep = https://user.uploads.dev/file/bd944274e11130ebc95d9f5c5919eb1b.png
+  Yosha_Blush = https://user.uploads.dev/file/abb52b9177e73f1e354e5e0a783643a7.png
+  Yosha_Bruh = https://user.uploads.dev/file/38df9a38c05ee1c470aa6bf766cb26e2.png
+  Yosha_Eepy = https://user.uploads.dev/file/a7d3a5b71995a0ce6a3eb0e63a87c33f.png
+  Yosha_Laugt = https://user.uploads.dev/file/113e236b7bc42aec21798d7776684fba.png
+  Yosha_Think = https://user.uploads.dev/file/19adb1defb51948559f530d91e634290.png
+  Yosha_Thumb_Up = https://user.uploads.dev/file/cdf7bd4cfe89b73e89d4d8c5e76db3c7.png
+  Yosha_Wink = https://user.uploads.dev/file/e5c89a105a09396138ba50ee707aea74.png
+  WelshiiZeroBraincells = https://user.uploads.dev/file/11c04b32f0932ae6116cb14013bb6233.png
+  Atlas_love_eyes (tags:heart,love,atlas) = https://user.uploads.dev/file/56b097c78248268241353184160b05d3.png
+  Atlas_hug (tags:hug,atlas,ask) = https://user.uploads.dev/file/209fdfeff8bb531fdad3784c44034ff7.png
+  Atlas_peek (tags:peek,hi,atlas) = https://user.uploads.dev/file/dbd1a6865f4fe68fcf423a7df49a156c.png
+  Waxwell_huh = https://user.uploads.dev/file/65f3cdb35d246789c5a9385edd1e34c7.gif
+  Waxwell_shrug = https://user.uploads.dev/file/56b51bf136fe0af5b5440c27b4aca486.jpg
+  Waxwell_scheming = https://user.uploads.dev/file/d0b1289147b2bd3d0e0d3013cd08df4c.jpg
+  Goob_heart = https://user.uploads.dev/file/df459fec23400a79d9cc000569b71c77.jpg
+  Good_wtf = https://user.uploads.dev/file/892ff189cfc6f06a4c049160de9963e7.png
+  Tankfox_salute_dance (tags:bara,muscle,buff) = https://user.uploads.dev/file/e6fd8c251ceb9f3b8da1df3439b19640.webp
+  Troll_in_dungeon (tags:troll,dungeon,potter) = https://user.uploads.dev/file/b291b62f2ddde7bf20a241e9f5b19dc4.gif
+  Tankfox_swing_dance (tags:bara,footwork,buff) = https://user.uploads.dev/file/251c8896c9ef09745110c8dc35e7228a.webp
