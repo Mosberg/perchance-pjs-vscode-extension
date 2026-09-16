@@ -1,0 +1,38 @@
+{
+  "project": "dice-plugin",
+  "type": "perchance-plugin-generator",
+  "packaged": "2026-09-16",
+  "generatorName": "dice-plugin",
+  "generatorPublicId": "0d839950b26402a48933dfd80380f7e8",
+  "categories": {
+    "internal-code": {
+      "files": [
+        "dice-plugin/internal-code/main.pjs",
+        "dice-plugin/internal-code/index.html"
+      ]
+    },
+    "external-code": {
+      "files": [],
+      "note": "no imports, no libraries, no CDN scripts"
+    },
+    "third-party-assets": {
+      "files": [],
+      "note": "no images/audio/models/shaders/animations/JSON/prefabs/UI assets"
+    },
+    "project-resources": {
+      "files": [],
+      "note": "no data or state files"
+    },
+    "build-config": {
+      "files": [],
+      "note": "no build pipeline, bundler, package manifest, lockfile or CI"
+    }
+  },
+  "entrypoints": {
+    "output": "main.pjs $output (str) => number|string",
+    "landingPage": "index.html"
+  },
+  "workspaceExtras": {
+    "AGENTS.md": "agent instruction file shipped with the workspace, not plugin runtime"
+  }
+}

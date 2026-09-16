@@ -1,0 +1,116 @@
+
+wheelOptions1
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  Prize Four
+  Prize Five
+  
+wheelOptions2
+segments
+  Prize One
+    fillStyle = #eae56f
+  Prize Two
+    fillStyle = #89f26e
+  Prize Three
+    fillStyle = #7de6ef
+  Prize Four
+    fillStyle = #e7706f
+    
+wheelOptions3
+randomFillStyle = pastel
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  Prize Four
+  Prize Five
+  Prize Six
+  Prize Seven
+  Prize Eight
+  
+wheelOptions4
+animation
+  duration = 15
+  spins = 20
+  direction = anti-clockwise
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions5
+fillStyle = #e7706f
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions6
+lineWidth = 10
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions7
+lineWidth = 5
+strokeStyle = #e7706f
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions8 
+segments
+  Apples
+    image = https://i.imgur.com/gPg3Uvi.jpg
+  Bananas
+    image = https://i.imgur.com/McrEpfA.jpg
+  Grapes
+    image = https://i.imgur.com/dZmOaTp.jpg
+    
+wheelOptions9
+textFontSize = 25
+textOrientation = curved
+textAlignment = inner
+textMargin = 130
+textFontFamily = monospace
+textStrokeStyle = black
+textLineWidth = 3
+textFillStyle = white
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions10
+animation
+  callbackFinished(winningSegment) => alert("You won "+winningSegment.text)
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+wheelOptions11
+segments
+  Prize One
+    size = 180
+  Prize Two
+    size = 90
+  Prize Three
+    size = 90
+    
+
+wheelOptions12
+pointer = ⬇️
+wheelDiameter = 300
+segments
+  Prize One
+  Prize Two
+  Prize Three
+  
+  
+
+
