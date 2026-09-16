@@ -1,0 +1,53 @@
+layoutMaker = {import:layout-maker-plugin}
+
+
+// This generator uses two different layouts and checks the width of the browser window with "window.innerWidth" (see HTML panel) to decide which layout to use.
+
+
+desktopLayout 
+  debug = colors
+	container
+		style = height:100vh;
+  grid
+    a a a a b
+    a a a a b
+    d c c c c
+  areas
+    a
+      content = <h1>Responsive Layout Maker Plugin Example</h1><p>If you're on desktop/laptop, try resizing the width of your browser and then click ramdomize. Check out the <a href="/layout-maker-plugin" target="_blank">plugin page</a>.</p>
+			centered = true
+    b
+      content = <button onclick="update()">randomize</button>
+			centered = true
+    c
+      content = the <b>{import:animal}</b> sat on {a} {import:common-noun}
+			centered = true
+		d
+			content = {100-999}
+			centered = true
+
+
+
+
+
+mobileLayout
+  debug = colors
+	container
+		style = height:100vh;
+  grid
+    a a a
+    b b b
+    c c d
+  areas
+    a
+      content = <div><h1>Responsive Layout Maker Plugin Example</h1><p>Try resizing your browser and clicking ramdomize. Check out the <a href="/layout-maker-plugin" target="_blank">plugin page</a></p></div>
+			centered = true
+    b
+      content = <button onclick="update()">randomize</button>
+			centered = true
+    c
+      content = {import:animal}
+			centered = true
+		d
+			content = {100-999}
+			centered = true

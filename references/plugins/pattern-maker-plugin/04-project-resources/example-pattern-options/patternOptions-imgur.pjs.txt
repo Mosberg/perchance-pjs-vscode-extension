@@ -1,0 +1,7 @@
+patternOptions
+  inputImage = https://i.imgur.com/V4trUZG.png
+  settings
+    width = 50
+    height = 50
+    n = 3
+    symmetry = 8

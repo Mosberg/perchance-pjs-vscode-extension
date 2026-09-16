@@ -1,0 +1,7 @@
+patternOptions
+  inputImage = data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXCAIAAABbMYLrAAAACXBIWXMAAAsSAAALEgHS3X78AAAAwUlEQVQ4jY2SsRHCMAxFZR1ViszCBFzo2IAJWIhpQpUcEzAGtYsUNFDoTshfPwFV9veX9KSkTM8qf4fCfeh66jNdQSojSXC9AMnQ9fNC2ExHkjJyYtPRLSLHO5K4otJONh0qJNjZdM2T2UMMV3Re6vskcbIfJHkyK2YNI5tCth8i4ZckXuJAmVDiBqPVwgkbbjflbUAVzQ9r1sadv0tu2NSGhNwK/xO6n1X3hpW7N/bDa6/F7nW9EHkvVOe1b48z1T+2Qmo2rMjyHQAAAABJRU5ErkJggg==
+  settings
+    width = 50
+    height = 50
+    n = 3
+    symmetry = 8

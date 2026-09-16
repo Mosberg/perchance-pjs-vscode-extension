@@ -1,0 +1,76 @@
+{
+  "generator": "text-to-image-plugin",
+  "generatorUrl": "https://perchance.org/text-to-image-plugin",
+  "backendOrigin": "https://image-generation.perchance.org",
+  "packagedAt": "2026-09-16",
+  "categories": {
+    "internal-code": 2,
+    "external-code": 3,
+    "third-party-assets": 2,
+    "project-resources": 1
+  },
+  "files": [
+    {
+      "category": "internal-code",
+      "path": "internal-code/main.pjs",
+      "bytes": 37978,
+      "sha256": "9245fbf9b4041da7a12095fd8d45313ca8eb1aae584d1d7afd3b9a7b10aaf86a",
+      "description": "Perchance-JS: the entire $output plugin implementation + example prompt lists"
+    },
+    {
+      "category": "internal-code",
+      "path": "internal-code/index.html",
+      "bytes": 21121,
+      "sha256": "c886790749bbb139b416012904142476b6d1406c4aacc4e84c3d3dff19dfcbfe",
+      "description": "Generator documentation/landing page (body contents only)"
+    },
+    {
+      "category": "external-code",
+      "path": "external-code/huggingface-transformers-3.3.3.js",
+      "bytes": 820359,
+      "sha256": "dae0903ce191c1bc5b54b6d4a06051a51673dcbe0d14bb216137e14108a98718",
+      "description": "Runtime ESM dependency (removeBackground path), byte-exact from cdn.jsdelivr.net"
+    },
+    {
+      "category": "external-code",
+      "path": "external-code/huggingface-transformers-3.3.3-package.json",
+      "bytes": 2792,
+      "sha256": "3e224b29e2485650a5a45d30fdf67ad0e24940ee3402393b60e9a70439a38dc6",
+      "description": "Upstream package manifest for the above"
+    },
+    {
+      "category": "external-code",
+      "path": "external-code/EXTERNAL-ENDPOINTS.md",
+      "bytes": 3680,
+      "sha256": "da2f7d2ab63670494d674069a1700706355c34b79c960b478ac9650d95b8708e",
+      "description": "Manifest of every external runtime endpoint"
+    },
+    {
+      "category": "third-party-assets",
+      "path": "third-party-assets/example-output-imgur.jpg",
+      "bytes": 297234,
+      "sha256": "cf22703adb6fb21a544fe918305c69406c723417cd5a8d4d618b0e94f2e890e8",
+      "description": "Sample output image referenced by index.html (i.imgur.com)"
+    },
+    {
+      "category": "third-party-assets",
+      "path": "third-party-assets/ad-example.jpeg",
+      "bytes": 23790,
+      "sha256": "288f2e87762d8b0f0d0830f6cb6e09fbc66e79a1ec678338f122e9c25b6d4a7e",
+      "description": "Ad-placement illustration referenced by index.html (user.uploads.dev)"
+    },
+    {
+      "category": "project-resources",
+      "path": "project-resources/example-prompt-lists.pjs",
+      "bytes": 241,
+      "sha256": "7c8135e99d0f78c22fbccb9872473450d3e5c619c06ed2fe2bbafd2109a05ecc",
+      "description": "Demo character/place/season/prompt lists extracted from main.pjs:751"
+    }
+  ],
+  "buildPipeline": "none — Perchance interprets main.pjs and injects index.html at runtime; no bundler/transpiler/package-manager/CI",
+  "entryPoints": {
+    "plugin": "internal-code/main.pjs ($output(data, opts))",
+    "docs": "internal-code/index.html"
+  },
+  "totalBytes": 1207195
+}

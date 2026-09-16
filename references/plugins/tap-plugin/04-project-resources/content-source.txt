@@ -1,0 +1,14 @@
+--- main.pjs : top-level lists (Perchance data) ---
+animal:    rabbit, hare, mouse, goose, pig, zebra, spider, cricket, moose, cow, chicken
+adjective: happy, sad, sneaky, greedy, silly, friendly, cheeky, tired, sleepy, irritated
+
+--- index.html : example invocation blocks (as displayed to the reader) ---
+The [$output(animal)] is [$output(adjective)].
+The [$output(animal, "button")] is [$output(adjective, "button")].
+The [$output(animal, "color:red; border:2px solid blue; padding:3px;")] is [$output(adjective, ...)].
+The [$output(animal, "")] is [$output(adjective, "")].
+It's a [a = $output(animal)]. And what {a} [a] it is.
+It's a [a = $output(animal)]. And what {a} [a.noTap] it is.
+It's a [a = $output(animal)]. And what {a} [a.noTapNoUpdate] it is.
+(Note: in the shipped source these are written with tap(...) rather than
+$output(...), per the tutorial. $output is this generator's own export alias.)

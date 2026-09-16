@@ -1,0 +1,13 @@
+createInstance = {import:create-instance-plugin}
+
+output
+  [p = createInstance(person, "deep"), p.name] has a child called [p.child.name] who is currently [p.child.age] years old. [p.name] is [p.age], which is [p.age - p.child.age] years older than [p.child.name].
+
+person
+  name = {Salman|Manny|Rhian}
+  age = {31-49}
+  child = [child]
+  
+child
+  name = {Anne|Arram|Amelia}
+  age = {3-17}

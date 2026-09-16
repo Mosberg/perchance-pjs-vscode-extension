@@ -1,0 +1,122 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Browse 39 LPC animals, monsters and mythical creatures with animated 4-direction previews, then export game-ready sprite sheets, JSON manifests and a plugin API for your own game."
+  />
+  <meta name="author" content="Mosberg" />
+  <meta
+    name="keywords"
+    content="lpc, animal, monster, creature, sprite, spritesheet, pixel art, rpg, game assets, bestiary"
+  />
+  <link
+    rel="icon"
+    href="https://mosberg.github.io/LPCGame/src/images/embervale.webp"
+  />
+
+  <title>LPC Animal & Monster Creator</title>
+</head>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #0b0e13;
+    text-align: left;
+  }
+  body {
+    min-height: 100vh;
+    overflow-x: clip;
+  }
+  /* Desktop: pin the app to the viewport so its panels scroll internally and the
+     page itself never scrolls. Narrow screens: the app switches to a stacked,
+     auto-height layout (see styles.js @media max-width:1240px) and the document
+     scrolls instead — so #appCtn must be free to grow past 100vh. */
+  #appCtn {
+    width: 100%;
+    min-height: 100vh;
+  }
+  @media (min-width: 1241px) {
+    #appCtn {
+      height: 100vh;
+      height: 100dvh;
+    }
+  }
+  #bootMsg {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    color: #93a0b4;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 24px;
+    line-height: 1.6;
+  }
+  #bootMsg .spin {
+    width: 26px;
+    height: 26px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    border: 3px solid #26303d;
+    border-top-color: #f0b429;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  #bootMsg code {
+    font-family: ui-monospace, Menlo, monospace;
+    background: #151b24;
+    border: 1px solid #26303d;
+    border-radius: 6px;
+    padding: 1px 5px;
+  }
+</style>
+
+<div id="appCtn"></div>
+
+<script type="module">
+  import { mountAnimalCreator } from "./src/lpc-creatures/index.js";
+
+  const ctn = document.getElementById("appCtn");
+  ctn.innerHTML =
+    '<div id="bootMsg"><div><div class="spin"></div>Loading the bestiary&hellip;</div></div>';
+
+  const fail = (message, detail) => {
+    ctn.innerHTML =
+      '<div id="bootMsg"><div><b style="color:#ff9c9c">' +
+      message +
+      "</b><br>" +
+      (detail ? "<code>" + detail + "</code><br>" : "") +
+      "If this is the Perchance editor preview, try saving the generator once (or open it in a normal browser tab) &mdash; unsaved <code>src/</code> files need a service worker to load.</div></div>";
+  };
+
+  let store = null;
+  try {
+    const api = window.root;
+    if (api && typeof api.animalCreatorStore === "function")
+      store = api.animalCreatorStore();
+  } catch (err) {
+    console.warn("kv store unavailable, falling back to local storage", err);
+  }
+
+  mountAnimalCreator(ctn, { hash: true, store, height: false })
+    .then((controller) => {
+      window.__lpcAnimals = controller;
+    })
+    .catch((err) => {
+      console.error(err);
+      fail("The creator failed to start.", err && err.message);
+    });
+</script>

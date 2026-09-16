@@ -1,0 +1,43 @@
+{
+  "generator": "tap-plugin",
+  "generatorPublicId": "n/a (determined at runtime by window.generatorPublicId)",
+  "platform": "perchance.org",
+  "fileCount": 8,
+  "files": [
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 1606,
+      "sha256": "98cff00e30640a53337e470c5552653ccce76787a0ba5cccd9abcb4adb92d4e1"
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 5204,
+      "sha256": "04f9b51a450dc4897443250f86b9aaaf90aa39af23474421be36515fe6545225"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2413,
+      "sha256": "23af3179b166b208ea48e418d02426c825530c8bef4b7db6acddb84a876c7a23"
+    },
+    {
+      "path": "02-external-code/DEPENDENCIES.md",
+      "bytes": 836,
+      "sha256": "93781672709b3a8fad5922af81a505b85005e8b04c431becfe0d4f28b6872950"
+    },
+    {
+      "path": "03-third-party-assets/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "04-project-resources/content-source.txt",
+      "bytes": 911,
+      "sha256": "fc52714c7d3292d9d7b7288c74b16d8c35163a3252611e21d0358db1418871bd"
+    },
+    {
+      "path": "05-build-config/build-notes.md",
+      "bytes": 773,
+      "sha256": "964666c12d62f096ee674241d7b0163b6596302789428f1cc105cf7db30a0012"
+    }
+  ]
+}

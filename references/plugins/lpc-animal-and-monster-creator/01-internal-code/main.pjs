@@ -1,0 +1,77 @@
+// Created by Mosberg https://github.com/Mosberg
+
+// LPC Animal & Monster Creator — created by Mosberg https://github.com/Mosberg
+//
+// Companion to the LPC Character Creator: browse/export LPC animals, monsters
+// and mythical creatures. The editor UI itself lives in src/lpc-creatures/*
+// (shipped with this generator); the facade below is what *other* generators
+// import to use the same catalog and sprite API inside a game.
+
+$meta
+  title = LPC Animal & Monster Creator
+  description = Browse 39 LPC animals, monsters and mythical creatures with animated 4-direction previews, then export game-ready sprite sheets, JSON manifests and a plugin API for your own game.
+  image = https://user.uploads.dev/file/97022216b3a909d7540e29551cf953ec.jpg
+  tags = lpc, animal, monster, creature, sprite, spritesheet, pixel art, rpg, game assets, bestiary
+  header
+    mode = minimal
+
+kv = {import:kv-plugin}
+
+// Importable plugin facade. The asset URLs are centralized here so a bundle
+// update only means changing the two versioned URLs.
+lpcAnimalMonsterCreator() =>
+  const BUNDLE_URL = "https://user.uploads.dev/file/fcde6dcee16cffac6ae21cc517fb4a51.js";
+  const CATALOG_URL = "https://user.uploads.dev/file/27e36c970aba9ca460ae230c015c201e.json";
+  const VERSION = "1.0.0";
+  let modulePromise;
+
+  const load = () => {
+    if (!modulePromise) {
+      modulePromise = import(BUNDLE_URL).catch((error) => {
+        modulePromise = null;
+        throw error;
+      });
+    }
+    return modulePromise;
+  };
+
+  const options = (value) => Object.assign({ catalogUrl: CATALOG_URL }, value || {});
+  const call = async (method, args) => {
+    const module = await load();
+    if (typeof module[method] !== "function") {
+      throw new Error("LPC animal creator method is unavailable: " + method);
+    }
+    return module[method](...args);
+  };
+
+  return {
+    version: VERSION,
+    bundleUrl: BUNDLE_URL,
+    catalogUrl: CATALOG_URL,
+    load,
+    init: (o) => call("getCatalog", [options(o)]),
+    getCatalog: (o) => call("getCatalog", [options(o)]),
+    listCreatures: (o) => call("listCreatures", [options(o)]),
+    mount: (container, o) => call("mountAnimalCreator", [container, options(o)]),
+    open: (o) => call("openAnimalCreator", [options(o)]),
+    renderFrame: (creature, o) => call("renderFrame", [creature, options(o)]),
+    renderAnimSheet: (creature, animation, o) => call("renderAnimSheet", [creature, animation, options(o)]),
+    renderFullSheet: (creature, o) => call("renderSheet", [creature, options(o)]),
+    sheetManifest: (creature, o, info) => call("sheetManifest", [creature, options(o), info]),
+    createSprite: (creature, o) => call("createSprite", [creature, options(o)]),
+    animationsFor: (creature, o) => call("animationsFor", [creature, options(o)]),
+    creatureToCode: (creature) => call("creatureToCode", [creature]),
+    creatureFromCode: (code) => call("creatureFromCode", [code]),
+    stats: async (o) => call("catalogStats", [await call("getCatalog", [options(o)])]),
+  };
+
+// Storage adapter handed to the editor UI so favourites/recent picks persist
+// per user via the kv plugin. The UI also works fine without it.
+animalCreatorStore() =>
+  const folder = root.kv.lpcAnimalMonsterCreator;
+  return {
+    get: (key) => folder.get(key).then((value) => (value === undefined ? null : value)),
+    set: (key, value) => folder.set(key, value),
+  };
+
+$output = [lpcAnimalMonsterCreator()]

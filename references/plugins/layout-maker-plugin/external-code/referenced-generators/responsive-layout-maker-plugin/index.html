@@ -1,0 +1,95 @@
+<br><br>
+<h1>[md($meta.t)]</h1>
+<main class="markdown-body" style="margin:1em auto; padding:1em; max-width:75ch; background: #fff">
+  [c(cWarning)]
+  <div>[md(text)]</div>
+  <div style="height: 300px;">[$output(layout0)]</div><br>
+  <div>[md(text2)]</div>
+</main>
+<br><br>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Work+Sans:wght@400;600&display=swap');
+  
+  *:before, *:after, * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6{
+
+  }
+  
+body {
+    font-family: 'Nunito', sans-serif;
+  background: #eee;
+  }
+  
+  .markdown-body p {
+    font-family: 'Nunito', sans-serif;
+
+  }
+  .markdown-body code, .markdown-body pre {
+    font-family: monospace;
+  }
+  .markdown-body img {
+    max-width: 100%;
+    position:relative;
+    transition: 0.3s all ease;
+  }
+  .markdown-body {
+    & button {
+      padding: 0 0.2em;
+    }
+    
+    & h1,h2,h3,h4,h5,h6 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      border: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: .5em;
+    }
+    & pre {
+      background: #333;
+      color: white;
+    }
+  }
+  .markdown-body img:hover {
+    max-width: max(65ch, 100%);
+  }
+  @media screen and (max-width: 400px) {
+    #topNav {
+      flex-flow: column !important;
+    }
+    #topNav > div {
+      width: 100% !important;
+    }
+  }
+  
+</style>
+<script>
+  function addOpenInNewTab() {
+// Get all <a> elements in the document
+const links = document.querySelectorAll('a');
+// console.log(links);
+// Loop through each <a> element and add the target attribute
+links.forEach(link => {
+  link.setAttribute('target', '_blank');
+});
+  }
+</script>
+[addOpenInNewTab(), ""]
+<!-- Learn HTML here:   https://www.khanacademy.org/computing/computer-programming/html-css    -->

@@ -1,0 +1,1 @@
+No third-party assets are used in this project (no images, audio, models, shaders, animations, fonts or data files).

@@ -1,0 +1,31 @@
+layoutMaker = {import:layout-maker-plugin}
+
+layout
+  debug = borders // take away this line to remove the borders, or change "borders" to "colors" to get random colors
+	container 
+		style = height:100vh; // this makes the height of the layout equal to the screen height
+  grid
+    a a a a b
+    a a a a f
+    d c c c c
+		e e e e e
+	rowSizes = 1fr 1fr 1fr 0.2fr  // this just makes the last row smaller (in height) than the others 
+  areas
+    a
+      content = <h1>Layout Maker Plugin Example</h1> 
+			centered = true
+    b
+      content = <button onclick="update()">randomize</button>
+			centered = true
+    c
+      content = {import:animal}
+			centered = true
+		d
+			content = {100-999}
+			centered = true
+		e
+			content = <p>Check out the <a href="/layout-maker-plugin" target="_blank">plugin page</a> to learn how this plugin works.</p>
+		f
+			content = hello :)
+			style = background-color:lightblue;
+			centered = true

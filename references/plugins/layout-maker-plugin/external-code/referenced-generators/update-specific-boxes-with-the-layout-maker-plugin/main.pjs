@@ -1,0 +1,32 @@
+layoutMaker = {import:layout-maker-plugin}
+
+layout
+  debug = colors
+	container 
+		style = height:100vh; // this makes the height of the layout equal to the screen height
+  grid
+    a a a a b
+    a a a a e
+    d c c c c
+		f f f f f
+	rowSizes = 1fr 1fr 1fr 0.2fr  // this just makes the last row smaller (in height) than the others 
+  areas
+    a
+      content = <h1>Update Specific Boxes With the Layout Maker Plugin</h1> 
+			centered = true
+    b
+      content = <button onclick="update(numberBox)">randomize number</button>
+			centered = true
+    c
+      id = numberBox // <-- this id is referenced in the above button onclick update
+      content = {100-999}
+      centered = true
+    d
+      id = animalBox // <-- this id is referenced in the below button onclick update
+      content = {import:animal}
+			centered = true
+		e
+			content = <button onclick="update(animalBox)">randomize animal</button>
+			centered = true
+    f
+      content = <p>Check out the <a href="/layout-maker-plugin" target="_blank">plugin page</a> to learn how this plugin works.</p>

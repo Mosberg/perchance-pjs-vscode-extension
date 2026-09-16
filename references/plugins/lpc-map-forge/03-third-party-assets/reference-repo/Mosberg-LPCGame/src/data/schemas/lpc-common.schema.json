@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mosberg.github.io/LPCGame/src/data/schemas/lpc-common.schema.json",
+  "title": "LPC Common Metadata",
+  "description": "Shared metadata fields used across LPC characters and maps.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semver of this schema (e.g., 1.0.0)."
+    },
+    "generatorId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the generator that produced this file (e.g., 'lpc-character-creator-v2')."
+    },
+    "generatorVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Version of the generator (e.g., 2.1.0)."
+    },
+    "createdAt": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Unix timestamp in milliseconds when this file was created."
+    },
+    "updatedAt": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Unix timestamp in milliseconds when this file was last updated."
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "license": { "type": "string" }
+      },
+      "required": ["name"]
+    }
+  },
+  "required": ["schemaVersion", "generatorId", "generatorVersion", "createdAt"]
+}

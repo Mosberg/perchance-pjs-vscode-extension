@@ -1,0 +1,284 @@
+{
+  "generator": {
+    "name": "ai-chat",
+    "publicPage": "https://perchance.org/ai-chat",
+    "description": "AI character chat / roleplay generator (Perchance)."
+  },
+  "generatedAt": "2026-09-16T17:03:06.498Z",
+  "categories": {
+    "internal-code": [
+      "main.pjs",
+      "index.html"
+    ],
+    "external-code": [
+      "ai-text-plugin/main.pjs",
+      "bug-report-plugin/main.pjs",
+      "comments-plugin/main.pjs",
+      "dynamic-import-plugin/main.pjs",
+      "fullscreen-button-plugin/main.pjs",
+      "huge-emoji-list/main.pjs",
+      "literal-plugin/main.pjs",
+      "tabbed-comments-plugin-v1/main.pjs",
+      "text-editor-plugin-v1/main.pjs",
+      "upload-plugin/main.pjs"
+    ],
+    "project-assets/characters": [
+      "ike.webp",
+      "ganyu.webp",
+      "kazushi.jpeg",
+      "yvette.webp",
+      "li_jung.webp",
+      "yume.webp",
+      "death.webp",
+      "phoebe.webp",
+      "nanami.webp",
+      "stapler.webp",
+      "mona.webp",
+      "quinn.webp",
+      "illyria.webp",
+      "leviathan.webp",
+      "cherry.webp",
+      "custom.webp"
+    ],
+    "project-assets/third-party-libs": [
+      "ua-parser-js-2.0.0-rc.1.min.js",
+      "ai-text-plugin.aux.js",
+      "bug-report-plugin.aux.js",
+      "huge-emoji-list.txt",
+      "upload-plugin.aux.txt"
+    ]
+  },
+  "entries": [
+    {
+      "path": "1-internal-code/main.pjs",
+      "category": "internal-code",
+      "bytes": 101731,
+      "sourceUrl": "local (workspace)",
+      "notes": "Perchance lists/data + JS functions; defines the {import:...} dependency list."
+    },
+    {
+      "path": "1-internal-code/index.html",
+      "category": "internal-code",
+      "bytes": 156435,
+      "sourceUrl": "local (workspace)",
+      "notes": "Perchance HTML body: UI markup + inline scripts."
+    },
+    {
+      "path": "2-external-code/ai-text-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 58048,
+      "sourceUrl": "https://perchance.org/ai-text-plugin",
+      "notes": "Perchance plugin source for {import:ai-text-plugin}."
+    },
+    {
+      "path": "2-external-code/bug-report-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 7718,
+      "sourceUrl": "https://perchance.org/bug-report-plugin",
+      "notes": "Perchance plugin source for {import:bug-report-plugin}."
+    },
+    {
+      "path": "2-external-code/comments-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 38261,
+      "sourceUrl": "https://perchance.org/comments-plugin",
+      "notes": "Perchance plugin source for {import:comments-plugin}."
+    },
+    {
+      "path": "2-external-code/dynamic-import-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 4187,
+      "sourceUrl": "https://perchance.org/dynamic-import-plugin",
+      "notes": "Perchance plugin source for {import:dynamic-import-plugin}."
+    },
+    {
+      "path": "2-external-code/fullscreen-button-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 1916,
+      "sourceUrl": "https://perchance.org/fullscreen-button-plugin",
+      "notes": "Perchance plugin source for {import:fullscreen-button-plugin}."
+    },
+    {
+      "path": "2-external-code/huge-emoji-list/main.pjs",
+      "category": "external-code",
+      "bytes": 513,
+      "sourceUrl": "https://perchance.org/huge-emoji-list",
+      "notes": "Perchance plugin source for {import:huge-emoji-list}."
+    },
+    {
+      "path": "2-external-code/literal-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 454,
+      "sourceUrl": "https://perchance.org/literal-plugin",
+      "notes": "Perchance plugin source for {import:literal-plugin}."
+    },
+    {
+      "path": "2-external-code/tabbed-comments-plugin-v1/main.pjs",
+      "category": "external-code",
+      "bytes": 64046,
+      "sourceUrl": "https://perchance.org/tabbed-comments-plugin-v1",
+      "notes": "Perchance plugin source for {import:tabbed-comments-plugin-v1}."
+    },
+    {
+      "path": "2-external-code/text-editor-plugin-v1/main.pjs",
+      "category": "external-code",
+      "bytes": 465766,
+      "sourceUrl": "https://perchance.org/text-editor-plugin-v1",
+      "notes": "Perchance plugin source for {import:text-editor-plugin-v1}."
+    },
+    {
+      "path": "2-external-code/upload-plugin/main.pjs",
+      "category": "external-code",
+      "bytes": 10271,
+      "sourceUrl": "https://perchance.org/upload-plugin",
+      "notes": "Perchance plugin source for {import:upload-plugin}."
+    },
+    {
+      "path": "3-project-assets/characters/ike.webp",
+      "category": "project-assets/characters",
+      "bytes": 10544,
+      "sourceUrl": "https://user.uploads.dev/file/2e64ef311738b4c42467c7880f28cb7a.webp",
+      "notes": "ike: First year of college with your upbeat best friend, who you've known since childhood."
+    },
+    {
+      "path": "3-project-assets/characters/ganyu.webp",
+      "category": "project-assets/characters",
+      "bytes": 26312,
+      "sourceUrl": "https://user.uploads.dev/file/ea04c7348bf83c2edad821f4aea1b56c.webp",
+      "notes": "ganyu: The very reliable General Secretary, typically willing to assist others however she can."
+    },
+    {
+      "path": "3-project-assets/characters/kazushi.jpeg",
+      "category": "project-assets/characters",
+      "bytes": 47865,
+      "sourceUrl": "https://user.uploads.dev/file/3b8360b50793972993d87796c5935ef1.jpeg",
+      "notes": "kazushi: Fighting arena CEO takes pity on you, a hybrid brought in by his handler team."
+    },
+    {
+      "path": "3-project-assets/characters/yvette.webp",
+      "category": "project-assets/characters",
+      "bytes": 45850,
+      "sourceUrl": "https://user.uploads.dev/file/762a5acb5bd91cb591eff195d50d3771.webp",
+      "notes": "yvette: Cold, emotionally detached mage hunter who grew up in the underworld."
+    },
+    {
+      "path": "3-project-assets/characters/li_jung.webp",
+      "category": "project-assets/characters",
+      "bytes": 53836,
+      "sourceUrl": "https://user.uploads.dev/file/418e0b213fa126839cf946d672738de5.webp",
+      "notes": "li_jung: You're a servant of the emperor, and... you just crashed into him with a tray of tea."
+    },
+    {
+      "path": "3-project-assets/characters/yume.webp",
+      "category": "project-assets/characters",
+      "bytes": 20614,
+      "sourceUrl": "https://user.uploads.dev/file/758b6a5753f83d9e069b0ceb2bc0e2f1.webp",
+      "notes": "yume: The creepy bestfriend of your sister, with an unnerving grin, and zero manners."
+    },
+    {
+      "path": "3-project-assets/characters/death.webp",
+      "category": "project-assets/characters",
+      "bytes": 23558,
+      "sourceUrl": "https://user.uploads.dev/file/7b264970cb09e128beb284b37fb43079.webp",
+      "notes": "death: An unsettling melodic whistle comes down the alley - he has finally caught up to you."
+    },
+    {
+      "path": "3-project-assets/characters/phoebe.webp",
+      "category": "project-assets/characters",
+      "bytes": 23770,
+      "sourceUrl": "https://user.uploads.dev/file/0aa1f598685b2f0c9257365f1e8e5cf3.webp",
+      "notes": "phoebe: Shut-in hacker becomes obsessed with you during a government contract job."
+    },
+    {
+      "path": "3-project-assets/characters/nanami.webp",
+      "category": "project-assets/characters",
+      "bytes": 22322,
+      "sourceUrl": "https://user.uploads.dev/file/08e6b3c031463c21be30fc11a30070ae.webp",
+      "notes": "nanami: Nanami gets home, irritated after problems at work, not answering your greeting."
+    },
+    {
+      "path": "3-project-assets/characters/stapler.webp",
+      "category": "project-assets/characters",
+      "bytes": 30492,
+      "sourceUrl": "https://user.uploads.dev/file/d55e2bd3f345392b69d874a540b72b6c.webp",
+      "notes": "stapler: A piece of stationary equiptment, used for joining multiple pieces of paper."
+    },
+    {
+      "path": "3-project-assets/characters/mona.webp",
+      "category": "project-assets/characters",
+      "bytes": 32974,
+      "sourceUrl": "https://user.uploads.dev/file/4d011b6fe505fcede630ef361dbb13db.webp",
+      "notes": "mona: A stray catgirl sneaks through your window and eats the dinner you just prepared."
+    },
+    {
+      "path": "3-project-assets/characters/quinn.webp",
+      "category": "project-assets/characters",
+      "bytes": 13778,
+      "sourceUrl": "https://user.uploads.dev/file/1e49fcc3358add9a365f704366009d5c.webp",
+      "notes": "quinn: An elite 24/7 bodyguard, hired by your mafia father to keep you out of trouble."
+    },
+    {
+      "path": "3-project-assets/characters/illyria.webp",
+      "category": "project-assets/characters",
+      "bytes": 51572,
+      "sourceUrl": "https://user.uploads.dev/file/4fffab65469449879a84155eae481144.webp",
+      "notes": "illyria: Taken prisoner by the queen in an elven kingdom where humans hold no power."
+    },
+    {
+      "path": "3-project-assets/characters/leviathan.webp",
+      "category": "project-assets/characters",
+      "bytes": 42288,
+      "sourceUrl": "https://user.uploads.dev/file/6c270e7db508e92a029f1099f7ee3287.webp",
+      "notes": "leviathan: He hasn't bowed since his mother's crown fell - and he's not about to start now."
+    },
+    {
+      "path": "3-project-assets/characters/cherry.webp",
+      "category": "project-assets/characters",
+      "bytes": 29922,
+      "sourceUrl": "https://user.uploads.dev/file/b413f3160dbb6130727d261825b0e692.webp",
+      "notes": "cherry: Endearingly determined-but-unlucky lvl 1 elf rogue who needs a party."
+    },
+    {
+      "path": "3-project-assets/characters/custom.webp",
+      "category": "project-assets/characters",
+      "bytes": 38762,
+      "sourceUrl": "https://user.uploads.dev/file/476ae24d04582c6181f70c278e68f0ba.webp",
+      "notes": "custom: Generic “Custom” card (opens the generate/type-your-own flow)."
+    },
+    {
+      "path": "3-project-assets/third-party-libs/ua-parser-js-2.0.0-rc.1.min.js",
+      "category": "third-party-libs",
+      "bytes": 30034,
+      "sourceUrl": "https://cdn.jsdelivr.net/npm/ua-parser-js@2.0.0-rc.1/dist/ua-parser.min.js",
+      "notes": "Third-party UA parsing lib (AGPLv3), used by bug-report-plugin."
+    },
+    {
+      "path": "3-project-assets/third-party-libs/ai-text-plugin.aux.js",
+      "category": "third-party-libs",
+      "bytes": 22115,
+      "sourceUrl": "https://user.uploads.dev/file/e29eab687b1fbf129076ec6057484bb3.js",
+      "notes": "Runtime script loaded by ai-text-plugin (tokenizer/inference helper)."
+    },
+    {
+      "path": "3-project-assets/third-party-libs/bug-report-plugin.aux.js",
+      "category": "third-party-libs",
+      "bytes": 30035,
+      "sourceUrl": "https://user.uploads.dev/file/f2e26ac127c029f401f2a990a4bafbe8.js",
+      "notes": "UAParser bundle loaded by bug-report-plugin."
+    },
+    {
+      "path": "3-project-assets/third-party-libs/huge-emoji-list.txt",
+      "category": "third-party-libs",
+      "bytes": 4546603,
+      "sourceUrl": "https://user.uploads.dev/file/a39d52b89a33865b9a903fcc5786a2da.txt",
+      "notes": "Emoji dataset loaded by huge-emoji-list."
+    },
+    {
+      "path": "3-project-assets/third-party-libs/upload-plugin.aux.txt",
+      "category": "third-party-libs",
+      "bytes": 16,
+      "sourceUrl": "https://user.uploads.dev/file/fcf0aa53193434e1de2a3a2b878bb893.txt",
+      "notes": "Small data file referenced by upload-plugin."
+    }
+  ]
+}

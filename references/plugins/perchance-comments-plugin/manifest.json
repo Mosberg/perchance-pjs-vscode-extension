@@ -1,0 +1,31 @@
+{
+  "generator": "comments-plugin",
+  "generatedAt": "2026-09-16T17:08:24.692Z",
+  "categories": {
+    "internal-code": [
+      "internal-code/main.pjs",
+      "internal-code/index.html"
+    ],
+    "external-code": [],
+    "third-party-assets": [],
+    "project-resources": [
+      "assets/emojis/cat_jam.webp",
+      "assets/emojis/crythumbsup.png",
+      "assets/emojis/kekw.png",
+      "assets/emojis/huh.webp",
+      "assets/backgrounds/message-feed-background.jpg"
+    ],
+    "build-config": []
+  },
+  "externalReferences": [
+    {
+      "type": "iframe-backend",
+      "url": "https://comments-plugin.perchance.org/embed/{folderName}"
+    },
+    {
+      "type": "fonts",
+      "url": "https://fonts.google.com/",
+      "note": "optional, via loadFonts option"
+    }
+  ]
+}

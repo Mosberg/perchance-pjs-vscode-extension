@@ -1,0 +1,50 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Create and edit maps for LPC-based games."
+  />
+  <meta name="author" content="Mosberg" />
+  <meta
+    name="keywords"
+    content="lpc, character creator, sprite, spritesheet, avatar, pixel art, rpg, fantasy, map editor"
+  />
+  <link
+    rel="icon"
+    href="https://mosberg.github.io/LPCGame/src/images/embervale.webp"
+  />
+
+  <title>LPC Map Forge</title>
+</head>
+
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: #0d1117;
+  }
+  #forgeHost {
+    display: block;
+    height: 100%;
+  }
+</style>
+
+<div id="forgeHost"></div>
+
+<script type="module">
+  import { mountMapForge } from "./src/forge.js";
+  mountMapForge(document.getElementById("forgeHost"), {
+    fullscreen: true,
+  }).catch((e) => {
+    console.error(e);
+    document.getElementById("forgeHost").innerHTML =
+      '<div style="padding:24px;color:#e8ecf3;font-family:sans-serif">Failed to start: ' +
+      String((e && e.message) || e) +
+      "</div>";
+  });
+</script>

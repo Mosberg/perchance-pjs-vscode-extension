@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mosberg.github.io/LPCGame/src/data/schemas/lpc-character.schema.json",
+  "title": "LPC Character Export",
+  "description": "Schema for exported LPC character data, including layers, palette, and animations.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "metadata": { "$ref": "lpc-common.schema.json#" },
+    "characterId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for this character (e.g., UUID or slug)."
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable character name."
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          }
+        }
+      },
+      "required": ["id", "colors"]
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "slot": {
+            "type": "string",
+            "enum": [
+              "body",
+              "head",
+              "eyes",
+              "mouth",
+              "hair",
+              "facial_hair",
+              "top",
+              "bottom",
+              "feet",
+              "hands",
+              "accessory",
+              "weapon",
+              "shield"
+            ]
+          },
+          "assetId": { "type": "string" },
+          "variantId": { "type": "string" },
+          "zIndex": { "type": "integer" },
+          "tint": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "visible": { "type": "boolean", "default": true }
+        },
+        "required": ["slot", "assetId"]
+      }
+    },
+    "animations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "idle",
+              "walk",
+              "run",
+              "slash",
+              "thrust",
+              "shoot",
+              "spellcast",
+              "hurt",
+              "watering",
+              "emote"
+            ]
+          },
+          "frames": { "type": "integer", "minimum": 1 },
+          "fps": { "type": "integer", "minimum": 1, "default": 12 },
+          "loop": { "type": "boolean", "default": true }
+        },
+        "required": ["name", "frames"]
+      }
+    },
+    "exportOptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["spritesheet", "json", "png"]
+        },
+        "scale": { "type": "integer", "minimum": 1, "default": 1 },
+        "includeShadow": { "type": "boolean", "default": false },
+        "includeNameplate": { "type": "boolean", "default": false }
+      }
+    }
+  },
+  "required": ["metadata", "characterId", "displayName", "palette", "layers"]
+}

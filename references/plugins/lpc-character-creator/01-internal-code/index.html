@@ -1,0 +1,64 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Build and export Universal LPC characters with live previews, palette recolouring, animation sheets, and a lazy-loaded plugin API."
+  />
+  <meta name="author" content="Mosberg" />
+  <meta
+    name="keywords"
+    content="lpc, character creator, sprite, spritesheet, avatar, pixel art, rpg, fantasy"
+  />
+  <link
+    rel="icon"
+    href="https://mosberg.github.io/LPCGame/src/images/embervale.webp"
+  />
+
+  <title>LPC Character Creator V2</title>
+</head>
+
+<style>
+  /* Host page: just enough to give the shadow-mounted app a full-viewport box. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: #0b0e13;
+  }
+  body {
+    overflow: hidden;
+  }
+  #lpcHost {
+    display: block;
+    height: 100%;
+  }
+  @media (max-width: 1240px) {
+    html,
+    body {
+      height: auto;
+    }
+    body {
+      overflow: auto;
+    }
+    #lpcHost {
+      height: auto;
+    }
+  }
+</style>
+
+<div id="lpcHost"></div>
+
+<script type="module">
+  import { mountLpcCreator } from "./src/creator.js";
+  const hostEl = document.getElementById("lpcHost");
+  mountLpcCreator(hostEl, { height: false, hash: window.location.hash }).catch(
+    (e) => {
+      console.error(e);
+      hostEl.innerHTML =
+        '<div style="padding:24px;color:#e8ecf3;font-family:sans-serif">Failed to start: ' +
+        String((e && e.message) || e) +
+        "</div>";
+    },
+  );
+</script>

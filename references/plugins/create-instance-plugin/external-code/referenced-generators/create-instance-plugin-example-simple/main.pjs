@@ -1,0 +1,17 @@
+createInstance = {import:create-instance-plugin}
+
+output
+	[c = createInstance(character),""][c.name] is [c.age] years old. [c.pronoun.sentenceCase] feeling [c.mood].
+
+character
+  name = {Riley|Jade|Avery|Jordan}
+	age = {18-60} 
+	height = {14-20}0
+	pronoun = {she is|he is|they are}
+	mood = [mood] 
+	
+mood 
+	sleepy
+	happy
+	a bit sad
+  excited

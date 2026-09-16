@@ -1,0 +1,34 @@
+{
+  "generator": "create-instance-plugin",
+  "url": "https://perchance.org/create-instance-plugin",
+  "publicId": "f3c1700220530a960f2912a2cfcd87b1",
+  "imports": [],
+  "dependencies": {
+    "engine": "perchance-platform",
+    "npm": [],
+    "cdn": [],
+    "assets": []
+  },
+  "files": {
+    "internal-code/main.pjs": 2933,
+    "internal-code/index.html": 7923,
+    "external-code/referenced-generators/create-instance-plugin-example/main.pjs": 577,
+    "external-code/referenced-generators/create-instance-plugin-example-3/main.pjs": 646,
+    "external-code/referenced-generators/create-instance-plugin-deep-example/main.pjs": 389,
+    "external-code/referenced-generators/create-instance-plugin-example-simple/main.pjs": 341,
+    "external-code/referenced-generators/create-instances-plugin/main.pjs": 157
+  },
+  "referencedGenerators": [
+    "create-instance-plugin-example",
+    "create-instance-plugin-example-3",
+    "create-instance-plugin-deep-example",
+    "create-instance-plugin-example-simple",
+    "create-instances-plugin"
+  ],
+  "absent": [
+    "src/",
+    "imports/",
+    "third-party assets",
+    "build/config files"
+  ]
+}

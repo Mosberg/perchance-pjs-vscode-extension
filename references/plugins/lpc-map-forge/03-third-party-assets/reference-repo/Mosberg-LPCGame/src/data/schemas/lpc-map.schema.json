@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mosberg.github.io/LPCGame/src/data/schemas/lpc-map.schema.json",
+  "title": "LPC Map Export",
+  "description": "Schema for exported LPC map data, including terrain, props, and spawn points.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "metadata": { "$ref": "lpc-common.schema.json#" },
+    "mapId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for this map."
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable map name."
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      },
+      "required": ["width", "height"]
+    },
+    "tileSize": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "integer", "minimum": 1, "default": 32 },
+        "height": { "type": "integer", "minimum": 1, "default": 32 }
+      }
+    },
+    "tileset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "columns": { "type": "integer", "minimum": 1 },
+        "tileWidth": { "type": "integer", "minimum": 1 },
+        "tileHeight": { "type": "integer", "minimum": 1 }
+      },
+      "required": ["id", "url"]
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["terrain", "collision", "objects", "decorations"]
+          },
+          "data": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 0 }
+          },
+          "visible": { "type": "boolean", "default": true }
+        },
+        "required": ["id", "name", "type", "data"]
+      }
+    },
+    "props": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "assetId": { "type": "string" },
+          "x": { "type": "integer" },
+          "y": { "type": "integer" },
+          "z": { "type": "integer", "default": 0 },
+          "rotation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 359,
+            "default": 0
+          },
+          "scale": { "type": "number", "minimum": 0.1, "default": 1.0 }
+        },
+        "required": ["id", "assetId", "x", "y"]
+      }
+    },
+    "spawns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["player", "enemy", "npc", "loot"]
+          },
+          "x": { "type": "integer" },
+          "y": { "type": "integer" },
+          "properties": { "type": "object" }
+        },
+        "required": ["id", "type", "x", "y"]
+      }
+    }
+  },
+  "required": [
+    "metadata",
+    "mapId",
+    "displayName",
+    "dimensions",
+    "tileset",
+    "layers"
+  ]
+}

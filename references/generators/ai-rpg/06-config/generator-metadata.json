@@ -1,0 +1,269 @@
+{
+ "generator": {
+  "name": "ai-rpg",
+  "url": "https://perchance.org/ai-rpg",
+  "iframeOriginPattern": "https://<32-hex-public-id>.perchance.org/ai-rpg",
+  "publicId": "3024cd578e830e9961167a8c06292d9c"
+ },
+ "perchanceMeta": {
+  "title": "🗡️ AI RPG - Text Adventure - free, unlimited, no sign-up",
+  "description": "Completely free & unlimited AI Text Adventure. Interactive AI story/game, kinda like AI Dungeon. DnD AI / Game Master, with no sign-up or login. Be whoever you want, do whatever you want. Fast generation and there are *no* daily usage restrictions - unlimited and 100% free text adventure AI. As you might expect from a AI RPG generator, you can create fantasy RPGs, horror games (including creepy/creepypasta and analogue horror stories), funny adventures, mystery, romance choose-your-own-adventures, AI isekai adventures, anime text adventures, and basically anything else.",
+  "image": "https://user.uploads.dev/file/7779244672aaaf6c2c3c6b72d61c600a.jpeg",
+  "pageTitle": "🗺️ AI RPG 🧙‍♂️"
+ },
+ "sourceFiles": [
+  {
+   "path": "01-project-source/main.pjs",
+   "bytes": 276436,
+   "sha256": "e0a25a050e2bae8c659596b8c8d6459f82dfeacc44aaff4d7aad16a25908849b"
+  },
+  {
+   "path": "01-project-source/index.html",
+   "bytes": 196355,
+   "sha256": "854a80c002a49019144ca50678994ec9d888f5124a2f33998c2c05e3f906396d"
+  }
+ ],
+ "directImports": [
+  {
+   "name": "ai-text-plugin",
+   "canonicalUrl": "https://perchance.org/ai-text-plugin",
+   "path": "02-perchance-dependencies/ai-text-plugin/main.pjs",
+   "bytes": 58048,
+   "sha256": "f57d9efbf330aef13ede6becde8251ae982d99d1bf571b3388946d1300ff1a72"
+  },
+  {
+   "name": "bug-report-plugin",
+   "canonicalUrl": "https://perchance.org/bug-report-plugin",
+   "path": "02-perchance-dependencies/bug-report-plugin/main.pjs",
+   "bytes": 7718,
+   "sha256": "0a44676097ff2c8fbc04543150e502a9ca1594255d949da433ccda59e31ebd55"
+  },
+  {
+   "name": "combine-emojis-plugin",
+   "canonicalUrl": "https://perchance.org/combine-emojis-plugin",
+   "path": "02-perchance-dependencies/combine-emojis-plugin/main.pjs",
+   "bytes": 283,
+   "sha256": "e634ae5f89ba8116645e25ff9a446c11059c2c9d06eddd94e207861e5b1395a7"
+  },
+  {
+   "name": "comments-plugin",
+   "canonicalUrl": "https://perchance.org/comments-plugin",
+   "path": "02-perchance-dependencies/comments-plugin/main.pjs",
+   "bytes": 38261,
+   "sha256": "4b20ff48b15882e15623c1f1048f58179e52c94129a61a12d7d185deccac8619"
+  },
+  {
+   "name": "dynamic-import-plugin",
+   "canonicalUrl": "https://perchance.org/dynamic-import-plugin",
+   "path": "02-perchance-dependencies/dynamic-import-plugin/main.pjs",
+   "bytes": 4187,
+   "sha256": "a7f2432113a0ccd3c7fc90f64a0066a65bd5ffe68c2efc0e130c765a435de3ce"
+  },
+  {
+   "name": "fullscreen-button-plugin",
+   "canonicalUrl": "https://perchance.org/fullscreen-button-plugin",
+   "path": "02-perchance-dependencies/fullscreen-button-plugin/main.pjs",
+   "bytes": 1916,
+   "sha256": "4686fd38f3d7fdd61d4dc86bb7c275b27dc14cc3cd64f390cc89fd5ff2d49bc5"
+  },
+  {
+   "name": "huge-emoji-list",
+   "canonicalUrl": "https://perchance.org/huge-emoji-list",
+   "path": "02-perchance-dependencies/huge-emoji-list/main.pjs",
+   "bytes": 513,
+   "sha256": "f856329fd461e334d1c74fb1b6bf01ac53f8e8a5de2a0bcb85a9ec09afb56683"
+  },
+  {
+   "name": "kv-plugin",
+   "canonicalUrl": "https://perchance.org/kv-plugin",
+   "path": "02-perchance-dependencies/kv-plugin/main.pjs",
+   "bytes": 4177,
+   "sha256": "a5edb7f5bf28ab5fb31bd5c4877db0f6c4a7a032e9271690262e10444a8700c1"
+  },
+  {
+   "name": "literal-plugin",
+   "canonicalUrl": "https://perchance.org/literal-plugin",
+   "path": "02-perchance-dependencies/literal-plugin/main.pjs",
+   "bytes": 454,
+   "sha256": "a9a6ec270402246adbae0cf2ad54b134f6cecf8dc96c257260947fc7bb7f5a8f"
+  },
+  {
+   "name": "prompt2-plugin",
+   "canonicalUrl": "https://perchance.org/prompt2-plugin",
+   "path": "02-perchance-dependencies/prompt2-plugin/main.pjs",
+   "bytes": 14632,
+   "sha256": "ca6d03d9283871ae43144dcfd7332f2ed0832454ed162392831360066fba38df"
+  },
+  {
+   "name": "tabbed-comments-plugin-v1",
+   "canonicalUrl": "https://perchance.org/tabbed-comments-plugin-v1",
+   "path": "02-perchance-dependencies/tabbed-comments-plugin-v1/main.pjs",
+   "bytes": 64046,
+   "sha256": "462a464e90013bf59c3c7dac7f366ee9025b66850bc6035a34c0fa937a14873c"
+  },
+  {
+   "name": "text-editor-plugin-v1",
+   "canonicalUrl": "https://perchance.org/text-editor-plugin-v1",
+   "path": "02-perchance-dependencies/text-editor-plugin-v1/main.pjs",
+   "bytes": 465766,
+   "sha256": "0efac2d0f76c4dfb44b8c05cd0d7aadc24d51e2b27e159795c2fd7d255555331"
+  },
+  {
+   "name": "text-to-image-plugin",
+   "canonicalUrl": "https://perchance.org/text-to-image-plugin",
+   "path": "02-perchance-dependencies/text-to-image-plugin/main.pjs",
+   "bytes": 37978,
+   "sha256": "9245fbf9b4041da7a12095fd8d45313ca8eb1aae584d1d7afd3b9a7b10aaf86a"
+  },
+  {
+   "name": "upload-plugin",
+   "canonicalUrl": "https://perchance.org/upload-plugin",
+   "path": "02-perchance-dependencies/upload-plugin/main.pjs",
+   "bytes": 10271,
+   "sha256": "ebe4e080acb958f0c26ce38e25c7bd76e59cdd8f89b4d78f0d5e9342bf5b3aa4"
+  }
+ ],
+ "dependencyEdges": {
+  "ai-rpg (this generator)": [
+   "ai-text-plugin",
+   "comments-plugin",
+   "tabbed-comments-plugin-v1",
+   "fullscreen-button-plugin",
+   "literal-plugin",
+   "upload-plugin",
+   "kv-plugin",
+   "combine-emojis-plugin",
+   "prompt2-plugin",
+   "bug-report-plugin",
+   "text-editor-plugin-v1",
+   "text-to-image-plugin",
+   "huge-emoji-list"
+  ],
+  "tabbed-comments-plugin-v1": [
+   "comments-plugin",
+   "ai-text-plugin",
+   "huge-emoji-list"
+  ],
+  "bug-report-plugin": [
+   "dynamic-import-plugin"
+  ]
+ },
+ "externalLibraries": [
+  {
+   "path": "03-external-libraries/cbor-x/cbor-x-1.6.0.js",
+   "bytes": 87547,
+   "sha256": "2962cef419bdd3a7232c3996c6aa2aabaedbf60950ad66be39363c26328811e4",
+   "runtimeSourceUrl": "https://user.uploads.dev/file/4cc84b2c503aad595e5c6e9fffe24602.js",
+   "role": "CBOR (de)serialization for save/share payloads",
+   "note": "upstream: https://unpkg.com/cbor-x@1.6.0/dist/index.js"
+  },
+  {
+   "path": "03-external-libraries/ua-parser-js/ua-parser-js-2.0.0-rc.1.js",
+   "bytes": 30035,
+   "sha256": "7da47cfc6b734e4e5200e78d1875727ebc979306a185e4eff956a0fe675cd756",
+   "runtimeSourceUrl": "https://user.uploads.dev/file/f2e26ac127c029f401f2a990a4bafbe8.js",
+   "role": "Browser/device detection used by bug-report-plugin",
+   "note": "perchance-hosted immutable mirror of https://cdn.jsdelivr.net/npm/ua-parser-js@2.0.0-rc.1/dist/ua-parser.min.js"
+  },
+  {
+   "path": "03-external-libraries/idb-keyval/idb-keyval-6.esm.js",
+   "bytes": 2320,
+   "sha256": "693d13bc9b2be241c07d80b6c35a953183d50535cbcd8ffdba420549a9c9c778",
+   "runtimeSourceUrl": "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm",
+   "role": "IndexedDB key/value store used by kv-plugin",
+   "note": null
+  },
+  {
+   "path": "03-external-libraries/zip.js/zip.js-2.7.60-esm-entry-shim.js",
+   "bytes": 506,
+   "sha256": "7aa31ee87f68ea478bc1d225bca7c69dd3846bbffc77d6cc38d070087c871e68",
+   "runtimeSourceUrl": "https://esm.sh/@zip.js/zip.js@2.7.60",
+   "role": "zip read/write for adventure import/export (this file is the tiny esm.sh entry shim; the real module is fetched from esm.sh at runtime)",
+   "note": null
+  },
+  {
+   "path": "03-external-libraries/perchance-tools/tokenizer-training-script.ts",
+   "bytes": 22115,
+   "sha256": "6339c0626b78c2953df0ea609c11eee73e389b16da5f09fb2526c490b4274a8b",
+   "runtimeSourceUrl": "https://user.uploads.dev/file/e29eab687b1fbf129076ec6057484bb3.js",
+   "role": "Dev tool referenced in ai-text-plugin: Deno script that trains the fast bigram token counter",
+   "note": null
+  }
+ ],
+ "runtimeCdnImports": [
+  {
+   "url": "https://esm.sh/@zip.js/zip.js@2.7.60",
+   "importedBy": "main.pjs: ensureZipJs()",
+   "role": "zip bundle import/export"
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.3.3",
+   "importedBy": "text-to-image-plugin: removeBackground()",
+   "role": "background removal"
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm",
+   "importedBy": "kv-plugin",
+   "role": "IndexedDB storage helper"
+  },
+  {
+   "url": "https://user.uploads.dev/file/4cc84b2c503aad595e5c6e9fffe24602.js",
+   "importedBy": "main.pjs: ensureCBOR()",
+   "role": "cbor-x 1.6.0 (vendored copy in 03-external-libraries)"
+  },
+  {
+   "url": "https://user.uploads.dev/file/f2e26ac127c029f401f2a990a4bafbe8.js",
+   "importedBy": "bug-report-plugin",
+   "role": "ua-parser-js 2.0.0-rc.1 (vendored copy)"
+  }
+ ],
+ "platformServices": [
+  {
+   "host": "text-generation.perchance.org",
+   "role": "AI text generation backend (ai-text-plugin iframe)"
+  },
+  {
+   "host": "image-generation.perchance.org",
+   "role": "text-to-image backend"
+  },
+  {
+   "host": "comments-plugin.perchance.org",
+   "role": "comments/chat backend"
+  },
+  {
+   "host": "upload.perchance.org",
+   "role": "upload API endpoint used by upload-plugin"
+  },
+  {
+   "host": "user.uploads.dev",
+   "role": "file host for uploaded assets (music, video, images, data files)"
+  },
+  {
+   "host": "user-uploads.perchance.org",
+   "role": "legacy file host, still referenced by some plugins"
+  },
+  {
+   "host": "editable.uploads.dev",
+   "role": "editable text files (upload-plugin .editable.*)"
+  },
+  {
+   "host": "fonts.googleapis.com",
+   "role": "Google Fonts stylesheets loaded on demand for user-chosen story fonts"
+  },
+  {
+   "host": "www.youtube-nocookie.com",
+   "role": "YouTube embeds inside generated content"
+  }
+ ],
+ "browserStorage": [
+  "localStorage (generateCount, firstGenerateTime, settings flags)",
+  "IndexedDB via kv-plugin (stories, settings, music library)",
+  "cursor for tag-suggestor: no server state"
+ ],
+ "catalogue": {
+  "bundledFiles": 739,
+  "bundledBytes": 75055597,
+  "linkedFiles": 227,
+  "linkedBytes": 11829786245
+ }
+}

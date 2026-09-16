@@ -1,0 +1,58 @@
+{
+  "generator": "favicon-plugin",
+  "publicUrl": "https://perchance.org/favicon-plugin",
+  "generatedFor": "complete source + asset export",
+  "totals": {
+    "files": 5,
+    "internalCodeFiles": 2,
+    "externalCodeOrDependencies": 0,
+    "thirdPartyAssets": 0,
+    "projectResources": 0,
+    "buildOrConfigFiles": 0,
+    "binaryAssets": 0
+  },
+  "categories": {
+    "internal-code": [
+      "main.pjs",
+      "index.html"
+    ],
+    "external-code-and-dependencies": [],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-and-config": [],
+    "documentation": [
+      "README.md",
+      "MANIFEST.json"
+    ]
+  },
+  "files": [
+    {
+      "path": "main.pjs",
+      "category": "internal-code",
+      "role": "Plugin implementation ($output favicon function)",
+      "bytes": 472,
+      "sha256": "f6c8b4cd589610ba298e04b7f65e195427b20c537abbe39f2818c3c5a72dde80"
+    },
+    {
+      "path": "index.html",
+      "category": "internal-code",
+      "role": "Plugin documentation page",
+      "bytes": 2613,
+      "sha256": "1f47091d221fd0308282fc923e9ec31c18f591979ddaf206d54cbd85d2a91539"
+    },
+    {
+      "path": "README.md",
+      "category": "documentation",
+      "role": "Project overview, inventory, usage, build notes",
+      "bytes": 4680,
+      "sha256": "a23708bbce884a020bdeb88e8af54d443ef1a233e3e9fd184192e314110e6b16"
+    },
+    {
+      "path": "MANIFEST.json",
+      "category": "documentation",
+      "role": "Machine-readable file inventory",
+      "bytes": null,
+      "sha256": null
+    }
+  ]
+}

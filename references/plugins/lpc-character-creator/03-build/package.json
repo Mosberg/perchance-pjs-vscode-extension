@@ -1,0 +1,13 @@
+{
+  "name": "lpc-character-creator",
+  "version": "1.4.1",
+  "private": true,
+  "type": "module",
+  "description": "Universal LPC character creator - sprite engine, UI and importable Perchance plugin facade.",
+  "scripts": {
+    "build": "node build/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.21.5"
+  }
+}

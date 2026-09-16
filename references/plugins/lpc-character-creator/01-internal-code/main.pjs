@@ -1,0 +1,62 @@
+// Created by Mosberg https://github.com/Mosberg
+
+$meta
+  title = LPC Character Creator V2
+  description = Build and export Universal LPC characters with live previews, palette recolouring, animation sheets, and a lazy-loaded plugin API.
+  image = https://user.uploads.dev/file/4b4e2412916737e0955207d055e5149f.jpg
+  tags = lpc, character creator, sprite, spritesheet, avatar, pixel art, rpg, fantasy
+  header
+    mode = minimal
+
+kv = {import:kv-plugin}
+
+// Importable plugin facade. The asset URLs are centralized so future bundle
+// updates only require changing the versioned URLs in this generator.
+lpcCreatorPlugin() =>
+  const BUNDLE_URL = "https://user.uploads.dev/file/5055a3d3b25948a3c6980c81491f9e3c.js";
+  const CATALOG_URL = "https://user.uploads.dev/file/62294525be9572725bf48e04093c8adb.json";
+  const VERSION = "1.4.1";
+  let modulePromise;
+
+  const load = () => {
+    if (!modulePromise) {
+      modulePromise = import(BUNDLE_URL).catch((error) => {
+        modulePromise = null;
+        throw error;
+      });
+    }
+    return modulePromise;
+  };
+
+  const options = (value) => Object.assign({ catalogUrl: CATALOG_URL }, value || {});
+  const call = async (method, args) => {
+    const module = await load();
+    if (typeof module[method] !== "function") {
+      throw new Error("LPC creator method is unavailable: " + method);
+    }
+    return module[method](...args);
+  };
+
+  return {
+    version: VERSION,
+    bundleUrl: BUNDLE_URL,
+    catalogUrl: CATALOG_URL,
+    load,
+    getCatalog: (o) => call("getCatalog", [options(o)]),
+    mount: (container, o) => call("mountLpcCreator", [container, options(o)]),
+    open: (o) => call("openCreator", [options(o)]),
+    renderFrame: (character, o) => call("renderFrame", [character, options(o)]),
+    renderAnimSheet: (character, animation, o) => call("renderAnimSheet", [character, animation, options(o)]),
+    renderFullSheet: (character, o) => call("renderFullSheet", [character, options(o)]),
+    createSprite: (character, o) => call("createSprite", [character, options(o)]),
+    // which animations a character can play, and the equipped-item <-> animation
+    // association (custom attack areas first, then standard slash/thrust/shoot)
+    animationsFor: (character, o) => call("animationsFor", [character, options(o)]),
+    attackAnimation: (character, o) => call("attackAnimation", [character, options(o)]),
+    animationMap: (character, o) => call("animationMap", [character, options(o)]),
+    equipmentAnimations: (character, o) => call("equipmentAnimations", [character, options(o)]),
+    characterToCode: (character, o) => call("characterToCode", [character, options(o)]),
+    characterFromCode: (code, o) => call("characterFromCode", [code, options(o)]),
+  };
+
+$output = [lpcCreatorPlugin()]

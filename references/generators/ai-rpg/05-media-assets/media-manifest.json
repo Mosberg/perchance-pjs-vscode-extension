@@ -1,0 +1,2051 @@
+{
+ "generator": "ai-rpg",
+ "note": "Large media assets referenced by the generator. Not bundled (11.3 GB total); fetch with the scripts in this folder.",
+ "totalFiles": 227,
+ "totalBytes": 11829786245,
+ "files": [
+  {
+   "category": "soundtrack-playlist",
+   "title": "Celtic Autumn Harvest",
+   "emoji": "🍀",
+   "url": "https://user.uploads.dev/file/729d51bd7f3d73e53f39e40abed63b46.mp3",
+   "bytes": 30964485,
+   "destination": "media/music/001-celtic-autumn-harvest.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Retro Synthwave",
+   "emoji": "🛼",
+   "url": "https://user.uploads.dev/file/e376c269e716e1643f79a0f8e60953e1.mp3",
+   "bytes": 59499837,
+   "destination": "media/music/002-retro-synthwave.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Soft Gentle Piano",
+   "emoji": "🎹",
+   "url": "https://user.uploads.dev/file/1e1da2252b897499207306428851ae22.mp3",
+   "bytes": 56319597,
+   "destination": "media/music/003-soft-gentle-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Cozy Quiet Tavern, Guitar",
+   "emoji": "☕",
+   "url": "https://user.uploads.dev/file/a478e09e8bd083f2f0f4926c11b26f74.mp3",
+   "bytes": 86103282,
+   "destination": "media/music/004-cozy-quiet-tavern-guitar.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Immersive Epic Fantasy",
+   "emoji": "⚔️",
+   "url": "https://user.uploads.dev/file/6182d658570e7ed2f73279d3f9181ecb.mp3",
+   "bytes": 37069146,
+   "destination": "media/music/005-immersive-epic-fantasy.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Soft Elegant Piano",
+   "emoji": "🎹",
+   "url": "https://user.uploads.dev/file/41715fa7a7d1073b1cee22434e8e737f.mp3",
+   "bytes": 48036813,
+   "destination": "media/music/006-soft-elegant-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Summer Vibes, River",
+   "emoji": "🏞️",
+   "url": "https://user.uploads.dev/file/ed7af5c07ce4377c20d07aeda39d968b.mp3",
+   "bytes": 86690096,
+   "destination": "media/music/007-summer-vibes-river.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Preparing for the Quest",
+   "emoji": "📜",
+   "url": "https://user.uploads.dev/file/9e07a06b6549837087c5e7b61a5f01fd.mp3",
+   "bytes": 86443709,
+   "destination": "media/music/008-preparing-for-the-quest.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Forest Adventure, Ambient",
+   "emoji": "🌲",
+   "url": "https://user.uploads.dev/file/b8b0cc48d8fb1e6ee1a314250d3e2307.mp3",
+   "bytes": 88505084,
+   "destination": "media/music/009-forest-adventure-ambient.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Rainy Day, Piano",
+   "emoji": "☕️",
+   "url": "https://user.uploads.dev/file/5eacd0122359eaa89d1b282d1e24bf59.mp3",
+   "bytes": 86461890,
+   "destination": "media/music/010-rainy-day-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Morning Vibes, Lofi",
+   "emoji": "🧘‍♀️",
+   "url": "https://user.uploads.dev/file/abf990528e3427eebf79885a5fcbf32a.mp3",
+   "bytes": 86429916,
+   "destination": "media/music/011-morning-vibes-lofi.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "80's Lofi Hiphop",
+   "emoji": "🌃",
+   "url": "https://user.uploads.dev/file/1979704506beb8cc5b8fd144c0d9ace7.mp3",
+   "bytes": 131205257,
+   "destination": "media/music/012-80s-lofi-hiphop.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Epic Cinematic Awe",
+   "emoji": "🍿",
+   "url": "https://user.uploads.dev/file/24d46ec59d00c174a321b3b3a77f3c89.mp3",
+   "bytes": 80253315,
+   "destination": "media/music/013-epic-cinematic-awe.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Eastern Fantasy Vibes",
+   "emoji": "⛩️",
+   "url": "https://user.uploads.dev/file/fd7672362acd646710b111845b585f27.mp3",
+   "bytes": 89808813,
+   "destination": "media/music/014-eastern-fantasy-vibes.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Cozy Fairytail Fantasy",
+   "emoji": "🧚‍♀️",
+   "url": "https://user.uploads.dev/file/50a953934d550f9487c249a7b0b80bbd.mp3",
+   "bytes": 87791000,
+   "destination": "media/music/015-cozy-fairytail-fantasy.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Ambient Tranquil Fantasy",
+   "emoji": "🪷",
+   "url": "https://user.uploads.dev/file/acfdbc7c843c29cf286caa3d244a3ee0.mp3",
+   "bytes": 86402958,
+   "destination": "media/music/016-ambient-tranquil-fantasy.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Fantasy Exploration (Calm)",
+   "emoji": "🗺️",
+   "url": "https://user.uploads.dev/file/6252394fcf3c193823018f370d218fda.mp3",
+   "bytes": 164384517,
+   "destination": "media/music/017-fantasy-exploration-calm.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Ambient Ethereal Vocals",
+   "emoji": "🌫️",
+   "url": "https://user.uploads.dev/file/31dc821b63f0db13a7b3ede3d891c5b2.mp3",
+   "bytes": 182441781,
+   "destination": "media/music/018-ambient-ethereal-vocals.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Ambient Hogwarts Vibe",
+   "emoji": "🧹",
+   "url": "https://user.uploads.dev/file/ab8afcfb0aa8883463fc7386efd87472.mp3",
+   "bytes": 53027133,
+   "destination": "media/music/019-ambient-hogwarts-vibe.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Calm Dark Academia Piano",
+   "emoji": "🤎",
+   "url": "https://user.uploads.dev/file/ef26fe8e4895ebe4125b554b287e7e14.mp3",
+   "bytes": 54636285,
+   "destination": "media/music/020-calm-dark-academia-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Calming Japanese Instrumental",
+   "emoji": "🎐",
+   "url": "https://user.uploads.dev/file/214833b84e77432e311c2e47ac2ba440.mp3",
+   "bytes": 56671941,
+   "destination": "media/music/021-calming-japanese-instrumental.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Celtic Harp",
+   "emoji": "𝄞",
+   "url": "https://user.uploads.dev/file/8ae7e6dec7ff288ff4f4d25b9911544c.mp3",
+   "bytes": 47404115,
+   "destination": "media/music/022-celtic-harp.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Cozy Hobbit Living Room",
+   "emoji": "🧒",
+   "url": "https://user.uploads.dev/file/469c4fd6a3e83465d6283e0483da5000.mp3",
+   "bytes": 56935067,
+   "destination": "media/music/023-cozy-hobbit-living-room.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Dark Academia Train Ride",
+   "emoji": "🚂",
+   "url": "https://user.uploads.dev/file/b91c4b0fd0016138e7c721062a284c43.mp3",
+   "bytes": 107591733,
+   "destination": "media/music/024-dark-academia-train-ride.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Gentle Fantasy Anime Vibe",
+   "emoji": "👒",
+   "url": "https://user.uploads.dev/file/1855082aa8fab9675e0341b39a424e3d.mp3",
+   "bytes": 33961533,
+   "destination": "media/music/025-gentle-fantasy-anime-vibe.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Gentle Inspiring Piano",
+   "emoji": "🍂",
+   "url": "https://user.uploads.dev/file/3b940c4fa4201074a7b112495cf5a14b.mp3",
+   "bytes": 44814021,
+   "destination": "media/music/026-gentle-inspiring-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Japanese Instrumentals",
+   "emoji": "🍵",
+   "url": "https://user.uploads.dev/file/7c6df2b832f50bacf1777520acb1ded3.mp3",
+   "bytes": 26997189,
+   "destination": "media/music/027-japanese-instrumentals.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Japanese Road Trip",
+   "emoji": "🗼",
+   "url": "https://user.uploads.dev/file/ee667bb34fa81e92339b0037dcc5ccc7.mp3",
+   "bytes": 92784525,
+   "destination": "media/music/028-japanese-road-trip.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Japanese Upbeat Wistful",
+   "emoji": "🩹",
+   "url": "https://user.uploads.dev/file/e2f34e6fb2c53c91d5ebef6183288d4d.mp3",
+   "bytes": 43976997,
+   "destination": "media/music/029-japanese-upbeat-wistful.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Kawaii Vocals",
+   "emoji": "🧋",
+   "url": "https://user.uploads.dev/file/4a376965fe387eea741349869e26cd96.mp3",
+   "bytes": 64682373,
+   "destination": "media/music/030-kawaii-vocals.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Medieval Folk",
+   "emoji": "📜",
+   "url": "https://user.uploads.dev/file/0486809b5b02408acb3d2ad36942fc1a.mp3",
+   "bytes": 30208363,
+   "destination": "media/music/031-medieval-folk.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Difficult Journey Orchestral",
+   "emoji": "🏔️",
+   "url": "https://user.uploads.dev/file/aac989d61ca39bd66553ddc13fd93ec8.mp3",
+   "bytes": 44442601,
+   "destination": "media/music/032-difficult-journey-orchestral.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Relaxing Celtic",
+   "emoji": "💚",
+   "url": "https://user.uploads.dev/file/073662830cd824d640f28de796e9e465.mp3",
+   "bytes": 51920589,
+   "destination": "media/music/033-relaxing-celtic.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Relaxing Iconic Piano",
+   "emoji": "🥇",
+   "url": "https://user.uploads.dev/file/753e04549c0d30e10447b981afcfb0fd.mp3",
+   "bytes": 18511893,
+   "destination": "media/music/034-relaxing-iconic-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Soft Hymnal Instrumental",
+   "emoji": "🎼",
+   "url": "https://user.uploads.dev/file/a3378e7e12e1ce7cf3a464056e79ef86.mp3",
+   "bytes": 66127131,
+   "destination": "media/music/035-soft-hymnal-instrumental.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Scottish Highlands (Bagpipes)",
+   "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "url": "https://user.uploads.dev/file/bbfda1aa43149980d104bbc84d9f4da6.mp3",
+   "bytes": 47109045,
+   "destination": "media/music/036-scottish-highlands-bagpipes.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Serene Sci-Fi",
+   "emoji": "🪐",
+   "url": "https://user.uploads.dev/file/f463c6e7c8b6e6abae2acdf423a72f90.mp3",
+   "bytes": 115795197,
+   "destination": "media/music/037-serene-sci-fi.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Soft Sci-Fi",
+   "emoji": "☄️",
+   "url": "https://user.uploads.dev/file/5ca2c3e11243c1dec20b274ce6d8d2ec.mp3",
+   "bytes": 56580141,
+   "destination": "media/music/038-soft-sci-fi.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Soothing Elven Vocals",
+   "emoji": "🧝‍♀️",
+   "url": "https://user.uploads.dev/file/5d11408fd625df97743095488c2284a5.mp3",
+   "bytes": 141710243,
+   "destination": "media/music/039-soothing-elven-vocals.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Tokyo Vibes",
+   "emoji": "🗼",
+   "url": "https://user.uploads.dev/file/c8100c5ba725441c747a0483bbf3f3fe.mp3",
+   "bytes": 89810901,
+   "destination": "media/music/040-tokyo-vibes.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Very Gentle Ethereal",
+   "emoji": "😌",
+   "url": "https://user.uploads.dev/file/0bf90087944ff9b441089fc0d54ad03a.mp3",
+   "bytes": 45425373,
+   "destination": "media/music/041-very-gentle-ethereal.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Wistful Peaceful Forest",
+   "emoji": "🍃",
+   "url": "https://user.uploads.dev/file/2f3b33d14df71a83c371cc51441e9ac7.mp3",
+   "bytes": 97786653,
+   "destination": "media/music/042-wistful-peaceful-forest.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Wistful Piano",
+   "emoji": "🕊",
+   "url": "https://user.uploads.dev/file/7f06357b5112c77e1139d38778dacb86.mp3",
+   "bytes": 37626645,
+   "destination": "media/music/043-wistful-piano.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "soundtrack-playlist",
+   "title": "Wistful Sci-Fi",
+   "emoji": "🌌",
+   "url": "https://user.uploads.dev/file/ca38400ca13388c03fb689b0ab528dbf.mp3",
+   "bytes": 42147987,
+   "destination": "media/music/044-wistful-sci-fi.mp3",
+   "usedIn": "index.html: window.defaultMusicTracks"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Afternoon Marketplace",
+   "emoji": "🧺",
+   "url": "https://user.uploads.dev/file/a7732352677934ad3ac0e98e577efb56.mp4",
+   "bytes": 2421600,
+   "destination": "media/scenes/001-afternoon-marketplace.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Solarpunk City",
+   "emoji": "🏙",
+   "url": "https://user.uploads.dev/file/404076e6bb950071724c709956a1ca7c.mp4",
+   "bytes": 755719,
+   "destination": "media/scenes/002-solarpunk-city.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Ocean View",
+   "emoji": "🌅",
+   "url": "https://user.uploads.dev/file/aefae58a512bbf5fa05547eabf6c9582.mp4",
+   "bytes": 11836855,
+   "destination": "media/scenes/003-ocean-view.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cute Farmhouse",
+   "emoji": "🌾",
+   "url": "https://user.uploads.dev/file/e56f5778f83d80dc966ca91a3d050ea4.mp4",
+   "bytes": 26595570,
+   "destination": "media/scenes/004-cute-farmhouse.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cosy Room",
+   "emoji": "🧸",
+   "url": "https://user.uploads.dev/file/37a72fc18e9b95c5b8580b8297a2ea81.mp4",
+   "bytes": 51992810,
+   "destination": "media/scenes/005-cosy-room.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Dormitory",
+   "emoji": "🛏️",
+   "url": "https://user.uploads.dev/file/0ec7852db236b07de5f71798103d1ba7.mp4",
+   "bytes": 36855367,
+   "destination": "media/scenes/006-dormitory.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Sunlit Cabin",
+   "emoji": "☀️",
+   "url": "https://user.uploads.dev/file/48b3222ec4e8907dcc3eae2484d2d456.mp4",
+   "bytes": 23775894,
+   "destination": "media/scenes/007-sunlit-cabin.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Floating on Back",
+   "emoji": "🏊",
+   "url": "https://user.uploads.dev/file/3fbf15f79e54fde4072aa9698fa3de42.webm",
+   "bytes": 23855521,
+   "destination": "media/scenes/008-floating-on-back.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Abandoned City",
+   "emoji": "🏚",
+   "url": "https://user.uploads.dev/file/a32ddbf40f956968436f9f613ef3fd06.mp4",
+   "bytes": 19253712,
+   "destination": "media/scenes/009-abandoned-city.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Abandoned Station",
+   "emoji": "🚊",
+   "url": "https://user.uploads.dev/file/48dd46475cf498a29b4b84f0b2e998f2.mp4",
+   "bytes": 6978470,
+   "destination": "media/scenes/010-abandoned-station.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Forest Campsite",
+   "emoji": "🏕️",
+   "url": "https://user.uploads.dev/file/fee29b9182cdf73e84d90227df424823.mp4",
+   "bytes": 8035356,
+   "destination": "media/scenes/011-forest-campsite.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Sinking Ruins Forest",
+   "emoji": "🏛️",
+   "url": "https://user.uploads.dev/file/59d5fef2a68606ceec850252d5dfeb3d.webm",
+   "bytes": 10438064,
+   "destination": "media/scenes/012-sinking-ruins-forest.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cute Snowy Forest",
+   "emoji": "❄️",
+   "url": "https://user.uploads.dev/file/aa7e072933e66c92f485aba23520ae17.mp4",
+   "bytes": 1566612,
+   "destination": "media/scenes/013-cute-snowy-forest.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Zelda",
+   "emoji": "🗡️",
+   "url": "https://user.uploads.dev/file/b1c9793539f3dfac5718856bf684aadc.mp4",
+   "bytes": 7134383,
+   "destination": "media/scenes/014-zelda.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Wilderness Snow",
+   "emoji": "🏔️",
+   "url": "https://user.uploads.dev/file/87a33181d41894c7a92ac24fca3ea3fd.mp4",
+   "bytes": 39903836,
+   "destination": "media/scenes/015-wilderness-snow.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Japanese Autumn",
+   "emoji": "🍂",
+   "url": "https://user.uploads.dev/file/f4c8f17b576b4b2227c3f5291a9bee90.mp4",
+   "bytes": 33688488,
+   "destination": "media/scenes/016-japanese-autumn.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Grassy Hillside Village",
+   "emoji": "🌾",
+   "url": "https://user.uploads.dev/file/4e059e5ceaf5d9d8b7cce44f5a7b5f23.webm",
+   "bytes": 3063677,
+   "destination": "media/scenes/017-grassy-hillside-village.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cyberpunk City",
+   "emoji": "🌃",
+   "url": "https://user.uploads.dev/file/d313697907717f2320f4bb715c6aa98e.webm",
+   "bytes": 6290688,
+   "destination": "media/scenes/018-cyberpunk-city.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Sleepy Cyberpunk",
+   "emoji": "🌃",
+   "url": "https://user.uploads.dev/file/54c47d79c55f56f02d63aeaef61bc42e.mp4",
+   "bytes": 2942359,
+   "destination": "media/scenes/019-sleepy-cyberpunk.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cyberpunk Cafe",
+   "emoji": "🌃",
+   "url": "https://user.uploads.dev/file/f2d05fd62257734d6d4a2bf6088b1785.mp4",
+   "bytes": 10640414,
+   "destination": "media/scenes/020-cyberpunk-cafe.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Dusk Silhouette",
+   "emoji": "🌆",
+   "url": "https://user.uploads.dev/file/21a9add7735340351ae6094a5ab1bb05.mp4",
+   "bytes": 18443507,
+   "destination": "media/scenes/021-dusk-silhouette.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Neon Alleyway",
+   "emoji": "🌆",
+   "url": "https://user.uploads.dev/file/349b18e56ff9ac3d22142b232acc6f8e.webm",
+   "bytes": 1263820,
+   "destination": "media/scenes/022-neon-alleyway.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Fuji Village",
+   "emoji": "🗻",
+   "url": "https://user.uploads.dev/file/cca1e8143714e517e79eaf19739df9fd.mp4",
+   "bytes": 10217443,
+   "destination": "media/scenes/023-fuji-village.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Portal Gate",
+   "emoji": "⛩️",
+   "url": "https://user.uploads.dev/file/80a1975a069a6cb7b0b3a058bb7a8d6c.mp4",
+   "bytes": 3897006,
+   "destination": "media/scenes/024-portal-gate.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Moonlit Campfire",
+   "emoji": "🫕",
+   "url": "https://user.uploads.dev/file/c0a6f1d8573ba6072a635803bc1b4cd5.mp4",
+   "bytes": 13205771,
+   "destination": "media/scenes/025-moonlit-campfire.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Port Town Sunset",
+   "emoji": "⛵",
+   "url": "https://user.uploads.dev/file/7f7315e9f5ab49da3376ed7f7dde37ac.mp4",
+   "bytes": 47622305,
+   "destination": "media/scenes/026-port-town-sunset.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Relaxing Minecraft",
+   "emoji": "⛏️",
+   "url": "https://user.uploads.dev/file/b811b143b384b3202752ad3c64481373.mp4",
+   "bytes": 2274686,
+   "destination": "media/scenes/027-relaxing-minecraft.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Hollowknight",
+   "emoji": "⚔️",
+   "url": "https://user.uploads.dev/file/67b96adb450fd346e5361fe30ab64be2.mp4",
+   "bytes": 5172972,
+   "destination": "media/scenes/028-hollowknight.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Elden Ring",
+   "emoji": "⚔️",
+   "url": "https://user.uploads.dev/file/accbe50140041e89ebffb1649fe7f641.mp4",
+   "bytes": 3563884,
+   "destination": "media/scenes/029-elden-ring.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Pixel Village",
+   "emoji": "🏰",
+   "url": "https://user.uploads.dev/file/630d2e847b0cba30158073ef8db12d6c.mp4",
+   "bytes": 2160281,
+   "destination": "media/scenes/030-pixel-village.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Sunset Abandoned Train",
+   "emoji": "🚋",
+   "url": "https://user.uploads.dev/file/3b30b3f9fe2d1407a14632b5c1e0a8fb.webm",
+   "bytes": 500373,
+   "destination": "media/scenes/031-sunset-abandoned-train.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Cave Overlooking Mist",
+   "emoji": "⛰️",
+   "url": "https://user.uploads.dev/file/620c8e271c512a5860d1e0be4fc4ef35.mp4",
+   "bytes": 778070,
+   "destination": "media/scenes/032-cave-overlooking-mist.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Snowy Viking Village",
+   "emoji": "🌫",
+   "url": "https://user.uploads.dev/file/8eb17b6322e41e41a3e815971d49c9b1.mp4",
+   "bytes": 9181272,
+   "destination": "media/scenes/033-snowy-viking-village.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Appa Sunset Ride",
+   "emoji": "🐂",
+   "url": "https://user.uploads.dev/file/df08b0d8ab1f262f929c0706774ebf0e.webm",
+   "bytes": 9381219,
+   "destination": "media/scenes/038-appa-sunset-ride.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Haku Dragon",
+   "emoji": "🐉",
+   "url": "https://user.uploads.dev/file/a2089479d88005221cc46d22ee560e12.webm",
+   "bytes": 9551708,
+   "destination": "media/scenes/039-haku-dragon.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "AoT Ocean",
+   "emoji": "🌊",
+   "url": "https://user.uploads.dev/file/1b83cab0ef5f0120b2a2a9dd0f84b617.webm",
+   "bytes": 10844911,
+   "destination": "media/scenes/040-aot-ocean.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Japanese Living Room",
+   "emoji": "🍵",
+   "url": "https://user.uploads.dev/file/34a83ecfa8ec3bf1959daf36519aaa2b.webm",
+   "bytes": 10849415,
+   "destination": "media/scenes/041-japanese-living-room.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Autumn Samurai",
+   "emoji": "🍂",
+   "url": "https://user.uploads.dev/file/c1392fbd65273e70c02a5490a62bd331.webm",
+   "bytes": 13919953,
+   "destination": "media/scenes/042-autumn-samurai.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Rune Mountain Path",
+   "emoji": "⛰︎",
+   "url": "https://user.uploads.dev/file/4869c86ed749ccc5797f8712c99e9b6b.webm",
+   "bytes": 1344905,
+   "destination": "media/scenes/043-rune-mountain-path.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Dungeon Entrance",
+   "emoji": "🕸️",
+   "url": "https://user.uploads.dev/file/e92d4ab750986076bb7bc075c73415e5.mp4",
+   "bytes": 2346050,
+   "destination": "media/scenes/044-dungeon-entrance.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Small Forest Cabin",
+   "emoji": "🌲",
+   "url": "https://user.uploads.dev/file/d30e93d6bc6110c5f1314dfaec7d943f.webm",
+   "bytes": 988190,
+   "destination": "media/scenes/045-small-forest-cabin.webm",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Up Late, Rainy Night",
+   "emoji": "🪟",
+   "url": "https://user.uploads.dev/file/b8b6fb4750ddfebde17ac9a93c3bb866.mp4",
+   "bytes": 3173004,
+   "destination": "media/scenes/046-up-late-rainy-night.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Sunken Giant Statue",
+   "emoji": "🗿",
+   "url": "https://user.uploads.dev/file/45bd7cc56bee0839bb0029db92547ead.mp4",
+   "bytes": 4148166,
+   "destination": "media/scenes/047-sunken-giant-statue.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Mountain Meadow Cottage",
+   "emoji": "👒",
+   "url": "https://user.uploads.dev/file/01cf8c7478fcbae8aaa20ec800325174.mp4",
+   "bytes": 37599861,
+   "destination": "media/scenes/048-mountain-meadow-cottage.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "animated-scene",
+   "title": "Anime Rain Puddle",
+   "emoji": "💧",
+   "url": "https://user.uploads.dev/file/b248270bbc2c80953e8a1d9269c919ea.mp4",
+   "bytes": 2859754,
+   "destination": "media/scenes/049-anime-rain-puddle.mp4",
+   "usedIn": "index.html: window.defaultBackgroundVisuals"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Abandoned Ruins",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/1f1e9470b2badd6d43546eae13c75171.mp3",
+   "bytes": 50924109,
+   "destination": "media/music-library/abandoned-ruins-1f1e9470b2badd6d43546eae13c75171.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "A Bard's Tale",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/310fe2edc0457a9e7f7091095d229c22.mp3",
+   "bytes": 54853629,
+   "destination": "media/music-library/a-bards-tale-310fe2edc0457a9e7f7091095d229c22.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Aberration Fight",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/5d5424082ec66aac7c4ef0d9bf85a8df.mp3",
+   "bytes": 59098749,
+   "destination": "media/music-library/aberration-fight-5d5424082ec66aac7c4ef0d9bf85a8df.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "A City in Sorrow",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e49f00dc6b89924c48225cac8a502baf.mp3",
+   "bytes": 59147229,
+   "destination": "media/music-library/a-city-in-sorrow-e49f00dc6b89924c48225cac8a502baf.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ale and Anecdotes",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/1f6e63c37e1dcb5504cbe9295faccae9.mp3",
+   "bytes": 60680349,
+   "destination": "media/music-library/ale-and-anecdotes-1f6e63c37e1dcb5504cbe9295faccae9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ambush!",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7bfcf3517dc46de22b9c08e29cf35244.mp3",
+   "bytes": 61483485,
+   "destination": "media/music-library/ambush-7bfcf3517dc46de22b9c08e29cf35244.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ancient Construct Fight",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/a264f38f6b8257464993cd1c025420c5.mp3",
+   "bytes": 62424741,
+   "destination": "media/music-library/ancient-construct-fight-a264f38f6b8257464993cd1c025420c5.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ancient Evil Awakens",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/4fef55a52b7f7e26dc473bef372d2e6a.mp3",
+   "bytes": 62733189,
+   "destination": "media/music-library/ancient-evil-awakens-4fef55a52b7f7e26dc473bef372d2e6a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ancient Tomb",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/96868f8451a7609a6839c0e6977b6a50.mp3",
+   "bytes": 60340869,
+   "destination": "media/music-library/ancient-tomb-96868f8451a7609a6839c0e6977b6a50.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Arabian Nights",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/9daa8fcab2bd602ada6af4c456e394e0.mp3",
+   "bytes": 67539789,
+   "destination": "media/music-library/arabian-nights-9daa8fcab2bd602ada6af4c456e394e0.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Arctic Wilderness",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/91c464d5a994f8202a6f64fb7abbf382.mp3",
+   "bytes": 61470933,
+   "destination": "media/music-library/arctic-wilderness-91c464d5a994f8202a6f64fb7abbf382.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Assault of Tenacity",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bada4a3afddb18c63f5e268b23b6be89.mp3",
+   "bytes": 59541429,
+   "destination": "media/music-library/assault-of-tenacity-bada4a3afddb18c63f5e268b23b6be89.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Battle Arena",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/6e71b035c511175483b119d053884763.mp3",
+   "bytes": 62553381,
+   "destination": "media/music-library/battle-arena-6e71b035c511175483b119d053884763.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Battle of Lost Souls",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/cea83dc30167d9211676aedf24773746.mp3",
+   "bytes": 60144237,
+   "destination": "media/music-library/battle-of-lost-souls-cea83dc30167d9211676aedf24773746.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Beach",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7c0be6500fbeff70e6ba6aa7c2924d15.mp3",
+   "bytes": 43371261,
+   "destination": "media/music-library/beach-7c0be6500fbeff70e6ba6aa7c2924d15.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Blizzard",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/409fd5c3727cbabf2960a39df92f65ef.mp3",
+   "bytes": 49314333,
+   "destination": "media/music-library/blizzard-409fd5c3727cbabf2960a39df92f65ef.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Campfire",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/07462f3b94fff5c0360f14097371e1a9.mp3",
+   "bytes": 58848309,
+   "destination": "media/music-library/campfire-07462f3b94fff5c0360f14097371e1a9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Catacomb",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/6d90a8dad4cc874cef6cd3dfb0328fd3.mp3",
+   "bytes": 43241253,
+   "destination": "media/music-library/catacomb-6d90a8dad4cc874cef6cd3dfb0328fd3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Cave",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/f58eaab419e2e0c4dbedb5c4503d6db7.mp3",
+   "bytes": 39557853,
+   "destination": "media/music-library/cave-f58eaab419e2e0c4dbedb5c4503d6db7.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Cemetery",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/6c921485fd94ddb09837a73b92b2850e.mp3",
+   "bytes": 54153501,
+   "destination": "media/music-library/cemetery-6c921485fd94ddb09837a73b92b2850e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Chase",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/beb9c5b479fa1286a575489da1c348f3.mp3",
+   "bytes": 64642317,
+   "destination": "media/music-library/chase-beb9c5b479fa1286a575489da1c348f3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bc7b6ffece415e92a09632ebbb3f6349.mp3",
+   "bytes": 69482829,
+   "destination": "media/music-library/city-bc7b6ffece415e92a09632ebbb3f6349.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "City in the Desert",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e7160ef88c89e8ace8dafb9005dda948.mp3",
+   "bytes": 59717085,
+   "destination": "media/music-library/city-in-the-desert-e7160ef88c89e8ace8dafb9005dda948.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "City of Thieves",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/9f49591bf4f7210afeaf2fe1fad9bb05.mp3",
+   "bytes": 46436181,
+   "destination": "media/music-library/city-of-thieves-9f49591bf4f7210afeaf2fe1fad9bb05.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "City of Towers",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/4811a34b091739f013f3d046e92ed2b8.mp3",
+   "bytes": 58546125,
+   "destination": "media/music-library/city-of-towers-4811a34b091739f013f3d046e92ed2b8.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "City Temple",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/76f9ec684d87a79f5edca38f9d9c4ece.mp3",
+   "bytes": 60010917,
+   "destination": "media/music-library/city-temple-76f9ec684d87a79f5edca38f9d9c4ece.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Cloud City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bf469c3aafca9809b71739f8b866f8d7.mp3",
+   "bytes": 57995661,
+   "destination": "media/music-library/cloud-city-bf469c3aafca9809b71739f8b866f8d7.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Cosmic Horror",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/d026c7d416f1287033318dde47b25f13.mp3",
+   "bytes": 52380141,
+   "destination": "media/music-library/cosmic-horror-d026c7d416f1287033318dde47b25f13.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Cozy Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/b56abc1f9d068b354c5c53f103037c4a.mp3",
+   "bytes": 58574853,
+   "destination": "media/music-library/cozy-tavern-b56abc1f9d068b354c5c53f103037c4a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Creepy Dungeon",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/104b36bbcf4b3d146b90f186f3d96f46.mp3",
+   "bytes": 53715789,
+   "destination": "media/music-library/creepy-dungeon-104b36bbcf4b3d146b90f186f3d96f46.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Dark Castle",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/170599f725f42db269834135d71c299c.mp3",
+   "bytes": 55255317,
+   "destination": "media/music-library/dark-castle-170599f725f42db269834135d71c299c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Deep Waters",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/79154ed140bca2366c32c96a5831467a.mp3",
+   "bytes": 55230165,
+   "destination": "media/music-library/deep-waters-79154ed140bca2366c32c96a5831467a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Desert Excursion",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/51afd3e2ef6ce994ab04989fda226ab3.mp3",
+   "bytes": 51377829,
+   "destination": "media/music-library/desert-excursion-51afd3e2ef6ce994ab04989fda226ab3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Desert Ruins",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bf2b5bea975f1936cca49b4a3350e864.mp3",
+   "bytes": 58883613,
+   "destination": "media/music-library/desert-ruins-bf2b5bea975f1936cca49b4a3350e864.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Desolate Frostlands",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/c96caed6b92d5b04bbbed7bf7e7b100f.mp3",
+   "bytes": 56509005,
+   "destination": "media/music-library/desolate-frostlands-c96caed6b92d5b04bbbed7bf7e7b100f.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Duel",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/75138da3d16d4081de3cf3ed64c4c8c8.mp3",
+   "bytes": 61834725,
+   "destination": "media/music-library/duel-75138da3d16d4081de3cf3ed64c4c8c8.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Dungeon Boss",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/683b63f29d702ca5328803cc7278961b.mp3",
+   "bytes": 62191509,
+   "destination": "media/music-library/dungeon-boss-683b63f29d702ca5328803cc7278961b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Eastern Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/f52a9c1cb0dc1e2fdd4d3a772f0d4f26.mp3",
+   "bytes": 57459693,
+   "destination": "media/music-library/eastern-village-f52a9c1cb0dc1e2fdd4d3a772f0d4f26.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Elven City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/8f390d885e1421a77a856507a3408940.mp3",
+   "bytes": 59174661,
+   "destination": "media/music-library/elven-city-8f390d885e1421a77a856507a3408940.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Elven Garden",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/181966eca8e7a83fd3350c7ff51cd6b8.mp3",
+   "bytes": 55637685,
+   "destination": "media/music-library/elven-garden-181966eca8e7a83fd3350c7ff51cd6b8.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Elven Sanctuary",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/1299bed4304e2ac1fcb4a9c55fece9a1.mp3",
+   "bytes": 59927565,
+   "destination": "media/music-library/elven-sanctuary-1299bed4304e2ac1fcb4a9c55fece9a1.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Elven Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/92bc13f4c1a8e05a13bf4a835bda611d.mp3",
+   "bytes": 53538213,
+   "destination": "media/music-library/elven-tavern-92bc13f4c1a8e05a13bf4a835bda611d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Epic Combat",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/ab15859bfb81a8e26c6c9469f15e7958.mp3",
+   "bytes": 64203837,
+   "destination": "media/music-library/epic-combat-ab15859bfb81a8e26c6c9469f15e7958.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Epic Fight",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/71fb9f44808186e75ad3051058566dc1.mp3",
+   "bytes": 64464117,
+   "destination": "media/music-library/epic-fight-71fb9f44808186e75ad3051058566dc1.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ethereal Plane",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e68709718148776200a242bdc9839b67.mp3",
+   "bytes": 52709949,
+   "destination": "media/music-library/ethereal-plane-e68709718148776200a242bdc9839b67.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Farewell",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/027accda27e79aa6e521867b4f690ab9.mp3",
+   "bytes": 57391893,
+   "destination": "media/music-library/farewell-027accda27e79aa6e521867b4f690ab9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Far Realm",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e0c2af694b6a5f8f33596170c9971bfb.mp3",
+   "bytes": 58122813,
+   "destination": "media/music-library/far-realm-e0c2af694b6a5f8f33596170c9971bfb.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Festival Town",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/b79be926c6522190bf06a1c63d23c1d0.mp3",
+   "bytes": 64157853,
+   "destination": "media/music-library/festival-town-b79be926c6522190bf06a1c63d23c1d0.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Feywild",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/4478a3060a6799f0c1679aad4be3174a.mp3",
+   "bytes": 60406581,
+   "destination": "media/music-library/feywild-4478a3060a6799f0c1679aad4be3174a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Fiend Fight",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/c138a5e2cd3e163f05f770db134cf57b.mp3",
+   "bytes": 61115181,
+   "destination": "media/music-library/fiend-fight-c138a5e2cd3e163f05f770db134cf57b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Final Boss",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bbb29d48ed357949282f0058757b53d4.mp3",
+   "bytes": 63708285,
+   "destination": "media/music-library/final-boss-bbb29d48ed357949282f0058757b53d4.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Forest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/c880bfc86772147966b4bea0cd7f1c40.mp3",
+   "bytes": 59057301,
+   "destination": "media/music-library/forest-c880bfc86772147966b4bea0cd7f1c40.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Forest (Night)",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7a8698db1b41587361dbbf293eb8abf9.mp3",
+   "bytes": 60785373,
+   "destination": "media/music-library/forest-night-7a8698db1b41587361dbbf293eb8abf9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Forsaken Town",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/25c5fbfe3854099e1b36fa4ca16f6c24.mp3",
+   "bytes": 57827397,
+   "destination": "media/music-library/forsaken-town-25c5fbfe3854099e1b36fa4ca16f6c24.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Gala Night",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/b47e26da7dff998b03269849fb71c93c.mp3",
+   "bytes": 59766381,
+   "destination": "media/music-library/gala-night-b47e26da7dff998b03269849fb71c93c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Goblin Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/b8f4582a9367f20ec8ff7f4ca9a919a7.mp3",
+   "bytes": 58840269,
+   "destination": "media/music-library/goblin-village-b8f4582a9367f20ec8ff7f4ca9a919a7.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Grand Romance",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/6a0c7bd9daf2551f3d0ca2b5fd4508cf.mp3",
+   "bytes": 62005245,
+   "destination": "media/music-library/grand-romance-6a0c7bd9daf2551f3d0ca2b5fd4508cf.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Green Plains",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/ee2b9cacfa516dd8a461a9f945fb5fe2.mp3",
+   "bytes": 50265789,
+   "destination": "media/music-library/green-plains-ee2b9cacfa516dd8a461a9f945fb5fe2.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Hag's Hut",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/07892cd455d8aba691f8ef917f7d214d.mp3",
+   "bytes": 46600029,
+   "destination": "media/music-library/hags-hut-07892cd455d8aba691f8ef917f7d214d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Haunted Crypt",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/3f5ecaf50a5863d08471b700977dd612.mp3",
+   "bytes": 50222829,
+   "destination": "media/music-library/haunted-crypt-3f5ecaf50a5863d08471b700977dd612.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Haunted Mansion",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/a11b55be96a6843b7d9245b758266197.mp3",
+   "bytes": 53677773,
+   "destination": "media/music-library/haunted-mansion-a11b55be96a6843b7d9245b758266197.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Heist",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/42e90f1df66fe88ca4cd8248ab0c089f.mp3",
+   "bytes": 60930741,
+   "destination": "media/music-library/heist-42e90f1df66fe88ca4cd8248ab0c089f.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Investigating a Mystery",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bdbf13d68dbd3b97166d19d7eb830974.mp3",
+   "bytes": 60730197,
+   "destination": "media/music-library/investigating-a-mystery-bdbf13d68dbd3b97166d19d7eb830974.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Island Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/0181f8b45d4d65dce339a946af70d33e.mp3",
+   "bytes": 63450501,
+   "destination": "media/music-library/island-village-0181f8b45d4d65dce339a946af70d33e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Journey's End",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/de8334318070710ea0ca52698202fd89.mp3",
+   "bytes": 56638797,
+   "destination": "media/music-library/journeys-end-de8334318070710ea0ca52698202fd89.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Jungle Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7b537633b44b2cb3a24ca70c78f69340.mp3",
+   "bytes": 61163541,
+   "destination": "media/music-library/jungle-village-7b537633b44b2cb3a24ca70c78f69340.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Large City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/3d3e760ec6a01a106d1c006e521e63f5.mp3",
+   "bytes": 61147749,
+   "destination": "media/music-library/large-city-3d3e760ec6a01a106d1c006e521e63f5.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Last Goodbye",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/77ad694a506784e8dd1330d4e24a350c.mp3",
+   "bytes": 56637357,
+   "destination": "media/music-library/last-goodbye-77ad694a506784e8dd1330d4e24a350c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Long Rest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/2e372862ef4d09cf38e06374adbdd33e.mp3",
+   "bytes": 60100725,
+   "destination": "media/music-library/long-rest-2e372862ef4d09cf38e06374adbdd33e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Lost City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bd576db1896aa84664f69890584282cb.mp3",
+   "bytes": 61827477,
+   "destination": "media/music-library/lost-city-bd576db1896aa84664f69890584282cb.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Lost Technologies",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/cb4a811269d5f4ee56fe91d3adeed5b5.mp3",
+   "bytes": 60570069,
+   "destination": "media/music-library/lost-technologies-cb4a811269d5f4ee56fe91d3adeed5b5.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Lost Temple Ruins",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/88ed8f35ce21f5366681ad884c1162d0.mp3",
+   "bytes": 66541773,
+   "destination": "media/music-library/lost-temple-ruins-88ed8f35ce21f5366681ad884c1162d0.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Mage Battle",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/2417f2374d860cf6e3eee5b3b89249d1.mp3",
+   "bytes": 62727381,
+   "destination": "media/music-library/mage-battle-2417f2374d860cf6e3eee5b3b89249d1.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Magic Item Shop",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/960bead2b7c453001cf03c04269b29b5.mp3",
+   "bytes": 61458117,
+   "destination": "media/music-library/magic-item-shop-960bead2b7c453001cf03c04269b29b5.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Marketplace",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/a3f103116a922b9c4260945bdcd37660.mp3",
+   "bytes": 64532685,
+   "destination": "media/music-library/marketplace-a3f103116a922b9c4260945bdcd37660.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Melancholic Journey",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e6c7f2209655bdb5392d00a0e90ba519.mp3",
+   "bytes": 56258325,
+   "destination": "media/music-library/melancholic-journey-e6c7f2209655bdb5392d00a0e90ba519.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Monster Lair",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/492d35bcf5ffbaa0ede2a9dd84799181.mp3",
+   "bytes": 46659981,
+   "destination": "media/music-library/monster-lair-492d35bcf5ffbaa0ede2a9dd84799181.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Mount Celestia",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/2a976572ee9df4eee9298bb17e196ffa.mp3",
+   "bytes": 46498077,
+   "destination": "media/music-library/mount-celestia-2a976572ee9df4eee9298bb17e196ffa.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Mysterious Forest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/72cfa5cd03f0505cd71c748342d1f361.mp3",
+   "bytes": 56517645,
+   "destination": "media/music-library/mysterious-forest-72cfa5cd03f0505cd71c748342d1f361.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Mystic Forest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/aeaebfb79be05f58f2363ee4f9e7636d.mp3",
+   "bytes": 55404957,
+   "destination": "media/music-library/mystic-forest-aeaebfb79be05f58f2363ee4f9e7636d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Mythic Encounter",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/81c417aff83c63c1ae3b58a8a0b5efc3.mp3",
+   "bytes": 60885285,
+   "destination": "media/music-library/mythic-encounter-81c417aff83c63c1ae3b58a8a0b5efc3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Nautical Wonders",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7748231c1537939756837a12239437d0.mp3",
+   "bytes": 61139133,
+   "destination": "media/music-library/nautical-wonders-7748231c1537939756837a12239437d0.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Nordic City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/3db7039c7303debc02ca07860542f4bf.mp3",
+   "bytes": 59522085,
+   "destination": "media/music-library/nordic-city-3db7039c7303debc02ca07860542f4bf.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "One Bard Band",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/61365579b249fad20680d723d8525ad6.mp3",
+   "bytes": 67830957,
+   "destination": "media/music-library/one-bard-band-61365579b249fad20680d723d8525ad6.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Orc City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e8686ec0492e28a7cd244dd2a1cfbbb2.mp3",
+   "bytes": 60876957,
+   "destination": "media/music-library/orc-city-e8686ec0492e28a7cd244dd2a1cfbbb2.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Orc War Camp",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/c25db4c6c555ae595e14a168d200692b.mp3",
+   "bytes": 61161477,
+   "destination": "media/music-library/orc-war-camp-c25db4c6c555ae595e14a168d200692b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Peaceful Town",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/3ab47d4237248a44b6fe218192c1162e.mp3",
+   "bytes": 63200901,
+   "destination": "media/music-library/peaceful-town-3ab47d4237248a44b6fe218192c1162e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Peaceful Travel",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/9ee216498e0c159908a6fdf4260416a3.mp3",
+   "bytes": 64054581,
+   "destination": "media/music-library/peaceful-travel-9ee216498e0c159908a6fdf4260416a3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Peaceful Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/5034ccf84367c420f413692c3a34816b.mp3",
+   "bytes": 59317005,
+   "destination": "media/music-library/peaceful-village-5034ccf84367c420f413692c3a34816b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Peaceful Woods",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/9cd1b2f12c124c364b9c7fa0cd785308.mp3",
+   "bytes": 58400781,
+   "destination": "media/music-library/peaceful-woods-9cd1b2f12c124c364b9c7fa0cd785308.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Pirate Attack!",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/0b9522bb02f75aaa537d10deef3814d3.mp3",
+   "bytes": 60350157,
+   "destination": "media/music-library/pirate-attack-0b9522bb02f75aaa537d10deef3814d3.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Pirate Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/36b664830a5904d6ffb5ba00b1890aff.mp3",
+   "bytes": 68526645,
+   "destination": "media/music-library/pirate-tavern-36b664830a5904d6ffb5ba00b1890aff.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Quirky Combat",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/92383c959a3681b83924efe392b72b9c.mp3",
+   "bytes": 66103989,
+   "destination": "media/music-library/quirky-combat-92383c959a3681b83924efe392b72b9c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Rain",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/e5693bca4c349a40027db270f904aa1e.mp3",
+   "bytes": 58775229,
+   "destination": "media/music-library/rain-e5693bca4c349a40027db270f904aa1e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Running From Guards",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/885d2084b931c92b011e2fcd456a0599.mp3",
+   "bytes": 60908877,
+   "destination": "media/music-library/running-from-guards-885d2084b931c92b011e2fcd456a0599.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Sailing the Astral Sea",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/0e1b5396e87804e8aa1238c4dec6c91d.mp3",
+   "bytes": 57044445,
+   "destination": "media/music-library/sailing-the-astral-sea-0e1b5396e87804e8aa1238c4dec6c91d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Sea Adventure",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/2d07b5edecb32ce432ca46a875cbaa3d.mp3",
+   "bytes": 61552077,
+   "destination": "media/music-library/sea-adventure-2d07b5edecb32ce432ca46a875cbaa3d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Seaside Town",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/56c1ba6f3b7b2f10766d3f9d02227a27.mp3",
+   "bytes": 62776893,
+   "destination": "media/music-library/seaside-town-56c1ba6f3b7b2f10766d3f9d02227a27.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Session Zero",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/7be392662137fdc89686fbac8f6e54ff.mp3",
+   "bytes": 61891173,
+   "destination": "media/music-library/session-zero-7be392662137fdc89686fbac8f6e54ff.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Sewers",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/2f7ddf97693e964100602972c7ede414.mp3",
+   "bytes": 61529469,
+   "destination": "media/music-library/sewers-2f7ddf97693e964100602972c7ede414.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Shadowfell",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/fb8ad956edf70344073007d225a76f50.mp3",
+   "bytes": 56077413,
+   "destination": "media/music-library/shadowfell-fb8ad956edf70344073007d225a76f50.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Shady Alley",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/35553ab80fd33abfaee013321e0f3337.mp3",
+   "bytes": 62855829,
+   "destination": "media/music-library/shady-alley-35553ab80fd33abfaee013321e0f3337.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Shady Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/f1177784c4a53831585ed615ab3ab2d9.mp3",
+   "bytes": 54381525,
+   "destination": "media/music-library/shady-tavern-f1177784c4a53831585ed615ab3ab2d9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ship",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/4f3eabd0299a8162a02868428dfa2504.mp3",
+   "bytes": 57627669,
+   "destination": "media/music-library/ship-4f3eabd0299a8162a02868428dfa2504.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Ship Combat",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/891e2012bafd6f1886bf2c19c41f6195.mp3",
+   "bytes": 65302965,
+   "destination": "media/music-library/ship-combat-891e2012bafd6f1886bf2c19c41f6195.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Skeleton Battle",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/f8de207caf306764df80c95ac6e08bc9.mp3",
+   "bytes": 57721269,
+   "destination": "media/music-library/skeleton-battle-f8de207caf306764df80c95ac6e08bc9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Small City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/4141163a7b925dc626ac24830cd690c7.mp3",
+   "bytes": 64977237,
+   "destination": "media/music-library/small-city-4141163a7b925dc626ac24830cd690c7.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Stonehill Inn",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bf4bdfb9f68de7d4ad4d892010590384.mp3",
+   "bytes": 63780237,
+   "destination": "media/music-library/stonehill-inn-bf4bdfb9f68de7d4ad4d892010590384.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Struggle in the Jungle",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/8f9a529ab2398c33e6ffc57066b3d04a.mp3",
+   "bytes": 64536141,
+   "destination": "media/music-library/struggle-in-the-jungle-8f9a529ab2398c33e6ffc57066b3d04a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Suspense",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/035942cf53af257312f7d860d4bc7dad.mp3",
+   "bytes": 60056997,
+   "destination": "media/music-library/suspense-035942cf53af257312f7d860d4bc7dad.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Swamp",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/c4b881d88d1dd996fe712df2297def61.mp3",
+   "bytes": 55964709,
+   "destination": "media/music-library/swamp-c4b881d88d1dd996fe712df2297def61.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/733c911b749f5353ed58a56f4097a172.mp3",
+   "bytes": 76840245,
+   "destination": "media/music-library/tavern-733c911b749f5353ed58a56f4097a172.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tavern Concert",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/d336727a62f9ba0efceb1303f68445aa.mp3",
+   "bytes": 62709813,
+   "destination": "media/music-library/tavern-concert-d336727a62f9ba0efceb1303f68445aa.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tavern Dance",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/50dc6554202437f59cb0bcf99f97dc4b.mp3",
+   "bytes": 67833117,
+   "destination": "media/music-library/tavern-dance-50dc6554202437f59cb0bcf99f97dc4b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tavern in a Desert",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/950a9b10ae693f73e27e85b1fad13d33.mp3",
+   "bytes": 59376909,
+   "destination": "media/music-library/tavern-in-a-desert-950a9b10ae693f73e27e85b1fad13d33.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tense Negotiations",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/3217d0f8488a56ef9c7538635cb158f1.mp3",
+   "bytes": 55927245,
+   "destination": "media/music-library/tense-negotiations-3217d0f8488a56ef9c7538635cb158f1.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tense Path",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/51462b03ecffc5a27bb60d57f43dfe9b.mp3",
+   "bytes": 52921365,
+   "destination": "media/music-library/tense-path-51462b03ecffc5a27bb60d57f43dfe9b.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Abyssal Passage",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/39f90bfdcf03f7602a5e3a4f3d5b2151.mp3",
+   "bytes": 52439949,
+   "destination": "media/music-library/the-abyssal-passage-39f90bfdcf03f7602a5e3a4f3d5b2151.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Adventure Begins",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/61c241a07e7183888b63fa69dd9a77c1.mp3",
+   "bytes": 59698221,
+   "destination": "media/music-library/the-adventure-begins-61c241a07e7183888b63fa69dd9a77c1.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Adventure Ends",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/177de40ed602ddc501e94ec72f66eda9.mp3",
+   "bytes": 58574709,
+   "destination": "media/music-library/the-adventure-ends-177de40ed602ddc501e94ec72f66eda9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The End of the Quest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/bfb2b6e0380128dd8188a669a2f306b8.mp3",
+   "bytes": 59526381,
+   "destination": "media/music-library/the-end-of-the-quest-bfb2b6e0380128dd8188a669a2f306b8.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Last Fight",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/8ec61476d60bdbd42a1c39bbc6ef1894.mp3",
+   "bytes": 60908733,
+   "destination": "media/music-library/the-last-fight-8ec61476d60bdbd42a1c39bbc6ef1894.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Party Reunites",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/9cc6dd8ccf69052995c5dc925a7ab892.mp3",
+   "bytes": 56961165,
+   "destination": "media/music-library/the-party-reunites-9cc6dd8ccf69052995c5dc925a7ab892.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Tall Tales Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/f1d18bc9d9a72b6c2fee9a6e9afb4c78.mp3",
+   "bytes": 62706645,
+   "destination": "media/music-library/the-tall-tales-tavern-f1d18bc9d9a72b6c2fee9a6e9afb4c78.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "The Wandering Bard Tavern",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/a7224ee6e8c477e6e48b9c6849896e17.mp3",
+   "bytes": 58070997,
+   "destination": "media/music-library/the-wandering-bard-tavern-a7224ee6e8c477e6e48b9c6849896e17.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Thunderstorm",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/0a8df28ddbe99179c8fc8c2c0fea2520.mp3",
+   "bytes": 63797013,
+   "destination": "media/music-library/thunderstorm-0a8df28ddbe99179c8fc8c2c0fea2520.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Tragic Betrayal",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/33cc60495fa714b1afad978283ea01bd.mp3",
+   "bytes": 61639341,
+   "destination": "media/music-library/tragic-betrayal-33cc60495fa714b1afad978283ea01bd.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Travellers Rest",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/39e46ec54c42b6d2261a75eb056edc6c.mp3",
+   "bytes": 61502421,
+   "destination": "media/music-library/travellers-rest-39e46ec54c42b6d2261a75eb056edc6c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Underdark",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/71ff73e5eeabf07f85303b7ab80f60d9.mp3",
+   "bytes": 51095997,
+   "destination": "media/music-library/underdark-71ff73e5eeabf07f85303b7ab80f60d9.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Underwater City",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/287d545aa8edb39c762b410ba977b14c.mp3",
+   "bytes": 63468309,
+   "destination": "media/music-library/underwater-city-287d545aa8edb39c762b410ba977b14c.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Vampire Castle",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/18de4afe1e32f5ce217833b57e8f430d.mp3",
+   "bytes": 60686133,
+   "destination": "media/music-library/vampire-castle-18de4afe1e32f5ce217833b57e8f430d.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Village",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/5423c3b6ac9fde295147b24973e9b6c2.mp3",
+   "bytes": 56962485,
+   "destination": "media/music-library/village-5423c3b6ac9fde295147b24973e9b6c2.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Village Feast",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/15b37fb654abeeb10def7ce68104a85e.mp3",
+   "bytes": 59924733,
+   "destination": "media/music-library/village-feast-15b37fb654abeeb10def7ce68104a85e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Volcano",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/60d14a9ecba07edd961569d5616b4520.mp3",
+   "bytes": 58703469,
+   "destination": "media/music-library/volcano-60d14a9ecba07edd961569d5616b4520.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Wasteland",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/216b60f27f378a8bcd3943a6b25d0b1a.mp3",
+   "bytes": 51059373,
+   "destination": "media/music-library/wasteland-216b60f27f378a8bcd3943a6b25d0b1a.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Wilderness Travel",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/d096de06dfbefaa59275f0af854ea844.mp3",
+   "bytes": 57575925,
+   "destination": "media/music-library/wilderness-travel-d096de06dfbefaa59275f0af854ea844.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Wild Wonders",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/d8f5a4719c677df54d5160530708f49e.mp3",
+   "bytes": 55861173,
+   "destination": "media/music-library/wild-wonders-d8f5a4719c677df54d5160530708f49e.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  },
+  {
+   "category": "soundtrack-library",
+   "title": "Wizard Tower",
+   "emoji": null,
+   "url": "https://user.uploads.dev/file/a2c554b0d13e04f9427d3551d4a79bb8.mp3",
+   "bytes": 62003685,
+   "destination": "media/music-library/wizard-tower-a2c554b0d13e04f9427d3551d4a79bb8.mp3",
+   "usedIn": "index.html: commented-out <option> music library (dynamic audio selection)"
+  }
+ ]
+}

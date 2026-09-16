@@ -1,0 +1,15 @@
+character
+  a {mech|demon|cyberpunk} {warrior|minion|samurai}
+
+place
+  soviet russia
+  a small village
+  a mountainous region
+  an underwater cavern
+
+season
+  winter
+  summer
+  
+prompt
+  detailed painting of [character] in [place], [season]

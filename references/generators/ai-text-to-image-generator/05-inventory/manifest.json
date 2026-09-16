@@ -1,0 +1,140 @@
+{
+  "generator": {
+    "name": "ai-text-to-image-generator",
+    "url": "https://perchance.org/ai-text-to-image-generator",
+    "publicId": "cd282495464c4f81bf84e2ef3974e6f6",
+    "iframeOrigin": "https://cd282495464c4f81bf84e2ef3974e6f6.perchance.org/ai-text-to-image-generator"
+  },
+  "generatedAt": "2026-09-16T17:02:40.280Z",
+  "totals": {
+    "files": 18,
+    "bytes": 519865
+  },
+  "internalCode": [
+    {
+      "path": "main.pjs",
+      "bytes": 86413,
+      "lines": 1770,
+      "sha256": "1f807f6e4988023ae0480acb30b7ac747fbbce9889cbf662eecde42e67170998"
+    },
+    {
+      "path": "index.html",
+      "bytes": 392,
+      "lines": 10,
+      "sha256": "d594f990a170fe88bc31262c45daae3cc51ab49f6f9af4d6672c582ae886bc2d"
+    }
+  ],
+  "externalCode": [
+    {
+      "path": "imports/upload-plugin/main.pjs",
+      "bytes": 10271,
+      "lines": 237,
+      "sha256": "ebe4e080acb958f0c26ce38e25c7bd76e59cdd8f89b4d78f0d5e9342bf5b3aa4"
+    },
+    {
+      "path": "imports/text-to-image-plugin/main.pjs",
+      "bytes": 37978,
+      "lines": 772,
+      "sha256": "9245fbf9b4041da7a12095fd8d45313ca8eb1aae584d1d7afd3b9a7b10aaf86a"
+    },
+    {
+      "path": "imports/tabbed-comments-plugin-v1/main.pjs",
+      "bytes": 64046,
+      "lines": 1296,
+      "sha256": "462a464e90013bf59c3c7dac7f366ee9025b66850bc6035a34c0fa937a14873c"
+    },
+    {
+      "path": "imports/t2i-styles/main.pjs",
+      "bytes": 43838,
+      "lines": 532,
+      "sha256": "9547582cd388a6142eb66a872e57882261ffd8b203d013cf51ba58ba14341236"
+    },
+    {
+      "path": "imports/t2i-framework-plugin-v2/main.pjs",
+      "bytes": 127030,
+      "lines": 2203,
+      "sha256": "4ed30e2ba13bcd2745efe4571ab0e12de7128b256f838e3c4c092fb903670007"
+    },
+    {
+      "path": "imports/super-fetch-plugin/main.pjs",
+      "bytes": 2857,
+      "lines": 46,
+      "sha256": "3becd031accfdc0de27b6eff56a047f8f11b8cf83edbce36df8b888f78860ebb"
+    },
+    {
+      "path": "imports/simple-gen-footer/main.pjs",
+      "bytes": 520,
+      "lines": 4,
+      "sha256": "ac94e344fbba297f9d6cb63a4154c7b9ab3ddeb812025c185e6870dfa8c3d2f8"
+    },
+    {
+      "path": "imports/select-leaf-plugin/main.pjs",
+      "bytes": 653,
+      "lines": 21,
+      "sha256": "98c736212e5d07f16cbd9bfbd49614142976edf6f60161cca168e8e869b4fe9b"
+    },
+    {
+      "path": "imports/prompt2-plugin/main.pjs",
+      "bytes": 14632,
+      "lines": 279,
+      "sha256": "ca6d03d9283871ae43144dcfd7332f2ed0832454ed162392831360066fba38df"
+    },
+    {
+      "path": "imports/kv-plugin/main.pjs",
+      "bytes": 4177,
+      "lines": 46,
+      "sha256": "a5edb7f5bf28ab5fb31bd5c4877db0f6c4a7a032e9271690262e10444a8700c1"
+    },
+    {
+      "path": "imports/huge-emoji-list/main.pjs",
+      "bytes": 513,
+      "lines": 8,
+      "sha256": "f856329fd461e334d1c74fb1b6bf01ac53f8e8a5de2a0bcb85a9ec09afb56683"
+    },
+    {
+      "path": "imports/fullscreen-button-plugin/main.pjs",
+      "bytes": 1916,
+      "lines": 29,
+      "sha256": "4686fd38f3d7fdd61d4dc86bb7c275b27dc14cc3cd64f390cc89fd5ff2d49bc5"
+    },
+    {
+      "path": "imports/create-media-gallery-plugin/main.pjs",
+      "bytes": 26229,
+      "lines": 567,
+      "sha256": "b25c56ee25e9ed49693c32e7b86a430c6eeab32252db8e2415a8015dee6ec6c0"
+    },
+    {
+      "path": "imports/comments-plugin/main.pjs",
+      "bytes": 38261,
+      "lines": 680,
+      "sha256": "4b20ff48b15882e15623c1f1048f58179e52c94129a61a12d7d185deccac8619"
+    },
+    {
+      "path": "imports/animal/main.pjs",
+      "bytes": 2091,
+      "lines": 189,
+      "sha256": "c4e9954357007f035196c83def1d650ebf030706bdd472d8ea3c49113b62e0a2"
+    },
+    {
+      "path": "imports/ai-text-plugin/main.pjs",
+      "bytes": 58048,
+      "lines": 804,
+      "sha256": "f57d9efbf330aef13ede6becde8251ae982d99d1bf571b3388946d1300ff1a72"
+    }
+  ],
+  "assets": [
+    {
+      "path": "03-assets/meta-image.jpeg",
+      "role": "$meta.image (social/listing card)",
+      "bytes": 122178,
+      "sha256": "511bdbdeca648f38840f4a7ec50373d2544b3866036e1b70212c7b6400fae5af",
+      "origin": "https://user-uploads.perchance.org/file/4763f095ac55e4ac66ead5e8f4bbb016.jpeg"
+    }
+  ],
+  "config": [
+    "04-config/metadata.txt",
+    "04-config/dependency-graph.json",
+    "01-internal-code/main.pjs"
+  ],
+  "buildPipeline": "index.html's sole content is the pjs expression [generateInterfaceHTML(settings)]. At render time the perchance engine pulls in 02-external-code/imports/t2i-framework-plugin-v2/main.pjs (generateInterfaceHTML) and passes it the `settings` list + every userInputs/{import:...} from 01-internal-code/main.pjs to construct the entire DOM, CSS, and runtime wiring. There is no offline build step, bundler, or npm dependency tree."
+}

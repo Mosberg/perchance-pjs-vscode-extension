@@ -1,0 +1,138 @@
+// Created by Mosberg https://github.com/Mosberg
+
+$meta
+  title = LPC Map Forge - procedural 2D map generator + editor
+  description = Generate a procedural top-down fantasy world from the Liberated Pixel Cup tileset, then paint terrain, place props, and export your map as PNG or JSON. Describe a world in plain English and the AI designer configures the terrain, biomes, rivers and vegetation for you.
+  image = https://user.uploads.dev/file/b1a4ff3e45d1aff5846e50e0b51a7055.jpg
+  tags = map, generator, procedural, tileset, lpc, world, editor, fantasy, rpg, level, pixel-art
+  header
+    mode = minimal
+
+generateText = {import:ai-text-plugin}
+kv = {import:kv-plugin}
+
+// ---------------------------------------------------------------------------
+// Importable plugin facade.
+//
+// Importing this generator (as `lpc-map-forge`) yields the object returned
+// below (see `$output` at the bottom of this file). It is the same facade
+// pattern as `lpc-character-creator-v2`: a tiny lazy loader in front of a
+// hosted ES module bundle, so the (large) generator + renderer + editor code
+// only downloads when the host actually calls into it.
+//
+// Headless use (no DOM needed beyond a canvas):
+//   let forge = root.mapForge;
+//   let map   = await forge.generate({ theme: "volcanic", width: 96, seed: 7 });
+//   let grid  = await forge.toTileGrid(map);          // per-cell terrain index
+//   let url   = await forge.toDataUrl(map, 1);        // full-map PNG data URL
+//   let mini  = await forge.renderMinimapCanvas(map, 320);
+//
+// Embedded editor (shadow-DOM, fully isolated from the host page):
+//   let editor = await forge.mount(containerEl, { params: { seed: 7 } });
+//   editor.getMap(); editor.setMap(map); editor.onChange(...); editor.destroy();
+//   // or a fullscreen modal:  await forge.open({ onClose: () => {} });
+//
+// The asset URLs are centralized here so a future bundle update only needs the
+// versioned URLs below changed. Rebuild recipe: `src/README.md`.
+lpcMapForgePlugin() =>
+  const BUNDLE_URL = "https://user.uploads.dev/file/445502302a2cce22c265bda8ab0e3c7d.js";
+  const TILESET_URL = "https://user.uploads.dev/file/36c1d0f3ab45543e18be2249439688d7.png";
+  const PROPS_URL = "https://user.uploads.dev/file/25de81c0ec6252a077c4a19d1dd8579c.png";
+  const VERSION = "1.5.1";
+  let modulePromise;
+  const load = () => {
+    if (!modulePromise) {
+      modulePromise = import(BUNDLE_URL).catch((error) => {
+        modulePromise = null;
+        throw error;
+      });
+    }
+    return modulePromise;
+  };
+  const options = (value) => Object.assign({ tilesetUrl: TILESET_URL, propsUrl: PROPS_URL }, value || {});
+  const call = async (method, args) => {
+    const module = await load();
+    if (typeof module[method] !== "function") {
+      throw new Error("LPC map forge method is unavailable: " + method);
+    }
+    return module[method](...args);
+  };
+  return {
+    version: VERSION,
+    bundleUrl: BUNDLE_URL,
+    tilesetUrl: TILESET_URL,
+    propsUrl: PROPS_URL,
+    load,
+    // catalog: { version, themes, terrains, sizes }
+    info: () => call("pluginInfo", []),
+    // map data in / out (JSON-safe; { format, params, W, H, cw, ch, corners, props, ... })
+    generate: (params, o) => call("generate", [params || {}]),
+    generateWorld: (params) => call("generateWorld", [params || {}]),
+    serialize: (world, meta) => call("serialize", [world, meta || {}]),
+    deserialize: (data, fallbackParams) => call("deserialize", [data, fallbackParams]),
+    // gameplay helper: { W, H, tiles: number[] } where tiles[i] is a TERRAINS index
+    toTileGrid: (world) => call("toTileGrid", [world]),
+    // Tiled export: an XML string ready to save as .tmx (terrain layers + props as objects)
+    toTmx: (world, meta) => call("buildTmx", [world, meta || {}]),
+    // rendering (lazily loads the tileset + prop atlas)
+    renderFull: (world, scale, o) => call("renderFull", [world, scale || 1, options(o)]),
+    renderFullCanvas: (world, scale, o) => call("renderFullCanvas", [world, scale || 1, options(o)]),
+    renderMinimap: (world, size, o) => call("renderMinimap", [world, size || 320, options(o)]),
+    renderMinimapCanvas: (world, size, o) => call("renderMinimapCanvas", [world, size || 320, options(o)]),
+    toDataUrl: (world, scale, o) => call("toDataUrl", [world, scale || 1, options(o)]),
+    // the editor: `mount` embeds it in a container, `open` shows a modal overlay
+    mount: (container, o) => call("mountMapForge", [container, options(o)]),
+    open: (o) => call("openMapForge", [options(o)]),
+  };
+
+$output = [lpcMapForgePlugin()]
+
+config
+  theme = temperate
+  seed = 478211
+  width = 96
+  height = 96
+  seaLevel = 0.44
+  island = 0.45
+  shore = 0.5
+  relief = 0.5
+  temperature = 0.58
+  moisture = 0.55
+  snow = 0.45
+  autumn = 0.08
+  rivers = 0.55
+  lakes = 0.5
+  forest = 0.42
+  plants = 0.45
+  flowers = 0.5
+  rocks = 0.3
+  ore = 0.35
+  lava = 0.5
+  paths = 0.3
+  farms = 0.4
+  crops = 1
+  villages = 0.35
+  villageSize = 1
+  market = 1
+  landmarks = 1
+  camps = 0.5
+  graves = 1
+  ruins = 1
+  harbors = 1
+  wildlife = 1
+  reeds = 0.4
+  propDensity = 1
+  fragment = 0.1
+  waterTint = auto
+
+themes
+  temperate
+  autumn
+  tropical
+  desert
+  tundra
+  boreal
+  swamp
+  highland
+  volcanic
+  archipelago

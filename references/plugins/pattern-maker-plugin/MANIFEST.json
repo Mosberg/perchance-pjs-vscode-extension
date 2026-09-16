@@ -1,0 +1,413 @@
+{
+  "package": "pattern-maker-plugin",
+  "generator": "https://perchance.org/pattern-maker-plugin",
+  "generated": "2026-09-16T17:14:23.494Z",
+  "fileCount": 82,
+  "files": [
+    {
+      "path": "pattern-maker-plugin-full-package/01-internal-code/main.pjs",
+      "bytes": 21095,
+      "sha256": "b82deb05fb342501cd98922d84ecfcb0ebf24fe89e177f1c077e140487fac4c8"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/01-internal-code/index.html",
+      "bytes": 20608,
+      "sha256": "7b915b4c8871c5f19f31b2990567c639d59e1d2c32715b074db2f0a01c44620b"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/01-internal-code/wavefunction-collapse.worker.js",
+      "bytes": 10272,
+      "sha256": "6e670ab21d4a21110eb21f6bf8758c1d7da20c70ee82d61a626b707529319882"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/.gitignore",
+      "bytes": 606,
+      "sha256": "ef1f5ca7dcb076253ef42bd32b7e34fa4a4176c3cda458933c28886e2c0e23c4"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/LICENSE",
+      "bytes": 1082,
+      "sha256": "a4600358bab70a22a8f5458402e2e7faf4e7b4835ac1ed07afa4d3d2698174a7"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/README.md",
+      "bytes": 5197,
+      "sha256": "2864c6eeeba30e3339570eec5bca359511cfaf2f6423b1f772ea8f40bcc95812"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle.definition.js",
+      "bytes": 3059,
+      "sha256": "eb68275f626c078684790989b87033e4f0d5dc30503fb11228991a1e4f70273a"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/bridge.png",
+      "bytes": 129,
+      "sha256": "db500c953369f6067e3d53beb30a9869196af631a24a86f925fbda6810fa2423"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/ground.png",
+      "bytes": 98,
+      "sha256": "fd7d3ed434cfab3c28c12be9924c87edd31aa226407f8f3a0ae71a0054569039"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/river.png",
+      "bytes": 105,
+      "sha256": "b92f237a1edcb1c30dac54e7b0daaebe04acc3dd6769801bf2dd6dd75c1299b2"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/riverturn.png",
+      "bytes": 125,
+      "sha256": "0db0171074100370ba3f8ea49034330cc1d40aa4e395642e1f5dbeb533d7aafb"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/road.png",
+      "bytes": 114,
+      "sha256": "d947ebf95c6234ccd6d20a1bd871f059c95fb0725014515f928ce604e3b96487"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/roadturn.png",
+      "bytes": 129,
+      "sha256": "7767f1f6e9e134f20cab4fdb27d729211af37a8d2c2aeb0d5a59dd6068a32af8"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/t.png",
+      "bytes": 124,
+      "sha256": "f81a65577aefb06459828216377f17d2ba2dfdec7522e208192fa13a4c4f4f0d"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/tower.png",
+      "bytes": 117,
+      "sha256": "0304a6df7520e848a1d1ce41a80e6ce278308155a749934e19040efdbf1566e9"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/wall.png",
+      "bytes": 131,
+      "sha256": "606d7f90d3e64dbcadc77b5c76cbacee81bbbc8140aa70394051a22fb94d9f2b"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/wallriver.png",
+      "bytes": 148,
+      "sha256": "5a8da1e561efac4a1772b441d19c28e936235179c3f0545e1616032d195940de"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/castle/wallroad.png",
+      "bytes": 149,
+      "sha256": "07ff3df2bea57672f27e35230ba8cf6b0d0c640d694227f106f5af2403f47ae2"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/flowers.bmp",
+      "bytes": 1158,
+      "sha256": "6003047c7c975af76932f6194de4dc2fb6df7b86c41cefd3f5b7e95f905c8120"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer.definition.js",
+      "bytes": 3173,
+      "sha256": "fe383f5d6928dad5cb0225f5aa872f7d17a51477a4be3ca0b8a038ed67bdc0bb"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliff 0.png",
+      "bytes": 4906,
+      "sha256": "b303e2a3c7e0f05f7fbbf74248df9a7137b541b367b1f7865fbd3239f2132e20"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliff 1.png",
+      "bytes": 5113,
+      "sha256": "0c0769408e2f79809eba98481b3eb5f54af6f3d1673dd7b2a29c7765a6585b64"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliff 2.png",
+      "bytes": 4806,
+      "sha256": "4d84c787e98fbca11a884d8e5be6f5feaff921bdee20ed1c4bbb559a47ec9bbb"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliff 3.png",
+      "bytes": 5475,
+      "sha256": "4bab4e9717e82d2136d28e7dda0ce1f4f79fc4242c2dd48d3ba3eb0b970cdf5b"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffcorner 0.png",
+      "bytes": 4621,
+      "sha256": "c12c428b2232dca92c21b1386df5476394206c3a04ad4821fee3e8780e784d4f"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffcorner 1.png",
+      "bytes": 4608,
+      "sha256": "f547e84c679eafd72e7a2c7f1ffc6b2a54838d4e8b7826886b2e2b52938965b0"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffcorner 2.png",
+      "bytes": 4865,
+      "sha256": "ff5167ca0dfe058d4d1bf4eeb1347c6ad71ddc6b4c7deb62f1f5423130393d53"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffcorner 3.png",
+      "bytes": 4975,
+      "sha256": "028472158a044b06eb16484b29a0cf1c40859e3c2a605a160cd9c7d8a2eae005"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffturn 0.png",
+      "bytes": 5251,
+      "sha256": "a1864ddb127abdd156a6124b64b0a8ad3fc22bddef86d5b92fe9b882af127bed"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffturn 1.png",
+      "bytes": 5167,
+      "sha256": "5f6d53e30fb77cb56ffa20ceb00decf920924d647ce00b4921e48bffca76f658"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffturn 2.png",
+      "bytes": 5266,
+      "sha256": "25d98ec888e109dd3aff5625e2f91abf67241a1c09307f0cf1bd41cb052795b8"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/cliffturn 3.png",
+      "bytes": 5198,
+      "sha256": "fac1b7af851e76dc42a848f1f8c80b6edadb3837c2b05f90efd38f13ab8527ce"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/grass 0.png",
+      "bytes": 4094,
+      "sha256": "e8b4cf384d58e42c54bb6218a28874511d749923b7842456f75438a64b8b8680"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/grasscorner 0.png",
+      "bytes": 5891,
+      "sha256": "71aca946bbd938da0962c1772b81c4838e79c1a79d5afcafd7b167c08fe7b3ca"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/grasscorner 1.png",
+      "bytes": 5942,
+      "sha256": "180f9254ebcf18d4f87726b9f81acb53381c99eb4040fffd9d87a02e99d78efe"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/grasscorner 2.png",
+      "bytes": 5932,
+      "sha256": "cbfd28e7c3f9a0e3de19ae5cdd47726d807d09a94be1e48e1fb1edaf1f4cc5e8"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/grasscorner 3.png",
+      "bytes": 5923,
+      "sha256": "1a2b0029dd3775cd6d8b788747350652ff16c5cafc43fdbe15c1272fd0e0b5a0"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/road 0.png",
+      "bytes": 5853,
+      "sha256": "22f3652bfb812254a884c7a29592b61fdff28383fcafddbdcddc91918e64d14c"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/road 1.png",
+      "bytes": 5848,
+      "sha256": "8353097c00b172733a87b83b61611469d06512dd7fcbae23f2c68c6c5d672f2a"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/road 2.png",
+      "bytes": 5870,
+      "sha256": "84198da58bec6fd5c786462ed2680e3da4b92616bf9e9ee71d8c5251a55dc862"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/road 3.png",
+      "bytes": 5834,
+      "sha256": "c934ad5cc8118fc1719fd487d29a28901a2eee0d7fef8664e79b1045b7cddd59"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/roadturn 0.png",
+      "bytes": 5763,
+      "sha256": "4b71d45b6a80a78db992e0d8381bd6294d4bbb9369b3bb7bef997cf2f77f284c"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/roadturn 1.png",
+      "bytes": 5681,
+      "sha256": "c3e0e6dc9b305226eaf3c56c62f48c8ac4beb698dae97fd116a4e419de8a924d"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/roadturn 2.png",
+      "bytes": 5654,
+      "sha256": "fc71d158f9772d55db682b7cff2bb7b19ac44b826243e3f1672df9f19522337b"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/roadturn 3.png",
+      "bytes": 5645,
+      "sha256": "4c46c482236689a5c95cf78fa6821642a16dd200a58eb9db60c1bb2973b1e417"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/water_a 0.png",
+      "bytes": 3962,
+      "sha256": "6faed269dab14f08d0fbe23e92945c1ddc185b0e31b34d48c7e3f8e5b23e8db5"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/water_b 0.png",
+      "bytes": 4339,
+      "sha256": "7872f2a15c235e03da77bb928f9975a93b034ff4854ddc7a84cc8202fdf36742"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/water_c 0.png",
+      "bytes": 4337,
+      "sha256": "97a054670bb72f96f1562d3a6d277feb90dd4349ed70809c32124be363a89152"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/watercorner 0.png",
+      "bytes": 4635,
+      "sha256": "e36320793ce916e069c08be2ce69ca7ff6a481a94498dc2f91889cc3cdb5da27"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/watercorner 1.png",
+      "bytes": 4688,
+      "sha256": "02a657171c6f3623e50401efce60bd5225ef6c1eaf7367174f6949b766fc3bd7"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/watercorner 2.png",
+      "bytes": 4918,
+      "sha256": "ca969f7ca2e71b266017a0355ddbc4077937161d73d5976270a98f607c70411c"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/watercorner 3.png",
+      "bytes": 5016,
+      "sha256": "189a46082f79b95bede1dabb12c1a9e88a05a50997ef1f8f98d691321db1c7f3"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterside 0.png",
+      "bytes": 4700,
+      "sha256": "3176a636b724613084c3ff936fff3ac3c7beae314fbc970580b167a4fea034c8"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterside 1.png",
+      "bytes": 5370,
+      "sha256": "0902d95b0bb5f5a5f9762c74f60925ec6a261e68fbbb27de61ebb87506b54711"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterside 2.png",
+      "bytes": 4705,
+      "sha256": "995b8b3ff8b2dff948d09acc87d36da77988500dbbaf2f6ea4af69777592d3f2"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterside 3.png",
+      "bytes": 4802,
+      "sha256": "3ce340d683a6ee4a266dd558e59936ff44592919b89d67fe3e0de31c37b43b72"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterturn 0.png",
+      "bytes": 5212,
+      "sha256": "9b5d7444f62a9b0369d165367730cc417e1b4959d42c96df64d3ac1acedb2736"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterturn 1.png",
+      "bytes": 5173,
+      "sha256": "2d01f1b5a0104ab0fc74aec93af4bc27dc60127668a60984b607b5e667db7eb3"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterturn 2.png",
+      "bytes": 5133,
+      "sha256": "e4766bf958b23b1a57d312f12936db484a296d149e27aa826c75436603c01790"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/data/summer/waterturn 3.png",
+      "bytes": 5011,
+      "sha256": "88786ca19621a4823d630278811e0ee32da141233514ca746f9a66980eb5e686"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/lcg.js",
+      "bytes": 589,
+      "sha256": "591d476df4d719f4ee13b08c9c0041d9bb7dc8c2875f1b07cb19509e4de8a859"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/output/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/overlapping-model-example.js",
+      "bytes": 921,
+      "sha256": "92855085b646169fc6b692270adfafbc4bc80fbfaa143ff6c4d28ad4fe06eb3e"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/example/simple-tiled-model-example.js",
+      "bytes": 2415,
+      "sha256": "d7e7c21485963cc5e74610873ad2b6148f306688d2602a4deac8125fc178f0a9"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/index.js",
+      "bytes": 141,
+      "sha256": "2205c6c4db206295c57a367d619b1dcfc901abee78d3e9485762fc5fdd12c272"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/model.js",
+      "bytes": 7096,
+      "sha256": "8c3ee20376b10a26737d3a9d1d597e74d0043d9ab9d5ba0d1aa267c31a7cdc12"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/overlapping-model.js",
+      "bytes": 8663,
+      "sha256": "16bcd86e152065383e4a9ab804430269ca47c1638ae1584cdacad95f111969e0"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/package-lock.json",
+      "bytes": 56038,
+      "sha256": "51006ced87bf319d2aeca4cac4463e2854dbea06761da3045b2336bcf34bafc2"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/package.json",
+      "bytes": 826,
+      "sha256": "800b1a87a25172f2dd2553c323676724671fb73980192e4245e00067afe26584"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/random-indice.js",
+      "bytes": 385,
+      "sha256": "98dda31dd0e59ff13b375eab53289202f21f959eef7f071bc5c8ca15a9219bf3"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/02-external-code/wavefunctioncollapse/simple-tiled-model.js",
+      "bytes": 10548,
+      "sha256": "f94d1f90aa4c0eaaddd73183edd7dcbdda539cc1417466312435633868503d37"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/03-third-party-assets/images/example-input-image__i.imgur.com_V4trUZG.png",
+      "bytes": 153,
+      "sha256": "baea82e4ed4ab3023b8125c62f3c0ef6bc5c3ecc330188607881ad6c3ee02394"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/03-third-party-assets/images/example-input-image-alt__i.imgur.com_9A0FSw0.png",
+      "bytes": 250,
+      "sha256": "ce15e4632ab6fe9ca801ba8faddcfe445b9290d5a9f01168ac6c477cd00c1f77"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/03-third-party-assets/images/example-patterns-illustration__i.imgur.com_XjdAKur.png",
+      "bytes": 75950,
+      "sha256": "af0ea7d917bf3ea726e0f758fe3db24104653ddfce37ae2d3e4853fe24a4cb41"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/03-third-party-assets/images/embedded-example-input-image__from-index.html.png",
+      "bytes": 271,
+      "sha256": "837c0b4f426bbd394eba43f9a070c27a02e415745697be5b3c81c5d64a44e9f0"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/04-project-resources/example-pattern-options/patternOptions-emoji-grid.pjs.txt",
+      "bytes": 683,
+      "sha256": "b9e61e6377629e603125a900751bdcd352867b548c175d056a1c0ff4308aa0a4"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/04-project-resources/example-pattern-options/patternOptions-data-url.pjs.txt",
+      "bytes": 486,
+      "sha256": "c34db7541245212aae9a5e71dd0ca99c7e01c051f24ae07c6970ab63526c1228"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/04-project-resources/example-pattern-options/patternOptions-imgur.pjs.txt",
+      "bytes": 131,
+      "sha256": "8fcf10a86416a70e58982d37e7868876539f19dd70cc1bb80083dd5668733fb6"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/05-build-config/BUILD.md",
+      "bytes": 2077,
+      "sha256": "bb0c366c950f26c1b93cf434bc55f5b5319c41353b2cc0f8ce819c7279585438"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/05-build-config/extract-worker.mjs",
+      "bytes": 2270,
+      "sha256": "a215db6ee15655625a6a992140b3bf396baed7a185e0308d59026b3a1041e520"
+    },
+    {
+      "path": "pattern-maker-plugin-full-package/README.md",
+      "bytes": 5166,
+      "sha256": "ffb02b83e2f761b551672240012a0788e778d06ac3496b00aff8d6265b42752e"
+    }
+  ]
+}

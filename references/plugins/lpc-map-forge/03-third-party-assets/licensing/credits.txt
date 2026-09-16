@@ -1,0 +1,202 @@
+LPC Map Forge - asset attribution
+=================================
+
+The two sprite sheets that ship with this generator (src/terrain.png and src/props.png) are packed
+from freely-licensed Liberated Pixel Cup (LPC) art found on OpenGameArt.org. Every source pack is
+listed below with its authors, licence(s) and origin URL. All of the art is CC-BY 4.0, CC-BY 3.0,
+CC-BY-SA 3.0 and/or GPL; the resulting sheets are therefore distributed under CC-BY-SA 3.0.
+
+The bottom band of src/props.png (everything below row 2272 - see props-sources.json) was packed
+from a second group of packs, listed under "EXTENDED SHEET SOURCES" below.
+
+The generator itself (code, procedural algorithms, UI) is original work.
+
+
+TERRAIN — src/terrain.png
+-------------------------
+"[LPC] Terrains" (the terrain-v7 universal corner-autotile sheet, used unmodified)
+  by bluecarrot16, Lanea Zimmerman (Sharm), Daniel Eddeland (Daneeklu), Richard Kettering (Jetrel),
+  Zachariah Husiar (Zabin), Hyptosis, Casper Nilsson, Buko Studios, Nushio, ZaPaper, billknye,
+  William Thompson, caeles, Redshrike, Bertram, and Rayane Felix (RayaneFLX)
+  CC-BY-SA 3.0 / GPL 3.0
+  https://opengameart.org/content/lpc-terrains
+
+  which in turn credits / is derived from:
+  - Liberated Pixel Cup (LPC) Base Assets (sprites & map tiles) - Lanea Zimmerman (Sharm)
+    CC-BY 3.0 / CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+  - [LPC] Farming tilesets, magic animations and UI elements - Daniel Eddeland (Daneeklu)
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-farming-tilesets-magic-animations-and-ui-elements
+  - ZRPG Tiles - Richard Kettering (Jetrel), Zachariah Husiar (Zabin), Hyptosis,
+    Lanea Zimmerman (Sharm), Open Pixel Project
+    CC-BY-SA 3.0+
+    https://opengameart.org/content/zrpg-tiles
+  - LPC C.Nilsson - Casper Nilsson
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-cnilsson
+  - Frozen Lake [LPC] - Buko Studios, commissioned by PlayCraft
+    CC-BY 3.0
+    https://opengameart.org/content/frozen-lake-lpc
+  - LPC Animated Water and Waterfalls - ZaPaper
+    CC-BY-SA 3.0
+    https://opengameart.org/content/lpc-animated-water-and-waterfalls
+  - LPC More Water Transitions - billknye
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-more-water-transitions
+  - [LPC] Sand+Rock Alt Colors - William.Thompsonj, Daniel Eddeland
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-sandrock-alt-colors
+  - [LPC] Colorful Sand + Deep Water! - Nushio
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-colorful-sand-deep-water
+  - LPC terrain extension - caeles
+    CC-BY-SA 3.0 / GPL 3.0
+    https://opengameart.org/content/lpc-terrain-extension
+  - RPG Tiles: Cobble stone paths & town objects - Zachariah Husiar (Zabin),
+    Daniel Eddeland (Daneeklu), Richard Kettering (Jetrel), Hyptosis, Redshrike, Bertram
+    CC-BY-SA 3.0
+    https://opengameart.org/content/rpg-tiles-cobble-stone-paths-town-objects
+  - RPG Terrains - Rayane Felix (RayaneFLX)
+    CC-BY-SA 3.0
+    https://opengameart.org/content/rpg-terrains
+
+
+PROPS — src/props.png
+---------------------
+Most sprites come from four curated LPC "mega packs" (which are themselves compilations of the
+community packs listed beneath them):
+
+"[LPC] Trees" (deciduous trees in green / brown / orange / pale / dead palettes)
+  by bluecarrot16, Jetrel, Zabin, Hyptosis, Surt, Buch, Johann Charlot, Stephen Challener and the
+  Open Surge team, Gaurav Munjal, Ivan Voirol (Silver IV), Guido Bos, Yar, Paulina Riva (PauR),
+  William.Thompsonj, Casper Nilsson, ansimuz, qubodup, Bart K., Blarumyrran, Lanea Zimmerman
+  (Sharm), Leonard Pabin, Chris Phillips, Barbara Rivera, and Talosaurus
+  CC-BY-SA 3.0
+  https://opengameart.org/content/lpc-trees
+
+"[LPC] Conifers" (pine / fir trees, including snow-covered variants)
+  by bluecarrot16, b_o, Lanea Zimmerman (Sharm), Johann Charlot, Yar, Jetrel, Zabin, Hyptosis,
+  Surt, and KnoblePersona
+  CC-BY-SA 3.0 / GPL 2.0 / GPL 3.0
+  https://opengameart.org/content/lpc-conifers
+
+"[LPC] Flowers / Plants / Fungi / Wood" (grass tufts, reeds, flowers, bushes)
+  by bluecarrot16, Guido Bos, Ivan Voirol (Silver IV), SpiderDave, William.Thompsonj, Yar,
+  Stephen Challener and the Open Surge team, Gaurav Munjal, Johann Charlot, Casper Nilsson, Jetrel,
+  Zabin, Hyptosis, Surt, Lanea Zimmerman, George Bailey, ansimuz, Buch, and Open Pixel Project
+  contributors
+  CC-BY-SA 3.0
+  https://opengameart.org/content/lpc-flowers-plants-fungi-wood
+
+The two rock sprites come from:
+  Liberated Pixel Cup (LPC) Base Assets - Lanea Zimmerman (AKA Sharm)
+  CC-BY-SA 3.0 / CC-BY 3.0 / GPL 3.0
+  https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+
+The packs above build on these original community submissions (credited by the mega packs):
+  - Lots of trees and plants from OGA (DB32) tilesets pack 1 - Jetrel, Zabin, Hyptosis, Surt (CC0)
+  - Pine Tree Tiles - b_o (CC-BY-SA 3.0 / GPL 2.0)
+  - Pine Tree Pack - KnoblePersona (CC-BY 3.0)
+  - Lots of Hyptosis' tiles organized! - Hyptosis (CC-BY 3.0)
+  - Basic map 32x32 by Silver IV - Ivan Voirol (CC-BY 3.0 / GPL 3.0 / GPL 2.0)
+  - old frogatto tile art - Guido Bos (CC0)
+  - Generic Platformer Tiles - Surt (CC0)
+  - Isometric 64x64 Outside Tileset - Yar (CC-BY 3.0)
+  - Nature tileset - Paulina Riva (PauR) (CC-BY 3.0)
+  - [LPC] Tree Recolors - William.Thompsonj (CC-BY-SA 3.0 / GPL 3.0)
+  - LPC C.Nilsson - Casper Nilsson (CC-BY-SA 3.0 / GPL 3.0)
+  - Trees & Bushes - ansimuz (CC0)
+  - OGA Community Tileset: Nature - qubodup, Bart K., Blarumyrran (GPL 2.0 / GPL 3.0 / CC-BY-SA 3.0)
+  - Whispers of Avalon: Grassland Tileset - Leonard Pabin (CC-BY 3.0)
+  - Team River Fox - Chris Phillips, Barbara Rivera (CC-BY-SA 3.0 / GPL 3.0)
+  - Concept Art for LPC Entry - Barbara Rivera (CC-BY-SA 3.0 / GPL 3.0)
+  - Flowers - SpiderDave (CC0)
+  - [LPC] Leaf Recolor - William.Thompsonj (CC-BY-SA 3.0 / GPL 3.0)
+  - 32x32 (and 16x16) RPG Tiles - Forest and some Interior Tiles - Stephen Challener and the
+    Open Surge team, commissioned by Gaurav Munjal (CC-BY 3.0)
+  - 16x16 Game Assets - George Bailey (CC-BY 4.0)
+  - Tuxemon tileset - Buch (CC-BY-SA 3.0)
+  - Outdoor tiles, again - Buch (CC-BY 2.0)
+  - The Field of the Floating Islands - Buch (CC0)
+  - Orthographic outdoor tiles - Buch (CC0)
+  - OPP2017 - Jungle and temple set - OpenPixelProject.com (CC0)
+  - Shoot'em up graphic kit - Johann Charlot (CC-BY-SA 3.0 / GPL 3.0)
+  - Frozen Lake [LPC] - Buko Studios (CC-BY 3.0)
+
+
+EXTENDED SHEET SOURCES (the rows below 2272 of src/props.png)
+------------------------------------------------------------
+These packs were added to the atlas after the original build, so that the map can place crops,
+buildings, town objects, furniture and dungeon props. Each of the sheets below was matched to the
+repo copy byte-for-byte (SHA-256), so the mapping in props-sources.json is exact.
+
+"LPC Tile Atlas" (terrain_atlas.png, base_out_atlas.png)
+  a 1024x1024 hardware-friendly atlas compiled from the LPC contest entries by adrix89
+  CC-BY-SA 3.0 / GPL 3.0
+  https://opengameart.org/content/lpc-tile-atlas
+  Contains work by (per the pack's Attribution.txt):
+  - Lanea Zimmerman (Sharm) - base assets (barrel, chests, country, dungeon, house, rock, stairs,
+    treetop, trunk, water, waterfall, watergrass, mountains, signs, hole*, dirt*, grass*)
+  - Stephen Challener (Redshrike) - walk/hurt/slash/spellcast character sprites
+  - Charles Sanchez (CharlesGabriel) - monsters (bat, bee, worm, eyeball, ghost, slime, snake...)
+  - Manuel Riecke (MrBeast) - hair, soldier
+  - Daniel Armstrong (HughSpectrum) - castle walls/floors/outside/lightsources
+  - Casper Nilsson - LPC C.Nilsson entry
+  - Daniel Eddeland (Daneeklu) - farming tilesets
+  - Johann Charlot - Shoot'em up graphic kit
+  - Skyler Robert Colladay - FeralFantom's entry
+  (see Attribution.txt in the zip for the full list)
+
+"LPC Tile Atlas2" (build_atlas.png, obj_misk_atlas.png)
+  the continuation atlas by adrix89 - buildings/architecture plus the leftover objects
+  CC-BY-SA 3.0 / GPL 3.0
+  https://opengameart.org/content/lpc-tile-atlas2
+  Contains work by (per the pack's Attribution2.txt):
+  - Barbara Rivera - tree, tombstone
+  - Casper Nilsson - LPC C.Nilsson entry
+  - Chris Phillips - tree
+  - Daniel Eddeland (Daneeklu) - plants, props, food, environments, fences, market objects
+  - Anamaris and Krusmira (Emilio J Sanchez) - Sierra__Steampun-a-fy
+  - Jonas Klinger - Skorpio's SciFi Sprite Pack
+  - Joshua Taylor - Fruit and Veggie Inventory
+  - Leo Villeveygoux - Limestone Wall
+  - Mark Weyer - signpost + shadow
+  - Matthew Nash - Public Toilet Tileset
+  - Skyler Robert Colladay - FeralFantom's entry
+  - plus the LPC base-assets artists listed above (Sharm, Redshrike, CharlesGabriel, MrBeast,
+    HughSpectrum)
+  (see Attribution2.txt in the zip for the full list)
+
+"[LPC] Dungeon Elements" (dungeonex.png)
+  graphic art by Lanea Zimmerman (Sharm), commissioned and uploaded by William.Thompsonj
+  CC-BY 4.0
+  https://opengameart.org/content/lpc-dungeon-elements
+  attribution required: "attribute Sharm as graphic artist, and William.Thompsonj as contributor"
+
+"[LPC] Farming tilesets, magic animations and UI elements" (plants.png, farming_fishing.png,
+fence.png, fence_alt.png, and the terrain-style sheets plowed_soil.png, wheat.png, youngwheat.png,
+tallgrass.png, sand.png, sandwater.png, reed.png, which are used as ground decals)
+  by Daniel Eddeland (Daneeklu)
+  CC-BY-SA 3.0 / GPL 3.0
+  https://opengameart.org/content/lpc-farming-tilesets-magic-animations-and-ui-elements
+  (this pack is also a dependency of "[LPC] Terrains" above, but here its sheets are used directly)
+
+"[LPC] House interior and decorations" (interior.png)
+  by Reemax
+  CC-BY-SA 3.0 / GPL 3.0 / GPL 2.0
+  https://opengameart.org/content/lpc-house-interior-and-decorations
+  (one sprite is used: the grandfather clock)
+
+
+REFERENCE ONLY (downloaded while researching, not shipped)
+----------------------------------------------------------
+"LPC C.Nilsson" - Casper Nilsson (harbour, Victorian house, windmill, gravestones, tent, deer, cow,
+Asian theme). No sprite from this pack was identified in the shipped atlas - the Casper Nilsson
+work that IS shipped reaches us through the two Tile Atlas compilations listed above, which credit
+him directly.
+  CC-BY-SA 3.0 / GPL 3.0
+  https://opengameart.org/content/lpc-cnilsson
+
+"LPC Base Assets" and "[LPC] Terrains" were also used as the source of terrain.png/water autotiles
+(see the TERRAIN section above), so they are credited there rather than here.

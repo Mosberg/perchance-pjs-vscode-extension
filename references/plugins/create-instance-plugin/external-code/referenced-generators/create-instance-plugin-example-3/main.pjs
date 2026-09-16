@@ -1,0 +1,28 @@
+createInstance = {import:create-instance-plugin}
+
+output
+	[c = createInstance(character),""][c.name] is [c.age] years old. [c.pronoun.titleCase] is about [c.height]cm in height. [c.pronoun.titleCase]'s [c.mood].
+
+character
+  age = {18-60}
+  height = {14-20}0
+  gender = {female|male|non-binary}
+  pronoun = {she^[this.gender=="female"]|he^[this.gender=="male"]|they^[this.gender=="non-binary"]}
+  name = [names[this.gender]]   // this uses "dynamic sublist referencing" - explained at perchance.org/examples
+  mood = [mood] 
+
+names
+	male
+		Kalid
+		Bob
+	female
+		Anita
+		Jessica
+  non-binary
+    Randal
+    Murphy
+	
+mood 
+	sleepy
+	happy
+	a bit sad

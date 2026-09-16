@@ -1,0 +1,57 @@
+{
+  "name": "perchance-docs-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Perchance docs-plugin generator - complete asset package (source, dependencies, examples, build tools).",
+  "generator": {
+    "name": "docs-plugin",
+    "url": "https://perchance.org/docs-plugin",
+    "publicId": "b501226e3cd4650ab6d29de25844b3c3",
+    "exported": "2026-09-16"
+  },
+  "entryPoints": {
+    "lists": "01-internal-code/main.pjs",
+    "html": "01-internal-code/index.html"
+  },
+  "importUsage": "docsPlugin = {import:docs-plugin}",
+  "pluginOptions": {
+    "pageCopyButtons": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "dependencies": {
+    "marked": {
+      "bundled": "03-third-party-assets/marked/marked.bundle.min.js",
+      "global": "__docsMarkedBundle",
+      "license": "MIT",
+      "versionNote": "minified; API surface matches marked >= 14.1 (see PROVENANCE.md)"
+    },
+    "highlight.js": {
+      "version": "11.11.1",
+      "license": "BSD-3-Clause",
+      "delivery": "runtime dynamic import() from esm.sh",
+      "urls": {
+        "core": "https://esm.sh/highlight.js@11.11.1/lib/core?target=es2022",
+        "javascript": "https://esm.sh/highlight.js@11.11.1/lib/languages/javascript?target=es2022",
+        "json": "https://esm.sh/highlight.js@11.11.1/lib/languages/json?target=es2022",
+        "xml": "https://esm.sh/highlight.js@11.11.1/lib/languages/xml?target=es2022"
+      }
+    }
+  },
+  "devDependencies": {
+    "esbuild": "any recent version (only needed by tools/rebuild-marked-bundle.mjs)"
+  },
+  "scripts": {
+    "extract": "node tools/extract-marked-bundle.mjs",
+    "rebuild": "node tools/rebuild-marked-bundle.mjs",
+    "verify": "sh tools/verify-checksums.sh"
+  },
+  "files": [
+    "01-internal-code",
+    "02-external-code",
+    "03-third-party-assets",
+    "04-project-resources",
+    "05-build-config"
+  ]
+}

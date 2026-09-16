@@ -1,0 +1,337 @@
+$output(spec) =>
+   // enter yolo mode
+  if(!window.__alreadyAddedLayoutMakerPluginStuff) {
+    window.__alreadyAddedLayoutMakerPluginStuff = true;
+    // if people add id=foo to one of their areas, then they expect to be able to write update(foo) and have that specific area be updated like normal.
+    // but this doesn't work because the area has already been rendered/evaluated - i.e. there are no square/curly blocks to update.
+    // so to fix this, we wrap the update function, detect if the input element to the update function is a layout maker plugin 'area', and if so, "manually" update that area using saved original/unevaluated content.
+    let realUpdateFunction = window.update;
+    window.update = function(...args) {
+      if(args[0] && args[0].dataset && args[0].dataset.isLayoutMakerPluginArea === "yes") {
+        let id = args[0].id;
+        let contentWrapper = args[0];
+        if(contentWrapper.querySelector(`[data-layout-maker-actual-content-wrapper='1']`)) {
+          contentWrapper = contentWrapper.querySelector(`[data-layout-maker-actual-content-wrapper='1']`);
+        }
+        contentWrapper.innerHTML = window.__originalLayoutMakerPluginAreaContentById.get(id).evaluateItem;
+      } else {
+        realUpdateFunction.bind(window)(...args); // must pass on all args exactly as recieved - important to ensure forwards-compatibility with future perchance engine updates
+      }
+    };
+    window.__originalLayoutMakerPluginAreaContentById = new Map();
+  }
+  // exit yolo mode
+
+  let grids = spec.grid.selectAll.map(a => a.selectAll.map(b => b.evaluateItem.trim())) // Gets the Grids
+  let id = spec.container && spec.container.id || 'layout'+Math.random().toString().slice(6);
+  // if (!spec?.id) return 'Please add an `id` on your Layout'
+	let areas = spec.areas || {};
+	let areaNames = [...new Set(grids[0].length > 1 ? grids[0].join(" ").split(/\s+/) : grids.join(" ").split(/\s+/))].filter(n => n !== ".");
+	//let containerCSS = ;
+  
+	let b = spec.debug === "borders";
+	let bg = spec.debug === "colors" || spec.debug === "colours";
+  let layoutStyle = document.createElement('style');
+  layoutStyle.dataset.layout = id;
+  layoutStyle.type = 'text/css'
+  layoutStyle.rel = 'stylesheet'
+  layoutStyle.innerHTML = `
+  // Style for the Default Grid
+  #${spec.container && spec.container.id ? spec.container.id : id} {
+    box-sizing:border-box;
+    display:grid;
+    grid-template-areas:
+      ${grids[0].map(r => `'${r.trim()}'`).join("\n")};
+    ${spec.rowSizes ? `grid-template-rows:${spec.rowSizes};` : ""}
+    ${spec.columnSizes ? `grid-template-columns:${spec.columnSizes};` : ""}
+    // ${spec.container && spec.container.style ? `${spec.container.style}` : ""}
+  }
+  // Creating Media Queries per Layout with Media Query
+  ${grids.map(a => a.filter(b => b.includes(":")).length > 0 ? a : '').filter(a => a).map(b => `@media screen and (${b.shift() || "max-width: 1024px"}) {
+    #${spec.container && spec.container.id ? spec.container.id : id} {
+      grid-template-areas:
+        ${b.map(r => `'${r.trim()}'`).join("\n")};
+    }
+  }
+  `).join('\n')}`.trim();
+  if (!window[`layout${id}`]) {
+    document.body.appendChild(layoutStyle);
+    window[`layout${id}`] = true;
+  }
+  // let styles = [...document.body.querySelectorAll(`style[data-layout^='layout']`)].map(a => a.dataset.layout);
+  // console.log(styles);
+	let html = `
+  // Acutal creation of the Layout
+  <div ${spec.container && spec.container.id ? `id="${spec.container.id}"` : `id=${id}`} style="${spec.container && spec.container.style || ''}">
+		${areaNames.filter(a => !a.includes(':')).map(n => {
+      // console.log(areaNames);
+      let content = "";
+      let id = areas[n] && areas[n].id ? areas[n].id : null;
+      if(areas[n] && areas[n].content) {
+        content = areas[n].content.toString().replace(/([{}\[\]])/g, "\\$1"); // <--need to put escapes back that toString took away
+        if(id) {
+          window.__originalLayoutMakerPluginAreaContentById.set(id, areas[n].content);
+        }
+      }
+      return `<div ${id ? "id='"+id+"'" : ""} data-is-layout-maker-plugin-area="yes" style="box-sizing:border-box; grid-area:${n}; ${areas[n] && areas[n].style || ""}; ${b ? "border:1px dashed grey" : bg ? `background-color:hsl(${360 * Math.random()},${(25 + 70 * Math.random())}%,${(85 + 10 * Math.random())}%);` : ""}"> ${areas[n] && areas[n].centered ? `<div style='display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; height:100%;'><div data-layout-maker-actual-content-wrapper="1">` : ""}${content}${areas[n] && areas[n].centered ? "</div></div>" : ""}</div>`
+    }).join("")}
+	</div>`;
+	return html;
+
+
+md = {import:markdown-plugin}
+c = {import:perchance-callouts}
+
+cText
+  type = tip
+  header = [md(this.header_text)]
+  header_text
+    **Update**: We can now update each area **independently**! Here is [a demo of it](https://perchance.org/w0r9oqb190#edit).
+  data = none
+  style
+    icon
+      style = font-size: 1.25rem;
+    header = align-items:start; border-bottom: none; border-radius: 0.5em; background: var(--callout-color-bg);
+    callout = border: 2px solid var(--callout-color-border);
+
+cWarning
+  type = warning
+  header = [md(this.header_text)]
+  header_text
+    **Note**: Please add an `id` on your layouts.
+  data = [md(this.data_text)]
+  data_text
+    <pre>
+    layout
+      container
+        <span style\="color: lime;">id = mainLayout</span>
+      grid
+        default
+          a a a a b
+          a a a a b
+          c c c c c
+        medium
+        ...
+      ...
+    </pre>
+  style
+    icon
+      style = font-size: 1.25rem;
+    header = align-self:start; border-bottom: none; border-radius: 0.5em; background: var(--callout-color-bg); margin-bottom: 0; padding-bottom: 0;
+    callout = border: 2px solid var(--callout-color-border);
+    content = background: var(--callout-color-bg); 
+
+
+$meta
+  title = Responsive Layout Maker Plugin
+  t
+    # Responsive Layout Maker Plugin
+  description = Create Responsive Layouts!
+ 
+text
+  ## Introduction
+  This plugin is a modification of [`layout-maker-plugin`](/layout-maker-plugin) where you can specify different grid layouts with [screen media queries](https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/). To see them in action, click the `edit` button and resize the preview window.
+  \s
+  <div style\="height: 300px; text-align:center;">[$output(layout0)]</div>
+  \s
+  \s
+  ## Using the Plugin
+  \s
+  It has the same syntax with the `layout-maker-plugin` with just the modifications on the `grid`. Please see the [`layout-maker-plugin` page](/layout-maker-plugin) to see other options and how to customize them. Here is an example:
+  ```
+  layoutMaker = \{import:responsive-layout-maker-plugin\}
+  \s
+  layout
+    container
+      id = mainLayout
+      style = height:100%;
+    grid
+      default
+        a a a a b
+        a a a a b
+        c c c c c
+      medium
+        max-width: 1200px
+        a b c
+        a b c
+        a b c
+      mobile
+        max-width: 420px
+        a a a
+        b b b
+        c c c
+    areas
+      a
+        style = background-color:lightblue;
+        content = a
+      b
+        style = background-color:orange;
+        content = b
+      c
+        style = background-color:pink;
+        content = c
+  ```
+  Then on the HTML panel on the bottom right:
+  ```
+  \[layoutMaker(layout)\]
+  ```
+  \s
+
+text2
+  ## Layouts
+  If you don't specify a media query, the layout will default to the first layout created e.g:
+  ```
+  layout
+    grid
+      default ◄──── Will resolve to this only
+        a a a a b
+        a a a a b
+        c c c c c
+      medium  ◄──┬─ These will not apply
+        a b c    │
+        a b c    │
+        a b c    │
+      mobile  ◄──┘
+        a a a
+        b b b
+        c c c
+    ...
+  ```
+  To create a single layout like the `layout-maker-plugin` you need to create a dummy item and add the layout inside of it like so:
+  ```
+  layout
+    grid
+      default
+        a a a a b
+        a a a a b
+        c c c c c
+    ...
+  \s
+  or
+  \s
+  layout
+    grid
+      *
+        a a a a b
+        a a a a b
+        c c c c c
+    ...
+  \s
+  NOT
+  \s
+  layout 
+    grid 👎
+      a a a a b
+      a a a a b
+      c c c c c
+    ...
+  ```
+  If you are going to use a `max-width` media query, you need to place them from **largest to smallest**, where the default layout is at the top e.g.:
+  ```
+  layout
+    grid
+      default
+        a a a a b
+        a a a a b
+        c c c c c
+      medium
+        max-width: 1200px
+        a b c
+        a b c
+        a b c
+      mobile
+        max-width: 420px
+        a a a
+        b b b
+        c c c
+    ...
+  ```
+  If using `min-width` media query, you need to place them from **smallest to largest**, while the default layout at the top e.g.:
+  ```
+  layout
+    grid
+      default
+        a a a a b
+        a a a a b
+        c c c c c
+      mobile
+        min-width: 420px
+        a a a
+        b b b
+        c c c
+      medium
+        min-width: 1200px
+        a b c
+        a b c
+        a b c
+    ...
+  ```
+  ## Media Queries
+  You should place the media queries **on the first row before the layout** like so:
+  ```
+  *
+    max-width: 1200px 👍
+    a b c
+    a b c
+    a b c
+  *
+    a b c
+    a b c
+    a b c
+    max-width: 1200px 👎
+  *
+    a b c
+    max-width: 1200px 👎
+    a b c
+    a b c
+
+  ```
+  Currently the syntax for media queries is the following:
+  ```
+  @media screen ( your-specified-query ) \{ ... \}
+  i.e.
+  @media screen ( max-width: 700px ) \{ ... \}
+  ```
+  ## Notes
+  * Here is an [example generator with multiple breakpoints](/responsive-layout-maker-example).
+  * We can now update each area **independently**! Here is [a demo of it](https://perchance.org/w0r9oqb190#edit).
+  * Here is the [plugin page for the `layout-maker-plugin`](/layout-maker-plugin) to see the other options for the layout maker.
+  * If you want to code something like this but not want to use the plugin, see the [`grid-template-areas` CSS Property for Grid Layouts](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) for the reference and this [Tutorial for Responsive Grid](https://www.youtube.com/watch?v=68O6eOGAGqA).
+  * This is made by [Vionet20](/vionet20-gens), if you found any bugs/suggestions for it, please comment on my Gen Hub.
+  * Check out more plugins at [perchance.org/plugins](/plugins)
+
+
+layout0
+  container
+    id = mainLayout
+		style = height:100%;
+  grid
+    default
+      a a a a b
+      a a a a b
+      c c c c c
+    medium
+      max-width: 1200px
+      a b c
+      a b c
+      a b c
+    mobile
+      max-width: 420px
+      a a a
+      b b b
+      c c c
+	areas
+		a
+			style = background-color:lightblue;
+      content = a
+		b
+			style = background-color:orange;
+      content = b
+		c
+			style = background-color:pink;
+      content = c
+
+
+	
+			
+			

@@ -1,0 +1,94 @@
+{
+  "entry": [
+    "main.pjs",
+    "index.html"
+  ],
+  "direct_imports": [
+    "{import:t2i-framework-plugin-v2}",
+    "{import:t2i-styles}",
+    "{import:huge-emoji-list}",
+    "{import:animal}"
+  ],
+  "imported_generators": [
+    {
+      "name": "upload-plugin",
+      "source_url": "https://perchance.org/upload-plugin#edit",
+      "bundled_file": "02-external-code/imports/upload-plugin/main.pjs"
+    },
+    {
+      "name": "text-to-image-plugin",
+      "source_url": "https://perchance.org/text-to-image-plugin#edit",
+      "bundled_file": "02-external-code/imports/text-to-image-plugin/main.pjs"
+    },
+    {
+      "name": "tabbed-comments-plugin-v1",
+      "source_url": "https://perchance.org/tabbed-comments-plugin-v1#edit",
+      "bundled_file": "02-external-code/imports/tabbed-comments-plugin-v1/main.pjs"
+    },
+    {
+      "name": "t2i-styles",
+      "source_url": "https://perchance.org/t2i-styles#edit",
+      "bundled_file": "02-external-code/imports/t2i-styles/main.pjs"
+    },
+    {
+      "name": "t2i-framework-plugin-v2",
+      "source_url": "https://perchance.org/t2i-framework-plugin-v2#edit",
+      "bundled_file": "02-external-code/imports/t2i-framework-plugin-v2/main.pjs"
+    },
+    {
+      "name": "super-fetch-plugin",
+      "source_url": "https://perchance.org/super-fetch-plugin#edit",
+      "bundled_file": "02-external-code/imports/super-fetch-plugin/main.pjs"
+    },
+    {
+      "name": "simple-gen-footer",
+      "source_url": "https://perchance.org/simple-gen-footer#edit",
+      "bundled_file": "02-external-code/imports/simple-gen-footer/main.pjs"
+    },
+    {
+      "name": "select-leaf-plugin",
+      "source_url": "https://perchance.org/select-leaf-plugin#edit",
+      "bundled_file": "02-external-code/imports/select-leaf-plugin/main.pjs"
+    },
+    {
+      "name": "prompt2-plugin",
+      "source_url": "https://perchance.org/prompt2-plugin#edit",
+      "bundled_file": "02-external-code/imports/prompt2-plugin/main.pjs"
+    },
+    {
+      "name": "kv-plugin",
+      "source_url": "https://perchance.org/kv-plugin#edit",
+      "bundled_file": "02-external-code/imports/kv-plugin/main.pjs"
+    },
+    {
+      "name": "huge-emoji-list",
+      "source_url": "https://perchance.org/huge-emoji-list#edit",
+      "bundled_file": "02-external-code/imports/huge-emoji-list/main.pjs"
+    },
+    {
+      "name": "fullscreen-button-plugin",
+      "source_url": "https://perchance.org/fullscreen-button-plugin#edit",
+      "bundled_file": "02-external-code/imports/fullscreen-button-plugin/main.pjs"
+    },
+    {
+      "name": "create-media-gallery-plugin",
+      "source_url": "https://perchance.org/create-media-gallery-plugin#edit",
+      "bundled_file": "02-external-code/imports/create-media-gallery-plugin/main.pjs"
+    },
+    {
+      "name": "comments-plugin",
+      "source_url": "https://perchance.org/comments-plugin#edit",
+      "bundled_file": "02-external-code/imports/comments-plugin/main.pjs"
+    },
+    {
+      "name": "animal",
+      "source_url": "https://perchance.org/animal#edit",
+      "bundled_file": "02-external-code/imports/animal/main.pjs"
+    },
+    {
+      "name": "ai-text-plugin",
+      "source_url": "https://perchance.org/ai-text-plugin#edit",
+      "bundled_file": "02-external-code/imports/ai-text-plugin/main.pjs"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<script>
+  // CAUTION: (Note to self) Do not make backwards-incompatible changes to this, since forks of /ai-character-chat will rely on it.
+  // This is used in /ai-character-chat to prevent character Perchance syntax code (e.g. in image prompt prefix/suffix) from messing with the page. This is important to prevent e.g. data exfiltration, since characters can be shared via a link, so can't trust character code.
+  window.addEventListener('message', (e) => {
+    if(e.origin.endsWith(".perchance.org")) {
+      let text = e.data.text;
+      try { text = text.evaluateItem; } catch(e) { console.error("Error while evaluating text in /ai-character-chat-sandboxed-executor iframe", e); }
+      e.source.postMessage({requestId:e.data.requestId, text}, e.origin);
+    }
+  });
+  setTimeout(() => {
+    window.parent.postMessage({finishedLoading:true}, "*");
+  }, 10);
+</script>
