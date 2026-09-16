@@ -1,0 +1,23 @@
+animal = {import:animal}
+
+googleSheets = {import:google-sheets-plugin}
+
+// make sure you add a backslash before the equals signs in your URLs, as shown here:
+sheetsSettings
+  urls
+    https://docs.google.com/spreadsheets/d/e/2PACX-1vSrOdsc_b_N-k9bs0wzeSudRW2_GwLAvhwtikqL5VlFyU0WE6JKIj1hmnDeEWzzJ5UpDdmZiXVOm2mx/pub?gid\=0&single\=true&output\=tsv
+  onLoad() =>
+    update(outputEl)
+    
+fruit
+  <b>loading...</b>
+  
+veg
+  <b>loading...</b>
+
+output
+  The [animal] is eating the [veg].
+  The [animal] is eating the [fruit].
+  
+
+number = {1-10000}

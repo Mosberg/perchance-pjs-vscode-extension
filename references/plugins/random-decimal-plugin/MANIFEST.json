@@ -1,0 +1,45 @@
+{
+  "generator": {
+    "name": "random-decimal-plugin",
+    "publicId": "496486540df6c859a1113d0f06292e9e",
+    "url": "https://perchance.org/random-decimal-plugin"
+  },
+  "exportedAt": "2026-09-16T17:26:44.105Z",
+  "categories": {
+    "internalCode": [
+      "project/main.pjs",
+      "project/index.html"
+    ],
+    "externalCodeAndDependencies": [],
+    "thirdPartyAssets": [],
+    "projectResources": [
+      "project/main.pjs",
+      "project/index.html",
+      "referenced/random-decimal-plugin-example/main.pjs",
+      "referenced/random-decimal-plugin-example/index.html"
+    ],
+    "buildAndConfigFiles": []
+  },
+  "files": [
+    {
+      "path": "project/main.pjs",
+      "bytes": 276,
+      "sha256": "a642205c34be2cab544fd31f63e149fa83fe4d6b03e8729c863973ac0a418414"
+    },
+    {
+      "path": "project/index.html",
+      "bytes": 4343,
+      "sha256": "bb1314ffa96234bdc872b37dcfa9972fac4b7f9e33c628474387e20c159b5be9"
+    },
+    {
+      "path": "referenced/random-decimal-plugin-example/main.pjs",
+      "bytes": 196,
+      "sha256": "d4f557f14581518b0ce0a39374f5a4c862804acbc8b7681bd3b88072d332b276"
+    },
+    {
+      "path": "referenced/random-decimal-plugin-example/index.html",
+      "bytes": 100,
+      "sha256": "bdafc4f326f8fb866ea914cc8f7160f3f5f8bbcd38aca7b65f8d80eb03f59d34"
+    }
+  ]
+}

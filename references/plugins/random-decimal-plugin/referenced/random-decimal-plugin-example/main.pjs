@@ -1,0 +1,7 @@
+randomDecimal = {import:random-decimal-plugin}
+
+output
+  Between the numbers [n = neg.selectOne] and [p = pos.selectOne], there is the number [randomDecimal(n, p)].
+  
+neg = -{10-20}
+pos = {10-20}

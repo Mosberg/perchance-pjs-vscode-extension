@@ -1,0 +1,154 @@
+commentsPlugin = {import:comments-plugin}
+secret = {import:secret-plugin}
+
+// Generate your own public key with this interface:
+//   https://perchance.org/public-key-encryption-tool
+// And then replace everything after the equals sign below with your own public key (which should start with "PUBLIC_" and end with "_PUBLIC_END" like the one below).
+publicKey = PUBLIC_1_SBCoPrBVqWrC2yePtSDD5LyAj1dPtUFQcVFWPUovNSEVXqkRXPG0MWCSCdciEkOZSQoOlnPoZPYBW4ZP6lDrAJeWTx2pXEdu8A6m8hnmJJkqUSblNKxyjtOsOsSFWLDR5llebmRZZjcZZXMIjCnK7qjSv3BdO0iuXE7mrhJREnlo6ueoZZtjGPfWVljcyx8sd3ZP4qZPOTaAHKxjhgMcAQadztIzs2KZZ43QWAUywEclU3ZSxrOvRXe3MNZPlNlquVJYChan7Y2hSQwS2FZPEAyqatTCtvDDLFVfcQZZJ2jahMGEy66F36tx36ftNeHTLFsyJG1lHvWUioGsQSISj1cLNKnyrYRmrXHJw8VVEkEoXu2uWykuZPmCSrjrSZSpfmOKzcd2zhBFlcVAyxWvhlh8DsqkGvKiviFBUinsNmFmDQ7diMNFop81jk8gRCD1VxAvsCvJNCfBzZZSsMcBHUdub5oid1xHyXlen6hzqZZaduxd3v0YT8BpOsYm9VVc5RUPHpkh8gmVEIpFFThk3WnUFU1NFJihjkZSYMx7R4OVcstYuWe1s2heeVFaReilSkLymZZcVeMdOYrNuke8DKodlpttWjNqsyti3d6MxKHVIhpr1NaLRh3ikczpCVoDEwifZZYTrlizfSo73WCZPm1AmcENDX8oZPTNy5EMldnjmR0ySde2AhJfZZ5SgkBD4l0j4ZZ1lia1VWdu29JcsdW4yoMTbEJP4HYZZSMY0wha8mcMgbuQ7OflYJyUYyfFys8u4ZZigulkscZSJyUIGecD9MkZSEapY0DIlpizkYkDxkjM6WDLEltbXJOfK2kEuCGP4JEZS9AEjrKYlnwxGarqevZPdMf6ZZjkmQViuZZ5SfR1UmMpVvlscYXPYbw62aYJ9GRY7qgZZAZSo30UYH2NFWMpzCoDU2p8Fb0ZPvAnKBKtZSsBSKOp9PV1RbxqfQR05HIj8ZSml24yuAENbnXpZPUIKZZW9jBxNNLLoglK4LFzkhIaZZQHqFCiq9mA7tSyN8mgY0BPOERehvOzPKpRxPoaOwF52Ai8WZZgWBfRPJ6mHtUqQoJzD0EBZZqLkOredMMhgLoUYaaycsGFInHhXLZZbsXXIpAmuWVzFCH8QkiYdEa69oZZJFsTkeUvPaRFXEoLZZqxKPmkV7di6siG2d4sYzuRFMZSpRwVjA0Blh9aNPZZmMjLdsuhvxhfoIeRWqCDRIjpsCnlzMU3ZZVVM9tGzZZLMavvLF3QWAfSHSyKJkgzIPprDV9BjtiemLxJjrZSBq3TMHEwYRvJsPT0aZSuwnC8iA1L7UoIkSRRqlgRFQvaMqFZSws9nGzAAAiZSzKDLZPiaZPjyIqGMOEZSMlxv9WkZPNAjyZPSmPflrqPMDcPBCZZxWubvddwAVsV0uD2JKkZZoeJOGdIzgW0ZPVBZZ6mMnbmQGVyes78LEW9BbSxV5o2hxbKopyZPS41ZZpH8vEeKLxtgTF1EDI4ipiTn7QCRFwBfKhGpYKhQbyd4MMsTqOPbWAZZ0WqKZPUCYmpA0QHBBxgWii5eaJhmZSGKIq91YTA4fFIRfBwhUqk8tXrUQSwBmlJyRi3YEpFfFOTul8CB1mxpcjsTrVmgQ9ZSEOFO3aoHJ2rU7bNzosZE_PUBLIC_END
+// Keep your private key safe, and back it up somewhere.
+// To decrypt the messages people send you, input your private key in the box next to the "decrypt comments" button, and then click that button.
+
+// IMPORTANT!!!: Don't store your private key in this code editor, since, on Perchance, other people can read your code (like how you're reading my code right now)
+
+// If you want, you can 'manually' decrypt the messages people send you by copying their 'garbled' comment, and visiting:
+//   https://perchance.org/public-key-encryption-tool
+// And select the decrypt mode, and input the garbled comment, along with your private key, and click 'decrypt'.
+// Important: Make sure you copy their *whole* garbled comment! Missing even a single character will cause the decryption to fail.
+
+options // see perchance.org/comments-plugin for an explanation of the beforeSubmit, onLoad, and onComment options
+  width = min(100vw, 400px)  
+  height = 300px
+  beforeSubmit() => // When the user clicks submit, this `beforeSubmit` function gets called. And if this function returns some text (like this example does), then that text will be submitted in place of what the user actually wrote.
+    // Right before the comment is submitted, we encrypt it with the above public key:
+    let inputText = com.inputText; // <-- get the current text from the comments input text box
+    let submitText;
+    try {
+      submitText = secret.encrypt(inputText, publicKey); // encrypt it
+    } catch(e) {
+      alert(`Encryption failed: ${e.message}`);
+      return null; // <-- IMPORANT cancel send on error (e.g. due to invalid public key)
+    }
+    
+    if(messageTypeSelect.value === "public") {
+      let theyDefinitelyWantPublic = confirm(`⚠️ You've chosen to send a 𝗽𝘂𝗯𝗹𝗶𝗰 message. Everyone who visits this page be able to read it. Are you sure?`);
+      if(theyDefinitelyWantPublic) {
+        submitText = inputText; // set to original input text
+      } else {
+        return null; // cancel send
+      }
+    }
+    
+    return submitText; // replace the input text with the encrypted text just before it is submitted
+  onLoad(comments) => // When the page loads, it gives us the initial list of comments 
+    window.allComments = comments;
+  onComment(comment) => // Every time someone adds a new comment, this function will get called with the data of that comment
+    window.allComments.push(comment);
+    if(window.decryptedCommentsIframe) addCommentToIframeFeed(comment);
+      
+// Notice in the HTML code we have:
+//   com = commentsPlugin(commentOptions)
+// This allows us to write `com.inputText` in the above code to get the current input text that the user has typed.
+
+
+
+async decryptCommentsInit() =>
+  if(!localStorage.privateKey) return alert("If you're the owner of this generator, enter the private key associated with the public one that you embedded in this generator's code. It will be used to decrypt the above comments.");
+  
+  if(!localStorage.knowsPrivateKeyIsRemembered) {
+    alert("Note that your private key is remembered in this text box even after you refresh/close this page. You must manually delete it from the text box to clear it. If you're using a shared computer, then should should make sure to delete your private key from the text box after you've finished reading the comments.");
+    localStorage.knowsPrivateKeyIsRemembered = "1";
+  }
+  
+  // IMPORTANT: Since this page stores a privateKey in localStorage, we add an extra layer of security by rendering all decrypted comments within an iframe. This ensures that even if there is an accidental script injection vulnerability, the private key cannot be 'exfiltrated', since the malicious code will effectively be sandboxed by the iframe barrier.
+  window.decryptedCommentsIframe = document.createElement("iframe");
+  window.decryptedCommentsIframe.style.cssText = "width:100%; height:100%; border:none; display:block;"
+  let origin = `https://${window.generatorPublicId}.perchance.org`;
+  let pageLoadedId = Math.random().toString(); // the iframe will send this code back to us to indicate that it has finished loading during the initial iframe creation/load
+  
+  // WARNING: BE EXTREMELY CAREFUL IF YOU'RE EDITING THIS CODE.
+  // A MISTAKE COULD ALLOW PEOPLE TO STEAL YOUR PRIVATE KEY VIA A 'SCRIPT INJECTION' ATTACK.
+  // The quick explanation is that if someone sends a message with some HTML embedded, and you haven't properly considered that, then they could run JavaSscript within the iframe, which would allow them to capture all the decrypted comments and e.g. send them to their own remote server.
+  // Basically, you should only touch the code below if you're very confident with JavaScript.
+  // And make sure you avoid using `el.innerHTML=...` within this iframe code, since it allows for script injection if not handled carefully. Use `el.textContent=...` instead, since script injection is not possible with that.
+  window.decryptedCommentsIframe.srcdoc = `
+    <script>
+      window.addEventListener("message", function(e) {
+        if(e.source === window.parent && e.origin === "${origin}") {
+          let comment = e.data.comment;
+          
+          let bubble = document.createElement("div");
+          bubble.style.cssText = "padding:0.25rem; margin:0.25rem; background:light-dark(#d8d8d8, #282828); color:light-dark(black, #e1e1e1); overflow-y:auto; white-space:pre-wrap;";
+          if(comment.decryptionError) bubble.style.color = "red";
+          
+          let userIdEl = document.createElement("span");
+          userIdEl.style.cssText = "font-weight:bold;";
+          userIdEl.textContent = (comment.decrypted ? "🔓" : "📢") + comment.user.visualId.toUpperCase();
+          userIdEl.onclick = function() { prompt('user id:', comment.user.id); };
+          bubble.append(userIdEl);
+          
+          if(comment.user.nickname) {
+            let nicknameEl = document.createElement("span");
+            nicknameEl.textContent = "(" + (comment.user.nickname || "").slice(0, 30) + "): ";
+            bubble.append(nicknameEl);
+          }
+          
+          let messageEl = document.createElement("span");
+          messageEl.textContent = ": "+comment.message;
+          bubble.append(messageEl);
+          
+          // we check what the scroll position was before adding the comment to know whether the user was close to the end of the comments
+          let scrollDistanceTotal = document.body.scrollHeight - document.body.clientHeight;
+          let scrollDistanceFromBottomBeforeAddingComment = scrollDistanceTotal - document.body.scrollTop;
+
+          document.body.append(bubble); // adds the bubble to the end/bottom of the document.body
+
+          // scroll to the bottom after we've added the comment, but only if scrollbar was already near the bottom (otherwise it's annoying because people can't scroll up to read earlier comments - they keep getting auto-scrolled down whenever someone adds a comment):
+          if(scrollDistanceFromBottomBeforeAddingComment < 40) { // 40px
+            document.documentElement.scrollTop = document.documentElement.scrollHeight;
+          }
+        }
+      });
+      window.parent.postMessage({ pageLoaded: "${pageLoadedId}" }, "${origin}");
+    <\/script>
+    <style> html { color-scheme:light dark; font-family:sans-serif; } </style>
+  `;
+  
+  // Add the iframe to the page and wait for it to load:
+  let iframeLoadResolver;
+  let iframeLoadProimse = new Promise(r => iframeLoadResolver=r);
+  window.addEventListener("message", function(e) {
+    if(e.source === window.decryptedCommentsIframe.contentWindow) {
+      if(e.data.pageLoaded === pageLoadedId) iframeLoadResolver();
+    }
+  });
+  decryptedCommentsCtn.innerHTML = "";
+  decryptedCommentsCtn.append(window.decryptedCommentsIframe);
+  decryptedCommentsCtn.hidden = false;
+  commentsCtn.style.opacity = "0.6";
+  
+  await iframeLoadProimse; // wait for iframe to load
+  while(!window.allComments) await new Promise(r => setTimeout(r, 500)); // wait for initial comments to load
+  
+  // Now that the iframe has loaded, decrypt the comments and send them to the iframe:
+  for(let comment of window.allComments) {
+    addCommentToIframeFeed(comment);
+  }
+  
+  setTimeout(() => {
+    decryptedCommentsCtn.scrollIntoView({behavior:"smooth"});
+  }, 100);
+  
+  
+addCommentToIframeFeed(comment) =>
+  let commentCopy = JSON.parse(JSON.stringify(comment)); // create a copy rather than editing/decrypting the original
+  try {
+    if(/^ENCRYPTED_[0-9]+_.+_ENCRYPTED_END/.test(commentCopy.message)) {
+      commentCopy.message = secret.decrypt(commentCopy.message, localStorage.privateKey);
+      commentCopy.decrypted = true;
+    }
+  } catch(error) {
+    // if it fails (e.g. due to incorrect private key), show the error message as the message content instead of the actual decrypted message
+    commentCopy.message = "ERROR: "+error.toString().replace(/\bct size\b/, "private key").replace("decapsulation", "private").replace("OperationError", "The private key is valid, but it's the wrong one.");
+    commentCopy.decryptionError = true;
+  }
+  window.decryptedCommentsIframe.contentWindow.postMessage({comment:commentCopy}, "*");

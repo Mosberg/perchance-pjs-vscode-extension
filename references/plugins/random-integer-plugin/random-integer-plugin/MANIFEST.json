@@ -1,0 +1,121 @@
+{
+  "package": "random-integer-plugin",
+  "generatorName": "random-integer-plugin",
+  "publicUrl": "https://perchance.org/random-integer-plugin",
+  "editorUrl": "https://perchance.org/random-integer-plugin#edit",
+  "generatedAt": "2026-09-16T17:25:03.672Z",
+  "runtime": "Perchance (perchance.org) — hosted generator, no local build step",
+  "categories": {
+    "internal-code": [
+      "main.pjs",
+      "index.html"
+    ],
+    "external-code": [
+      "perchance-engine-491bf81418aa4b69.js"
+    ],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-config": []
+  },
+  "files": [
+    {
+      "path": "internal-code/main.pjs",
+      "category": "internal-code",
+      "bytes": 301,
+      "sha256": "3867cf580bd0d261e35c47e5aa696318587b5c7ebd4638c03e02749ee2f5a094",
+      "role": "Perchance DSL source: defines the plugin's $output(from,to) function and the demo lists (small, big).",
+      "source": "authored in this generator"
+    },
+    {
+      "path": "internal-code/index.html",
+      "category": "internal-code",
+      "bytes": 3268,
+      "sha256": "aac1a8d0ee1df5aeed1c0aceca58d5e0ac87298100d04459e0b297bef4ecb287",
+      "role": "Generator body HTML: documentation/landing content for the plugin, two live examples, and page styles.",
+      "source": "authored in this generator"
+    },
+    {
+      "path": "external-code/perchance-engine-491bf81418aa4b69.js",
+      "category": "external-code",
+      "bytes": 115369,
+      "sha256": "491bf81418aa4b691be009ce503200880cba472d287541db1950c4b02cc221ad",
+      "role": "The Perchance template engine that parses main.pjs + index.html, implements the list API, and provides the built-in update() helper used by the example buttons.",
+      "source": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js"
+    },
+    {
+      "path": "third-party-assets/NOTE.md",
+      "category": "third-party-assets",
+      "bytes": null,
+      "sha256": null,
+      "role": "Documents that the project uses no third-party assets.",
+      "source": "n/a"
+    },
+    {
+      "path": "project-resources/NOTE.md",
+      "category": "project-resources",
+      "bytes": null,
+      "sha256": null,
+      "role": "Documents that the project ships no binary/data resources.",
+      "source": "n/a"
+    },
+    {
+      "path": "build-config/NOTE.md",
+      "category": "build-config",
+      "bytes": null,
+      "sha256": null,
+      "role": "Documents that there is no build/config pipeline.",
+      "source": "n/a"
+    },
+    {
+      "path": "CATALOG.md",
+      "category": "docs",
+      "bytes": null,
+      "sha256": null,
+      "role": "Full source of every file, organized by category.",
+      "source": "generated"
+    },
+    {
+      "path": "README.md",
+      "category": "docs",
+      "bytes": null,
+      "sha256": null,
+      "role": "Package overview, dependency map, rebuild + verify instructions.",
+      "source": "generated"
+    },
+    {
+      "path": "MANIFEST.json",
+      "category": "docs",
+      "bytes": null,
+      "sha256": null,
+      "role": "Machine-readable inventory with byte sizes and SHA-256 checksums.",
+      "source": "generated"
+    }
+  ],
+  "runtimeNetworkDependencies": [
+    {
+      "url": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js",
+      "kind": "script",
+      "note": "Perchance template engine (platform)."
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "kind": "script",
+      "note": "Cloudflare Web Analytics beacon injected by the hosting platform (not project code)."
+    },
+    {
+      "url": "https://perchance.org/api/clearCacheIfGeneratorOrImportsHaveBeenUpdated",
+      "kind": "xhr",
+      "note": "Platform cache-control endpoint; importedGeneratorNames= (empty) because the generator imports nothing."
+    },
+    {
+      "url": "https://perchance.org/api/securityData",
+      "kind": "xhr",
+      "note": "Platform API."
+    }
+  ],
+  "notes": [
+    "The generator declares zero {import:...} dependencies, so there is no imports/ tree and nothing to vendor.",
+    "No images, audio, video, fonts, models, shaders, JSON data, or prefabs are referenced or generated anywhere in the project.",
+    "Perchance generators are hosted and rendered server/edge-side; there is no bundler, compiler, package.json, or CI configuration in this project."
+  ]
+}

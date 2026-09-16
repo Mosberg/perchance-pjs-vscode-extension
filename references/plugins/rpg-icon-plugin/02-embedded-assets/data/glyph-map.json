@@ -1,0 +1,1982 @@
+{
+  "fontFamily": "RPGAwesome",
+  "ruleCount": 494,
+  "glyphs": [
+    {
+      "name": "acid",
+      "glyph": "U+E900"
+    },
+    {
+      "name": "zigzag-leaf",
+      "glyph": "U+EAEE"
+    },
+    {
+      "name": "archer",
+      "glyph": "U+E90D"
+    },
+    {
+      "name": "archery-target",
+      "glyph": "U+E90E"
+    },
+    {
+      "name": "arena",
+      "glyph": "U+E90F"
+    },
+    {
+      "name": "aries",
+      "glyph": "U+E910"
+    },
+    {
+      "name": "arrow-cluster",
+      "glyph": "U+E911"
+    },
+    {
+      "name": "arrow-flights",
+      "glyph": "U+E912"
+    },
+    {
+      "name": "arson",
+      "glyph": "U+E913"
+    },
+    {
+      "name": "aura",
+      "glyph": "U+E914"
+    },
+    {
+      "name": "aware",
+      "glyph": "U+E915"
+    },
+    {
+      "name": "axe",
+      "glyph": "U+E917"
+    },
+    {
+      "name": "axe-swing",
+      "glyph": "U+E916"
+    },
+    {
+      "name": "ball",
+      "glyph": "U+E918"
+    },
+    {
+      "name": "barbed-arrow",
+      "glyph": "U+E919"
+    },
+    {
+      "name": "barrier",
+      "glyph": "U+E91A"
+    },
+    {
+      "name": "bat-sword",
+      "glyph": "U+E91B"
+    },
+    {
+      "name": "battered-axe",
+      "glyph": "U+E91C"
+    },
+    {
+      "name": "batteries",
+      "glyph": "U+E91D"
+    },
+    {
+      "name": "battery-0",
+      "glyph": "U+E91E"
+    },
+    {
+      "name": "battery-25",
+      "glyph": "U+E91F"
+    },
+    {
+      "name": "battery-50",
+      "glyph": "U+E920"
+    },
+    {
+      "name": "battery-75",
+      "glyph": "U+E921"
+    },
+    {
+      "name": "battery-100",
+      "glyph": "U+E922"
+    },
+    {
+      "name": "battery-black",
+      "glyph": "U+E923"
+    },
+    {
+      "name": "battery-negative",
+      "glyph": "U+E924"
+    },
+    {
+      "name": "battery-positive",
+      "glyph": "U+E925"
+    },
+    {
+      "name": "battery-white",
+      "glyph": "U+E926"
+    },
+    {
+      "name": "batwings",
+      "glyph": "U+E927"
+    },
+    {
+      "name": "beam-wake",
+      "glyph": "U+E928"
+    },
+    {
+      "name": "bear-trap",
+      "glyph": "U+E929"
+    },
+    {
+      "name": "beer",
+      "glyph": "U+E92A"
+    },
+    {
+      "name": "beetle",
+      "glyph": "U+E92B"
+    },
+    {
+      "name": "bell",
+      "glyph": "U+E92C"
+    },
+    {
+      "name": "biohazard",
+      "glyph": "U+E92D"
+    },
+    {
+      "name": "bird-claw",
+      "glyph": "U+E92E"
+    },
+    {
+      "name": "bird-mask",
+      "glyph": "U+E92F"
+    },
+    {
+      "name": "blade-bite",
+      "glyph": "U+E930"
+    },
+    {
+      "name": "blast",
+      "glyph": "U+E931"
+    },
+    {
+      "name": "blaster",
+      "glyph": "U+E932"
+    },
+    {
+      "name": "bleeding-eye",
+      "glyph": "U+E933"
+    },
+    {
+      "name": "bleeding-hearts",
+      "glyph": "U+E934"
+    },
+    {
+      "name": "bolt-shield",
+      "glyph": "U+E935"
+    },
+    {
+      "name": "bomb-explosion",
+      "glyph": "U+E936"
+    },
+    {
+      "name": "bombs",
+      "glyph": "U+E937"
+    },
+    {
+      "name": "bone-bite",
+      "glyph": "U+E938"
+    },
+    {
+      "name": "bone-knife",
+      "glyph": "U+E939"
+    },
+    {
+      "name": "book",
+      "glyph": "U+E93A"
+    },
+    {
+      "name": "boomerang",
+      "glyph": "U+E93B"
+    },
+    {
+      "name": "boot-stomp",
+      "glyph": "U+E93C"
+    },
+    {
+      "name": "bottle-vapors",
+      "glyph": "U+E93D"
+    },
+    {
+      "name": "bottled-bolt",
+      "glyph": "U+E93E"
+    },
+    {
+      "name": "bottom-right",
+      "glyph": "U+E93F"
+    },
+    {
+      "name": "bowie-knife",
+      "glyph": "U+E940"
+    },
+    {
+      "name": "bowling-pin",
+      "glyph": "U+E941"
+    },
+    {
+      "name": "brain-freeze",
+      "glyph": "U+E942"
+    },
+    {
+      "name": "brandy-bottle",
+      "glyph": "U+E943"
+    },
+    {
+      "name": "bridge",
+      "glyph": "U+E944"
+    },
+    {
+      "name": "broadhead-arrow",
+      "glyph": "U+E945"
+    },
+    {
+      "name": "sword",
+      "glyph": "U+E946"
+    },
+    {
+      "name": "broken-bone",
+      "glyph": "U+E947"
+    },
+    {
+      "name": "broken-heart",
+      "glyph": "U+E948"
+    },
+    {
+      "name": "broken-shield",
+      "glyph": "U+E94A"
+    },
+    {
+      "name": "broken-skull",
+      "glyph": "U+E94B"
+    },
+    {
+      "name": "bubbling-potion",
+      "glyph": "U+E94C"
+    },
+    {
+      "name": "bullets",
+      "glyph": "U+E94D"
+    },
+    {
+      "name": "burning-book",
+      "glyph": "U+E94E"
+    },
+    {
+      "name": "burning-embers",
+      "glyph": "U+E94F"
+    },
+    {
+      "name": "burning-eye",
+      "glyph": "U+E950"
+    },
+    {
+      "name": "burning-meteor",
+      "glyph": "U+E951"
+    },
+    {
+      "name": "burst-blob",
+      "glyph": "U+E952"
+    },
+    {
+      "name": "butterfly",
+      "glyph": "U+E953"
+    },
+    {
+      "name": "campfire",
+      "glyph": "U+E954"
+    },
+    {
+      "name": "cancel",
+      "glyph": "U+E955"
+    },
+    {
+      "name": "cancer",
+      "glyph": "U+E956"
+    },
+    {
+      "name": "candle",
+      "glyph": "U+E958"
+    },
+    {
+      "name": "candle-fire",
+      "glyph": "U+E957"
+    },
+    {
+      "name": "cannon-shot",
+      "glyph": "U+E959"
+    },
+    {
+      "name": "capitol",
+      "glyph": "U+E95A"
+    },
+    {
+      "name": "capricorn",
+      "glyph": "U+E95B"
+    },
+    {
+      "name": "carrot",
+      "glyph": "U+E95C"
+    },
+    {
+      "name": "castle-emblem",
+      "glyph": "U+E95D"
+    },
+    {
+      "name": "castle-flag",
+      "glyph": "U+E95E"
+    },
+    {
+      "name": "cat",
+      "glyph": "U+E95F"
+    },
+    {
+      "name": "chain",
+      "glyph": "U+E960"
+    },
+    {
+      "name": "cheese",
+      "glyph": "U+E961"
+    },
+    {
+      "name": "chemical-arrow",
+      "glyph": "U+E962"
+    },
+    {
+      "name": "chessboard",
+      "glyph": "U+E963"
+    },
+    {
+      "name": "chicken-leg",
+      "glyph": "U+E964"
+    },
+    {
+      "name": "circle-of-circles",
+      "glyph": "U+E965"
+    },
+    {
+      "name": "circular-saw",
+      "glyph": "U+E966"
+    },
+    {
+      "name": "circular-shield",
+      "glyph": "U+E967"
+    },
+    {
+      "name": "cloak-and-dagger",
+      "glyph": "U+E968"
+    },
+    {
+      "name": "clockwork",
+      "glyph": "U+E969"
+    },
+    {
+      "name": "clover",
+      "glyph": "U+E96A"
+    },
+    {
+      "name": "clovers",
+      "glyph": "U+E96C"
+    },
+    {
+      "name": "clovers-card",
+      "glyph": "U+E96B"
+    },
+    {
+      "name": "cluster-bomb",
+      "glyph": "U+E96D"
+    },
+    {
+      "name": "coffee-mug",
+      "glyph": "U+E96E"
+    },
+    {
+      "name": "cog",
+      "glyph": "U+E970"
+    },
+    {
+      "name": "cog-wheel",
+      "glyph": "U+E96F"
+    },
+    {
+      "name": "cold-heart",
+      "glyph": "U+E971"
+    },
+    {
+      "name": "compass",
+      "glyph": "U+E972"
+    },
+    {
+      "name": "corked-tube",
+      "glyph": "U+E973"
+    },
+    {
+      "name": "crab-claw",
+      "glyph": "U+E974"
+    },
+    {
+      "name": "cracked-helm",
+      "glyph": "U+E975"
+    },
+    {
+      "name": "cracked-shield",
+      "glyph": "U+E976"
+    },
+    {
+      "name": "croc-sword",
+      "glyph": "U+E977"
+    },
+    {
+      "name": "crossbow",
+      "glyph": "U+E978"
+    },
+    {
+      "name": "crossed-axes",
+      "glyph": "U+E979"
+    },
+    {
+      "name": "crossed-bones",
+      "glyph": "U+E97A"
+    },
+    {
+      "name": "crossed-pistols",
+      "glyph": "U+E97B"
+    },
+    {
+      "name": "crossed-sabres",
+      "glyph": "U+E97C"
+    },
+    {
+      "name": "crossed-swords",
+      "glyph": "U+E97D"
+    },
+    {
+      "name": "crown",
+      "glyph": "U+E97F"
+    },
+    {
+      "name": "crown-of-thorns",
+      "glyph": "U+E97E"
+    },
+    {
+      "name": "crowned-heart",
+      "glyph": "U+E980"
+    },
+    {
+      "name": "crush",
+      "glyph": "U+E981"
+    },
+    {
+      "name": "crystal-ball",
+      "glyph": "U+E982"
+    },
+    {
+      "name": "crystal-cluster",
+      "glyph": "U+E983"
+    },
+    {
+      "name": "crystal-wand",
+      "glyph": "U+E984"
+    },
+    {
+      "name": "crystals",
+      "glyph": "U+E985"
+    },
+    {
+      "name": "cubes",
+      "glyph": "U+E986"
+    },
+    {
+      "name": "cut-palm",
+      "glyph": "U+E987"
+    },
+    {
+      "name": "cycle",
+      "glyph": "U+E988"
+    },
+    {
+      "name": "daggers",
+      "glyph": "U+E989"
+    },
+    {
+      "name": "daisy",
+      "glyph": "U+E98A"
+    },
+    {
+      "name": "dead-tree",
+      "glyph": "U+E98B"
+    },
+    {
+      "name": "death-skull",
+      "glyph": "U+E98C"
+    },
+    {
+      "name": "decapitation",
+      "glyph": "U+E98D"
+    },
+    {
+      "name": "defibrilate",
+      "glyph": "U+E98E"
+    },
+    {
+      "name": "demolish",
+      "glyph": "U+E98F"
+    },
+    {
+      "name": "dervish-swords",
+      "glyph": "U+E990"
+    },
+    {
+      "name": "desert-skull",
+      "glyph": "U+E991"
+    },
+    {
+      "name": "diamond",
+      "glyph": "U+E992"
+    },
+    {
+      "name": "diamonds",
+      "glyph": "U+E994"
+    },
+    {
+      "name": "diamonds-card",
+      "glyph": "U+E993"
+    },
+    {
+      "name": "dice-five",
+      "glyph": "U+E995"
+    },
+    {
+      "name": "dice-four",
+      "glyph": "U+E996"
+    },
+    {
+      "name": "dice-one",
+      "glyph": "U+E997"
+    },
+    {
+      "name": "dice-six",
+      "glyph": "U+E998"
+    },
+    {
+      "name": "dice-three",
+      "glyph": "U+E999"
+    },
+    {
+      "name": "dice-two",
+      "glyph": "U+E99A"
+    },
+    {
+      "name": "dinosaur",
+      "glyph": "U+E99B"
+    },
+    {
+      "name": "divert",
+      "glyph": "U+E99C"
+    },
+    {
+      "name": "diving-dagger",
+      "glyph": "U+E99D"
+    },
+    {
+      "name": "double-team",
+      "glyph": "U+E99E"
+    },
+    {
+      "name": "doubled",
+      "glyph": "U+E99F"
+    },
+    {
+      "name": "dragon",
+      "glyph": "U+E9A2"
+    },
+    {
+      "name": "dragon-breath",
+      "glyph": "U+E9A0"
+    },
+    {
+      "name": "dragon-wing",
+      "glyph": "U+E9A1"
+    },
+    {
+      "name": "dragonfly",
+      "glyph": "U+E9A3"
+    },
+    {
+      "name": "drill",
+      "glyph": "U+E9A4"
+    },
+    {
+      "name": "dripping-blade",
+      "glyph": "U+E9A5"
+    },
+    {
+      "name": "dripping-knife",
+      "glyph": "U+E9A6"
+    },
+    {
+      "name": "dripping-sword",
+      "glyph": "U+E9A7"
+    },
+    {
+      "name": "droplet",
+      "glyph": "U+E9A9"
+    },
+    {
+      "name": "droplet-splash",
+      "glyph": "U+E9A8"
+    },
+    {
+      "name": "droplets",
+      "glyph": "U+E9AA"
+    },
+    {
+      "name": "duel",
+      "glyph": "U+E9AB"
+    },
+    {
+      "name": "egg",
+      "glyph": "U+E9AD"
+    },
+    {
+      "name": "egg-pod",
+      "glyph": "U+E9AC"
+    },
+    {
+      "name": "eggplant",
+      "glyph": "U+E9AE"
+    },
+    {
+      "name": "emerald",
+      "glyph": "U+E9AF"
+    },
+    {
+      "name": "energise",
+      "glyph": "U+E9B0"
+    },
+    {
+      "name": "explosion",
+      "glyph": "U+E9B1"
+    },
+    {
+      "name": "explosive-materials",
+      "glyph": "U+E9B2"
+    },
+    {
+      "name": "eye-monster",
+      "glyph": "U+E9B3"
+    },
+    {
+      "name": "eye-shield",
+      "glyph": "U+E9B4"
+    },
+    {
+      "name": "eyeball",
+      "glyph": "U+E9B5"
+    },
+    {
+      "name": "fairy",
+      "glyph": "U+E9B7"
+    },
+    {
+      "name": "fairy-wand",
+      "glyph": "U+E9B6"
+    },
+    {
+      "name": "fall-down",
+      "glyph": "U+E9B8"
+    },
+    {
+      "name": "falling",
+      "glyph": "U+E9B9"
+    },
+    {
+      "name": "fast-ship",
+      "glyph": "U+E9BA"
+    },
+    {
+      "name": "feather-wing",
+      "glyph": "U+E9BB"
+    },
+    {
+      "name": "feathered-wing",
+      "glyph": "U+E9BC"
+    },
+    {
+      "name": "fedora",
+      "glyph": "U+E9BD"
+    },
+    {
+      "name": "fire",
+      "glyph": "U+E9C3"
+    },
+    {
+      "name": "fire-bomb",
+      "glyph": "U+E9BE"
+    },
+    {
+      "name": "fire-breath",
+      "glyph": "U+E9BF"
+    },
+    {
+      "name": "fire-ring",
+      "glyph": "U+E9C0"
+    },
+    {
+      "name": "fire-shield",
+      "glyph": "U+E9C1"
+    },
+    {
+      "name": "fire-symbol",
+      "glyph": "U+E9C2"
+    },
+    {
+      "name": "fireball-sword",
+      "glyph": "U+E9C4"
+    },
+    {
+      "name": "fish",
+      "glyph": "U+E9C5"
+    },
+    {
+      "name": "fizzing-flask",
+      "glyph": "U+E9C6"
+    },
+    {
+      "name": "flame-symbol",
+      "glyph": "U+E9C7"
+    },
+    {
+      "name": "flaming-arrow",
+      "glyph": "U+E9C8"
+    },
+    {
+      "name": "flaming-claw",
+      "glyph": "U+E9C9"
+    },
+    {
+      "name": "flaming-trident",
+      "glyph": "U+E9CA"
+    },
+    {
+      "name": "flask",
+      "glyph": "U+E9CB"
+    },
+    {
+      "name": "flat-hammer",
+      "glyph": "U+E9CC"
+    },
+    {
+      "name": "flower",
+      "glyph": "U+E9CD"
+    },
+    {
+      "name": "flowers",
+      "glyph": "U+E9CE"
+    },
+    {
+      "name": "fluffy-swirl",
+      "glyph": "U+E9CF"
+    },
+    {
+      "name": "focused-lightning",
+      "glyph": "U+E9D0"
+    },
+    {
+      "name": "food-chain",
+      "glyph": "U+E9D1"
+    },
+    {
+      "name": "footprint",
+      "glyph": "U+E9D2"
+    },
+    {
+      "name": "forging",
+      "glyph": "U+E9D3"
+    },
+    {
+      "name": "forward",
+      "glyph": "U+E9D4"
+    },
+    {
+      "name": "fox",
+      "glyph": "U+E9D5"
+    },
+    {
+      "name": "frost-emblem",
+      "glyph": "U+E9D6"
+    },
+    {
+      "name": "frostfire",
+      "glyph": "U+E9D7"
+    },
+    {
+      "name": "frozen-arrow",
+      "glyph": "U+E9D8"
+    },
+    {
+      "name": "gamepad-cross",
+      "glyph": "U+E9D9"
+    },
+    {
+      "name": "gavel",
+      "glyph": "U+E9DA"
+    },
+    {
+      "name": "gear-hammer",
+      "glyph": "U+E9DB"
+    },
+    {
+      "name": "gear-heart",
+      "glyph": "U+E9DC"
+    },
+    {
+      "name": "gears",
+      "glyph": "U+E9DD"
+    },
+    {
+      "name": "gecko",
+      "glyph": "U+E9DE"
+    },
+    {
+      "name": "gem",
+      "glyph": "U+E9E0"
+    },
+    {
+      "name": "gem-pendant",
+      "glyph": "U+E9DF"
+    },
+    {
+      "name": "gemini",
+      "glyph": "U+E9E1"
+    },
+    {
+      "name": "glass-heart",
+      "glyph": "U+E9E2"
+    },
+    {
+      "name": "gloop",
+      "glyph": "U+E9E3"
+    },
+    {
+      "name": "gold-bar",
+      "glyph": "U+E9E4"
+    },
+    {
+      "name": "grappling-hook",
+      "glyph": "U+E9E5"
+    },
+    {
+      "name": "grass",
+      "glyph": "U+E9E7"
+    },
+    {
+      "name": "grass-patch",
+      "glyph": "U+E9E6"
+    },
+    {
+      "name": "grenade",
+      "glyph": "U+E9E8"
+    },
+    {
+      "name": "groundbreaker",
+      "glyph": "U+E9E9"
+    },
+    {
+      "name": "guarded-tower",
+      "glyph": "U+E9EA"
+    },
+    {
+      "name": "guillotine",
+      "glyph": "U+E9EB"
+    },
+    {
+      "name": "halberd",
+      "glyph": "U+E9EC"
+    },
+    {
+      "name": "hammer",
+      "glyph": "U+E9EE"
+    },
+    {
+      "name": "hammer-drop",
+      "glyph": "U+E9ED"
+    },
+    {
+      "name": "hand",
+      "glyph": "U+E9F1"
+    },
+    {
+      "name": "hand-emblem",
+      "glyph": "U+E9EF"
+    },
+    {
+      "name": "hand-saw",
+      "glyph": "U+E9F0"
+    },
+    {
+      "name": "harpoon-trident",
+      "glyph": "U+E9F2"
+    },
+    {
+      "name": "health",
+      "glyph": "U+E9F5"
+    },
+    {
+      "name": "health-decrease",
+      "glyph": "U+E9F3"
+    },
+    {
+      "name": "health-increase",
+      "glyph": "U+E9F4"
+    },
+    {
+      "name": "heart-bottle",
+      "glyph": "U+E9F6"
+    },
+    {
+      "name": "heart-tower",
+      "glyph": "U+E9F7"
+    },
+    {
+      "name": "heartburn",
+      "glyph": "U+E9F8"
+    },
+    {
+      "name": "hearts",
+      "glyph": "U+E9FA"
+    },
+    {
+      "name": "hearts-card",
+      "glyph": "U+E9F9"
+    },
+    {
+      "name": "heat-haze",
+      "glyph": "U+E9FB"
+    },
+    {
+      "name": "heavy-fall",
+      "glyph": "U+E9FC"
+    },
+    {
+      "name": "heavy-shield",
+      "glyph": "U+E9FD"
+    },
+    {
+      "name": "helmet",
+      "glyph": "U+E9FE"
+    },
+    {
+      "name": "help",
+      "glyph": "U+E9FF"
+    },
+    {
+      "name": "hive-emblem",
+      "glyph": "U+EA00"
+    },
+    {
+      "name": "hole-ladder",
+      "glyph": "U+EA01"
+    },
+    {
+      "name": "honeycomb",
+      "glyph": "U+EA02"
+    },
+    {
+      "name": "hood",
+      "glyph": "U+EA03"
+    },
+    {
+      "name": "horn-call",
+      "glyph": "U+EA04"
+    },
+    {
+      "name": "horns",
+      "glyph": "U+EA05"
+    },
+    {
+      "name": "horseshoe",
+      "glyph": "U+EA06"
+    },
+    {
+      "name": "hospital-cross",
+      "glyph": "U+EA07"
+    },
+    {
+      "name": "hot-surface",
+      "glyph": "U+EA08"
+    },
+    {
+      "name": "hourglass",
+      "glyph": "U+EA09"
+    },
+    {
+      "name": "hydra",
+      "glyph": "U+EA0B"
+    },
+    {
+      "name": "hydra-shot",
+      "glyph": "U+EA0A"
+    },
+    {
+      "name": "ice-cube",
+      "glyph": "U+EA0C"
+    },
+    {
+      "name": "implosion",
+      "glyph": "U+EA0D"
+    },
+    {
+      "name": "incense",
+      "glyph": "U+EA0E"
+    },
+    {
+      "name": "insect-jaws",
+      "glyph": "U+EA0F"
+    },
+    {
+      "name": "interdiction",
+      "glyph": "U+EA10"
+    },
+    {
+      "name": "jetpack",
+      "glyph": "U+EA11"
+    },
+    {
+      "name": "jigsaw-piece",
+      "glyph": "U+EA12"
+    },
+    {
+      "name": "kaleidoscope",
+      "glyph": "U+EA13"
+    },
+    {
+      "name": "kettlebell",
+      "glyph": "U+EA14"
+    },
+    {
+      "name": "key",
+      "glyph": "U+EA16"
+    },
+    {
+      "name": "key-basic",
+      "glyph": "U+EA15"
+    },
+    {
+      "name": "kitchen-knives",
+      "glyph": "U+EA17"
+    },
+    {
+      "name": "knife",
+      "glyph": "U+EA19"
+    },
+    {
+      "name": "knife-fork",
+      "glyph": "U+EA18"
+    },
+    {
+      "name": "knight-helmet",
+      "glyph": "U+EA1A"
+    },
+    {
+      "name": "kunai",
+      "glyph": "U+EA1B"
+    },
+    {
+      "name": "lantern-flame",
+      "glyph": "U+EA1C"
+    },
+    {
+      "name": "large-hammer",
+      "glyph": "U+EA1D"
+    },
+    {
+      "name": "laser-blast",
+      "glyph": "U+EA1E"
+    },
+    {
+      "name": "laser-site",
+      "glyph": "U+EA1F"
+    },
+    {
+      "name": "lava",
+      "glyph": "U+EA20"
+    },
+    {
+      "name": "leaf",
+      "glyph": "U+EA21"
+    },
+    {
+      "name": "leo",
+      "glyph": "U+EA22"
+    },
+    {
+      "name": "level-four",
+      "glyph": "U+EA24"
+    },
+    {
+      "name": "level-four-advanced",
+      "glyph": "U+EA23"
+    },
+    {
+      "name": "level-three",
+      "glyph": "U+EA26"
+    },
+    {
+      "name": "level-three-advanced",
+      "glyph": "U+EA25"
+    },
+    {
+      "name": "level-two",
+      "glyph": "U+EA28"
+    },
+    {
+      "name": "level-two-advanced",
+      "glyph": "U+EA27"
+    },
+    {
+      "name": "lever",
+      "glyph": "U+EA29"
+    },
+    {
+      "name": "libra",
+      "glyph": "U+EA2A"
+    },
+    {
+      "name": "light-bulb",
+      "glyph": "U+EA2B"
+    },
+    {
+      "name": "lighthouse",
+      "glyph": "U+EA2C"
+    },
+    {
+      "name": "lightning",
+      "glyph": "U+EA31"
+    },
+    {
+      "name": "lightning-bolt",
+      "glyph": "U+EA2D"
+    },
+    {
+      "name": "lightning-storm",
+      "glyph": "U+EA2E"
+    },
+    {
+      "name": "lightning-sword",
+      "glyph": "U+EA2F"
+    },
+    {
+      "name": "lightning-trio",
+      "glyph": "U+EA30"
+    },
+    {
+      "name": "lion",
+      "glyph": "U+EA32"
+    },
+    {
+      "name": "lit-candelabra",
+      "glyph": "U+EA33"
+    },
+    {
+      "name": "load",
+      "glyph": "U+EA34"
+    },
+    {
+      "name": "locked-fortress",
+      "glyph": "U+EA35"
+    },
+    {
+      "name": "love-howl",
+      "glyph": "U+EA36"
+    },
+    {
+      "name": "maggot",
+      "glyph": "U+EA37"
+    },
+    {
+      "name": "magnet",
+      "glyph": "U+EA38"
+    },
+    {
+      "name": "mass-driver",
+      "glyph": "U+EA39"
+    },
+    {
+      "name": "match",
+      "glyph": "U+EA3A"
+    },
+    {
+      "name": "meat",
+      "glyph": "U+EA3C"
+    },
+    {
+      "name": "meat-hook",
+      "glyph": "U+EA3B"
+    },
+    {
+      "name": "medical-pack",
+      "glyph": "U+EA3D"
+    },
+    {
+      "name": "metal-gate",
+      "glyph": "U+EA3E"
+    },
+    {
+      "name": "microphone",
+      "glyph": "U+EA3F"
+    },
+    {
+      "name": "mine-wagon",
+      "glyph": "U+EA40"
+    },
+    {
+      "name": "mining-diamonds",
+      "glyph": "U+EA41"
+    },
+    {
+      "name": "mirror",
+      "glyph": "U+EA42"
+    },
+    {
+      "name": "monster-skull",
+      "glyph": "U+EA43"
+    },
+    {
+      "name": "mountains",
+      "glyph": "U+EA44"
+    },
+    {
+      "name": "moon-sun",
+      "glyph": "U+EA45"
+    },
+    {
+      "name": "mp5",
+      "glyph": "U+EA46"
+    },
+    {
+      "name": "muscle-fat",
+      "glyph": "U+EA47"
+    },
+    {
+      "name": "muscle-up",
+      "glyph": "U+EA48"
+    },
+    {
+      "name": "musket",
+      "glyph": "U+EA49"
+    },
+    {
+      "name": "nails",
+      "glyph": "U+EA4A"
+    },
+    {
+      "name": "nodular",
+      "glyph": "U+EA4B"
+    },
+    {
+      "name": "noose",
+      "glyph": "U+EA4C"
+    },
+    {
+      "name": "nuclear",
+      "glyph": "U+EA4D"
+    },
+    {
+      "name": "ocarina",
+      "glyph": "U+EA4E"
+    },
+    {
+      "name": "ocean-emblem",
+      "glyph": "U+EA4F"
+    },
+    {
+      "name": "octopus",
+      "glyph": "U+EA50"
+    },
+    {
+      "name": "omega",
+      "glyph": "U+EA51"
+    },
+    {
+      "name": "on-target",
+      "glyph": "U+EA52"
+    },
+    {
+      "name": "ophiuchus",
+      "glyph": "U+EA53"
+    },
+    {
+      "name": "overhead",
+      "glyph": "U+EA54"
+    },
+    {
+      "name": "overmind",
+      "glyph": "U+EA55"
+    },
+    {
+      "name": "palm-tree",
+      "glyph": "U+EA56"
+    },
+    {
+      "name": "pawn",
+      "glyph": "U+EA57"
+    },
+    {
+      "name": "pawprint",
+      "glyph": "U+EA58"
+    },
+    {
+      "name": "perspective-dice-five",
+      "glyph": "U+EA59"
+    },
+    {
+      "name": "perspective-dice-four",
+      "glyph": "U+EA5A"
+    },
+    {
+      "name": "perspective-dice-one",
+      "glyph": "U+EA5B"
+    },
+    {
+      "name": "perspective-dice-random",
+      "glyph": "U+EA5C"
+    },
+    {
+      "name": "perspective-dice-six",
+      "glyph": "U+EA5E"
+    },
+    {
+      "name": "perspective-dice-two",
+      "glyph": "U+EA5D"
+    },
+    {
+      "name": "perspective-dice-three",
+      "glyph": "U+EA5F"
+    },
+    {
+      "name": "pill",
+      "glyph": "U+EA60"
+    },
+    {
+      "name": "pills",
+      "glyph": "U+EA61"
+    },
+    {
+      "name": "pine-tree",
+      "glyph": "U+EA62"
+    },
+    {
+      "name": "ping-pong",
+      "glyph": "U+EA63"
+    },
+    {
+      "name": "pisces",
+      "glyph": "U+EA64"
+    },
+    {
+      "name": "plain-dagger",
+      "glyph": "U+EA65"
+    },
+    {
+      "name": "player",
+      "glyph": "U+EA6F"
+    },
+    {
+      "name": "player-despair",
+      "glyph": "U+EA66"
+    },
+    {
+      "name": "player-dodge",
+      "glyph": "U+EA67"
+    },
+    {
+      "name": "player-king",
+      "glyph": "U+EA68"
+    },
+    {
+      "name": "player-lift",
+      "glyph": "U+EA69"
+    },
+    {
+      "name": "player-pain",
+      "glyph": "U+EA6A"
+    },
+    {
+      "name": "player-pyromaniac",
+      "glyph": "U+EA6B"
+    },
+    {
+      "name": "player-shot",
+      "glyph": "U+EA6C"
+    },
+    {
+      "name": "player-teleport",
+      "glyph": "U+EA6D"
+    },
+    {
+      "name": "player-thunder-struck",
+      "glyph": "U+EA6E"
+    },
+    {
+      "name": "podium",
+      "glyph": "U+EA70"
+    },
+    {
+      "name": "poison-cloud",
+      "glyph": "U+EA71"
+    },
+    {
+      "name": "potion",
+      "glyph": "U+EA72"
+    },
+    {
+      "name": "pyramids",
+      "glyph": "U+EA73"
+    },
+    {
+      "name": "queen-crown",
+      "glyph": "U+EA74"
+    },
+    {
+      "name": "quill-ink",
+      "glyph": "U+EA75"
+    },
+    {
+      "name": "rabbit",
+      "glyph": "U+EA76"
+    },
+    {
+      "name": "radar-dish",
+      "glyph": "U+EA77"
+    },
+    {
+      "name": "radial-balance",
+      "glyph": "U+EA78"
+    },
+    {
+      "name": "radioactive",
+      "glyph": "U+EA79"
+    },
+    {
+      "name": "raven",
+      "glyph": "U+EA7A"
+    },
+    {
+      "name": "reactor",
+      "glyph": "U+EA7B"
+    },
+    {
+      "name": "recycle",
+      "glyph": "U+EA7C"
+    },
+    {
+      "name": "regeneration",
+      "glyph": "U+EA7D"
+    },
+    {
+      "name": "relic-blade",
+      "glyph": "U+EA7E"
+    },
+    {
+      "name": "repair",
+      "glyph": "U+EA7F"
+    },
+    {
+      "name": "reverse",
+      "glyph": "U+EA80"
+    },
+    {
+      "name": "revolver",
+      "glyph": "U+EA81"
+    },
+    {
+      "name": "rifle",
+      "glyph": "U+EA82"
+    },
+    {
+      "name": "ringing-bell",
+      "glyph": "U+EA83"
+    },
+    {
+      "name": "roast-chicken",
+      "glyph": "U+EA84"
+    },
+    {
+      "name": "robot-arm",
+      "glyph": "U+EA85"
+    },
+    {
+      "name": "round-bottom-flask",
+      "glyph": "U+EA86"
+    },
+    {
+      "name": "round-shield",
+      "glyph": "U+EA87"
+    },
+    {
+      "name": "rss",
+      "glyph": "U+EA88"
+    },
+    {
+      "name": "rune-stone",
+      "glyph": "U+EA89"
+    },
+    {
+      "name": "sagittarius",
+      "glyph": "U+EA8A"
+    },
+    {
+      "name": "sapphire",
+      "glyph": "U+EA8B"
+    },
+    {
+      "name": "sattelite",
+      "glyph": "U+EA8C"
+    },
+    {
+      "name": "save",
+      "glyph": "U+EA8D"
+    },
+    {
+      "name": "scorpio",
+      "glyph": "U+EA8E"
+    },
+    {
+      "name": "scroll-unfurled",
+      "glyph": "U+EA8F"
+    },
+    {
+      "name": "scythe",
+      "glyph": "U+EA90"
+    },
+    {
+      "name": "sea-serpent",
+      "glyph": "U+EA91"
+    },
+    {
+      "name": "seagull",
+      "glyph": "U+EA92"
+    },
+    {
+      "name": "shark",
+      "glyph": "U+EA93"
+    },
+    {
+      "name": "sheep",
+      "glyph": "U+EA94"
+    },
+    {
+      "name": "sherif",
+      "glyph": "U+EA95"
+    },
+    {
+      "name": "shield",
+      "glyph": "U+EA96"
+    },
+    {
+      "name": "ship-emblem",
+      "glyph": "U+EA97"
+    },
+    {
+      "name": "shoe-prints",
+      "glyph": "U+EA98"
+    },
+    {
+      "name": "shot-through-the-heart",
+      "glyph": "U+EA99"
+    },
+    {
+      "name": "shotgun-shell",
+      "glyph": "U+EA9A"
+    },
+    {
+      "name": "shovel",
+      "glyph": "U+EA9B"
+    },
+    {
+      "name": "shuriken",
+      "glyph": "U+EA9C"
+    },
+    {
+      "name": "sickle",
+      "glyph": "U+EA9D"
+    },
+    {
+      "name": "sideswipe",
+      "glyph": "U+EA9E"
+    },
+    {
+      "name": "site",
+      "glyph": "U+EA9F"
+    },
+    {
+      "name": "skull",
+      "glyph": "U+EAA1"
+    },
+    {
+      "name": "skull-trophy",
+      "glyph": "U+EAA0"
+    },
+    {
+      "name": "slash-ring",
+      "glyph": "U+EAA2"
+    },
+    {
+      "name": "small-fire",
+      "glyph": "U+EAA3"
+    },
+    {
+      "name": "snail",
+      "glyph": "U+EAA4"
+    },
+    {
+      "name": "snake",
+      "glyph": "U+EAA5"
+    },
+    {
+      "name": "snorkel",
+      "glyph": "U+EAA6"
+    },
+    {
+      "name": "snowflake",
+      "glyph": "U+EAA7"
+    },
+    {
+      "name": "soccer-ball",
+      "glyph": "U+EAA8"
+    },
+    {
+      "name": "spades",
+      "glyph": "U+EAAA"
+    },
+    {
+      "name": "spades-card",
+      "glyph": "U+EAA9"
+    },
+    {
+      "name": "spawn-node",
+      "glyph": "U+EAAB"
+    },
+    {
+      "name": "spear-head",
+      "glyph": "U+EAAC"
+    },
+    {
+      "name": "speech-bubble",
+      "glyph": "U+EAAD"
+    },
+    {
+      "name": "speech-bubbles",
+      "glyph": "U+EAAE"
+    },
+    {
+      "name": "spider-face",
+      "glyph": "U+EAAF"
+    },
+    {
+      "name": "spikeball",
+      "glyph": "U+EAB0"
+    },
+    {
+      "name": "spiked-mace",
+      "glyph": "U+EAB1"
+    },
+    {
+      "name": "spiked-tentacle",
+      "glyph": "U+EAB2"
+    },
+    {
+      "name": "spinning-sword",
+      "glyph": "U+EAB3"
+    },
+    {
+      "name": "spiral-shell",
+      "glyph": "U+EAB4"
+    },
+    {
+      "name": "splash",
+      "glyph": "U+EAB5"
+    },
+    {
+      "name": "spray-can",
+      "glyph": "U+EAB6"
+    },
+    {
+      "name": "sprout",
+      "glyph": "U+EAB8"
+    },
+    {
+      "name": "sprout-emblem",
+      "glyph": "U+EAB7"
+    },
+    {
+      "name": "stopwatch",
+      "glyph": "U+EAB9"
+    },
+    {
+      "name": "suckered-tentacle",
+      "glyph": "U+EABA"
+    },
+    {
+      "name": "suits",
+      "glyph": "U+EABB"
+    },
+    {
+      "name": "sun",
+      "glyph": "U+EABD"
+    },
+    {
+      "name": "sun-symbol",
+      "glyph": "U+EABC"
+    },
+    {
+      "name": "sunbeams",
+      "glyph": "U+EABE"
+    },
+    {
+      "name": "super-mushroom",
+      "glyph": "U+EABF"
+    },
+    {
+      "name": "supersonic-arrow",
+      "glyph": "U+EAC0"
+    },
+    {
+      "name": "surveillance-camera",
+      "glyph": "U+EAC1"
+    },
+    {
+      "name": "syringe",
+      "glyph": "U+EAC2"
+    },
+    {
+      "name": "target-arrows",
+      "glyph": "U+EAC3"
+    },
+    {
+      "name": "target-laser",
+      "glyph": "U+EAC4"
+    },
+    {
+      "name": "targeted",
+      "glyph": "U+EAC5"
+    },
+    {
+      "name": "taurus",
+      "glyph": "U+EAC6"
+    },
+    {
+      "name": "telescope",
+      "glyph": "U+EAC7"
+    },
+    {
+      "name": "tentacle",
+      "glyph": "U+EAC8"
+    },
+    {
+      "name": "tesla",
+      "glyph": "U+EAC9"
+    },
+    {
+      "name": "thorn-arrow",
+      "glyph": "U+EACA"
+    },
+    {
+      "name": "thorny-vine",
+      "glyph": "U+EACB"
+    },
+    {
+      "name": "three-keys",
+      "glyph": "U+EACC"
+    },
+    {
+      "name": "tic-tac-toe",
+      "glyph": "U+EACD"
+    },
+    {
+      "name": "toast",
+      "glyph": "U+EACE"
+    },
+    {
+      "name": "tombstone",
+      "glyph": "U+EACF"
+    },
+    {
+      "name": "tooth",
+      "glyph": "U+EAD0"
+    },
+    {
+      "name": "torch",
+      "glyph": "U+EAD1"
+    },
+    {
+      "name": "tower",
+      "glyph": "U+EAD2"
+    },
+    {
+      "name": "trail",
+      "glyph": "U+EAD3"
+    },
+    {
+      "name": "trefoil-lily",
+      "glyph": "U+EAD4"
+    },
+    {
+      "name": "trident",
+      "glyph": "U+EAD5"
+    },
+    {
+      "name": "triforce",
+      "glyph": "U+EAD6"
+    },
+    {
+      "name": "trophy",
+      "glyph": "U+EAD7"
+    },
+    {
+      "name": "turd",
+      "glyph": "U+EAD8"
+    },
+    {
+      "name": "two-dragons",
+      "glyph": "U+EAD9"
+    },
+    {
+      "name": "two-hearts",
+      "glyph": "U+EADA"
+    },
+    {
+      "name": "uncertainty",
+      "glyph": "U+EADB"
+    },
+    {
+      "name": "underhand",
+      "glyph": "U+EADC"
+    },
+    {
+      "name": "unplugged",
+      "glyph": "U+EADD"
+    },
+    {
+      "name": "vase",
+      "glyph": "U+EADE"
+    },
+    {
+      "name": "venomous-snake",
+      "glyph": "U+EADF"
+    },
+    {
+      "name": "vest",
+      "glyph": "U+EAE0"
+    },
+    {
+      "name": "vial",
+      "glyph": "U+EAE1"
+    },
+    {
+      "name": "vine-whip",
+      "glyph": "U+EAE2"
+    },
+    {
+      "name": "virgo",
+      "glyph": "U+EAE3"
+    },
+    {
+      "name": "water-drop",
+      "glyph": "U+EAE4"
+    },
+    {
+      "name": "wifi",
+      "glyph": "U+EAE5"
+    },
+    {
+      "name": "wireless-signal",
+      "glyph": "U+EAE6"
+    },
+    {
+      "name": "wolf-head",
+      "glyph": "U+EAE7"
+    },
+    {
+      "name": "wolf-howl",
+      "glyph": "U+EAE8"
+    },
+    {
+      "name": "wooden-sign",
+      "glyph": "U+EAE9"
+    },
+    {
+      "name": "wrench",
+      "glyph": "U+EAEA"
+    },
+    {
+      "name": "wyvern",
+      "glyph": "U+EAEB"
+    },
+    {
+      "name": "x-mark",
+      "glyph": "U+EAEC"
+    },
+    {
+      "name": "zebra-shield",
+      "glyph": "U+EAED"
+    },
+    {
+      "name": "arcane-mask",
+      "glyph": "U+E90C"
+    },
+    {
+      "name": "aquarius",
+      "glyph": "U+E90B"
+    },
+    {
+      "name": "apple",
+      "glyph": "U+E90A"
+    },
+    {
+      "name": "anvil",
+      "glyph": "U+E909"
+    },
+    {
+      "name": "ankh",
+      "glyph": "U+E908"
+    },
+    {
+      "name": "angel-wings",
+      "glyph": "U+E907"
+    },
+    {
+      "name": "anchor",
+      "glyph": "U+E906"
+    },
+    {
+      "name": "ammo-bag",
+      "glyph": "U+E905"
+    },
+    {
+      "name": "alligator-clip",
+      "glyph": "U+E904"
+    },
+    {
+      "name": "all-for-one",
+      "glyph": "U+E903"
+    },
+    {
+      "name": "alien-fire",
+      "glyph": "U+E902"
+    },
+    {
+      "name": "acorn",
+      "glyph": "U+E901"
+    }
+  ]
+}

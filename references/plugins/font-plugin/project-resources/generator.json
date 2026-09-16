@@ -1,0 +1,34 @@
+{
+  "name": "font-plugin",
+  "publicId": "b212a2819eff514df5b08368616b74a3",
+  "publicUrl": "https://perchance.org/font-plugin",
+  "runtimeUrl": "https://<generatorPublicId>.perchance.org/font-plugin",
+  "type": "perchance plugin (importable generator)",
+  "importLine": "font = {import:font-plugin}",
+  "imports": [],
+  "entryPoint": {
+    "symbol": "$output",
+    "signature": "(list, font, size, color)",
+    "returns": "HTML string, or empty string when writing directly to an element/body"
+  },
+  "internalHelpers": [
+    {
+      "symbol": "addFontToPage",
+      "signature": "(font)",
+      "effect": "injects <link rel=stylesheet href=fonts.googleapis.com/css?family=...> once per font, tracking added fonts in window._89743593_fontsAlreadyAdded"
+    }
+  ],
+  "externalUrls": [
+    "https://fonts.googleapis.com/css?family=<Font+Name>",
+    "https://fonts.gstatic.com/ (woff2 payloads referenced by the CSS above)",
+    "https://perchance.org/custom-font-importer (linked in the docs)",
+    "https://perchance.org/plugins (linked in the docs)"
+  ],
+  "exampleGenerators": [
+    "https://perchance.org/font-plugin-example",
+    "https://perchance.org/font-plugin-example-2",
+    "https://perchance.org/font-plugin-example-3"
+  ],
+  "$meta": null,
+  "extractedAt": "2026-09-16T17:34:54.032Z"
+}

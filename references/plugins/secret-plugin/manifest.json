@@ -1,0 +1,1864 @@
+{
+  "generator": "secret-plugin",
+  "generatorUrl": "https://perchance.org/secret-plugin",
+  "publicId": "0ce774985c837158f0db5411f75a6994",
+  "generatedAt": "2026-09-16T17:25:15.684Z",
+  "totals": {
+    "files": 356,
+    "bytes": 69315879,
+    "byCategory": {
+      "external-cdn-bundles": {
+        "files": 11,
+        "bytes": 153380
+      },
+      "external-upstream-sources": {
+        "files": 322,
+        "bytes": 68744138
+      },
+      "external-vendored": {
+        "files": 5,
+        "bytes": 66295
+      },
+      "internal-code": {
+        "files": 6,
+        "bytes": 226769
+      },
+      "project-resources": {
+        "files": 12,
+        "bytes": 125297
+      }
+    }
+  },
+  "externalResources": [
+    {
+      "resource": "ML-KEM reference implementation — used for keygen / encap / decap",
+      "home": "https://github.com/dajiaji/crystals-kyber-js/tree/2.3.0",
+      "download": "https://github.com/dajiaji/crystals-kyber-js/archive/refs/tags/2.3.0.zip",
+      "license": "MIT"
+    },
+    {
+      "resource": "@noble/hashes 1.5.0 — sha3, sha256, hkdf",
+      "home": "https://github.com/paulmillr/noble-hashes",
+      "download": "https://esm.sh/v135/@noble/hashes@1.5.0/es2022/sha3.bundle.mjs",
+      "license": "MIT"
+    },
+    {
+      "resource": "@noble/ciphers 1.0.0 — AES-GCM",
+      "home": "https://github.com/paulmillr/noble-ciphers",
+      "download": "https://esm.sh/v135/@noble/ciphers@1.0.0/es2022/aes.bundle.mjs",
+      "license": "MIT"
+    },
+    {
+      "resource": "fflate 0.8.2 — gzip/gunzip",
+      "home": "https://github.com/101arrowz/fflate",
+      "download": "https://www.npmjs.com/package/fflate/v/0.8.2",
+      "license": "MIT"
+    },
+    {
+      "resource": "pako 2.1.0 — only referenced in a comment (replaced by fflate)",
+      "home": "https://github.com/nodeca/pako",
+      "download": "https://user-uploads.perchance.org/file/c0fe46e365351bc8eacadc5f761dc28a.txt",
+      "license": "MIT / Zlib"
+    },
+    {
+      "resource": "FIPS 203 — ML-KEM standard",
+      "home": "https://csrc.nist.gov/pubs/fips/203/final",
+      "download": null,
+      "license": "public domain"
+    },
+    {
+      "resource": "Public-key cryptography — background reading",
+      "home": "https://en.wikipedia.org/wiki/Public-key_cryptography",
+      "download": null,
+      "license": "CC BY-SA"
+    },
+    {
+      "resource": "Perchance plugin directory",
+      "home": "https://perchance.org/plugins",
+      "download": null,
+      "license": "platform"
+    }
+  ],
+  "files": [
+    {
+      "path": "external/esm-sh-bundles/aes.bundle.js",
+      "bytes": 264,
+      "sha256": "1e0f85a9ccd1d898b2b8407658f29a81cd5d675e25d79ec6fe8d73c1512f20bc"
+    },
+    {
+      "path": "external/esm-sh-bundles/aes.bundle.mjs",
+      "bytes": 12430,
+      "sha256": "8d2c5eeb4007e9026954ebd576573deff66664475c535c3c0ce51c7db542821b"
+    },
+    {
+      "path": "external/esm-sh-bundles/fflate.bundle.mjs",
+      "bytes": 31903,
+      "sha256": "b3d1c0429436d243335d1754180384bb4546208b69ff51ad5521263d1ecc8d39"
+    },
+    {
+      "path": "external/esm-sh-bundles/hkdf.bundle.js",
+      "bytes": 108,
+      "sha256": "5d8e060e3957148e0040e511cb7df9b8dfdfcfc02066eaf7000fb5aa09ad78f4"
+    },
+    {
+      "path": "external/esm-sh-bundles/hkdf.bundle.mjs",
+      "bytes": 3144,
+      "sha256": "22c545786d73d0aa3242d787ce6591cf127dec388eb072191f6bb6f0979d6984"
+    },
+    {
+      "path": "external/esm-sh-bundles/pako-2.1.0.bundle.js",
+      "bytes": 47452,
+      "sha256": "0d478229cc0db82c789ebc5bc8032728aa9be0e453400b970f9ed9d82b323212"
+    },
+    {
+      "path": "external/esm-sh-bundles/pako-2.1.0.bundle.txt",
+      "bytes": 47452,
+      "sha256": "0d478229cc0db82c789ebc5bc8032728aa9be0e453400b970f9ed9d82b323212"
+    },
+    {
+      "path": "external/esm-sh-bundles/sha256.bundle.js",
+      "bytes": 112,
+      "sha256": "b63d10dd2d627c8bf8ddd13a941019479884efc1ecce4e800f6a47ecae67e4ee"
+    },
+    {
+      "path": "external/esm-sh-bundles/sha256.bundle.mjs",
+      "bytes": 5042,
+      "sha256": "eb95a426177f0f8c52f40f49a46f14db42fac24012755f8eaa0cb824885ebbaf"
+    },
+    {
+      "path": "external/esm-sh-bundles/sha3.bundle.js",
+      "bytes": 257,
+      "sha256": "69e70555299af6aa4e79f94d7b72664bd9a8957f0ad4580b3187dbb824f9da53"
+    },
+    {
+      "path": "external/esm-sh-bundles/sha3.bundle.mjs",
+      "bytes": 5216,
+      "sha256": "fe36d574b2b60922154c5b489a9bc2013722c9d73aba0fae8a2d78bb16bafdf7"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/dependabot.yml",
+      "bytes": 240,
+      "sha256": "f7b2088ec115777f6dc2236a3fcb5ee9a2419f74517a1e2dfe206f262a79fab7"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/cd.yml",
+      "bytes": 713,
+      "sha256": "3aa0961129d8f643d667e4fd01c80d4c397eb88588cce453c02dc02e13c143d3"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/ci_browsers.yml",
+      "bytes": 1559,
+      "sha256": "797f1a550259b85f79b191cc040410c84b5d74659444a99499dbf872edf3da20"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/ci_bun.yml",
+      "bytes": 924,
+      "sha256": "965e4d307aceb6ab8ca9ae0e36877978bec5c70e5e774d1635df8b7c840332e6"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/ci_cloudflare.yml",
+      "bytes": 497,
+      "sha256": "128a22c8c93b06181fded2c1f36843f95f1a940a08f121b7ed21a6e9030d6411"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/ci_deno.yml",
+      "bytes": 894,
+      "sha256": "62c60aaddd9a07354300fd8375650659ad5cc55c08e038ec7014fe68e860efd0"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/ci_node.yml",
+      "bytes": 622,
+      "sha256": "9cef6385f973b97ac161ffbeaf7e5be64406b4a58ee1e5620e4f459df3a40386"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.github/workflows/codeql-analysis.yml",
+      "bytes": 2728,
+      "sha256": "76b0c63aa7e2d09844a3b96616701f43b3363025953749fe170c11b1f11bf2aa"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/.gitignore",
+      "bytes": 2082,
+      "sha256": "1190885060e3a6d4908da8a54fa283ee6384b17c33b3c7c5db5a2cc7c5796311"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/CHANGES.md",
+      "bytes": 5875,
+      "sha256": "f80ab0a439e864cc493ef42df28776fc84469de7af90d7186d338757d5071535"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/LICENSE",
+      "bytes": 1072,
+      "sha256": "ab49bdfb96b9c0117f908b82eb1f690be42028658f5a52fba5553b95fa90cd35"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/README.md",
+      "bytes": 9336,
+      "sha256": "aa2db0eb1f151c72d3fdce95e3ea34cc3abdee89f055a2c95814c124ef8d0026"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/SECURITY.md",
+      "bytes": 395,
+      "sha256": "3039157d4fb8b70acf44d94da1bf98afbfd2bbec05e30e9fd6028c26f0bee4b0"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/bench/ecdh.bench.ts",
+      "bytes": 435,
+      "sha256": "e5f3a31ee727767ed3394d29bd3fa6af61b8d89d5f9f30dd02de0ac0281fb9a9"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/bench/mlKem1024.bench.ts",
+      "bytes": 1768,
+      "sha256": "5b2735117689fc088a1d05c939a74096116b756b026efb61c8bf763e11ba417d"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/bench/mlKem512.bench.ts",
+      "bytes": 1750,
+      "sha256": "ab91e53c2cfabfd97e75e7de61e5c73590e2e0f56c43decf63b0c62ec3fd8aad"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/bench/mlKem768.bench.ts",
+      "bytes": 1750,
+      "sha256": "ed0c5336d94c7a6728e58b6409b9c11010f2f9532fc4483ff00a2496466d47c9"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/deno.json",
+      "bytes": 2581,
+      "sha256": "a1d4f28e76fff696246e8cd01428e257b53e604ab33dcfa466965a8d6b7987e7"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/deno.lock",
+      "bytes": 5732,
+      "sha256": "b68d7294994bd3ee19c0d9af9104849f5b8593647d0382d51f0a108f6018311c"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/dnt.ts",
+      "bytes": 1977,
+      "sha256": "8633b7055fc562fd91d1927d797b911829ae1687307a0576c319197f54c587ea"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/import_map.json",
+      "bytes": 222,
+      "sha256": "087da466b46e21122bb9f2ffc62bdaee423e432e6791bd29ece746e5eb281e26"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/mod.ts",
+      "bytes": 186,
+      "sha256": "b9f81bd40772aac532763110bcddd13ceb5f9c1463c43515c55f093a067a4286"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/consts.ts",
+      "bytes": 1913,
+      "sha256": "17b7b0cbdd77859a8a3b91fa90b0dd2c2f2c78ce314a4a2f61a11b408d955f64"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/deps.ts",
+      "bytes": 77,
+      "sha256": "748e588de4c3e3b839167466c2a029b6d2cf7f853b7763400e85899519bfb004"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/errors.ts",
+      "bytes": 367,
+      "sha256": "173d303103167e2701409caf4305ef78dbdcf05918cedd171536644db0bb1daf"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/mlKem1024.ts",
+      "bytes": 6675,
+      "sha256": "99c0313ec441f473ceeda61380e5ac5b58dcaa152feb5e51ebdd6ea9edf0b411"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/mlKem512.ts",
+      "bytes": 2728,
+      "sha256": "4e93d7ded0b0f8b817521f78860b2e7728b81c06156e19f9a512015318df9642"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/mlKem768.ts",
+      "bytes": 1384,
+      "sha256": "fa5c3f86aef459ad1850fd4e414580e78ce800c50a6ee2bc4c92d40e2543ec1f"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/mlKemBase.ts",
+      "bytes": 36086,
+      "sha256": "c93e67c8e854710fd0fd92819c99c93dc693020af00d1f9691dfb49778a07d84"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/src/utils.ts",
+      "bytes": 3037,
+      "sha256": "7ec5e6ce415af978e005cb2b54d308faefcb3fcc5c54f949f8eaee81ec1e5dd6"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/drng.ts",
+      "bytes": 954,
+      "sha256": "1706dc8bb0f9bff5410ffbd367fa6f1e05a40d4a9fc33fd667a2458e59b0b035"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/mlkem.test.ts",
+      "bytes": 7091,
+      "sha256": "8c2f09425562b0c7ad02704edf90a283176820504d6a5ccfafdb6c9add12cb78"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/browsers/mlkem.spec.ts",
+      "bytes": 348,
+      "sha256": "ec8dbdaf340db34e96befff6f8f94d9094911e9dfe24578ec86e0d23fae1011b"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/browsers/package.json",
+      "bytes": 65,
+      "sha256": "67204e2aa382ec7bdd6716f1719c88fba9b07f3c13a1db58d494a97663c2d599"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/browsers/pages/index.html",
+      "bytes": 2432,
+      "sha256": "e3f1248e9b22085aa6275e6ed2fcfb3962fe63fdbc227ea794c5ed512d7c4eb0"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/browsers/pages/src/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/browsers/playwright.config.ts",
+      "bytes": 459,
+      "sha256": "ccb7646e8b6b7bab03ffc1db3bb4bdd6bab955bf5dcb5c144e9ee357b11f54f6"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/bun/mlkem.spec.ts",
+      "bytes": 726,
+      "sha256": "9ab0b86a42494496b251ebf6ec754090fa8cfee02b632c840658653eeccf3d3f"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/bun/src/index.js",
+      "bytes": 149,
+      "sha256": "23849991a3261b6d30fabf7333482876059e17371a5baa671803f27374dd55ae"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/mlkem.spec.ts",
+      "bytes": 849,
+      "sha256": "e50a3e08b622a807d0876cd66f9dcd6764ea232c6e3f47c790c684d742322781"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/package-lock.json",
+      "bytes": 113207,
+      "sha256": "e39f0046c401db896179ec00fcf27d1cc53f080547e1acac95376cf9cd6bb2ba"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/package.json",
+      "bytes": 501,
+      "sha256": "f46108a607e7269fba3ecae0182a26b43df4bd5681a525fc51e233bccb4ee3f5"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/src/index.ts",
+      "bytes": 193,
+      "sha256": "23ebdc1cf1e2b6c5f066da9ec83cc60091809c428a9fbf556302f42faddf2157"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/src/server.ts",
+      "bytes": 3310,
+      "sha256": "62da2428c03372e072539fdfc4faa94cc66d80b4aa3a48f4f5a860b8e39f5c9e"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/tsconfig.json",
+      "bytes": 10667,
+      "sha256": "ddd77decd258f5af76cd2c0d7fc8555a520c309668fb0b8890330b6bba2ce7be"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/vitest.config.mts",
+      "bytes": 240,
+      "sha256": "17c35a6e6384c30e6df31a15f216ece533936c4edf2c6efefd366e197d4980a7"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/cloudflare/wrangler.toml",
+      "bytes": 4957,
+      "sha256": "f5d07e1359797c3b6f769aa94a7a9324b5ca837601b6997364da2a003040257f"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/runtimes/server.js",
+      "bytes": 3251,
+      "sha256": "b5ecefc4341bd0383c91a4a3750ce82592333e6a02294825efe5813c4281ce6f"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/utils.ts",
+      "bytes": 1188,
+      "sha256": "3d12e1cdb4d868508bde05646a3b84dbda4f15d48e309744feda3421e91d7824"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/intermediate/ML-KEM-1024.txt",
+      "bytes": 93444,
+      "sha256": "af15ceb9c7129a152e0a9d66caabe0567b566b949bacfe8349c6a3c4b46cb64a"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/intermediate/ML-KEM-512.txt",
+      "bytes": 48558,
+      "sha256": "3cb7a5c2421d4ada68f61b9c26e6136a3436c320e0c016af7095dadb41217bf1"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/intermediate/ML-KEM-768.txt",
+      "bytes": 68979,
+      "sha256": "4cdeed48a917ec2825a49a03815c31692d51b4be0b6850a0abc56cb39bab1f84"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/kat/README.md",
+      "bytes": 3445,
+      "sha256": "70291efb31d0a3a2bf4234043604cb4773f75012d9be3d42fcfb0e1bda1abab7"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/kat/kat_MLKEM_1024.rsp",
+      "bytes": 16236890,
+      "sha256": "ed23c551c53761649a2dd9573eda2f49f58285675d639fe8c0d585e21f37896c"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/kat/kat_MLKEM_512.rsp",
+      "bytes": 8428890,
+      "sha256": "783106e35afb1ab9aba557630f5380f3ffa40b83abfbe75a03059b5986702017"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/kat/kat_MLKEM_768.rsp",
+      "bytes": 12012890,
+      "sha256": "6ecab47c229a80b85afd8e9b1b76e604317b2505ac35382b0e288116e1ba860a"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/modulus/ML-KEM-1024.txt",
+      "bytes": 3262480,
+      "sha256": "9c27ef8951a6b6b59b57dcc4e213ae73472c3db956f4298d6c9983c54bb2c263"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/modulus/ML-KEM-512.txt",
+      "bytes": 1240775,
+      "sha256": "cc1597aa8fb37f387495ff1575e0c5b4e96a65d6d559e4c9823dde30f6cb633e"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/modulus/ML-KEM-768.txt",
+      "bytes": 1847820,
+      "sha256": "1070efdae5c268a57935a33097316990831e7d4bb45d59abf0bfe4812535839a"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/modulus/README.md",
+      "bytes": 538,
+      "sha256": "effb2d3f03013e169d2a32a9d94cb2dbc6f8fe114de275cd40616410825be997"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/strcmp/ML-KEM-1024.txt",
+      "bytes": 9552,
+      "sha256": "5059fcb4d5912c37bef560e92608799b576cf785bc20708688f65ffcfca4adfb"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/strcmp/ML-KEM-512.txt",
+      "bytes": 4880,
+      "sha256": "4bc308bf9a7ac41c0e1c6845e9195d4932f66650e09a4ff76ed780e5f606a42f"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/strcmp/ML-KEM-768.txt",
+      "bytes": 7056,
+      "sha256": "2b09aa46d8b1c7b9a549a25f009cbd3937b98df177e868d3eb6395930079e4fa"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/unluckysample/ML-KEM-1024.txt",
+      "bytes": 12901,
+      "sha256": "8da6cdb2fb0d4e2223dfa5229ec97d4ded7b93bd8b2202e9a7533850c817b8cd"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/unluckysample/ML-KEM-512.txt",
+      "bytes": 6693,
+      "sha256": "9d4e0ae011978a8f88a49b755ea6996a693428aaea0477c84331580c15b77a9b"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/unluckysample/ML-KEM-768.txt",
+      "bytes": 9637,
+      "sha256": "fede6f787581dc708e5c3337d7e49de33333d23023470668cd0588b65ad0ba90"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/test/vectors/unluckysample/README.md",
+      "bytes": 867,
+      "sha256": "edc3e8dabc3e216760338ddefc750b66a4daa0a805fd4ca324c60e7e05297e65"
+    },
+    {
+      "path": "external/upstream-sources/crystals-kyber-js-2.3.0/tsconfig.json",
+      "bytes": 277,
+      "sha256": "b45d7eb6c54b94635a62af696b55e96d77cddcad2703866ab9e1918bf18291b7"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.browserslistrc",
+      "bytes": 5,
+      "sha256": "2b18032369e7a046a5710d3c9d4657cda3b95140dd579732e544e3bb595d0cce"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.github/ISSUE_TEMPLATE/bug.md",
+      "bytes": 653,
+      "sha256": "fae446c4c119b68940838f70f111e28df95533c80ce303dbeee4d4b29855f245"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.github/ISSUE_TEMPLATE/config.yml",
+      "bytes": 324,
+      "sha256": "3c6cf379b86025e79e53f34ed6de32be14c3497491cc3317eafe6c903680e9da"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.github/ISSUE_TEMPLATE/feature_request.md",
+      "bytes": 942,
+      "sha256": "6490883ef586ef5b3ae8955f1aabee613c7f948a44329724fd8119a0f51eb578"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.gitignore",
+      "bytes": 147,
+      "sha256": "dfcc43a0c615cf526f58a0ee180bcfca055753003b9023bd1181aca43b1288bf"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.npmignore",
+      "bytes": 73,
+      "sha256": "077a91c435b9c1ad48b18ae78c5140fe084a6fa8de61381995f936397674a271"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/.terserrc",
+      "bytes": 43,
+      "sha256": "4834b142db82dc870301022024bfd8082ba799d7f7f71e8dfe6d07791fd374c5"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/CHANGELOG.md",
+      "bytes": 4099,
+      "sha256": "a61f0369d564fa7e4411c2628cd3d658bc5bed2e6ca633744abccaf01b1102be"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/LICENSE",
+      "bytes": 1069,
+      "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/README.md",
+      "bytes": 27362,
+      "sha256": "7697e0b31b94feb5cd6d8114ee965b1442bd3c916bfdbe21e4cb7e57bf821437"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/App.tsx",
+      "bytes": 3996,
+      "sha256": "2df3826c106fff7d489da337978c83931cb1e96fe36e91b9e3e03be124aa2857"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/augment.d.ts",
+      "bytes": 518,
+      "sha256": "1308d29d136dc195ea564da61492cb35444c73b8c46a334e272f38ffd2d428c4"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/code-box/index.tsx",
+      "bytes": 18285,
+      "sha256": "ac3e49c7c43d5f2836d82d41183210dbe7eb707a08085845d18e612d82633957"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/code-box/prism.css",
+      "bytes": 1871,
+      "sha256": "95a2ef2b73e23cdb3b9e80a0f7176463e7b64590b35ce59dedfe1f2a4a11b15a"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/code-box/prism.js",
+      "bytes": 18038,
+      "sha256": "9eacf2fa69b15c0ba95b17c5970d6de855e65d7dafb44eecb3c7f69d544e5e2e"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/code-box/sandbox.ts",
+      "bytes": 4540,
+      "sha256": "0825d34adf0316571e75a8461516b989008b1e140cdc2df013fdfd728100873d"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/code-box/stream-adapter.ts",
+      "bytes": 1555,
+      "sha256": "72b4daf7177b4834076a29062832b2cd0d30e10d5fbdb6fd37c73d78223c65c0"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/components/file-picker/index.tsx",
+      "bytes": 6470,
+      "sha256": "771bf34cce3aeac9441e58e7dfb2adea8c2b11c049facbac6e23041004de50f1"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/favicon.ico",
+      "bytes": 5430,
+      "sha256": "d65e0b843a92bd616da1840ce14715a5a5fdc7c6ab02bb82fd08ca00afa9d87f"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/index.css",
+      "bytes": 159,
+      "sha256": "524ba964f692e79be62ee28c91e916f644d0d80652244831628c9f1246016686"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/index.html",
+      "bytes": 1085,
+      "sha256": "1a5c0f3fb8e16e023a035ab4fab12dff36407dafe18ab15e6b8474051c818ad8"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/index.tsx",
+      "bytes": 342,
+      "sha256": "355518facbb76d5b57d143d8c8d5d8986c74cf5e8362e84d5efabc89854e039d"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/package.json",
+      "bytes": 27,
+      "sha256": "9edc73b3fbdb8066ede111f000092c27b2ba8b6fb8fb19a93506a51f290a6920"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/sw.ts",
+      "bytes": 972,
+      "sha256": "c96af6bc7df8ff13197f4bda8e55d0e7ab120bc7c76443eb9e822775a21a8722"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/demo/util/workers.ts",
+      "bytes": 4797,
+      "sha256": "9072bebe94c236c2c3367a4ff064fe32b3a2d46591f2ea8f80c2c2549f3e4748"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/README.md",
+      "bytes": 24809,
+      "sha256": "a69053cc55349a0001d274866c4bfa462cf30d180219ee9802bcb1014a8db534"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncDecompress.md",
+      "bytes": 1873,
+      "sha256": "c8004a32eb682c2b89982aa119ec7d0de2655d788dbdb6ff3afcd35e66dc4515"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncDeflate.md",
+      "bytes": 2229,
+      "sha256": "6e9f7cd2301364b6faa5c7234e3de287580c0405f2ee4ca7c6d3cd91eed9ff13"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncGunzip.md",
+      "bytes": 2251,
+      "sha256": "7b2e0ac4376601c087906eb42b0cbb4a349f44cee8568e3d6d0e137d06f60612"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncGzip.md",
+      "bytes": 2182,
+      "sha256": "f4f51d1a2f6f8feae95c52f5e0be64a8b2c71de4647541a2e3c2f4403bf4a97e"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncInflate.md",
+      "bytes": 2069,
+      "sha256": "2008c726cbf8124669c50b6afbbe3e82a93da732cdb5921275571707a38e1aa3"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncUnzipInflate.md",
+      "bytes": 1839,
+      "sha256": "4916146c620c25677588537947cba494b6537a9ac69de26f308f84aa5dbbfac6"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncUnzlib.md",
+      "bytes": 2063,
+      "sha256": "c5f66ba6c3252c7958028da2a9e5543056220b887b14e66e40ee8a7d48383363"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncZipDeflate.md",
+      "bytes": 7188,
+      "sha256": "78b9cc10faf078ff609c5b839a4d1d63f45c96e29afdb74168c384320029282b"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/AsyncZlib.md",
+      "bytes": 2183,
+      "sha256": "99b99a3c2a97dabf479d914e13d60fac3110f46da17698850abad7782dc70764"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/DecodeUTF8.md",
+      "bytes": 987,
+      "sha256": "4ddb522dad2a663c4e3c77fa59dce3e0f28f894c70e059b48a773b4bb4ea7b70"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Decompress.md",
+      "bytes": 1377,
+      "sha256": "6559697f58e15a447a27e60497d86882b04fa815ff21a4b9a758c71a090c016c"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Deflate.md",
+      "bytes": 1497,
+      "sha256": "54206a9bcc9a2a07b72883790796e8a897f9d43aad9ddf46412b29e7b470bf42"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/EncodeUTF8.md",
+      "bytes": 976,
+      "sha256": "b764807d386c8ee16b32595a58aed877e03e32e59c9038b8525a6a40e54e2e16"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Gunzip.md",
+      "bytes": 1524,
+      "sha256": "def0cf391ef5e2600ccee26902a307568e752bf758cee46e9d79378862c44dfb"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Gzip.md",
+      "bytes": 1459,
+      "sha256": "8920c1093cc7993e4f0ddb7e90f261f760ef9d33914b7ac2c29acef61b721cb7"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Inflate.md",
+      "bytes": 1345,
+      "sha256": "dd1aa9d9a272379898a1fad85593143328c3da52b72feb1783fd1cdcf58a0d93"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Unzip.md",
+      "bytes": 1436,
+      "sha256": "a7e31d17bfd0a55bc6d5dc5f32305f5c7b4d98806ea848edaa3ead38f62d43f0"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/UnzipInflate.md",
+      "bytes": 1361,
+      "sha256": "ab1b44258968f80f4864c0abcf42d397a865780a2e407044dca7043872127ee2"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/UnzipPassThrough.md",
+      "bytes": 1276,
+      "sha256": "061034a68ac14b162d1ade9869d78c076636829a5eb893c847d565c8034ba8bf"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Unzlib.md",
+      "bytes": 1328,
+      "sha256": "be86d7f73a10b86f5bdba534feded43a81faf448ef9a311c22e0fe7ed01c121c"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Zip.md",
+      "bytes": 1465,
+      "sha256": "c18a4dd513d5a2e804c38d3c7ee1963ed1684d44851f7691c5fabe44d76b954d"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/ZipDeflate.md",
+      "bytes": 6632,
+      "sha256": "4a65b68ac96b1c8969adb1d440367a5937c237a267bcd2c6216d0e2473407cde"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/ZipPassThrough.md",
+      "bytes": 6106,
+      "sha256": "0e826d0a0e644c841bcea8d13797eefad06f399bad9000573b9ca682999a4468"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/classes/Zlib.md",
+      "bytes": 1459,
+      "sha256": "d7bc1a5d2b9765c6a2663779243c4832bce974faa6af9465bbe10c10c59f17ee"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncDeflateOptions.md",
+      "bytes": 2969,
+      "sha256": "05ee1090b62b6f51bff70c5fd3fb6edd6734de037d56a4ec24718c9faf6570ee"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncGunzipOptions.md",
+      "bytes": 1032,
+      "sha256": "a37a014addd9b09436690eea86c4df9db13180abb618bd55d9802137601069f8"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncGzipOptions.md",
+      "bytes": 3538,
+      "sha256": "29f9f1202cbb72aecb0fb7ea3999bb8538bb4993fb5ed414a927169ac9512342"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncInflateOptions.md",
+      "bytes": 1378,
+      "sha256": "b8e1387b6583b91f9aa2d9725ecf0ff65eeda65132ea755c09168473fd28e077"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncTerminable.md",
+      "bytes": 244,
+      "sha256": "cdacc89bdf2823d870736710fb45158e288cfbaf2f0add9c7fa35441dc93de5d"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncUnzipOptions.md",
+      "bytes": 504,
+      "sha256": "eb2acaeb72e7da4bc3d6422f19b848fddcdc4e172df6c2c94c72c76df24a2071"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncUnzlibOptions.md",
+      "bytes": 1462,
+      "sha256": "e2b7f6037210e5758b84ab9cf08598732221f221a428c6c16e6043ac80057ef4"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncZipOptions.md",
+      "bytes": 5426,
+      "sha256": "eb96435b3179dced0e61678f620fd5b4a29ed9b112dbd243d99696b9bd2697a2"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncZippable.md",
+      "bytes": 190,
+      "sha256": "d569bade0baf144dda89e6367c806f9c1a582252eab69730d458b2f2d05ee4da"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/AsyncZlibOptions.md",
+      "bytes": 2865,
+      "sha256": "743c393f80684a09ba8de2b3b4ebb535d9fb0ee39e879eb560b452ebaa74bb5f"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/DeflateOptions.md",
+      "bytes": 2403,
+      "sha256": "b7735fcda22313ed392be415c1849f3d713e64da05d26696850bc58d31ccc967"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/FlateError.md",
+      "bytes": 601,
+      "sha256": "95223863f1f4aab90a1defd359b4cea8f32ecfb87fd748d8c3df9c7a5b332a15"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/GunzipOptions.md",
+      "bytes": 1003,
+      "sha256": "a9daa04f97196d826d40a00fa1f173957ed31514167c9932fa41e2e3f826eac0"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/GunzipStreamOptions.md",
+      "bytes": 703,
+      "sha256": "9659cc24aee4c3075d3760bc6c7a5f6977fda5a0efb15d2cdd6edb9f0d303925"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/GzipOptions.md",
+      "bytes": 3084,
+      "sha256": "f892107bff58b864bf03ad9e3145836a086449f01ba13390f4e49a94f417136c"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/InflateOptions.md",
+      "bytes": 1038,
+      "sha256": "0920cb18e66f9634fe0d31cf9ddab05f4fc4f719e3c02955d22796124eb1c904"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/InflateStreamOptions.md",
+      "bytes": 839,
+      "sha256": "b2d677786803f9fb961e26a18f17f26660700a41f306d087879bf8872449c45f"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzipDecoder.md",
+      "bytes": 1124,
+      "sha256": "a97ae06a5e95032f0b65020c439acba552c220f3089253592bcfff9d0c7a30f8"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzipDecoderConstructor.md",
+      "bytes": 889,
+      "sha256": "63df176d9596d8244c90c1853956942d606c360a51bcec564b08fa3cbe3e49d2"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzipFile.md",
+      "bytes": 1647,
+      "sha256": "1e0541b42a9b4c71dc742df476a6c27d3b6d6a8e9f3e651590762d304571c978"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzipFileInfo.md",
+      "bytes": 838,
+      "sha256": "754eb3dfa25cb8d6d601f0d6ce40584ea75ee34b8b2c58ed8085fa6b08816d82"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzipOptions.md",
+      "bytes": 397,
+      "sha256": "5bb6063302362cf770c4051f848e06c465a8fe86ae996ecad6832434ff1598df"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/Unzipped.md",
+      "bytes": 167,
+      "sha256": "ddab5df138c05f54b8c816c1420ef6d9d656e5d64e39d48bfbe2181a73d149bf"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzlibOptions.md",
+      "bytes": 1042,
+      "sha256": "340ef2ce13c774eae79ed75c94dda46ae8ba3df6625c67d5d23aa1cc5ea911df"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/UnzlibStreamOptions.md",
+      "bytes": 703,
+      "sha256": "7ad8468d043387f1422da9a58b123aa69afa8d340048151fec0de9fc2de01785"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/ZipAttributes.md",
+      "bytes": 2246,
+      "sha256": "ae4d1062bac3aeb4294e0bad605ff919ef1affe2cf5ccd0eb03932464c7f8ba8"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/ZipInputFile.md",
+      "bytes": 5304,
+      "sha256": "1da2353459a46509733d95f632ee6c39a0784daa171a094af2634bc7b54ca159"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/ZipOptions.md",
+      "bytes": 4939,
+      "sha256": "3a5abb9a2bd3c55fc6fee00768a5ec36202cf030e04678f50f6d06680a4f1266"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/Zippable.md",
+      "bytes": 159,
+      "sha256": "c732fcc2a532cf54c53eb27a81b5d602c3d86b27e68dae6ba3fba104715e1c1f"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/docs/interfaces/ZlibOptions.md",
+      "bytes": 2591,
+      "sha256": "3d266421742c270bb0c78b503103f20f2c6ac900444544b585457caa062ee826"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/package-lock.json",
+      "bytes": 147727,
+      "sha256": "99b9fc2712e442daae2623ea798e71ce2eac12a2fb15c00a3670423f840f08cd"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/package.json",
+      "bytes": 3482,
+      "sha256": "1f39729fc15f568a3aef326e03b3a2b766ad3b6d43705a11bcb66b2979649c89"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/scripts/buildUMD.ts",
+      "bytes": 1466,
+      "sha256": "af29f49b2fe146c497ad9303278a436a772c9438f8de4b44ac3b6835daa6f989"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/scripts/cpGHPages.ts",
+      "bytes": 737,
+      "sha256": "f7d993cba42428c6737a98811c841130b42af33d8624a8ed88552882062e0ee7"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/scripts/rewriteBuilds.ts",
+      "bytes": 2902,
+      "sha256": "354d8150be2ff0b05c5aa68ec3d9386dba63297e34fbb32b5a7322686f813bd8"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/src/index.ts",
+      "bytes": 116494,
+      "sha256": "5c53303c081ce37d3c936e34cee6a75acb02fc40630a9f5f584e4afce62fe1c0"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/src/node-worker.ts",
+      "bytes": 1238,
+      "sha256": "f025621a72fed25d8ab36d0bd5fd929911f1f763578aba0df99df5a718c11cd1"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/src/worker.ts",
+      "bytes": 635,
+      "sha256": "6046799f3838e2c6b3c08132bab5b450bf86530e34193e7baa2fcab2a6615b05"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/0-valid.ts",
+      "bytes": 827,
+      "sha256": "536aff541d357a24e3f03328ba81915ddcf3fbc873ec4ca41ae1da08d0de2cd9"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/1-size.ts",
+      "bytes": 925,
+      "sha256": "75685cd5d0dd8c587ca0e621d5096f0bdd2a515680224122f53ffedb615d4f07"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/2-perf.ts",
+      "bytes": 1325,
+      "sha256": "c3db332b3be034fd19a3b6db04fccc1799cf8bf72bbf51ad98e2791a76757710"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/3-zip.ts",
+      "bytes": 17,
+      "sha256": "da72dd48187c072220b0067385245193a80a9593b87035465d03dfb17c4a27c2"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/4-streams.ts",
+      "bytes": 41,
+      "sha256": "4b377969a2408bbcec2f6788051c8a9a0739b4b9cea7f5c8ef56b00466844f49"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/5-async.ts",
+      "bytes": 62,
+      "sha256": "263ef0f7a6a36835d4e4ba385290043976b50fdf43f7a61cb625dbf1efd306b9"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/data/.gitignore",
+      "bytes": 13,
+      "sha256": "5c89a8a9c5af258d02d0bfd3582c75963bea53baa1f5f5132662b80020a63452"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/results/.gitignore",
+      "bytes": 13,
+      "sha256": "5c89a8a9c5af258d02d0bfd3582c75963bea53baa1f5f5132662b80020a63452"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/tsconfig.json",
+      "bytes": 145,
+      "sha256": "4259adfdcd7643e85f41ede8ca7ee39e9929888124874b17ea1dc83da8fde013"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/test/util.ts",
+      "bytes": 6437,
+      "sha256": "baede3a51eb8bb9cdb64829ad97fa2bec7816d121a109db60140eaf22abd5b4e"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/tsconfig.demo.json",
+      "bytes": 292,
+      "sha256": "3b0744292f108348c669c634b6e003204566dd78060a550770f978bbce77a567"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/tsconfig.esm.json",
+      "bytes": 132,
+      "sha256": "b2d8b240045eda4bf7c3e5f0eeb4ef8ff949418acef0f051202d72eaeb7f6ed6"
+    },
+    {
+      "path": "external/upstream-sources/fflate-0.8.2/tsconfig.json",
+      "bytes": 135,
+      "sha256": "98f9a6bee0735f1d6c5056a27a77e1acaceae7b604abb34bd1a0f3d7b7b77a05"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.github/funding.yml",
+      "bytes": 18,
+      "sha256": "b0f88b6249202c098b5fd9c6fbe8396e120f0c900f9c9e7600530dd0a13aba8f"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.github/workflows/nodejs.yml",
+      "bytes": 653,
+      "sha256": "921f09fcbe0de0696fb87e9190fd8ef1ddaa6a9525b93291e65459364f996a50"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.github/workflows/publish-npm.yml",
+      "bytes": 655,
+      "sha256": "f501c56d2ea8d1fbeb85cdfdb85e214b164952735803fed48c4b0d90a09cdc42"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.github/workflows/upload-release.yml",
+      "bytes": 793,
+      "sha256": "bb4cf9825895b61c7c87da311f4b88d451657d5fc4b0d7fa53d24d0886f08189"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.gitignore",
+      "bytes": 68,
+      "sha256": "3761c5c001bc79cc9f9f50e2c58de35604dd6e2d8b2ac0dd431ffeea1bbcf1c4"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.prettierrc.json",
+      "bytes": 73,
+      "sha256": "0b0ec1c6246acfd40118965341abdb83b0935d8ab7bab0a24197ddaf9331864f"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/.vscode/settings.json",
+      "bytes": 163,
+      "sha256": "056aeef01177c8a52319c44ec70b9ba49762f603921bec267dfe7e8e20da2bbf"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/LICENSE",
+      "bytes": 1161,
+      "sha256": "f36671a5487c9c5050efacb58011c37c24c55a889803cb036cf9d9a6347c1e2d"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/README.md",
+      "bytes": 24518,
+      "sha256": "2dfc1aa84520486ca177c7380af02541f299fc3c24b0afe16d7cd20735a1c6f3"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/SECURITY.md",
+      "bytes": 730,
+      "sha256": "1f98632b511ccd1407c28e4c272eb3ae395c3bd97d7e2a93e883b6a34cc27a69"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/README.md",
+      "bytes": 323,
+      "sha256": "2bbed830bff57e9ba23d0fff020c7f4da012d52f5799ec3914c53865fac7e0d0"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/_utils.js",
+      "bytes": 4210,
+      "sha256": "b6aeca8933877f8465fec60d092be2762115848ff44333d837449b5e010c541f"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/aead.js",
+      "bytes": 4949,
+      "sha256": "7da5f901164a3d8aa961acf6af43a81a59f4e60fa7e5c1fc1efdec7810c56e7b"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/aes.js",
+      "bytes": 13479,
+      "sha256": "3de003ddfe6ca5fa1f12b8d1ddbeabc75e1378411669415fc3eb94198d55285c"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/ciphers.js",
+      "bytes": 3215,
+      "sha256": "c189a52d877be50cd33b4892f3fcb055d3b3c9ce5e9eb96b87ae4c046ff06f42"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/cross_test.test.js",
+      "bytes": 710,
+      "sha256": "38345dbf797489b5bd7fb3d9b3d5aff9292a0d914301d40b5b6c3b14a3357d7e"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/package-lock.json",
+      "bytes": 15865,
+      "sha256": "70e31ba39c84edec121fa4f8b85326e6659237e93e20ee8640083b5f2b72b2be"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/package.json",
+      "bytes": 871,
+      "sha256": "00d6acac1c45278b1a9ad1e69a7032e85d833f1f603f0657768b6d7dab8d8492"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/benchmark/poly.js",
+      "bytes": 1814,
+      "sha256": "7aa0441120cc586e08bbe82fb15ba397cdedbbde2aed6008b2ce1bab18aae8c4"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/build/README.md",
+      "bytes": 223,
+      "sha256": "1f868aec00cf2ca9cfe72004bc5e2b1dcae367626d7b57c5f5c1e81428d50ee7"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/build/input.js",
+      "bytes": 448,
+      "sha256": "64109e333db5bdf2882bf4603bad42f23682f53671ad8f2436f7c6afc97b6200"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/build/package-lock.json",
+      "bytes": 12894,
+      "sha256": "79d07c9a31d6087e14044c6769bda200ad0e6dc070aef954b6c76fa347d25609"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/build/package.json",
+      "bytes": 324,
+      "sha256": "14bded1b4fd327a428705e986d909db427660dc19fd95f837667e7ddbd21c76f"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/esm/package.json",
+      "bytes": 147,
+      "sha256": "bd389eb8cfe61883bac2f31e1369498979fe1039c19d960088e863ef5d822b4d"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/package-lock.json",
+      "bytes": 3886,
+      "sha256": "5d586f03449c58450bebae0891777e9ce0af601135a0b5c2c07a016bdc6932ef"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/package.json",
+      "bytes": 3138,
+      "sha256": "d90f78f24497ad675d4fd83aabadc686875f333ccfb995840c1ac40d9f354f08"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/_arx.ts",
+      "bytes": 7108,
+      "sha256": "765bfcf019e44af94f0a4621d4606f1d02d4efcbed86d2b28f33c5cf4962e8f6"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/_assert.ts",
+      "bytes": 1621,
+      "sha256": "c47658a367e780b6c3b0373b9674cd8bd7b86636fa67688bdd4f1808d5174ebb"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/_micro.ts",
+      "bytes": 9770,
+      "sha256": "2f8623b5b04027792925b10643495130b995c171e957c1c8bfa4a5f5bf81222e"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/_poly1305.ts",
+      "bytes": 8751,
+      "sha256": "70ad60d5a2438c9bfefe6e6a1cebb2f03d98f1dec82e8512a6c5688ffa5451c0"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/_polyval.ts",
+      "bytes": 7716,
+      "sha256": "adaa0f6f4e3c6d5e75eea354b523a936bdf76faa7a41fd30d9495c1f0d7f04de"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/aes.ts",
+      "bytes": 36904,
+      "sha256": "d3d8cdabc50471c9dd6c786fab967c87f334a8cb5e249285d75f4919002e110a"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/chacha.ts",
+      "bytes": 10691,
+      "sha256": "0ffd09f1071a7df2f2dc3965b82a24435d36916b9719350b3c5b97d817873a63"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/crypto.ts",
+      "bytes": 287,
+      "sha256": "d5ac3ef40dae277d92514e4aff52b21b5eb7ff9f62d61ed4a26270581e780f40"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/cryptoNode.ts",
+      "bytes": 402,
+      "sha256": "55fa6dfbd66aec7068eb72fedca854023676e7e3486c635af9e000a21f033b6d"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/ff1.ts",
+      "bytes": 5703,
+      "sha256": "2a016255b3f087d66816b5dd94265c061b71cf751d0c56cc1cf65dc8b8d4772b"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/index.ts",
+      "bytes": 80,
+      "sha256": "b1639d20ef5ff1ab64291e2e7edf839a98c7574087c3acb95c7bda5fe767cb39"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/package.json",
+      "bytes": 23,
+      "sha256": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/salsa.ts",
+      "bytes": 8207,
+      "sha256": "0ea7615f288335c1f8a0825a6c11b5e7a9748d1b7bbc9686ce93311c3a47fe0e"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/utils.ts",
+      "bytes": 9144,
+      "sha256": "8855e764e2e774b4805c73b69b5d87f3e0994ed78188affa81ca30c448c79952"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/src/webcrypto.ts",
+      "bytes": 5149,
+      "sha256": "4a56e233fd530b99cf309570bbd911841685f118720894052047deaa011e9cee"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/README.md",
+      "bytes": 214,
+      "sha256": "050c02d51f789e50f9f86a7ee9784ef32d8d6455f231d27a93344fd4c42e4979"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/aes.test.js",
+      "bytes": 9805,
+      "sha256": "464940ee1413728d251be408ca1ece858524ba9599cdbc3d5d24c1751ef38744"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/arx.test.js",
+      "bytes": 12943,
+      "sha256": "759d7fd013af0986ed99f6ab1ea482fa42f398968bd4ecf608459ea8bdcf887a"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/basic.test.js",
+      "bytes": 5222,
+      "sha256": "b4a0c39e7195f57990938210c05dd95e31a137f57288ec948e30e7b3ff52c366"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/ff1.test.js",
+      "bytes": 3796,
+      "sha256": "112f6ec403258401c77a996dfb7f61f50aad68e66402824c5601a6d970e2bb33"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/index.js",
+      "bytes": 252,
+      "sha256": "e41bf4edd6ced8daec6c2adfb3ab5b4075771ec9a624935ac222440cb55c05a0"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/polyval.test.js",
+      "bytes": 2446,
+      "sha256": "81c398af37f4b8960c68858fb84a603502d006f8f06692555cf444ce41ac38eb"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/utils.js",
+      "bytes": 3499,
+      "sha256": "cd007d9e7977ca0aeb838a8c159d59b2f8a069e5b057e3716ec5c827c5d295e9"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/utils.test.js",
+      "bytes": 661,
+      "sha256": "a5072df446b85a78d87db66421ef9c4a4c6eb94263142a245d792843dd999bce"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/ff1.json",
+      "bytes": 583176,
+      "sha256": "62bdff875a8dc3f343a070cbf8dd7fbf785b4734d5acd491ead2709fcb974631"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/nist_800_38a.json",
+      "bytes": 20447,
+      "sha256": "e169d1750dda18accae2341de480bf5ff7b5be20d1cbb55c362931aeba5fdbcf"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/siv.json",
+      "bytes": 43004,
+      "sha256": "86d431ba074cb3e99cadef93f100e58444039104f793302efbba08ea3b014ab9"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/stablelib_chacha20.json",
+      "bytes": 1551,
+      "sha256": "8dc3b66cb5b20d3247b6020866f1938a23bfb01d1aefaf74a58f31b0eedc3113"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/stablelib_chacha20poly1305.json",
+      "bytes": 25829,
+      "sha256": "5b9752192bb80df28929411be425cd01b38c7e392eeebc127f2eb26e6e26e228"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/stablelib_poly1305.json",
+      "bytes": 17137,
+      "sha256": "d4d434d82ed36b4a4acc15485a14291cbecbf02aed67e5b3b013e648158041d6"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/stablelib_salsa20.json",
+      "bytes": 1033,
+      "sha256": "dbc921cbfbf59d3e2ff7ef8b6c7a0904d7db980bcfdb2df67635aec1169f21b1"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/stablelib_xchacha20poly1305.json",
+      "bytes": 677,
+      "sha256": "de5616655315c11cd4f0fe394f0a8914fb01dcd80e2f3b4c800fd5ba2a6a1f96"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/vectors/tweetnacl_secretbox.json",
+      "bytes": 908290,
+      "sha256": "13b2163c5bbe8fa5f1c8f153c698d94668c3b8e818d5d957863e5eb1b43bd2c6"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/aes_cbc_pkcs5_test.json",
+      "bytes": 98750,
+      "sha256": "f496e602b3b71e9e2da7c2fef351aa5a561c42f602224f24df7faf8432a300aa"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/aes_gcm_siv_test.json",
+      "bytes": 132763,
+      "sha256": "9b983f263e769493638b2c029679179e41e682783253f89bf36d2dd77f2d83bb"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/aes_gcm_test.json",
+      "bytes": 212486,
+      "sha256": "f7d77a3a059f30c80b05376a44286f79c50150537b9588e74d87158c2c64de80"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/aes_kwp_test.json",
+      "bytes": 100692,
+      "sha256": "eece0f19f3f1cf18ba664f6225b9f82d5be87442f1bd6b97f0d2084b793db4b6"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/aes_wrap_test.json",
+      "bytes": 68688,
+      "sha256": "babf1b1971fa9af7f532ac3357f006b78e9beace05c208382a4ee68494306c49"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/chacha20_poly1305_test.json",
+      "bytes": 243568,
+      "sha256": "3975ada79f4b2b6f6fba3854ce3a2fd205d198def1fea59d26d80721bea10536"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/test/wycheproof/xchacha20_poly1305_test.json",
+      "bytes": 234690,
+      "sha256": "e64f20d42c1942805c47667621b1b54937945e11eb07809967a491c2d8465bbf"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/tsconfig.esm.json",
+      "bytes": 277,
+      "sha256": "a7d704b0d8313317ee27b50058346e773c8c57f1018bd4298810b3fca8e02ede"
+    },
+    {
+      "path": "external/upstream-sources/noble-ciphers-1.0.0/tsconfig.json",
+      "bytes": 275,
+      "sha256": "1e70cf0f2e394e24a196d5c784092ce2d16908f675680aecf1a73e3b4056177b"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.github/funding.yml",
+      "bytes": 18,
+      "sha256": "b0f88b6249202c098b5fd9c6fbe8396e120f0c900f9c9e7600530dd0a13aba8f"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.github/workflows/nodejs.yml",
+      "bytes": 653,
+      "sha256": "921f09fcbe0de0696fb87e9190fd8ef1ddaa6a9525b93291e65459364f996a50"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.github/workflows/publish-npm.yml",
+      "bytes": 655,
+      "sha256": "f501c56d2ea8d1fbeb85cdfdb85e214b164952735803fed48c4b0d90a09cdc42"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.github/workflows/upload-release.yml",
+      "bytes": 793,
+      "sha256": "bb4cf9825895b61c7c87da311f4b88d451657d5fc4b0d7fa53d24d0886f08189"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.gitignore",
+      "bytes": 69,
+      "sha256": "fa5d67276cfd093b0952da44e92331fae62149a6bbbbbd01945be6424f582bf7"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.prettierrc.json",
+      "bytes": 73,
+      "sha256": "0b0ec1c6246acfd40118965341abdb83b0935d8ab7bab0a24197ddaf9331864f"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/.vscode/settings.json",
+      "bytes": 95,
+      "sha256": "cb35bb2821b812ee62140d75d17d65f576fb9c1b5b9a3a91597a2e9fd80e414d"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/LICENSE",
+      "bytes": 1109,
+      "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/README.md",
+      "bytes": 21545,
+      "sha256": "373b3cea22b13f6f8a54142f46ae6b0a9f496a3a8af8baac52c57c15c7f2d680"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/SECURITY.md",
+      "bytes": 722,
+      "sha256": "7b19e02974e8b10ec208811707deea6873905ce1661176678bfbe7c9ab8ad4d4"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/audit/2022-01-05-cure53-audit-nbl2.pdf",
+      "bytes": 319415,
+      "sha256": "11acbec6b4faa301ab9d858cab8c86d8e57a97ce319a82d0feca7fca74197e97"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/audit/README.md",
+      "bytes": 178,
+      "sha256": "bfd037a669aab0fc30c255bdbfda07bc3bb97d3f506a457fb52d3297b5006b78"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/README.md",
+      "bytes": 1511,
+      "sha256": "828946875b858fefe23c06ff1b8027a8ae216147b23eab5519f09acad9af74b0"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/argon.js",
+      "bytes": 1898,
+      "sha256": "a01153b03d00f4cda6ec4665150bdea0a500cebeb8f5616fb38520dbb38c2d05"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/hashes.js",
+      "bytes": 5467,
+      "sha256": "ce0385df84e3c47d7cfa5c0f69a18fcff9ddb90c75d7e26d1230ca9906f9b7a8"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/kdf.js",
+      "bytes": 5705,
+      "sha256": "9f4ca3a515d32adf05dcf98ef0f8e1c01e9f85483141e7ed9bb9397f017162b2"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/package.json",
+      "bytes": 1002,
+      "sha256": "0529b490edbacc859cdd88144dea1631f98449d9fd2a19cd93ab7a1b15ff9862"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/benchmark/secp.js",
+      "bytes": 1245,
+      "sha256": "6df656bcc453271287ef09345fec0866ec12768d838eb5b652a601b6cc823704"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/build/README.md",
+      "bytes": 223,
+      "sha256": "1f868aec00cf2ca9cfe72004bc5e2b1dcae367626d7b57c5f5c1e81428d50ee7"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/build/input.js",
+      "bytes": 1134,
+      "sha256": "4aca5789f5ff501c089c2bcca17473bfe01d30af646d9c70826e4d0a720f1395"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/build/package-lock.json",
+      "bytes": 12817,
+      "sha256": "38ec447962adf602e70157778c1721e6773685f819d30963e6aaa1b4fbdb0340"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/build/package.json",
+      "bytes": 323,
+      "sha256": "d7c3117b739dcf68e9410273f4af7d93fef648a924944f90fd70984c93fe916a"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/esm/package.json",
+      "bytes": 147,
+      "sha256": "bd389eb8cfe61883bac2f31e1369498979fe1039c19d960088e863ef5d822b4d"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/package-lock.json",
+      "bytes": 2370,
+      "sha256": "3871aa90d8371e6ebfa18ccb78e5cc318fc02c8d06bc390f6a7c7774082d6920"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/package.json",
+      "bytes": 3845,
+      "sha256": "9165b53a6392dc43446f50b0f3d90c31c22aeb42e0dc65635dabc3ab3c86ab20"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/_assert.ts",
+      "bytes": 1622,
+      "sha256": "950e1d13f95f27f02133126b31e9cfe4799c8d55e63d5efa6b15dec26af51d9e"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/_blake.ts",
+      "bytes": 4977,
+      "sha256": "1fda51ce23b1d3fa87374b5b5f54ed805acea47ceb8aadc28068f3bd711812da"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/_md.ts",
+      "bytes": 4630,
+      "sha256": "63d3c5473b2ed41393b1160ae475d355810d14630a4d89efe80e79ee17d62555"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/_u64.ts",
+      "bytes": 3470,
+      "sha256": "9a0d57ec12b8ca2e74582c741bc60a0b5ff99ae1518526230599de03d48a85cd"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/argon2.ts",
+      "bytes": 12565,
+      "sha256": "f04bc7d75f246627d0a0b085ba00a68354d586721cc19acd6d5faf18b1aebfa6"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/blake2b.ts",
+      "bytes": 7771,
+      "sha256": "7eec9387f277a2c14e84495c6b9986c4dfa2f656bfde1f1ddb1852415bb7e67e"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/blake2s.ts",
+      "bytes": 5417,
+      "sha256": "83d5ede5718f85feed15ac54a776cd55fd628cdd59565e45fbd3c8a08b1ef47c"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/blake3.ts",
+      "bytes": 9497,
+      "sha256": "5f2055f15f8e4d501f6c3e3a73cce5f360b0481b4a63ec4415c1be1d084cfeff"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/crypto.ts",
+      "bytes": 287,
+      "sha256": "d5ac3ef40dae277d92514e4aff52b21b5eb7ff9f62d61ed4a26270581e780f40"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/cryptoNode.ts",
+      "bytes": 402,
+      "sha256": "55fa6dfbd66aec7068eb72fedca854023676e7e3486c635af9e000a21f033b6d"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/eskdf.ts",
+      "bytes": 7075,
+      "sha256": "60127663ca74b345a5b810bb940a5c619381c7f57f7c40e3a4a024322f1fe20b"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/hkdf.ts",
+      "bytes": 2924,
+      "sha256": "67ebd8611ddf09a7e5253396c1da910ef18fd02dbe8f40aa7a90572a30582478"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/hmac.ts",
+      "bytes": 2905,
+      "sha256": "ce3925333d01930e8f6862c8cab325f0a00b873ddcdded1768861f1bf5de12d7"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/index.ts",
+      "bytes": 96,
+      "sha256": "10a98110fa10385f2264e3833f278bad90cbab7f7047edbe79630ef27e3e745c"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/package.json",
+      "bytes": 23,
+      "sha256": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/pbkdf2.ts",
+      "bytes": 3760,
+      "sha256": "cb924b3299749f2f754cbfb3c7906d92eeeaef8e7e8ecb89ba3ef3ee6750d8ce"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/ripemd160.ts",
+      "bytes": 4171,
+      "sha256": "252f6af684f7818b5c8ee522d73b58f482a1b5ed44c09467ceb2e9da331f4189"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/scrypt.ts",
+      "bytes": 9859,
+      "sha256": "396be81cecf4817a8d2063290726b8ded06b0ceb976a29b2fa4a1f0259716654"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha1.ts",
+      "bytes": 2432,
+      "sha256": "258e246655611b5d1e76c53f7dad265af20f15b6fee09b9e1969ed523775e37a"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha2.ts",
+      "bytes": 211,
+      "sha256": "bf3c50e36c3b5ad2e943380b1cdcb3a46ecf8abc30818750de2f2dbaa49da4d3"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha256.ts",
+      "bytes": 4643,
+      "sha256": "ac00259abdec2875fe681369cd1b0f248d1a6899ae2701d8077e5bf6864e5d1d"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha3-addons.ts",
+      "bytes": 15566,
+      "sha256": "b6a28ea6b988e6dc9ce43c81051361bc2348c70d0ff2175bb95d7ed29fcdb088"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha3.ts",
+      "bytes": 7598,
+      "sha256": "4b93c6f9b8086bc482f6822b13392e7b730aafa5343166b5f7185335aa35657e"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/sha512.ts",
+      "bytes": 9916,
+      "sha256": "46a5f03d99ab83ceb92bef089fec69b0d42b56323c732f21507dfb1ac391a532"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/src/utils.ts",
+      "bytes": 9655,
+      "sha256": "74b7f3713a592fc6583885fe9f1796ed5eca79ad9a75c2bc5ce2fe5df7d80150"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/README.md",
+      "bytes": 2520,
+      "sha256": "0712a18713072d0410e12f692e16946e109a993f7e37fde3fb2d370c3199c7e2"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/argon2.test.js",
+      "bytes": 8894,
+      "sha256": "19dcc132b1ee9dfe7e9ca953f672716fec6dea9c56b8461786fb1718c6125977"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/async.test.js",
+      "bytes": 3381,
+      "sha256": "f6d4abdd4d9768e2369521ffe90a63d5c3c21307af4740da6295f2b9dcebbe65"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/blake.test.js",
+      "bytes": 6489,
+      "sha256": "94694763127a188ae10b5f7ad16a065e00a5e541767a32f7c69782fa8f9479df"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/clone.test.js",
+      "bytes": 4797,
+      "sha256": "d06225056adc9d9b3696bbf805347f07ec0354475bd1805d509796579b9d87a5"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/eskdf.test.js",
+      "bytes": 2002,
+      "sha256": "260ba9d84c6852abe1a5257757bff1012c496d765c466c5bd9b9dd582e9ed1fc"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/example.js",
+      "bytes": 2934,
+      "sha256": "b91b517593ecf689e112a49c6e37c7ab4757c2014d3a784b222f3c3503d382ad"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/generator.js",
+      "bytes": 7539,
+      "sha256": "c4e404a4b69b9aaa0d1982b9092a88e1f997932b453cd06ca0dfb92ac2abe225"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/hashes.test.js",
+      "bytes": 24989,
+      "sha256": "5f115065db22103dd028466e63333777be6da864ef8c22340cddc7e3b2514c4d"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/hmac.test.js",
+      "bytes": 8618,
+      "sha256": "3c806e5eef5d91a8b5fe4c39dbdfe0ecc0c8bf608b248ab9c591423f16d74a6f"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/index.js",
+      "bytes": 513,
+      "sha256": "be87b315755157ec1a6f7085d2f317541938227d28468cd2c5ecb95cb51f9f80"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/kdf.test.js",
+      "bytes": 12835,
+      "sha256": "77713bdf485b638edd5a13ecccb4d0aaed7128ed127ee6e5b2f89adee0d8abb1"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/keccak.test.js",
+      "bytes": 32292,
+      "sha256": "fbac6536c7822b384927e63d616cf33513e81db8b4cb5885d707af8b860a54b6"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/sha3-addons.test.js",
+      "bytes": 1729,
+      "sha256": "44e6725d633bcb7fa1b2e13f1c18aa07e6198f6f41a76d56310d7fa75b63b6b3"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/slow-big.test.js",
+      "bytes": 4963,
+      "sha256": "7ed59e223bcc75c581bb1d8298b002c11afe94092c850e9990a2707b7da3d29f"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/slow-dos.test.js",
+      "bytes": 6239,
+      "sha256": "4167e41a2d5f5f1b914e8c938175ffd51ec6c7dbdac3412a3fa3bd7b4a00d987"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/turboshake.test.js",
+      "bytes": 16218,
+      "sha256": "e054e7438b0fd1d187ba2a39a6d79af01d3d5546abd34f740e776406f91e7b25"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/u64.test.js",
+      "bytes": 2784,
+      "sha256": "7764af7c540ac4e17f16b6c43d4a4213553863e88ae2c74722cc37bf37efda67"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/utils.js",
+      "bytes": 3361,
+      "sha256": "3a4c7a97c4232338cee9ece8922513c8cf1cb5e64a9965c07916241dedc744f0"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/utils.test.js",
+      "bytes": 1458,
+      "sha256": "f3059b1658dc15a7f4e1033ecbf82f0196e8bc73ecf630e68b3d4b8eab3fc382"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHA3-224.txt",
+      "bytes": 690697,
+      "sha256": "d0e77c6bf2817aadd77bc2718a31d06d132c2bcd67a3913b42d56a767d77234e"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHA3-256.txt",
+      "bytes": 707081,
+      "sha256": "bc2506ecea3d2ffc2ddfb53982327688ea429a668a98fec571ede949c913f0d0"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHA3-384.txt",
+      "bytes": 772616,
+      "sha256": "e670c595a5584f5a655228e734281538b4e6cced8afa01e280704b3710f748ce"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHA3-512.txt",
+      "bytes": 838153,
+      "sha256": "87a5d329f3d6cb362542531560ad2b8fae1904c50e776538536711c60e8ee93f"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHAKE128.txt",
+      "bytes": 2685438,
+      "sha256": "7a1bde3a3ad79ecd851a1f36a4ed5a87a793287d37426038e3326cdfb3f03e11"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/ShortMsgKAT_SHAKE256.txt",
+      "bytes": 2685438,
+      "sha256": "965170bc74bd0c243adfad5014341471e5cc35269e4e5634eaeff526d3140c12"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/blake2-gen.py",
+      "bytes": 1555,
+      "sha256": "108d277e845a8526b9565ef901cabac850910c0c5a150446822b9e5507d89fe6"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/blake2-kat.json",
+      "bytes": 1873923,
+      "sha256": "5031ac14800798ae15cee79c04d65e326a575f2c968c7e2846a79bd07a1c0e61"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/blake2-python.json",
+      "bytes": 439866,
+      "sha256": "57375e4b1595bb30361d5802990d2c4ae6601d6fb20245608f59f8bfb35a2169"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/blake3.json",
+      "bytes": 31922,
+      "sha256": "dcb91ea8accc77e6d6e632af7cdc1a99a9f3ae78cf648da595c7d064db32f624"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/eskdf.json",
+      "bytes": 5386,
+      "sha256": "d8333b670e525e43dab3ac3fca66af09fd2d52d274f9ac70076b9a185be295af"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/sha3-addon-keccak-prg.json.gz",
+      "bytes": 8207568,
+      "sha256": "4b2d1a4d740e99c8b5d69ccdaffb4142042702acd7aabf432e73397b4292217b"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/test/vectors/sha3-addons.json.gz",
+      "bytes": 2135001,
+      "sha256": "7f9e7086edd9c271f1ffa2bc0bbb37d4dcc7ebd95996ab1e3bedeeee887c01d9"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/tsconfig.esm.json",
+      "bytes": 276,
+      "sha256": "59c25397a700ed8ec437015019e8bceb1e687d695d1ffe31c6396b8e0c4d3104"
+    },
+    {
+      "path": "external/upstream-sources/noble-hashes-1.5.0/tsconfig.json",
+      "bytes": 274,
+      "sha256": "ea793368f35254d73151ecac869b6fe44b26c123dd4f4181674c99aafa43d964"
+    },
+    {
+      "path": "external/vendored-in-main-pjs/MlKem768_Module.js",
+      "bytes": 29428,
+      "sha256": "04dec6a5a0d83be85e1610d7398cd2c4d5b99a222b1f044525454b46b277b65d"
+    },
+    {
+      "path": "external/vendored-in-main-pjs/fflate_Module.js",
+      "bytes": 10006,
+      "sha256": "b3c52968d01d265fd5843e0ee504723e1d567b84e68662eab3814fc6a4f0f17e"
+    },
+    {
+      "path": "external/vendored-in-main-pjs/gcm_Module.js",
+      "bytes": 17432,
+      "sha256": "7c8d48f6a2f5b881b721607bf02070022a8b0a44b4d67d00255392c49efbc66b"
+    },
+    {
+      "path": "external/vendored-in-main-pjs/hkdf_Module.js",
+      "bytes": 3788,
+      "sha256": "23b0e068b348fd64c8216c1b4d9a965935ca63d8c933e4cb41b4d1e4202d3e07"
+    },
+    {
+      "path": "external/vendored-in-main-pjs/sha256_Module.js",
+      "bytes": 5641,
+      "sha256": "79e476ddbf11ea9c85768a84ef8ab3e1c9f9b77701cbeec765a2e07adc4a7c31"
+    },
+    {
+      "path": "internal/index.html",
+      "bytes": 20626,
+      "sha256": "de23c58272c1f9b0a788cacc21312d0eeed5df625e05bd4d3d64e7b5d30368c7"
+    },
+    {
+      "path": "internal/main.pjs",
+      "bytes": 73047,
+      "sha256": "305699d5df697b00d6b2314fdf0f432f36305266bd5063ad2b03fa7f909e267d"
+    },
+    {
+      "path": "internal/secret-plugin-core.js",
+      "bytes": 9551,
+      "sha256": "c97da3009926f753ec8af58063e2223fd942032ea18ad65fed031f0a11d68f44"
+    },
+    {
+      "path": "internal/standalone/demo.html",
+      "bytes": 1973,
+      "sha256": "0235cef032544c53a7aca1e4d691569e48876b30e548d1d8592d3b22c7dda8da"
+    },
+    {
+      "path": "internal/standalone/secret-plugin.mjs",
+      "bytes": 70314,
+      "sha256": "347b60bbcdb17827ac495a2e10cfce408e4b0272074ab3258a84a4bdb69a44fc"
+    },
+    {
+      "path": "internal/workspace/AGENTS.md",
+      "bytes": 51258,
+      "sha256": "ed93ec9691766453f9e6240996225ccb6661973015d5709d59661d58da530fd4"
+    },
+    {
+      "path": "references/linked-generators/bug-report-plugin-encryption-example/index.html",
+      "bytes": 3858,
+      "sha256": "0fd9b559e8e0706f8843b7d961248e5e031e696ff5eed112188eafcdf0770fa2"
+    },
+    {
+      "path": "references/linked-generators/bug-report-plugin-encryption-example/main.pjs",
+      "bytes": 1766,
+      "sha256": "34ef344954fd5a5b86e81fad79cd2420498e4eb572aa24831f721f86979310e1"
+    },
+    {
+      "path": "references/linked-generators/bug-report-plugin-encryption-simpler-example/index.html",
+      "bytes": 587,
+      "sha256": "8c86352691063cb2151e4a80075dcf6fd58a9fc968f3cee61cb7539e5f810cac"
+    },
+    {
+      "path": "references/linked-generators/bug-report-plugin-encryption-simpler-example/main.pjs",
+      "bytes": 2981,
+      "sha256": "2c83bf69f655634436a056dfb0cf7715f0c5eb7f268fece32f353963893ba66e"
+    },
+    {
+      "path": "references/linked-generators/comments-plugin/index.html",
+      "bytes": 45535,
+      "sha256": "8c9de693c4adabee4e697c56eedee6c18d62d5cf4d5b4a50264638c0b7427a7a"
+    },
+    {
+      "path": "references/linked-generators/comments-plugin/main.pjs",
+      "bytes": 38261,
+      "sha256": "4b20ff48b15882e15623c1f1048f58179e52c94129a61a12d7d185deccac8619"
+    },
+    {
+      "path": "references/linked-generators/public-key-encryption-tool/index.html",
+      "bytes": 11830,
+      "sha256": "abc6cb644d4001f2bb6d20e6f9147bcb91befb2404fe7337c32d3b9cf5280b3a"
+    },
+    {
+      "path": "references/linked-generators/public-key-encryption-tool/main.pjs",
+      "bytes": 594,
+      "sha256": "bb8a47658bada48263833c02b7e57e910012c25902102349993e29c0cd27b850"
+    },
+    {
+      "path": "references/linked-generators/secret-plugin-example/index.html",
+      "bytes": 1431,
+      "sha256": "fc53094566204751f00698f6b752d3132c105e2c657d83237457510983e61acb"
+    },
+    {
+      "path": "references/linked-generators/secret-plugin-example/main.pjs",
+      "bytes": 31,
+      "sha256": "bb67b9fa50ff88b5a796c20b7964710c29c5ef51a13c71bc64cfa8a58aff9a44"
+    },
+    {
+      "path": "references/linked-generators/send-me-a-secret-message/index.html",
+      "bytes": 7229,
+      "sha256": "daa13da8de8c3bcbbff06898b4c8430fd49b776f86de0f2da7769e5cf7bc0639"
+    },
+    {
+      "path": "references/linked-generators/send-me-a-secret-message/main.pjs",
+      "bytes": 11194,
+      "sha256": "eb1a6d783c94d1c2eed54122ce7cd44412960d477e92f39972956b203c8744ea"
+    }
+  ]
+}

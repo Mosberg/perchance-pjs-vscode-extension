@@ -1,0 +1,15 @@
+{
+  "name": "tooltip-plugin-vendored-dependencies",
+  "private": true,
+  "description": "Pinned upstream dependencies vendored inside the tooltip-plugin generator. Not required at runtime - listed so the inlined copies can be reproduced and audited.",
+  "dependencies": {
+    "@popperjs/core": "2.5.2",
+    "tippy.js": "6.2.6"
+  },
+  "canonicalUrls": {
+    "@popperjs/core": "https://unpkg.com/@popperjs/core@2.5.2/dist/umd/popper.min.js",
+    "tippy.js": "https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js"
+  },
+  "npmInstall": "npm i @popperjs/core@2.5.2 tippy.js@6.2.6",
+  "note": "The UMD builds in this folder are byte-exact upstream files. The copies the generator actually runs are in embedded/ and inside ../generator/main.pjs."
+}

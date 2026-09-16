@@ -1,0 +1,26 @@
+name: Cloudflare Workers CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: v20.x
+      - name: Prepare test
+        run: deno task npm
+      - name: Run test
+        run: deno task test:cloudflare

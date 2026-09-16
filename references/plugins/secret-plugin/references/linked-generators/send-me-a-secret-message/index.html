@@ -1,0 +1,58 @@
+<h1>Send Me a Secret Message</h1>
+
+<div style="width:600px; max-width:100%; margin:1rem auto; font-size:80%; padding:0.5rem; border:1px solid grey; border-radius:3px; text-align:left; background:light-dark(#e8e8e8, #232323);">
+  Read the <a href="https://perchance.org/secret-plugin" target="_blank">secret-plugin</a> page to learn how this works. Basically, if you submit a comment below in <b>secret mode</b> (notice the selector below the submit button), then I'm the only one who will be able to read it, since this page uses my "public key" to encrypt all submitted comments. You can seem my public key if you open the code editor. If you want to make your own page like this (so people can easily send you private messages), then you can open the editor and save this generator to create your own copy of it. Then just replace the <b>publicKey = ...</b> with your own public key which you generated <a href="https://perchance.org/public-key-encryption-tool" target="_blank">using this tool</a>.
+</div>
+
+<div hidden id="decryptedCommentsCtn" style="width:min(100vw, 400px); height:300px; max-width:100%; border: 1px solid light-dark(#c7c7c7, #404040); margin:0 auto; overflow:auto; text-align:left;"></div>
+<div id="commentsCtn">[com = commentsPlugin(options)]</div>
+
+Mode: <select id="messageTypeSelect" style="margin-top:1rem;">
+  <option value="secret">Send an secret message</option>
+  <option value="public">Send an public message</option>
+</select>
+
+<br><br><br><br><br><br>
+
+<div style="display:flex; margin:0 auto; width:min(100vw, 420px); max-width:100%;">
+  <input id="privateKeyEl" value="[localStorage.privateKey || '']" oninput="localStorage.privateKey=this.value.trim();" placeholder="Owner can paste private key here." style="flex-grow:1;">
+  <button onclick="decryptCommentsInit()" style="min-width:max-content;">decrypt comments</button>
+</div>
+<div style="font-size:80%; opacity:0.6;">(only the owner of this generator can decrypt the comments)</div>
+
+
+
+
+<!-- tips (you can remove these when creating your own copy of this generator) -->
+<div style="width:600px; max-width:100%; margin:0 auto; font-size:80%; margin-top:1rem; padding:0.5rem; border:1px solid grey; border-radius:3px; text-align:left; background:light-dark(#e8e8e8, #232323);">
+  <div><b style="color:light-dark(#00a200, #00b800);">Tip:</b> If you create a copy of this generator, and you're logged in, then you can store your private key in the "Private Notes" textbox within your generator's settings menu. That way you don't have to go hunting through your notes app or whatever each time you want to check your private messages. You'll embed your public key in this generator's code after saving your own copy of it, so there's no need to store your public key in your notes.</div>
+</div>
+<div style="width:600px; max-width:100%; margin:0 auto; font-size:80%; margin-top:1rem; padding:0.5rem; border:1px solid grey; border-radius:3px; text-align:left; background:light-dark(#e8e8e8, #232323);">
+  <div><b style="color:light-dark(#00a200, #00b800);">Tip:</b> The <a href="https://perchance.org/secret-plugin" target="_blank">secret-plugin</a> page explains how you could turn this into a shared private chat between multiple people. Basically, you just create a public/private key pair that's shared between all of you. I.e. you all know the private key, so you can all use the above 'decrypt comments' button.</div>
+  <div style="margin-top:0.5rem;"><b>But</b> you each need to have your own copy of this 'send-me-a-secret-message' page first, so the person who creates the group's private key can securely share it with each group member. Then a member of the group creates an copy of this page for the group chat, and embeds the group's public key. If non-group members (i.e. people who don't have the private key) visit that page, they'll be able to comment, but they won't be able to read any of the other comments. Only the group members have the private key for that page, so only they are able to decrypt the comments.</div>
+  <div style="margin-top:0.5rem;">Remember that, in general, you should never share your <i>personal</i> private key with anyone, but if you've created a key pair for a <i>group</i> of people, then it's fine to privately share both keys with those group members. Just remember that anyone who knows the private key will be able to decrypt all the comments. Everyone else can still <i>add</i> comments, but they can't decrypt/read them.</div>
+</div>
+<div style="width:600px; max-width:100%; margin:0 auto; font-size:80%; margin-top:1rem; padding:0.5rem; border:1px solid grey; border-radius:3px; text-align:left; background:light-dark(#e8e8e8, #232323);">
+  <b style="color:#c71500;">Caution:</b> In order to use the above 'decrypt comments' button, you need to paste your private key. Each comment is then passed to the <a href="https://perchance.org/secret-plugin" target="_blank">secret-plugin</a> along with your private key in order to decrypt it. But you should be very careful about pasting your private key into generators that you didn't create yourself. You should definitely <span style="color:#c71500;"><b>never</b> paste an important private key into a generator/page just because they ask you to do that</span> - they may be tricking to you steal your private key. If in doubt, check the official plugin list, <a href="https://perchance.org/plugins" target="_blank">perchance.org/plugins</a>, and find the "secret-plugin", which is an official plugin. Then visit that page, and look at the linked demos. Use those official demos as a safe starting point. If you want a new official demo added, you can ask in the community forum.
+</div>
+<div style="width:600px; max-width:100%; margin:0 auto; font-size:80%; margin-top:1rem; padding:0.5rem; border:1px solid grey; border-radius:3px; text-align:left; background:light-dark(#e8e8e8, #232323);">
+  <div><b style="color:light-dark(#00a200, #00b800);">Tip:</b> When copying around public/private keys, you can double-click the key (or long-press it on mobile) as a fast way to select the whole thing. This works because keys never contain spaces or special characters, so the "double-click or long-press to select the whole word" shortcut that is common across operating systems works to select the whole key (i.e. the key is effectively treated as a single word). It's easier and less error-prone than clicking and dragging to highlight it.</div>
+  <div style="margin-top:0.5rem;">Also remember that public keys always start with <span style="opacity:0.6;">PUBLIC_</span> and end with <span style="opacity:0.6;">_END_PUBLIC</span>. And private keys always start with <span style="opacity:0.6;">PRIVATE_</span> and end with <span style="opacity:0.6;">_END_PRIVATE</span>. So you can easily double-check that you got the whole thing after copy-pasting a key somewhere.</div>
+</div>
+
+
+
+
+
+<br><br><br>
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: #e1e1e1; /* less harsh white */
+    }
+  }
+</style>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } </style>

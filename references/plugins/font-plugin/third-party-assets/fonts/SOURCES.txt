@@ -1,0 +1,22 @@
+THIRD-PARTY RUNTIME ASSETS
+==========================
+Every font is loaded ON DEMAND from the Google Fonts CSS API at runtime by
+addFontToPage() in internal-code/main.pjs:
+
+    https://fonts.googleapis.com/css?family=<Font+Name>
+
+Any Google Font name can be requested by users of this plugin, so the generator's
+complete third-party asset set is the whole Google Fonts library (~1600 families,
+served from the Google CDN). This package bundles byte-exact offline copies of the
+three families used by the generator's own page/template:
+
+  Pacifico          - the <h1> heading
+  Permanent Marker  - the inline example output
+  Courgette         - the documentation/example text
+
+google-fonts.css      exact CSS responses returned for those three lookups
+<family>/*.woff2      the woff2 subsets that CSS references (latin, latin-ext,
+                      vietnamese, cyrillic, cyrillic-ext, ...)
+
+License: SIL Open Font License 1.1 (OFL-1.1) / Apache-2.0 per family.
+Attribution: https://fonts.google.com/attribution

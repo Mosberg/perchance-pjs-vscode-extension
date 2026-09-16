@@ -1,0 +1,39 @@
+{
+  "generator": "sum-odds-plugin",
+  "publicUrl": "https://perchance.org/sum-odds-plugin",
+  "runtimeOrigin": "https://80d486a920a32274cf9e82eb15e26ecf.perchance.org/sum-odds-plugin",
+  "generatedOn": "2026-09-16T17:35:12.182Z",
+  "platform": "perchance.org (perchance-js / pjs)",
+  "buildStep": "none - perchance compiles main.pjs + index.html server-side at request time",
+  "categories": {
+    "internal-code": [
+      {
+        "file": "main.pjs",
+        "bytes": 85,
+        "role": "generator logic (pjs)"
+      },
+      {
+        "file": "index.html",
+        "bytes": 2987,
+        "role": "generator HTML body + docs page"
+      }
+    ],
+    "external-code": [
+      {
+        "file": "perchance-engine-491bf81418aa4b69.js",
+        "url": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js",
+        "role": "third-party runtime injected by the platform; not authored here, not bundleable"
+      }
+    ],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-config": [],
+    "imports": []
+  },
+  "notes": [
+    "No {import:...} statements are used, so there are no vendored dependencies.",
+    "No images, audio, video, fonts, models, shaders or JSON data assets are referenced.",
+    "AGENTS.md in the workspace is AI-agent harness documentation, not part of the generator.",
+    "Deploy = paste main.pjs into the code editor and index.html into the HTML editor of the target generator."
+  ]
+}

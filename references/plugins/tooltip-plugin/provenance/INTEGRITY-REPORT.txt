@@ -1,0 +1,42 @@
+INTEGRITY / PROVENANCE REPORT
+=============================
+
+Generator:    tooltip-plugin
+Public page:  https://perchance.org/tooltip-plugin
+Export date:  2026-09-16T17:32:55.241Z
+
+Third-party code is INLINED inside generator/main.pjs, in the body of getTippyJSText(), which
+injects a <script> into document.head the first time $output() is called. Both vendored
+libraries were extracted from main.pjs and compared against their canonical upstream releases
+(whitespace normalised, template-literal escaping reversed).
+
+1) @popperjs/core 2.5.2  (dist/umd/popper.min.js)
+   Upstream URL:   https://unpkg.com/@popperjs/core@2.5.2/dist/umd/popper.min.js
+   Upstream bytes: 18309
+   Inlined bytes:  18221
+   Code identical to upstream: YES
+   Only difference: upstream's banner comment ('/** @popperjs/core v2.5.2 - MIT License */') and its
+                    trailing '//# sourceMappingURL=popper.min.js.map' comment.
+   sha256 upstream file : b341df65f4ae526103325a74b19e05a97cc89e0ad232816bfe853a56831068a9
+   sha256 inlined copy  : 24599d610f3d4968d982d925f2d1ad9a976719b6c08f1405e71d3b9c54abcf61
+
+2) tippy.js 6.2.6  (dist/tippy-bundle.umd.min.js)
+   Upstream URL:   https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js
+   Upstream bytes: 23563
+   Inlined bytes:  23513
+   Code identical to upstream: YES
+   Only difference: the trailing '//# sourceMappingURL=tippy-bundle.umd.min.js.map' comment.
+   sha256 upstream file : 8cde69e77bbfcfac376856b583f415542edbe95778c4dc66d9c12c737bc410f1
+   sha256 inlined copy  : ff50d62a79e5b11865a87be7168e71d43860c9e7608d499a23e2d0d611baf8da
+
+Attribution comments embedded in generator/main.pjs (verbatim, first line of each vendored block):
+
+   /* https://unpkg.com/@popperjs/core@2.5.2/dist/umd/popper.min.js - Copyright (C) Federico Zivolo 2019, Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT). */
+   /* https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js */
+
+Escaping note: the inlined copies sit inside a JS template literal, so every backslash appears
+doubled and any backtick or dollar-brace sequence is escaped. Files under dependencies/embedded/
+have that escaping reversed, so they are valid, runnable JavaScript.
+
+Project's own code: generator/main.pjs and generator/index.html are reproduced byte-exactly as
+served by the generator. No other file participates at runtime. Assets: none.

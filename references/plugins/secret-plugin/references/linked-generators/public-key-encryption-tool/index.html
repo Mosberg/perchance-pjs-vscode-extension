@@ -1,0 +1,136 @@
+<h1>Public Key Encryption Tool</h1>
+
+<p id="introEl" hidden style="max-width:95%; width:600px; border:1px solid grey; border-radius:3px; margin:1rem auto; font-size:80%; text-align:left; padding:0.25rem; opacity:0.7;">
+  You can use this interface to generate a 'linked' pair of encryption(public) and decryption(private) keys, and to encrypt and decrypt messages using those keys. Read the <a href="https://perchance.org/secret-plugin" target="_blank">secret-plugin</a> page to learn how this works.
+  <button onclick="introEl.hidden=true; localStorage.dismissedIntro='1';">🆗 dismiss</button>
+</p>
+<script>
+if(!localStorage.dismissedIntro) introEl.hidden = false;
+</script>
+
+<div style="width:800px; max-width:95%; margin:0 auto;">
+  
+  <div style="margin-bottom: 15px;">
+    <select id="modeEl" style="padding: 5px; margin-bottom: 10px;" onchange="updateUI(); localStorage.lastUsedMode=this.value;">
+      <option value="decrypt">I want to decrypt some text (using my own 𝗽𝗿𝗶𝘃𝗮𝘁𝗲 key)</option>
+      <option value="encrypt">I want to encrypt some text (using someone's 𝗽𝘂𝗯𝗹𝗶𝗰 key)</option>
+      <option value="generateKeyPair">I want to generate a new public/private key pair</option>
+    </select>
+    <script>modeEl.value = localStorage.lastUsedMode || "decrypt";</script>
+  </div>
+
+  <div id="decryptCtn" style="margin-bottom:15px;">
+    <div style="margin-bottom:15px; position:relative;">
+      <input type="text" id="privateKeyEl" value="[localStorage.privateKey || '']" placeholder="Enter your own private key here." style="width:100%; padding:8px;" oninput="if(privateKeyRememberCheckbox.checked) localStorage.privateKey=this.value;">
+      <div onclick="privateKeyRememberCheckbox.click();" style="cursor:pointer; position:absolute; right:0.25rem; top:0.25rem; bottom:0.25rem; border-radius:3px; display:flex; align-items:center; justify-content:center; background:grey; background:light-dark(#dadada, #676767); min-width:2rem; padding:0 0.5rem; gap:0.25rem;">
+        <input id="privateKeyRememberCheckbox" type="checkbox" onchange="localStorage.privateKey=this.checked?privateKeyEl.value:''; localStorage.rememberPrivateKey=this.checked?'1':'';" style="pointer-events:none;">
+        <script>privateKeyRememberCheckbox.checked = !!localStorage.rememberPrivateKey;</script>
+        <div style="font-size:70%;">remember?</div>
+      </div>
+    </div>
+    <div>
+      <textarea id="decryptInputTextEl" placeholder="Enter some garbled/encrypted text that you want to 𝗱𝗲𝗰𝗿𝘆𝗽𝘁 here. E.g. if someone encrypted a message using your public key, and sent you the encrypted text, then paste that encrypted text here, and put your private key above.\n\nThe text you put in this box should start with ENCRYPTED_" style="width:100%; height:150px; padding:8px; resize:vertical;"></textarea>
+      <div style="font-size:70%; height:0px; text-align:right;">
+        <button onclick="let url = prompt('Enter URL:'); if(url) { fetch(url).then(r => r.text()).then(t => { decryptInputTextEl.value=t; decrypt(); }); }">Import URL</button>
+        <button onclick="decryptFileInputEl.click()">Import File</button>
+        <input type="file" id="decryptFileInputEl" onchange="this.files[0].text().then(t => { decryptInputTextEl.value=t; decrypt(); })" style="display:none">
+      </div>
+    </div>
+    <button style="margin-top:15px;" onclick="decrypt()">Decrypt Text</button>
+    <div id="decryptErrorEl" style="color:red; margin-bottom:15px; font-size:90%;"></div>
+    <div id="decryptOutputEl" style="text-align:left; margin-top:20px; padding:10px; min-height:50px; border:1px solid #777; border-radius:3px;"></div>
+  </div>
+  
+  <div id="encryptCtn" style="margin-bottom:15px;">
+    <div style="margin-bottom:15px; position:relative;">
+      <input type="text" id="publicKeyEl" value="[localStorage.publicKey || '']" placeholder="Enter someone's public key here." style="width:100%; padding:8px;" oninput="if(publicKeyRememberCheckbox.checked) localStorage.publicKey=this.value;">
+      <div onclick="publicKeyRememberCheckbox.click();" style="cursor:pointer; position:absolute; right:0.25rem; top:0.25rem; bottom:0.25rem; border-radius:3px; display:flex; align-items:center; justify-content:center; background:grey; background:light-dark(#dadada, #676767); min-width:2rem; padding:0 0.5rem; gap:0.25rem;">
+        <input id="publicKeyRememberCheckbox" type="checkbox" onchange="localStorage.publicKey=this.checked?publicKeyEl.value:''; localStorage.rememberPublicKey=this.checked?'1':'';" style="pointer-events:none;">
+        <script>publicKeyRememberCheckbox.checked = !!localStorage.rememberPublicKey;</script>
+        <div style="font-size:70%;">remember?</div>
+      </div>
+    </div>
+    <div>
+      <textarea id="encryptInputTextEl" placeholder="Enter the text that you want to 𝗲𝗻𝗰𝗿𝘆𝗽𝘁 here. E.g. if you want to send an encrypted message to the owner of the above public key, put the text to encrypt in this box. Use the 'Import File' button for images and other non-text files." style="width:100%; height:150px; padding:8px; resize:vertical;"></textarea>
+      <div style="font-size:70%; height:0px; text-align:right;">
+        <button onclick="encryptFileInputEl.click()">Import File</button>
+        <input type="file" id="encryptFileInputEl" onchange="if(this.files[0].type === 'text/plain')  { this.files[0].text().then(t => encryptInputTextEl.value=t) } else { let r=new FileReader(); r.onload=e=>{encryptInputTextEl.value=e.target.result}; r.readAsDataURL(this.files[0]); }" style="display:none">
+      </div>
+    </div>
+    <button style="margin-top:15px;" onclick="encrypt()">Encrypt Text</button>
+    <div id="encryptErrorEl" style="color:red; margin-bottom:15px; font-size:90%;"></div>
+    <div id="encryptOutputEl" style="text-align:left; margin-top:20px; padding:10px; min-height:50px; border:1px solid #777; border-radius:3px;"></div>
+  </div>
+
+  <div id="generateKeyPairCtn" style="margin-bottom:15px;">
+    <button onclick="generateKeyPair()">Generate Keys</button>
+    <div id="generateKeyPairOutputEl" style="text-align:left; margin-top:20px; padding:10px; min-height:50px; border:1px solid #777; border-radius:3px;"></div>
+  </div>
+  
+  <p style="font-size:80%; max-width:660px; margin:0 auto; margin-top:2rem;">This page uses the <a href="https://perchance.org/secret-plugin" target="_blank">secret-plugin</a>. If you want a very simple way for people to send you secret messages, make a copy of the <a href="https://perchance.org/send-me-a-secret-message" target="_blank">send-me-a-secret-message</a> page and swap out the public key for your own.</p>
+  <p style="font-size:80%; max-width:660px; margin:0 auto; margin-top:2rem;"><b>Note</b>: If you want to encrypt an image, or any other non-text file, then you must convert it to a <a href="https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data" target="_blank">Data URL</a> first. You can use the "Import File" button to do this automatically. To <b>view</b> a Data URL that you've decrypted (i.e. that someone has sent you), paste the whole thing into the URL/address/search bar of a new browser tab.</p>
+  <p style="font-size:80%; max-width:660px; margin:0 auto; margin-top:2rem;"><a href="https://perchance.org/api/downloadGenerator?generatorName=[window.generatorName]" target="_blank">Click here to download this page</a> for completely-offline use.</p>
+  
+  <br><br>
+
+</div>
+
+<script>
+  function updateUI() {
+    encryptCtn.hidden = decryptCtn.hidden = generateKeyPairCtn.hidden = true;
+    
+    if(modeEl.value === "encrypt") encryptCtn.hidden = false;
+    if(modeEl.value === "decrypt") decryptCtn.hidden = false;
+    if(modeEl.value === "generateKeyPair") generateKeyPairCtn.hidden = false;
+
+    encryptOutputEl.hidden = decryptOutputEl.hidden = generateKeyPairOutputEl.hidden = true;
+  }
+  updateUI();
+
+  function encrypt() {
+    encryptOutputEl.hidden = false;
+    encryptOutputEl.innerHTML = "";
+    encryptErrorEl.innerHTML = "";
+    try {
+      let encrypted = secret.encrypt(encryptInputTextEl.value, publicKeyEl.value.trim());
+      encryptOutputEl.innerHTML = `<textarea style="width:100%; height:200px;"></textarea>`;
+      encryptOutputEl.querySelector("textarea").value = encrypted;
+    } catch (err) {
+      encryptOutputEl.hidden = true;
+      encryptErrorEl.textContent = err.toString().replace(/\bct size\b/, "private key").replace(/\bdecapsulation\b/, "private").replace("encapsulation", "public").replace("OperationError", "The private key is valid, but it's the wrong one.");
+    }
+  }
+
+  function decrypt() {
+    decryptOutputEl.hidden = false;
+    decryptOutputEl.innerHTML = "";
+    decryptErrorEl.innerHTML = "";
+    try {
+      // BE EXTREMELY CAREFUL if you change the code below. Script injection attacks could be possible if you made a mistake. If you accidentally added the output to the page via innerHTML, then someone could send you a message that triggers a script injection when you decrypt it, which then steals your private key.
+      // The danger here is also a reason to keep this whole page very simple. If you want to add more features, then you should add an extra layer (or two) of defence-in-depth security.
+      let decrypted = secret.decrypt(decryptInputTextEl.value, privateKeyEl.value.trim());
+      decryptOutputEl.innerHTML = `<textarea style="width:100%; ${CSS.supports("field-sizing", "content") ? `field-sizing:content;` : `height:400px;`}"></textarea>`;
+      decryptOutputEl.querySelector("textarea").value = decrypted; // I considered putting the decrypted text into an iframe for safety, but the extra complexity that would cause could end up creating confusing bugs, which would defeat the purpose.
+      // BE EXTREMELY CAREFUL if you change the code above.
+    } catch (err) {
+      decryptOutputEl.hidden = true;
+      decryptErrorEl.textContent = err.toString().replace(/\bct size\b/, "private key").replace(/\bdecapsulation\b/, "private").replace("encapsulation", "public").replace("OperationError", "The private key is valid, but it's the wrong one.");
+    }
+  }
+
+  function generateKeyPair() {
+    generateKeyPairOutputEl.hidden = false;
+    let keyPair = secret.generateKeyPair();
+    generateKeyPairOutputEl.innerHTML = `
+      <div style="padding:0.5rem; text-align:center; background:#006e8c; color:white; margin-bottom:0.5rem; border-radius:3px;">These won't be shown again. Make sure you copy them to a safe place!</div>
+      <h4 style="margin:0; margin-bottom:0.25rem;"><u>Public</u> key: <span style="font-weight:normal; opacity:0.6; font-style:italic;">Give this to others so they can encrypt messages before sending them to you. It's completely fine for other people to see this. You can share it publicly with everyone. All it can do is encrypt stuff (which is then only decryptable by you, the holder of the private key, below).</span></h4>
+      <textarea style="width:100%; height:200px;">${keyPair.public}</textarea>
+      <h4 style="margin-bottom:0.25rem;"><u>Private</u> key: <span style="font-weight:normal; font-style:italic;"><span style="color:red;">This must be kept completely secret! Never share it!</span> <span style="opacity:0.6;">Use this to decrypt the 'garbled' messages that other people send you.</span></span></h4>
+      <textarea style="width:100%; height:200px;">${keyPair.private}</textarea>
+      <p style="margin-bottom:0; margin-top:0.5rem; font-size:80%; opacity:0.6;">Note: The reason that these keys are so long is because, unfortunately, that's what quantum-computer-resistant encryption requires.</p>
+    `;
+  }
+</script>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } </style>

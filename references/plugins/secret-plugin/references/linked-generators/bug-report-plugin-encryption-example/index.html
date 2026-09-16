@@ -1,0 +1,45 @@
+<p>Notice the feedback button in the bottom-right. Open the code editor to see an explanation.</p>
+<p>Simpler version here: <a href="https://perchance.org/bug-report-plugin-encryption-simpler-example#edit" target="_blank">perchance.org/bug-report-plugin-encryption-simpler-example</a></p>
+
+<!--
+  You can copy and paste all the code below (plus the code in the lists editor) to add a feedback button to your generator like the one you see above
+  You need to replace the bugReportPublicKey with your own one from here: https://perchance.org/public-key-encryption-tool
+  And then to read the debug data, add #showfeedback to the end of your generator's URL to see the comments.
+  Then open the debug data URL for a comment, copy the contents, and decrypt it using: https://perchance.org/public-key-encryption-tool
+-->
+
+<!-- this just creates a button that opens a comments plugin box, nothing fancy here -->
+<div style="position:fixed; bottom:0.5rem; right:0.5rem; text-align:right; z-index:100;">
+  <div id="feedbackCommentsCtn" hidden></div>
+  <!-- the onclick below is a bit too long to be a one-liner, but meh, it works, so -->
+  <button onclick="if(feedbackCommentsCtn.hidden) { feedbackCommentsCtn.hidden=false; if(!feedbackCommentsCtn.innerHTML) { feedbackCommentsCtn.innerHTML=generateFeedbackCommentsHtml(); } this.innerHTML='❌ close'; } else {  feedbackCommentsCtn.hidden=true; setTimeout(() => { if(feedbackCommentsCtn.hidden) {feedbackCommentsCtn.innerHTML=''} }, 20000); /* delay, to allow time for feedback to send */  this.innerHTML='🗨️ feedback'; }">🗨️ feedback</button>
+</div>
+
+<script>
+  bugReport.initAutoErrorCapture(); // <-- must be initialized at page load
+  
+  function generateFeedbackCommentsHtml() {
+    // Add #showfeedback to the end of your generator's URL to show the feedback.
+    let options = {channel:"feedback", hideComments:location.hash.includes("#showfeedback") || localStorage.showFeedback ? false : true, height:location.hash.includes("#showfeedback") || localStorage.showFeedback ? 500 : 220, commentPlaceholderText: "Share some feedback about how I can improve this page. Do not share personal info, feedback comments are public.", submitButtonText: "submit feedback", hideSettingsButton:true, hideFullscreenButton:true};
+    
+    // We add the beforeSubmit function to the comments plugin options, so collects and encrypts debug info just before the comment is submitted.
+    async function beforeSubmit({inputText}) {
+      let url = await bugReport.createTemporaryDebugInfoUrl({ // this URL is not permanent - i.e. debug data is deleted after a few months. See   perchance.org/bug-report-plugin   for more info.
+        customData: {
+          foo: 123, // by default browser version and a bunch of other commonly used stuff is collected, but you can add extra debug info here if needed
+        },
+        // Debug info is encrypted with this public key to increase user privacy.
+        // You can generate your own public/private key pairs here:  https://perchance.org/public-key-encryption-tool
+        publicKey: bugReportPublicKey,
+      });
+      // Note that the feedback itself (inputText) is not encrypted. Only the debug data is encrypted (and it's uploaded as an expiring/temporary file using the upload-plugin) You could easily encrypt the feedback text too by just importing `secret-plugin` and then writing `secret.encrypt(inputText, bugReportPublicKey)` instead of just `inputText` in the line below.
+      return `${inputText}\n\nBrowser Debug Info:\n${url}`;
+    }
+    options.beforeSubmit = beforeSubmit;
+    
+    return commentsPlugin(options);
+  }
+</script>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } </style>

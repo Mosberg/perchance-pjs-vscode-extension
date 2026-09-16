@@ -1,0 +1,11 @@
+<p>This is a more minimal example of: <a href="https://perchance.org/bug-report-plugin-encryption-example#edit" target="_blank">perchance.org/bug-report-plugin-encryption-example</a></p>
+
+<div id="feedbackCtn"></div>
+
+<script>
+  bugReport.initAutoErrorCapture(); // <-- must be initialized at page load
+  feedbackCtn.innerHTML = commentsPlugin(options);
+</script>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } </style>

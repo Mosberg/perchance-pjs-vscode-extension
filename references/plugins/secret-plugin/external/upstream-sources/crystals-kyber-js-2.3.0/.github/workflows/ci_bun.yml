@@ -1,0 +1,40 @@
+name: bun CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        bun-version: [latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: v20.x
+      - run: |
+          npm install -g esbuild
+          deno task dnt
+          deno task minify:crystals-kyber-js > test/runtimes/crystals-kyber.js
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ matrix.bun-version }}
+      - name: Run test
+        working-directory: ./test/runtimes/bun
+        run: |
+          nohup bun src/index.js &
+          sleep 3
+          deno test --import-map=../../../import_map.json mlkem.spec.ts --allow-net --config=../../../deno.json

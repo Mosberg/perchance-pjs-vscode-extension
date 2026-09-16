@@ -1,0 +1,78 @@
+{
+  "project": "perchance generator — url-params-plugin docs page (stock starter)",
+  "generated": "2026-09-16T17:29:55.914Z",
+  "note": "This project contains only two source files. There is no src/ tree, no imports/, no build pipeline, no binary assets, and no npm/third-party libraries. Everything the generator ships is main.pjs + index.html; the rest of its runtime is the Perchance platform engine itself.",
+  "categories": {
+    "internal-code": [
+      {
+        "path": "main.pjs",
+        "bytes": 183,
+        "description": "Perchance-js lists/config. Single line: defines $output = URL params object."
+      },
+      {
+        "path": "index.html",
+        "bytes": 3134,
+        "description": "Page body markup + inline <style>. Static documentation page for url-params-plugin."
+      }
+    ],
+    "external-code": [],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-config": [
+      {
+        "path": "README.md",
+        "description": "Project notes / handoff doc."
+      },
+      {
+        "path": "DEPENDENCIES.md",
+        "description": "External platform + plugin URLs the page references."
+      },
+      {
+        "path": "manifest.json",
+        "description": "Machine-readable inventory."
+      }
+    ]
+  },
+  "externalDependencies": [
+    {
+      "name": "Perchance engine",
+      "url": "https://perchance.org",
+      "kind": "platform-runtime",
+      "bundled": false,
+      "note": "Hosts and evaluates main.pjs + index.html. Closed platform runtime; cannot be downloaded or vendored."
+    },
+    {
+      "name": "Perchance source API",
+      "url": "https://perchance.org/api/getGeneratorsAndDependencies?generatorNames=url-params-plugin",
+      "kind": "http-api",
+      "bundled": false
+    }
+  ],
+  "externalReferences": [
+    {
+      "name": "url-params-plugin",
+      "url": "https://perchance.org/url-params-plugin",
+      "kind": "referenced-in-docs"
+    },
+    {
+      "name": "url-params-plugin-example",
+      "url": "https://perchance.org/url-params-plugin-example?blah=abc123",
+      "kind": "doc-link"
+    },
+    {
+      "name": "seeder-plugin",
+      "url": "https://perchance.org/seeder-plugin",
+      "kind": "doc-link"
+    },
+    {
+      "name": "link-plugin",
+      "url": "https://perchance.org/link-plugin",
+      "kind": "doc-link"
+    },
+    {
+      "name": "plugins directory",
+      "url": "https://perchance.org/plugins",
+      "kind": "doc-link"
+    }
+  ]
+}

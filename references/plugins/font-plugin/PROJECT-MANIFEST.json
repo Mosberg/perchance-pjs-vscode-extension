@@ -1,0 +1,88 @@
+{
+  "generator": "font-plugin",
+  "publicUrl": "https://perchance.org/font-plugin",
+  "fileCount": 17,
+  "totalBytes": 212654,
+  "files": [
+    {
+      "path": "build-config/README.md",
+      "bytes": 1794,
+      "sha256": "ca11e7decc0c8a026f78df21a7f30ca016dc5808887f550f96b6fc45cd21e6ca"
+    },
+    {
+      "path": "external-code/README.md",
+      "bytes": 1014,
+      "sha256": "692264d198468a6993082efaedf6bbd50c00820e697b78238316d93339dc9b53"
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 3369,
+      "sha256": "5ac37d2867f8fdb0d390049bc809446fa6bac2f05cb4cf1ff2f876f8cc226c89"
+    },
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 1138,
+      "sha256": "1a33841f659cabbeea8c2faa71a0cc18e68649f93ec03b2b10ac59775602603e"
+    },
+    {
+      "path": "project-resources/README.md",
+      "bytes": 796,
+      "sha256": "e06dcd2b419e6204ef1c28753986547b4a615f46ed32853207fc1a27f0d9d723"
+    },
+    {
+      "path": "project-resources/generator.json",
+      "bytes": 1298,
+      "sha256": "d3aa714136f244cf3e5fd3b7acde9c8f690ed9ed6649a9ec508ac26d33113edc"
+    },
+    {
+      "path": "third-party-assets/fonts/SOURCES.txt",
+      "bytes": 1015,
+      "sha256": "6647013553149589b67e380596e51a29d1a988b7042de6886814ace0b3ede21c"
+    },
+    {
+      "path": "third-party-assets/fonts/courgette/courgette-0.woff2",
+      "bytes": 18148,
+      "sha256": "a84585ac0d44e4360d098762f3de16e9aa2faa370741ac3a61d366f8e3742b05"
+    },
+    {
+      "path": "third-party-assets/fonts/courgette/courgette-1.woff2",
+      "bytes": 24964,
+      "sha256": "405773c896e1955562d347744121c4bdfb078188d311b13fcb6471444d191400"
+    },
+    {
+      "path": "third-party-assets/fonts/google-fonts.css",
+      "bytes": 3142,
+      "sha256": "f081f3c609aca8af234fb2b6046d6a695b846caf54d706d71c9b5ed6f51e73ed"
+    },
+    {
+      "path": "third-party-assets/fonts/pacifico/pacifico-0.woff2",
+      "bytes": 28828,
+      "sha256": "566fd7603618daf7f459e309910de11bb292ef73a775142358c55bfcde43358a"
+    },
+    {
+      "path": "third-party-assets/fonts/pacifico/pacifico-1.woff2",
+      "bytes": 22892,
+      "sha256": "22689c7581814d097871b0aa7548c33bbde2fcbeccbf6b6709c6ce408c2fd500"
+    },
+    {
+      "path": "third-party-assets/fonts/pacifico/pacifico-2.woff2",
+      "bytes": 11332,
+      "sha256": "c05ff40a5d70ce95d67985911a5d551d41ea9394082ab8682a0bac7881533b85"
+    },
+    {
+      "path": "third-party-assets/fonts/pacifico/pacifico-3.woff2",
+      "bytes": 31080,
+      "sha256": "0e2fe23a0a87bf572e6463b29ea7782e1898d87d6399698ad9fb40b676e13758"
+    },
+    {
+      "path": "third-party-assets/fonts/pacifico/pacifico-4.woff2",
+      "bytes": 32280,
+      "sha256": "99ec044ad9040a708e38f90ebd5984ca03fc46afeee26d5c77c4769c66ed89e2"
+    },
+    {
+      "path": "third-party-assets/fonts/permanent-marker/permanent-marker-0.woff2",
+      "bytes": 29564,
+      "sha256": "4884fec2c73aa52a2461073c1b87d1ceb80f400520391b43f97ca7d3c39eeb24"
+    }
+  ]
+}

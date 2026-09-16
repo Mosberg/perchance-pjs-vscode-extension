@@ -1,0 +1,229 @@
+{
+  "generator": "rpg-icon-plugin",
+  "platform": "perchance.org",
+  "source": "https://perchance.org/rpg-icon-plugin",
+  "packaged": "2026-09-16",
+  "files": [
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 31016,
+      "sha256": "29f1bfac5e9062789897c8308b08caa4288c41369050c2d98ac281b3932401f7"
+    },
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 130029,
+      "sha256": "928a4c8cecc078bc91a5593d45d00fdbbf4112a9fe42f66e86bc90a63e1a9bba"
+    },
+    {
+      "path": "01-internal-code/main.readable.pjs",
+      "bytes": 20854,
+      "sha256": "e548a43d4438bb856bd7c89ee11f6774270ca75dc7d580f6bc2ad978a0e88a58"
+    },
+    {
+      "path": "02-embedded-assets/css/rpgawesome.css",
+      "bytes": 20089,
+      "sha256": "64ae912f11ec75c7c0d708b4fa6545530548d9c329dd9b46b35e504883f4a84b"
+    },
+    {
+      "path": "02-embedded-assets/data/glyph-map.json",
+      "bytes": 31938,
+      "sha256": "4c3e6fb71f5b03f8a294bee35a457c25d9eb8daf82cd58bc9085109c10383521"
+    },
+    {
+      "path": "02-embedded-assets/data/icon-names.json",
+      "bytes": 10731,
+      "sha256": "4cc6ff3b8f86341769604624d2c04abcd11319ede723eb56b6299577e5a0f4b5"
+    },
+    {
+      "path": "02-embedded-assets/data/icon-names.txt",
+      "bytes": 5156,
+      "sha256": "74385b134048d9e9f8877a83677456df36f1b5497e6488b76aa18e2457f532db"
+    },
+    {
+      "path": "02-embedded-assets/fonts/rpgawesome.woff2",
+      "bytes": 81876,
+      "sha256": "228fc9a971520c35364feb958d563d6895c139951104dbef314bd535af0a36d1"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/.gitignore",
+      "bytes": 112,
+      "sha256": "69eb52adab1e79a39f59f4ca5ff088e8ba98d632fd26b834e183435fe094caaf"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/.versions",
+      "bytes": 905,
+      "sha256": "84d342a2851a2e89300c922f166eb509f25a162c644266b5adff7f6dc86f28ed"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/CONTRIBUTING.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/Gruntfile.js",
+      "bytes": 1428,
+      "sha256": "1077e1a53112cdf865d15acd9ac3b0a4662c9b7dddd1764435dd708d6f1244ee"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/LICENSE.md",
+      "bytes": 1295,
+      "sha256": "c45aed04a3e83b3828d2c71c9e1260af0b9d6d9f41f7f42e9f24d76eb748d464"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/README.md",
+      "bytes": 2158,
+      "sha256": "d7dcfc10ac685870f9b02fff042b331006bbddc4ee6252ddba62ec6981e6ce31"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/bower.json",
+      "bytes": 640,
+      "sha256": "55bd059577d985c80129b29cbc516b61373e2cd35c9cae05ce34f2d15d42fab4"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/css/rpg-awesome.css",
+      "bytes": 25788,
+      "sha256": "0cdab449473b778557a10f16001a5493b315bf4e9810c1a595818d89b4fe59df"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/css/rpg-awesome.css.map",
+      "bytes": 22356,
+      "sha256": "9218eaa93118f8cc4f3bbaac76d3613afb550522389f1099919bcd94b3daca3d"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/css/rpg-awesome.min.css",
+      "bytes": 20579,
+      "sha256": "444bf79dabe1e138d5a03365e99b6ca7dac3f38f93e6be15cf5eb02c70a7eebf"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/demo/index.html",
+      "bytes": 2035,
+      "sha256": "20c67bea3430ab0113e6f1b82f79f8b5c8b4179d29f25b731122033289cd69ee"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/fonts/rpgawesome-webfont.eot",
+      "bytes": 149168,
+      "sha256": "1fecbf284bf8751b8e57f0284524c8911a901bcbfc02ab98258439830f113fe9"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/fonts/rpgawesome-webfont.svg",
+      "bytes": 649002,
+      "sha256": "3f85ff8062343a6c37dba2007aa600befe598be5c4824842c62e5cc80ddf39bb"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/fonts/rpgawesome-webfont.ttf",
+      "bytes": 148988,
+      "sha256": "0e6bb47167ac866f369332fb505de076e600604509ddd48d911e714635bcde9a"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/fonts/rpgawesome-webfont.woff",
+      "bytes": 149064,
+      "sha256": "5f0127873ef4aef74bcc577a37dd7d544828c77bb896e3f6e1e1a2da78c0b399"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/package-lock.json",
+      "bytes": 37774,
+      "sha256": "6efd467f2c48ee46ba2af39ecb6e88fc561b9cf75910572663ea1a5ce2578b5d"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/package.js",
+      "bytes": 1452,
+      "sha256": "67c577209da24fbcadb60d5750c7707bdb6c0f9a16eb845512171cad5f17d3af"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/package.json",
+      "bytes": 452,
+      "sha256": "8b217a8d968437b6edee509fc55ae2872a1c00e7f192d40344a93580a5748f75"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/rpg-awesome-tests.js",
+      "bytes": 1933,
+      "sha256": "4bb8c7e2627faa344ec677c96f9009cd3990703769958a1767ab0c02c24417cd"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/.scss-lint.yml",
+      "bytes": 1950,
+      "sha256": "77c10c0717d49181ad2a91d00c348e91908fc97ca12404787a3e537b40191483"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_bordered-pulled.scss",
+      "bytes": 332,
+      "sha256": "e9e4a6bdcf29059f94eb4a74e0b6f38b91f15c1294c05bf40a7f359230c47afd"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_core.scss",
+      "bytes": 308,
+      "sha256": "a15f4ead1a81a2fa04c87e18a62cc1bad1abe1a354b37fe9df533621358a2eaf"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_fixed-width.scss",
+      "bytes": 120,
+      "sha256": "59fef12ce5d58f9453a94a92ff36b1e0ceb96d1d7ff0676e8764073f6e92e4e0"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_icons.scss",
+      "bytes": 38218,
+      "sha256": "5ba4dcebeb9a2ee3ae9dc8cb2b031c9d55b1848ca69ec514dce2479e6ccfe7c5"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_larger.scss",
+      "bytes": 376,
+      "sha256": "1eed043416bc9a0996c8db5f74d7f93b679ea8aa38fff42f2cfeb47a164e8c1d"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_list.scss",
+      "bytes": 381,
+      "sha256": "c86d805fb7624f59656a2fa66144c9af72e2949a11224d90b95c06bf6d379bba"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_mixins.scss",
+      "bytes": 881,
+      "sha256": "82937ef37e6f7c85700b648b5a2afd24afbf226e3c3a2a6783a9261ffbee49c4"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_path.scss",
+      "bytes": 681,
+      "sha256": "a758ef045982a16fd5149fa019fb0e8fabcb401fcd98697538d37094c07daa33"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_rotated-flipped.scss",
+      "bytes": 669,
+      "sha256": "5a30261303e81964527ca79b21e6730c9a40d36f323d4cce9197d5d74d3bef43"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_spinning.scss",
+      "bytes": 544,
+      "sha256": "46fb04331fb7b12455395fb460bdb65163e064831e31eae9f59fad52ec210917"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_stacked.scss",
+      "bytes": 484,
+      "sha256": "cd9009212f9eabac3d1515be1adf2a7f05036247f276c965f3624965e6b19d8b"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/_variables.scss",
+      "bytes": 16878,
+      "sha256": "d6723fc0cf60af3f130c6ccdbfe9ce9dd58218c301ab513f09836243ffd8f720"
+    },
+    {
+      "path": "03-third-party/rpg-awesome/scss/rpg-awesome.scss",
+      "bytes": 424,
+      "sha256": "0b7cd5aa1ed12d818de54db4976fcacfcdca516a0e0966856dcc0190ef68ad90"
+    },
+    {
+      "path": "04-tools/extract-assets.mjs",
+      "bytes": 2784,
+      "sha256": "5556efef8a06ae0cf2169cee7cfa2092e4c10b923f3711633f02530bff84bbff"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 7549,
+      "sha256": "ce42c5a3dd525c427ded0f81823879c2b5482526a6364f58985079c902261ed3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6399,
+      "sha256": "2faa12730dccdb38161f62c3a7893221c3be2dd4358a19e89bda2277054c2444"
+    }
+  ],
+  "totalBytes": 1625796
+}

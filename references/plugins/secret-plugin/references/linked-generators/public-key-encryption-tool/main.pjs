@@ -1,0 +1,6 @@
+// To reduce the chance of vulnerabilities, this plugin imports the secret-plugin, and nothing else (e.g. no comments-plugin, etc.)
+secret = {import:secret-plugin}
+
+$meta
+  title = Public Key Encryption Tool
+  description = A simple-to-use quantum-resistant asymmetric (public/private key) encryption and decryption tool. Generate a pair of keys, and/or use a public key to encrypt some text, and/or use a private key to decrypt some text. You can use it to send encrypted messages via a public or unsecure channel, without needing to first privately exchange information with the other person.

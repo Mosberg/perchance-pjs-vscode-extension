@@ -1,0 +1,22 @@
+commentsPlugin = {import:comments-plugin}
+bugReport = {import:bug-report-plugin}
+
+bugReportPublicKey = PUBLIC_1_VhWWC5YZSOvjJcKEPLEA6FfirbpAaSqNFkEFyuEk78CUdWGJyfSUt4HXL4fZZLZSCV8GVaSeZSsyVUiXLwd8PuFFcYMDLoig04JpvQAgvGGYZPJtDQ4aDdpTIUZSLBSkZZVFiCdqgnFk8xQWKq0dVkipUCQiZSO7beiEfEQ71PJ6AstsiolKwUBH8Cy28DmETkopYDe9y4QlohxXholANkpUdNLGgfctNAdebGw7O1CPABAhWFJRYlVpa4tEn2JUgcBywPUFQ7tEV1eRVqm7gJFMC0ItxvuwUYokiZSQpAbDN0WptNCWZP5CiG5owi0iqV0ncQ3sM1MgsKRadF3EqiHni0ceY9OoQ0wzhZSQ2tL6dCeZSxGW9Wt0AWirPlQvNzaqeJBZPVfe0R7SaNKdWm9OVFRKkJtIZS5WRlfDUUyTmdHGuFkBoZZalqrugNG62WSffMczMofsiaqeVxakUpW5XyFhRsPUATIdws7KeqgX8MZP6zAtZZ8BM6fkkg6ywT4oepCGAqwYY8iWJ1lGbdkBXrqN7y7iXQDRlAEFVmAgzaMK41oJQgcuZSB2MZPHZPGCHkeINZPVLwGpIDsyp8zuXDxA0w0YzmnSEWPRdIOVgGZPaGa4W5TSy01co9Oip2YLobLKYCrXt5Dca44UB0GowQMlqWZP2xVS7MS2ngZPyGmH1fpzNakwM5wEnJsTZPFsql6LN9aXPYhqrpYtw7bmEVTUqpDYVdOFUbepspmQJdgRFBDUb0UwZSZShB4kHCyZZigcZZ4Ae5HBIFNcYcLid6KeLe8whUyyVE7d8ukG8Y2Ed4FsYRxO8HbpzJiS6WBCyu9uPYga6OVSGB8M6SUuKaZZhlxNmpwrZZZShXF5ZZTxVOJvMouWDm9yvUBu0ygpZSfyAN5locFrSwtZShAD7eT7EYPcAEe8CQUmgF8ddUTTzhWzbmk5eBjDBHHZS1w2NTGRoVnGsfCwZPrCzLLCpFASyZZ4mAcWoGBpJXuDKMftslWRGCvZZKQFCCZZVYtvC8eJIWlZP97dus9GfKZSXOEKcZZFeeH3ZPkUbipiaPMEXZSIuzjUkeZPmM9uhxM1Cap3tf5iXBG3QU0Aiw2sK8NXYkrwiyQNxsGIA02ZSJ2K7hZZsJFVjmWQB3JjSrmHF0PFpWYXRRx4puQ7m2hlqSNPxEkGpaADR6d80Ahpartj9UZZ1DGxzKMex7sKZSCgehOfi64rcdTfDIEZPxMoJhXhlZZ5YFJcLXQjeHOwFQkUXTh2BxQf48O7VpagJlwEGBlYBkghVLShBElVHEU2p8RUcLQbX4YQNlBPzZZO8TRnBvuK8jKEIY4xsWadBUEPOZPWAJStNLDrOiRtedt3vNpUQKh4ZZOqNSXdAECgVtmTVBVuBAri0uEyjer39ZZH6WUXYYo5CKG9RfQrXhhfqeVyUIUK8XcUQjMpeotKQFGdyhsrD4aOFsEmqzrFf3BnWFYruIsY5Kx9ADpyZZdWFTzyMzyhpWaRJviBjx1IZSQFSf92A93bUU8Ka83hZZIE1WyKGwkgAlKD2qcNZZFhVkAY7DNqHCAIg6ZZARFgzQ5ecr1iCQ4mUY6EncnNrPRbn5m0jeXYX1pjIcSoTPNn69P7E8ZP8wk4RXw84ZE_PUBLIC_END
+
+options
+  channel = feedback
+  commentPlaceholderText = Submit a bug report here
+  hideSettingsButton = true
+  hideFullscreenButton = true
+  
+  async beforeSubmit(e) =>
+    let url = await bugReport.createTemporaryDebugInfoUrl({ // this URL is not permanent - i.e. debug data is deleted after a few months. See   perchance.org/bug-report-plugin   for more info.
+      customData: {
+        foo: 123, // by default browser version and a bunch of other commonly used stuff is collected, but you can add extra debug info here if needed
+      },
+      // Debug info is encrypted with this public key to increase user privacy.
+      // You can generate your own public/private key pairs here:  https://perchance.org/public-key-encryption-tool
+      publicKey: bugReportPublicKey,
+    });
+    // Note that the feedback itself (inputText) is not encrypted. Only the debug data is encrypted (and it's uploaded as an expiring/temporary file using the upload-plugin) You could easily encrypt the feedback text too by just importing `secret-plugin` and then writing `secret.encrypt(e.inputText, bugReportPublicKey)` instead of just `e.inputText` in the line below.
+    return `${e.inputText}\n\nBrowser Debug Info:\n${url}`;

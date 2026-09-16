@@ -1,0 +1,21 @@
+<h1>Secret Plugin Example</h1>
+<pre id="outputEl" style="text-align:left;"></pre>
+<script>
+  // first we generate the two 'magical' keys
+  // the 'public' key is the one that encrypts things, and the 'private' key is the one that decrypts them
+  // these are both just text. they're like passwords, except we have separate passwords for encryption and decryption
+  let keys = secret.generateKeyPair();
+  // now we create the message that we want to encrypt:
+  let originalText = "The text to be encrypted.";
+  // now we encrypt it using the public key:
+  let encryptedText = secret.encrypt(originalText, keys.public);
+  // and now let's check that if we decrypt it (with the private key), we get the original message:
+  let decryptedText = secret.decrypt(encryptedText, keys.private);
+  // output all the variables so we can check the result:
+  outputEl.innerHTML = JSON.stringify({publicKey:keys.public, privateKey:keys.private, originalText, encryptedText, encryptedTextLength:encryptedText.length, decryptedText, success: originalText === decryptedText}, null, 2);
+</script>
+
+<p><a href="https://perchance.org/secret-plugin" target="_blank">See the plugin page</a> for more info on using this plugin.</p>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } </style>

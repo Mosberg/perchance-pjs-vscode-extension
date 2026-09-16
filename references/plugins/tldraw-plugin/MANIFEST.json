@@ -1,0 +1,119 @@
+{
+  "package": "tldraw-plugin-package",
+  "generatedAt": "2026-09-16T17:33:24.208Z",
+  "generator": {
+    "name": "tldraw-plugin",
+    "publicId": "63268b16b9c2c8552aa55718d483571c",
+    "url": "https://perchance.org/tldraw-plugin",
+    "saved": true
+  },
+  "workspaceRootFiles": [
+    "main.pjs",
+    "index.html",
+    "AGENTS.md"
+  ],
+  "externalReferences": [
+    {
+      "url": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js",
+      "category": "external-code",
+      "owner": "Perchance",
+      "note": "DSL engine; hash changes per engine build"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "category": "external-code",
+      "owner": "Cloudflare",
+      "note": "analytics, platform-injected"
+    },
+    {
+      "url": "https://www.tldraw.com/r/perchance-aUf8Njeo73-<generatorName>-<channel>",
+      "category": "external-code",
+      "owner": "tldraw",
+      "note": "embedded whiteboard app; bundles not enumerable"
+    },
+    {
+      "url": "https://perchance.org/api/clearCacheIfGeneratorOrImportsHaveBeenUpdated",
+      "category": "external-api",
+      "owner": "Perchance"
+    },
+    {
+      "url": "https://perchance.org/api/securityData",
+      "category": "external-api",
+      "owner": "Perchance"
+    }
+  ],
+  "noLocalBinaryAssets": true,
+  "buildStep": "none (Perchance renders main.pjs + index.html directly)",
+  "files": [
+    {
+      "path": "01-internal-code/README.md",
+      "bytes": 2573,
+      "sha256": "1f7e0434f7d4dd7ca29686a6f2f04900335a5cfe1686dda6bb132a5f47f21716"
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 5184,
+      "sha256": "907a48518e4005986583cc872dd378346f9a5a0cda883281b3e2f96de9471b91"
+    },
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 6275,
+      "sha256": "1ecc7379dac126b04e6639e63a55f660d90fabc342980c3afa2f44aa5b7c6175"
+    },
+    {
+      "path": "02-external-code/README.md",
+      "bytes": 2406,
+      "sha256": "94867c2a6ee28e0282e08996551bc832fe73011f53db3c96059d9e82160971f5"
+    },
+    {
+      "path": "02-external-code/cloudflare-insights-beacon.min.js",
+      "bytes": 30294,
+      "sha256": "08c4fd72f9d96a7aa554510dff2c293973b1b092dff1b9b282bce9111b50ef41"
+    },
+    {
+      "path": "02-external-code/perchance-engine-491bf81418aa4b69.js",
+      "bytes": 115369,
+      "sha256": "491bf81418aa4b691be009ce503200880cba472d287541db1950c4b02cc221ad"
+    },
+    {
+      "path": "02-external-code/tldraw-embed-shell.html",
+      "bytes": 13646,
+      "sha256": "5f989d231d1ef50cd011070ee783d68621df4027b77cc4d58b7df85da6b2c396"
+    },
+    {
+      "path": "03-third-party-assets/README.md",
+      "bytes": 1572,
+      "sha256": "5d8a64d7a663e0cc5abc918c72f2de3c156f07f7aab163f9e137a7ad7f44f4b5"
+    },
+    {
+      "path": "03-third-party-assets/fontawesome-expand-icon.svg",
+      "bytes": 546,
+      "sha256": "9a68003f08b95c2d0b858ede90d25cd43fbefc25c8e6afcad5c9caf522b5dbdf"
+    },
+    {
+      "path": "04-project-resources/README.md",
+      "bytes": 1357,
+      "sha256": "66b8e0bd41171f08b1c215de1efc27c174d146903a01b200debc19167709d1bc"
+    },
+    {
+      "path": "05-build-config/README.md",
+      "bytes": 2494,
+      "sha256": "c033fd042c3b80da227815af58eb19c573c14c998e1f942714f1ed8c6b858650"
+    },
+    {
+      "path": "06-agent-workspace/AGENTS.md",
+      "bytes": 51258,
+      "sha256": "ed93ec9691766453f9e6240996225ccb6661973015d5709d59661d58da530fd4"
+    },
+    {
+      "path": "06-agent-workspace/README.md",
+      "bytes": 364,
+      "sha256": "c668a48b76ed3baeed14c606e6ba1861e7f1c72801165af5fe084241eb1642e3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3702,
+      "sha256": "6cb11d8ac666834029d74aeb4b437991a69d08a6a051a3ac035d725c22efbfff"
+    }
+  ]
+}

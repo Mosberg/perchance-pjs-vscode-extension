@@ -1,0 +1,119 @@
+{
+  "name": "tooltip-plugin complete export",
+  "generator": "tooltip-plugin",
+  "publicPage": "https://perchance.org/tooltip-plugin",
+  "sourcePage": "https://perchance.org/tooltip-plugin#edit",
+  "exported": "2026-09-16T17:32:55.242Z",
+  "files": [
+    {
+      "path": "tooltip-plugin-export/README.md",
+      "bytes": 7082,
+      "sha256": "a016feffb8776076e247962222276aaf9c07ff2f2085cbc82c6b4dddbfd7adcd",
+      "category": "documentation"
+    },
+    {
+      "path": "tooltip-plugin-export/THIRD-PARTY-LICENSES.md",
+      "bytes": 2953,
+      "sha256": "b2c9e995991a57c2a9052f21ccf3b1fb44b685290d5bb1d13b54009a02ab1e44",
+      "category": "documentation"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/embedded/popper-2.5.2.inlined-in-main.pjs.js",
+      "bytes": 18439,
+      "sha256": "8785640408a6a792e3af085d49cc240232331a1b663d0bb433919145766946af",
+      "category": "external code (as inlined)"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/embedded/tippy-6.2.6.inlined-in-main.pjs.js",
+      "bytes": 23725,
+      "sha256": "83a459400807bfba94104cb96238e89f9556635f5455703b58afd2a98aeed39f",
+      "category": "external code (as inlined)"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/licenses/popper-LICENSE.md",
+      "bytes": 1082,
+      "sha256": "bf67e2c9b7974543bb18ced3a0b37f53729aaff953b442dd89a3adaf90fd93e8",
+      "category": "external code (license)"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/licenses/tippy-LICENSE.txt",
+      "bytes": 1072,
+      "sha256": "7f4929c55f525ae510a77c361496c5a86a092434a3681c95a4dc89e951c67e98",
+      "category": "external code (license)"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/package.json",
+      "bytes": 751,
+      "sha256": "913e432bdd28e234a98286faca679e67c6e7d13351fa974f94e1e9ef3a73f615",
+      "category": "external code"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/popper-2.5.2.min.js",
+      "bytes": 18309,
+      "sha256": "b341df65f4ae526103325a74b19e05a97cc89e0ad232816bfe853a56831068a9",
+      "category": "external code"
+    },
+    {
+      "path": "tooltip-plugin-export/dependencies/tippy-6.2.6.min.js",
+      "bytes": 23563,
+      "sha256": "8cde69e77bbfcfac376856b583f415542edbe95778c4dc66d9c12c737bc410f1",
+      "category": "external code"
+    },
+    {
+      "path": "tooltip-plugin-export/docs/PLUGIN-API.md",
+      "bytes": 3809,
+      "sha256": "bec88c7c946c53caf92636e0697326b686e32b4f0a385afbc2e3392d99533688",
+      "category": "documentation"
+    },
+    {
+      "path": "tooltip-plugin-export/generator/index.html",
+      "bytes": 3880,
+      "sha256": "ad87ab33c5586b8be0153d239469c44845f6e731f9f44cd418cd1f2b8abcfcc9",
+      "category": "internal code"
+    },
+    {
+      "path": "tooltip-plugin-export/generator/main.pjs",
+      "bytes": 45953,
+      "sha256": "4a8154680d94c46852dacb7c934aa9a917021466c5eae978cedeb99d89c4e0dd",
+      "category": "internal code"
+    },
+    {
+      "path": "tooltip-plugin-export/provenance/INTEGRITY-REPORT.txt",
+      "bytes": 2399,
+      "sha256": "cbdbd2e6c2e24abb1171ef0a06e777e55fe4cc75a24dfcaaf9b3f6d2eb97054e",
+      "category": "provenance"
+    },
+    {
+      "path": "tooltip-plugin-export/tools/verify-embedded-deps.mjs",
+      "bytes": 2492,
+      "sha256": "f3863be602464fbd84c783000900140d70701be053f29454a659bcbce2d44959",
+      "category": "build / tooling"
+    }
+  ],
+  "totalBytes": 155509,
+  "thirdParty": {
+    "@popperjs/core": {
+      "version": "2.5.2",
+      "license": "MIT",
+      "url": "https://unpkg.com/@popperjs/core@2.5.2/dist/umd/popper.min.js",
+      "inlinedInMainPjs": true,
+      "inlinedCopyMatchesUpstream": true
+    },
+    "tippy.js": {
+      "version": "6.2.6",
+      "license": "MIT",
+      "url": "https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js",
+      "inlinedInMainPjs": true,
+      "inlinedCopyMatchesUpstream": true
+    }
+  },
+  "assets": {
+    "images": [],
+    "audio": [],
+    "models": [],
+    "shaders": [],
+    "fonts": [],
+    "data": [],
+    "note": "The generator ships no binary/static assets; it is pure code."
+  }
+}
