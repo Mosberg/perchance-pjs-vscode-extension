@@ -1,0 +1,39 @@
+$meta
+  title = Hop Havoc
+  description = A poor man's Bullet Bunny — a roguelite twin-stick arena shooter. Survive 500 seconds, grab upgrades, stack damage and shred the horde.
+  tags = bullet bunny, roguelite, shooter, twin-stick, survival, arena, upgrade, vampire-survivors-like, leaderboard, multiplayer
+  image = https://user.uploads.dev/file/79f4fcfcbf74a28c3b26d660c7ef1e45.webp
+
+createServerSocket = {import:server-plugin}
+commentsPlugin = {import:comments-plugin}
+// Used only by the leaderboard archive mirror (see "Archive backup + restore" in src/main.js):
+// it mirrors the archive into a public editable text file and can push it back if the durable
+// server state ever comes back empty. Never used for gameplay data.
+uploadPlugin = {import:upload-plugin}
+
+defaultCommentOptions // single source of truth for Hop Havoc comments
+  channel = hop-havoc
+  channelLabel = 💬 Hop Havoc
+  width = 100%
+  height = 100%
+  forceColorScheme = dark
+  reverseCommentOrder = true
+  commentPlaceholderText = Drop a comment…
+  loadFonts = Open Sans, Inter
+  submitButtonStyle = font-family:"Open Sans",sans-serif; height:32px; min-height:32px; padding:1px 10px; border-radius:8px; border:1px solid light-dark(#cfcfcf,#555); background:light-dark(#f2f2f2,#2a2a2a); color:light-dark(#444,#ddd); font-size:13px; font-weight:700; line-height:1; box-shadow:none; text-transform:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-sizing:border-box;
+  settingsButtonStyle = width:32px; min-width:32px; height:32px; padding:0; margin-left:1.5px; border-radius:8px; border:1px solid light-dark(#cfcfcf,#555); background-color:light-dark(#f2f2f2,#2a2a2a); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21a8 8 0 0 0-16 0'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center; background-size:16px 16px; color:transparent; font-size:0; text-shadow:none; box-shadow:none; cursor:pointer; flex-shrink:0; box-sizing:border-box;
+  hideFullscreenButton = true
+  customEmojiSize = 1.33
+  loneCustomEmojiSizeMultiplier = 2.8
+  customEmojis = {import:huge-emojilist-furry-generator}
+  submitButtonText = POST
+  adminPasswordHash = bb6ef9b28663b5e7ce46a3a81b2bd21d4e0fea3ad79c26ffd3a43381722055ca
+  adminFlair =  MOD 
+  deleteButtonIcon = ✕
+
+// Original game: https://gd.games/penusbmic/bullet-bunny
+// I just prompted the ai helper to make a clone of that game, except using three.js (for 3D).
+// I attached some screenshots and told it to use the vision tool to compare them side-by-side and make sure the vision tool says it's visually impressive.
+// And then I spammed the prompt below at it like 20 times with the "then do this" button, and playtested it every now and then:
+//   "Keep hunting for and fixing any differences that could affect balance/difficulty/gamplay/etc. and port them from the original to our version. If you find nothing, then no changes are required, of course."
+// If you want to add any features or new perks/upgrades to you can just ask the AI helper to add them.
