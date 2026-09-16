@@ -1,0 +1,53 @@
+{
+  "project": "dynamic-import-plugin",
+  "public_url": "https://perchance.org/dynamic-import-plugin",
+  "description": "Perchance plugin generator that lazily/synchronously downloads and compiles other generators' lists via the public getGeneratorsAndDependencies API.",
+  "categories": {
+    "internal-code": [
+      {
+        "path": "internal-code/main.pjs",
+        "bytes": 4187,
+        "lines": 75,
+        "role": "Plugin logic: the dynamicImport() function (sync/async/preload modes). This is the generator's main.pjs."
+      },
+      {
+        "path": "internal-code/index.html",
+        "bytes": 7803,
+        "lines": 82,
+        "role": "Documentation/landing page markup + inline <style>. This is the generator's index.html (body contents only in the live editor)."
+      }
+    ],
+    "external-code": [
+      {
+        "name": "Perchance engine global: createPerchanceTree(code, {name})",
+        "kind": "host-provided runtime global",
+        "vendored": false,
+        "note": "Called in both branches of main.pjs. Provided by the Perchance page runtime, not by any file in this project."
+      },
+      {
+        "name": "Perchance engine global: window.moduleSpace",
+        "kind": "host-provided runtime global",
+        "vendored": false,
+        "note": "Import cache / registry of already-compiled generator trees."
+      },
+      {
+        "name": "GET https://perchance.org/api/getGeneratorsAndDependencies?generatorNames=<names>",
+        "kind": "public HTTP API",
+        "vendored": false,
+        "note": "Stable, backwards-compatibility-guaranteed endpoint documented in the source comments."
+      }
+    ],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-config": []
+  },
+  "empty_category_notes": {
+    "third-party-assets": "None. No images, audio, models, shaders, animations or data files exist or are referenced. The only non-ASCII glyph is the unicode character U+2684 (die face-5) in index.html.",
+    "project-resources": "None beyond the two source files. There is no src/ directory, no JSON data, no templates/prefabs, and no UI resource files.",
+    "build-config": "None. No package.json, bundler, tsconfig, lockfile or CI config. The generator is authored and served directly; there is no build pipeline and no minification step."
+  },
+  "runtime_dependencies_requiring_network": [
+    "https://perchance.org/api/getGeneratorsAndDependencies"
+  ],
+  "zip_contents_recipe": "Rebuild by re-writing main.pjs and index.html verbatim; nothing is generated or transformed."
+}

@@ -1,0 +1,4 @@
+No project resource files.
+
+No JSON data files, level data, prefabs, templates, UI resource bundles, or src/ files.
+All content lives inline in main.pjs and index.html.

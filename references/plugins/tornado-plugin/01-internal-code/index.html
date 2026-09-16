@@ -1,0 +1,58 @@
+<h1>Tornado Plugin 🌪</h1>
+
+<div style="margin:0 auto;width:100%;max-width:750px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p style="margin-top:0;">Extremely useful plugin that makes all your page elements rotate. Simply put this in your Perchance code panel:</p>
+
+<pre class="custom">
+tornado = \{import:tornado-plugin\}
+</pre>
+
+<p>And then put this in your HTML panel:</p>
+	
+<pre class="custom">
+\[tornado(1)\]
+</pre>
+	
+	<button onclick="$output(1)">Click here to activate the plugin on this page</button>
+	
+	<p>You can change the <code>1</code> value to make it faster or slower (default is 0.5).</p>
+	
+	<p>To make the plugin activate with a button (like above), use this HTML code instead:</p>
+	
+<pre class="custom">
+&lt;button onclick="tornado(1)"&gt;my button&lt;/button&gt;
+</pre>
+	
+	<br><br>
+	<p><b>Notes:</b></p>
+	<ul class="dot-list">
+		<li>This is a very important plugin</li>
+		<li>Set the speed extremely small (e.g. <code>\[tornado(0.0001)\]</code>) to create confusion</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+	}
+	ul.dot-list li {
+	  margin-top:0.5em;	
+	} 
+	pre.custom {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>

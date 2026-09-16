@@ -1,0 +1,72 @@
+<h1>Conjugate Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:750px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>conjugate = \{import:conjugate-plugin\}</code></p>
+	<br>
+	<p>Now you can conjugate verbs into any form you like:</p>
+	<p><code>\[conjugate("run").gerund\]</code></p>
+	<p>That would generate <code>running</code>.</p>
+  <p>In the above example I've put a word ("run") directly into the conjugate plugin, but normally you'd be putting in a randomly selected verb. Here's some example code to demonstrate how you'd do that:</p>
+<pre style="">
+verb
+	read
+	ride
+	run
+
+output
+  The future tense of \[v = verb.selectOne\] is \[conjugate(v).future\].
+</pre>
+	<br>
+	<p>Here are all the possible conjugations:</p>
+<pre style="">
+\[conjugate("speak").past\]           --> spoke
+\[conjugate("speak").infinitive\]     --> speak
+\[conjugate("speak").gerund\]         --> speaking
+\[conjugate("speak").actor\]          --> speaker
+\[conjugate("speak").present\]        --> speaks
+\[conjugate("speak").future\]         --> will speak
+</pre>
+	
+	<p>You can of course use it with lists too, and it'll randomly select an item from the list and conjugate it (just as you can do with <code>myList.pastTense</code> and the like):</p>
+	
+<pre style="">
+myListOfVerbs
+	read
+	ride
+	run
+
+output
+  She is a great \[conjugate(myListOfVerbs).actor\].
+</pre>
+	
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><a href="/conjugate-plugin-example#edit">Here's a simple example</a> of how to use it.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<p style="text-align:center; font-size:200%; opacity:0.2; margin-top:0.5em;"><span>⚄&#xFE0E;</span></p>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.2em
+	}
+	pre {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+	ul li { margin-top:0.4em; }
+</style>

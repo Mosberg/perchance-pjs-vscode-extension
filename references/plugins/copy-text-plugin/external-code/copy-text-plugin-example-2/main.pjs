@@ -1,0 +1,6 @@
+copyText = {import:copy-text-plugin}
+
+n = {1-999999}
+
+output
+  [n][n][n][n][n][n] 

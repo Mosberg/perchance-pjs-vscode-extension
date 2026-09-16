@@ -1,0 +1,32 @@
+{
+  "project": "fullscreen-button-plugin",
+  "generatorUrl": "https://perchance.org/fullscreen-button-plugin",
+  "generatorName": "fullscreen-button-plugin",
+  "generatorPublicId": "27250d31c5a422ad73c7596e1b7efea7",
+  "type": "perchance generator (plugin)",
+  "exportedAt": "2026-09-16T18:33:05.101Z",
+  "runtime": "Perchance engine (browser). No build step, no bundler, no package manager.",
+  "internalCode": [
+    {
+      "path": "01-internal-code/main.pjs",
+      "role": "Perchance DSL source - defines the $output(text, exitText, style) plugin function; loads implicitly before index.html runs",
+      "bytes": 1916
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "role": "Generator HTML = contents of <body> only; documentation page + live $output(...) demo buttons",
+      "bytes": 2267
+    }
+  ],
+  "externalCode": [],
+  "thirdPartyAssets": [],
+  "projectResources": [],
+  "buildAndConfig": [],
+  "notes": [
+    "This generator has ZERO {import:...} dependencies. The '\\{import:fullscreen-button-plugin\\}' text visible in index.html is ESCAPED documentation copy (a code sample in <pre>), not a real import.",
+    "There are no images, audio, models, shaders, animations, JSON data, prefabs, templates, UI resource files, or src/ files in this project.",
+    "There is no build pipeline or configuration file - Perchance compiles main.pjs + index.html server-side and injects them into an iframe.",
+    "The one external link is an outbound <a href> to https://en.wikipedia.org/wiki/Cascading_Style_Sheets (documentation link, not a dependency).",
+    "AGENTS.md exists in the workspace but is the AI agent's instruction file, not part of the shipped generator - excluded from this package."
+  ]
+}

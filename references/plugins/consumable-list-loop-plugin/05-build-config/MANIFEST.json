@@ -1,0 +1,47 @@
+{
+  "generator": "consumable-list-loop-plugin",
+  "generatorPublicId": "d189d036a6a9c0fc0208b8e8eaa16f4b",
+  "generatorUrl": "https://perchance.org/consumable-list-loop-plugin",
+  "packagedAt": "2026-09-16T18:12:43.607Z",
+  "platform": "Perchance (perchance.org)",
+  "categories": {
+    "01-internal-code": [
+      {
+        "path": "main.pjs",
+        "bytes": 1444,
+        "sha256": "b25c730725f0ec3bfd76f3c7d8840374c407bdc98d6a1c0b094b5215c2979f30",
+        "note": "Perchance plugin source; exports $output(list)"
+      },
+      {
+        "path": "index.html",
+        "bytes": 2003,
+        "sha256": "82651eaaeb44a97832c08ab71d499335ecf11589e3fed9d9b7748527640804b3",
+        "note": "Static docs page + inline CSS; no scripts"
+      }
+    ],
+    "02-external-code": [],
+    "03-third-party-assets": [],
+    "04-project-resources": [],
+    "05-build-config": [
+      {
+        "path": "MANIFEST.json",
+        "note": "this file"
+      },
+      {
+        "path": "BUILD-NOTES.md"
+      }
+    ]
+  },
+  "dependencies": {
+    "perchanceImports": [],
+    "npm": [],
+    "cdn": [],
+    "fetchCalls": []
+  },
+  "totals": {
+    "sourceFiles": 2,
+    "externalFiles": 0,
+    "assetFiles": 0,
+    "totalBytes": 3447
+  }
+}

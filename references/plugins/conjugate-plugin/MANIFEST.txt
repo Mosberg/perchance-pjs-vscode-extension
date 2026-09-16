@@ -1,0 +1,25 @@
+MANIFEST - conjugate-plugin complete asset package
+Source: the generator source tree (main.pjs, index.html) + upstream compromise@11.12.4.
+All hashes are SHA-256 of the exact bytes stored in this zip.
+MANIFEST.txt is not listed (it cannot hash itself).
+
+    BYTES  SHA-256                                                           PATH
+--------------------------------------------------------------------------------------------------------------
+     2093  3baeb662346c29ad014a2afa25456d3755b9fb031dd41b54e760ade40400fb3b  01-internal-code/index.html
+   252586  65b9a1f648a010d9fba2d47c1cd6706439e3081520eeae903e61a93df8eece90  01-internal-code/main.pjs
+     5657  a657a017696e947edee138a424af776a5c2984114cf5aa0874d3c4877165b429  01-internal-code/plugin-logic.extracted.js
+   247153  035d727ff19c07b160fc75e705008969033a4ed2aed214dca9a2a92370b69f4e  01-internal-code/vendored-inline/compromise-11.12.4.min.js
+   247374  179239ca424eb3d2f0e00592da2a7595958b39ad14749aa43765b3621a2955a2  02-external-code/compromise-11.12.4/builds/compromise.es6.min.js
+   427443  95e8caff9c29573635d89a004b125514753e141718d3cbacdd0e7c4cb248d6fb  02-external-code/compromise-11.12.4/builds/compromise.js
+   247227  e7381e583c96b2353cba0cc2c62cb202ae0e12afe96ebc0cfd970b898db7da8d  02-external-code/compromise-11.12.4/builds/compromise.min.js
+     9034  682dac1ee349383a137e6dc7af5d497abab5ec1748363ef09757ccb04971c390  02-external-code/compromise-11.12.4/changelog.md
+      318  5636333fd42ac1643f6064afafc208a37fcd0095ee15b882b73f91bde4ef8a47  02-external-code/compromise-11.12.4/compromise.d.ts
+     1067  84215e0bd0223ac26c983a59042884c343f88f3c8523a08993f69b66c45cb3ec  02-external-code/compromise-11.12.4/LICENSE
+     1768  24031850cf576f70091cf3d48ad2ddffcda694443ea55c3005584e7775303ee7  02-external-code/compromise-11.12.4/package.json
+    17404  22358ea5105084d87ec78fec2c60810e2c14d49c7c3cd3045756b350e5ef1a0f  02-external-code/compromise-11.12.4/README.md
+      883  faf8b5ae5c66af1e7d8e2875f3c4aa9113666410733bdb916a4f80226e09b393  03-third-party-assets/README.txt
+      634  f5742d8648081afe6b2c3bbfd451b087112d8ad0f0600010b0d485253f7ac134  04-project-resources/README.txt
+      860  08272b03c6b50a7129608492850197c9e0c54f8f3988f577cec5491ca6d84850  05-build-config/README.txt
+     9936  87a1baf90bfb111bb6be83193cc3818fb60eddd780bcd1e0757da9329c286e95  README.md
+--------------------------------------------------------------------------------------------------------------
+16 files, 1471437 bytes total.

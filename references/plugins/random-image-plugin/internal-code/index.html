@@ -1,0 +1,83 @@
+<h1>🖼 Random Image Plugin 📷</h1>
+
+<div style="text-align:left; margin:0 auto;width:100%;max-width:800px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p style="text-align:justify; margin-top:0;">This plugin allows you to add a random image based on a keyword/topic that you provide. It uses Unsplash.com's API which is a bit "hit and miss", so it won't be perfect. Just paste this in your Perchance code panel:</p>
+	 
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+image = \{import:random-image-plugin\}
+</pre>
+	
+  <p>and then write this in your HTML (bottom-right) panel:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+\[image("cat")\]
+</pre>
+
+	<p>and it'll output a random cat image, like this:</p>
+	
+	<p>[$output("cat")]</p> 
+	
+	<p>Note that sometimes it will output an irrelevant image because unfortunately some Unsplash users add irrelevant tags to their images. You can resize/crop the output to a certain width and height like this:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+\[image("cat", 200, 100)\]
+</pre>
+	
+	<p>[$output("cat", 200, 100)]</p> 
+	
+	<p>That outputs an image that's 200 pixels wide, and 100 pixels high.</p>
+  
+	<p>You can input a list and it will randomly select an item from that list:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+\[image(myAnimalList)\] 
+</pre>
+	
+	<p>[$output(myAnimalList)]</p> 
+  
+	<p>By default the image is cropped to the height and width that you specify, but you can opt to "contain" the full image within the width and height you specify like this:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+\[image(myAnimalList, 600, 400, "contain")\] 
+</pre>
+  
+	<p>[$output(myAnimalList, 600, 400, "contain")]</p>
+	
+	<br><br>
+	<p><b>Notes:</b></p>
+	<ul class="dot-list">
+		<li><a href="https://perchance.org/random-image-plugin-example#edit">Here's a simple example</a> of a generator that uses this plugin.</li>
+		<li>This plugin uses the <a href="https://source.unsplash.com/" target="_blank">Unsplash Source API</a>.</li>
+		<li><b>Important note:</b> The Unsplash API may return the wrong images sometimes because on unsplash people tag their images with tags that sometimes don't match the exact topic. E.g. it may be a cat photo but their cat's name is "lizard", and so you get a cat photo displayed when you actually searched "lizard".</li>
+		<li>The default dimensions are 600x400.</li>
+		<li><code>\[image("cat")\]</code> generates an actual image (i.e. the HTML <code>&lt;img&gt;</code> tag), but if you just want to generate the URL of the image, then you can instead write <code>\[image("cat").src\]</code>.</li>
+		<li>Unsplash has hundreds of thousands of images, but there are still many topics that don't have any images, so if you request an image for "charmander" (for example), you'll get a "not found" placeholder image.</li>
+		<li>Since all images are from Unsplash, they're <a href="https://unsplash.com/license" target="_blank">completely free</a> to use for any purpose (e.g. even if you are selling your generator, or something).</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+	}
+	ul.dot-list li {
+	  margin-top:0.5em;	
+	} 
+	pre.custom {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>

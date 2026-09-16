@@ -1,0 +1,13 @@
+<h1>Output History Copy to Clipboard Example</h1>
+
+<p id="out">[o = output.evaluateItem]</p>
+
+<button onclick="outputHistory.innerHTML=o+'<br>'+outputHistory.innerHTML, update(out)">randomize</button>
+
+<br><br>
+
+<div>History:</div>
+<div id="outputHistory" style="width:250px; height:300px; overflow:auto; border:1px solid black; display:inline-block;"></div>
+<br><button onclick="copyText(outputHistory.innerHTML.replaceAll('<br>', '\n'))">copy to clipboard</button>
+
+<br><br><br><p style="font-size:80%; width:400px; margin:0 auto;"><a href="https://perchance.org/output-history-example#edit" target="_blank">Here's</a> an example without the copy button.</p>

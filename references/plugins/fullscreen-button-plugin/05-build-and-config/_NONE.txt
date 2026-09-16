@@ -1,0 +1,4 @@
+No build pipeline or configuration files.
+
+Perchance compiles main.pjs + index.html server-side; there is no bundler, no
+package.json, no lockfile, no CI config, and no environment/config file.

@@ -1,0 +1,4 @@
+copyText = {import:copy-text-plugin}
+
+output
+  Your spirit animal is: {import:animal}

@@ -1,0 +1,4 @@
+No external code.
+
+This generator has zero {import:...} dependencies. It does not use any CDN scripts,
+npm packages, or other generators. There is nothing to download here.

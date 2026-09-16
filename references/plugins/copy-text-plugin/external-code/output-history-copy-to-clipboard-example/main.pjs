@@ -1,0 +1,4 @@
+copyText = {import:copy-text-plugin}
+
+output
+  {a} {import:adjective} {import:animal}

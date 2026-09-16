@@ -1,0 +1,69 @@
+<h1>Consumable List Loop Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:850px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p style="text-align:justify; margin-top:0;">Sometimes you want a consumable list that never runs out of items. Instead, when all the items have been consumed, you want it to "refresh" itself so it fills up with items again. That's what this plugin is for. Think of it like a deck of cards where you keep drawing them out one-by-one, and when you run out, you shuffle the deck and then start drawing them out again.</p>
+
+	<p>Put this in your Perchance code panel:</p>
+	
+<pre class="custom">
+consumableListLoop = \{import:consumable-list-loop-plugin\}
+</pre>
+
+<p>And then instead of writing this:</p>
+	
+<pre class="custom">
+\[cl = myList.consumableList\]  \[cl\]  \[cl\] ...
+</pre>
+	
+	<p>You write this:</p>
+	
+<pre class="custom">
+\[cl = consumableListLoop(myList)\]  \[cl\]  \[cl\] ...
+</pre>
+	
+	<p>And now when <code>cl</code> runs out of items, instead of giving you a "no more items in cl" error, it will automatically "reset" to a full list again.</p>
+	
+  <p>So here's an example of how you'd use this plugin:</p>
+<pre class="custom">
+output
+	There were a bunch of animals on the island including \[a = consumableListLoop(animals)\],  \[a\],  \[a\] ...
+
+animals
+	frogs
+	turtles
+	birds
+	...
+</pre>
+	
+	<br><br>
+	<p><b>Notes:</b></p>
+	<ul class="dot-list">
+		<li><a href="https://perchance.org/consumable-list-loop-example#edit">Here's an example</a> showing how to use this plugin.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+	}
+	ul.dot-list li {
+	  margin-top:0.5em;	
+	} 
+	pre.custom {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>

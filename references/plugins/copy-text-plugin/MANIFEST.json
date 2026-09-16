@@ -1,0 +1,103 @@
+{
+  "generator": "copy-text-plugin",
+  "page": "https://perchance.org/copy-text-plugin",
+  "publicId": "41cb683561b577c88650a029844b4186",
+  "generated": "2026-09-16T18:32:30.209Z",
+  "categories": {
+    "internal-code": [
+      "internal-code/main.pjs",
+      "internal-code/index.html"
+    ],
+    "external-code": [
+      "external-code/README.md",
+      "external-code/animal/main.pjs",
+      "external-code/animal/index.html",
+      "external-code/copy-text-plugin-example/main.pjs",
+      "external-code/copy-text-plugin-example/index.html",
+      "external-code/copy-text-plugin-example-2/main.pjs",
+      "external-code/copy-text-plugin-example-2/index.html",
+      "external-code/output-history-copy-to-clipboard-example/main.pjs",
+      "external-code/output-history-copy-to-clipboard-example/index.html"
+    ],
+    "third-party-assets": [],
+    "project-resources": [],
+    "build-config": []
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3319,
+      "sha256": "b2daa2c6392c4012fdbd81be88d3e20c7506e23704f68c0b8f66b8735b55c473"
+    },
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 1037,
+      "sha256": "b8a4dd971a707559e03ef86bcdcb54678be030db2798acc6d74f6662aaf9294d"
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 2504,
+      "sha256": "4f5555e98ac54e5202ec72ef22eb5ecd35ca56348d0ec2b43f91845a1aaa9a7c"
+    },
+    {
+      "path": "external-code/README.md",
+      "bytes": 1149,
+      "sha256": "4c1c0bfeec3d1fa945188aed320d609a59d8ef22fa8c720a08d684b9888eab64"
+    },
+    {
+      "path": "external-code/animal/main.pjs",
+      "bytes": 2091,
+      "sha256": "c4e9954357007f035196c83def1d650ebf030706bdd472d8ea3c49113b62e0a2"
+    },
+    {
+      "path": "external-code/animal/index.html",
+      "bytes": 1332,
+      "sha256": "0e37339fd7343b9c6750b97017f342fa2b531e0def7f1e20cdd07f0fa610eac1"
+    },
+    {
+      "path": "external-code/copy-text-plugin-example/main.pjs",
+      "bytes": 85,
+      "sha256": "6e0ed08815d347219141e2e3a53b93e8dd281d116286936b889594ba1f15206d"
+    },
+    {
+      "path": "external-code/copy-text-plugin-example/index.html",
+      "bytes": 164,
+      "sha256": "89ade6ac9ff692bcbbb6ac2059ebbc1544f466c765d582a015d50060bbe0bd2f"
+    },
+    {
+      "path": "external-code/copy-text-plugin-example-2/main.pjs",
+      "bytes": 82,
+      "sha256": "7a9c0437442339f8d6967a4e51e461772b5618a776124cc0446294536d8accf1"
+    },
+    {
+      "path": "external-code/copy-text-plugin-example-2/index.html",
+      "bytes": 193,
+      "sha256": "3ebf043ae2b23adcc60dfaf1a2f7c6b9374ee0b59d859a0490654c463fc91b1e"
+    },
+    {
+      "path": "external-code/output-history-copy-to-clipboard-example/main.pjs",
+      "bytes": 85,
+      "sha256": "ac7b90b21c5b8634cc5ffe398a0f8c4ecbcc8d25e3e49873de2e8d2f8a1aae5c"
+    },
+    {
+      "path": "external-code/output-history-copy-to-clipboard-example/index.html",
+      "bytes": 661,
+      "sha256": "db798cdc949539ddc050101b03e8b492031ce70ff454b84127f6e681a5748b5c"
+    },
+    {
+      "path": "third-party-assets/README.md",
+      "bytes": 261,
+      "sha256": "0b47af1a2a179644c7b93e36dd236a6b022eede7f2c1289ced155bacc2814047"
+    },
+    {
+      "path": "project-resources/README.md",
+      "bytes": 267,
+      "sha256": "8c6f1bf39a0f952c390f65dfb391c9c89fe25d15bc3e90bdd9e1a3b280642faf"
+    },
+    {
+      "path": "build-config/README.md",
+      "bytes": 997,
+      "sha256": "e5e9df6a50330a9305f8f04dd7216d97ef1b3e0c5f40d4d0fca211f8af872201"
+    }
+  ]
+}
