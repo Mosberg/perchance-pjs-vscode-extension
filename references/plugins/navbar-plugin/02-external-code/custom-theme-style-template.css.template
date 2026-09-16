@@ -1,0 +1,10 @@
+div.luxbar-menu-dark, div.luxbar-menu-dark .dropdown ul \\{
+				background-color: ${bgColor};
+				color: ${textColor};
+			\\}
+			div.luxbar-menu-dark .active, div.luxbar-menu-dark .luxbar-item:hover \\{
+				background-color: ${hoverColor};
+			\\}
+			div.luxbar-menu-dark .luxbar-hamburger span, div.luxbar-menu-dark .luxbar-hamburger span::before, div.luxbar-menu-dark .luxbar-hamburger span::after \\{
+        background-color: ${textColor};
+      \\}

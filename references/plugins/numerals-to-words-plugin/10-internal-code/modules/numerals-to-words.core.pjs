@@ -1,0 +1,74 @@
+// ===== numerals-to-words: core logic =====
+// Verbatim lines 1-70 of main.pjs (Perchance-pjs syntax; not standalone JS).
+// Depends on the word tables + window.Big defined by init() (see word-tables.pjs / big.js).
+
+$output(n, style) =>
+  if(!style) style = "UK";
+  
+  if(!window.digitsToWords_INITIALIZED) init(); 
+  if(n == "") return "";
+  n = String(n).replace(/[ ,]+/g,"");
+  let decimal = n.split(".")[1];
+  n = n.split(".")[0];
+  
+  if(n == 0) return "zero";
+  if(String(n).substring(0,1) == "-") n = String(n).substring(1);
+  let answer = chunk(n).map(inEnglish).map(appendScale).filter(item => !!item).reverse().join(" ");
+  
+  if(style === "UK") {
+    // add "ands"
+    answer += " ";
+    answer = answer.replace(/( [a-z]+\-[a-z]+ )/g," and$1");
+    answer = answer.replace(/( (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|fourty|fifty|sixty|seventy|eighty|ninety))\s?$/g," and$1");
+    answer = answer.trim();
+  } else if(style === "US") {
+    // don't need to do anything
+  } else {
+    return `(Error in numerals-to-words-plugin: You gave an invalid style '${style}')`;
+  }
+  if(decimal) {
+    answer += " point "+decimal.split("").map(inEnglish).join(" ");
+  }
+  return answer;
+ 
+//convert a number into "chunks" of 0-999
+chunk (number) =>
+  var thousands = [];
+  number = new Big(number);
+  while( number.gt(0) ) {
+    thousands.push( number.mod(1000).toString() );
+    number = number.div(1000).round(0,0);
+  }
+  return thousands;
+
+
+// translate a number from 1-999 into English
+inEnglish (number) =>
+  var thousands, hundreds, tens, ones, words = [];
+  if(number < 20) {
+    return window.digitsToWords_ONE_TO_NINETEEN[number - 1]; // may be undefined
+  }
+  if(number < 100) {
+    ones = number % 10;
+    tens = number / 10 | 0; // equivalent to Math.floor(number / 10)
+    words.push(window.digitsToWords_TENS[tens - 1]);
+    words.push(inEnglish(ones));
+    return words.filter(item => !!item).join("-");
+  }
+  hundreds = number / 100 | 0;
+  words.push(inEnglish(hundreds));
+  words.push("hundred");
+  words.push(inEnglish(number % 100));
+  return words.filter(item => !!item).join(" ");
+
+// append the word for a scale. Made for use with Array.map
+appendScale(chunk, exp) =>
+  var scale;
+  if(!chunk) {
+    return null;
+  }
+  scale = window.digitsToWords_SCALES[exp - 1];
+  return [chunk, scale].filter(item => !!item).join(" ");
+
+
+

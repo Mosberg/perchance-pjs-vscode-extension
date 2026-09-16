@@ -1,0 +1,59 @@
+{
+  "generator": "literal-plugin",
+  "publicUrl": "https://perchance.org/literal-plugin",
+  "exportedAt": "2026-09-16T18:11:46.773Z",
+  "categories": {
+    "internal-code": {
+      "description": "Source files that make up the generator itself (shipped with the generator).",
+      "files": [
+        {
+          "path": "main.pjs",
+          "bytes": 454,
+          "role": "Perchance-js code. Defines the exported $output function `literal(text, opts)`."
+        },
+        {
+          "path": "index.html",
+          "bytes": 2838,
+          "role": "Generator HTML body (documentation page for the plugin)."
+        }
+      ]
+    },
+    "external-code": {
+      "description": "Third-party libraries / modules loaded by the project code.",
+      "files": []
+    },
+    "third-party-assets": {
+      "description": "Vendor-provided binary assets (models, fonts, textures, audio).",
+      "files": []
+    },
+    "project-resources": {
+      "description": "Project-owned assets: images, audio, video, shaders, JSON data, prefabs, templates, UI resources.",
+      "files": []
+    },
+    "build-config": {
+      "description": "Build pipelines, bundler configs, package manifests, lockfiles, CI configs.",
+      "files": []
+    },
+    "perchance-imports": {
+      "description": "Declared {import:...} dependencies in main.pjs.",
+      "files": []
+    },
+    "runtime-injected": {
+      "description": "Resources injected by the Perchance platform at runtime (not part of the project).",
+      "files": [
+        {
+          "path": "(platform)",
+          "role": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js — the Perchance engine, auto-injected by the platform."
+        }
+      ]
+    }
+  },
+  "dependencyScan": {
+    "importStatements": [],
+    "externalImgTags": [],
+    "externalScriptTags": [],
+    "externalLinkTags": [],
+    "srcDirFiles": [],
+    "importsDirFiles": []
+  }
+}

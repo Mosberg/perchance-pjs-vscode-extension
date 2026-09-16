@@ -1,0 +1,1 @@
+This generator imports no external plugins or modules. There is no dependency code to ship.

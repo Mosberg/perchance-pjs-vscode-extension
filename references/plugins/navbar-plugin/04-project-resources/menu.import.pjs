@@ -1,0 +1,12 @@
+// Save as its own Perchance generator (e.g. "my-cool-menu") to reuse one menu across generators.
+$output = [menu]
+
+menu
+	title = My Cool Menu
+	titleUrl = https://example.com
+	theme = dark
+	alignment = right
+	placement = static
+	items
+		Item 1 | https://example.com
+		Item 2 | https://example.com

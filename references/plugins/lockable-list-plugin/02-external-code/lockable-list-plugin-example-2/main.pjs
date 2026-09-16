@@ -1,0 +1,25 @@
+lockableList = {import:lockable-list-plugin}
+makeTable = {import:make-table-plugin}
+
+output
+	[makeTable(myTable)] 
+	
+myTable
+	Name:   | [lockableList(name)]   | [lockableList(name, "button")]
+	Age:    | [lockableList(age)]    | [lockableList(age, "button")]
+	Height: | [lockableList(height)] | [lockableList(height, "button")]
+
+name
+	Jenna
+	Aadila
+	Monica
+	Martin
+	
+age
+	child
+	teenager
+	adult
+	mature adult
+	senior
+	
+height = {130-200}cm

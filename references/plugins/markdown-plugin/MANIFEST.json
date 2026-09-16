@@ -1,0 +1,86 @@
+{
+  "generator": {
+    "name": "markdown-plugin",
+    "publicId": "6a82c33d555abc1375f7dd9ecd07aa13",
+    "url": "https://perchance.org/markdown-plugin"
+  },
+  "exported": "2026-09-16",
+  "categories": {
+    "01-internal-code": [
+      "main.pjs",
+      "index.html"
+    ],
+    "02-external-code": [
+      "marked-0.5.0.min.js",
+      "markdown-body.css"
+    ],
+    "03-third-party-assets": [
+      "fonts/octicons-link.woff",
+      "images/Rainbowflagwaving.gif",
+      "video/26DZgXM.mp4"
+    ],
+    "04-project-resources": [
+      "demo.md",
+      "raw-text-list.txt"
+    ],
+    "05-build-config": [
+      "AGENTS.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 33666,
+      "origin": "authored in this generator"
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 3495,
+      "origin": "authored in this generator"
+    },
+    {
+      "path": "02-external-code/marked-0.5.0.min.js",
+      "bytes": 21371,
+      "origin": "https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.0/marked.min.js",
+      "version": "0.5.0",
+      "license": "MIT"
+    },
+    {
+      "path": "02-external-code/markdown-body.css",
+      "bytes": 10074,
+      "origin": "extracted from getMarkedCss() in main.pjs",
+      "license": "MIT"
+    },
+    {
+      "path": "03-third-party-assets/fonts/octicons-link.woff",
+      "bytes": 1648,
+      "origin": "decoded from the @font-face data URI in markdown-body.css",
+      "license": "MIT / OFL"
+    },
+    {
+      "path": "03-third-party-assets/images/Rainbowflagwaving.gif",
+      "bytes": 4707,
+      "origin": "https://web.archive.org/web/20091018220201/http://www.geocities.com/roqofages/Rainbowflagwaving.gif"
+    },
+    {
+      "path": "03-third-party-assets/video/26DZgXM.mp4",
+      "bytes": 745051,
+      "origin": "https://i.imgur.com/26DZgXM.mp4"
+    },
+    {
+      "path": "04-project-resources/demo.md",
+      "bytes": 1234,
+      "origin": "generated from the text list in main.pjs"
+    },
+    {
+      "path": "04-project-resources/raw-text-list.txt",
+      "bytes": 1327,
+      "origin": "captured from the live generator (root.text.getRawListText)"
+    },
+    {
+      "path": "05-build-config/AGENTS.md",
+      "bytes": 51040,
+      "origin": "Perchance AI-helper workspace instructions"
+    }
+  ]
+}

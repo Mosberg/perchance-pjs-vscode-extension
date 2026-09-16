@@ -1,0 +1,17 @@
+trunk
+  branch1
+    subbranch
+      leaf1 
+      leaf2
+  branch2
+    leaf3
+    leaf4
+		leaf5
+		subbranch
+			leaf6
+			leaf7
+		
+selectAllLeaves = {import:select-all-leaves-plugin}
+		
+output
+	The list has [l = selectAllLeaves(trunk), l.getLength] leaves and here's a random one: [l]

@@ -1,0 +1,27 @@
+goto = {import:goto-plugin}
+
+gotTavernKey = false 
+
+darkroom
+	You're in a dark room. You can [goto(lightroom, "turn on the light")] or [goto(tavern, "exit through the door")].
+
+lightroom
+	There are mops and buckets here. Seems like you're in a cleaning cupboard. You can [goto(darkroom, "turn off the light")] or [goto(tavern, "exit through the door")].
+
+tavern
+	You open the door and walk out. You're standing in an old dusty tavern. There's no one here. You can [goto(tavernexit, "look for an exit")] or [goto(tavernbar, "have a look at the bar")].
+
+tavernbar
+	The bar seems abnormally tall. There's a few empty glass bottles{^[gotTavernKey]| and a key^[!gotTavernKey]} on the counter. You can [goto(tavernexit, "look for an exit")]{^[gotTavernKey]| or [goto(grabtavernkey, "grab the key")]^[!gotTavernKey]}.
+
+grabtavernkey
+	[gotTavernKey=true, ""]You grabbed the key. You can [goto(tavernbar, "stay at the bar")] or [goto(tavernexit, "look for an exit")].
+
+tavernexit
+	There's a large wooden door here which might lead somewhere, but it's locked. You can [goto(tavernbar, "go have a look at the bar")]{ or [goto(taverndoorunlock, "try using the key")]^[gotTavernKey]|^[!gotTavernKey]}.
+	
+taverndoorunlock
+	The key seems to fit, but it's as if the locking mechanism has rusted and seized up through lack of use. You can [goto(peerthroughkeyhole, "peer through the keyhole")] or [goto(tavernbar, "go back to the bar")].
+	
+peerthroughkeyhole
+	Looking through the keyhole you can see what appears to be an old cobble-stoned street, overgrown with weeds and vines. You can [goto(tavernbar, "go back to the bar")].

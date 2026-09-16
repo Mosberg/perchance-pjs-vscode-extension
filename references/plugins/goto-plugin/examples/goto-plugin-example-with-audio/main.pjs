@@ -1,0 +1,16 @@
+backgroundAudio = {import:background-audio-plugin}
+goto = {import:goto-plugin}
+
+worldGrid 
+
+	x50y50
+		name = forest
+		description
+			You are in a forest. There is a tavern to the north. <br> [goto(worldGrid.x50y51, "go north")] [backgroundAudio("https://soundcloud.com/zepheren/rainforest-sounds-and-animals")]
+		$output = [this.description]
+		
+	x50y51
+		name = tavern
+		description
+			You are in a tavern. There is a forest to the south. <br> [goto(worldGrid.x50y50, "go south")] [backgroundAudio("https://soundcloud.com/freebird4481/true-medieval-tavern-music")]
+		$output = [this.description]

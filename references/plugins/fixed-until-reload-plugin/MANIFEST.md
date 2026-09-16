@@ -1,0 +1,156 @@
+# MANIFEST — byte-exact list of every shipped file
+
+The generator ships exactly two files. Both are included verbatim.
+Perchance concatenates nothing else at runtime other than the platform harness
+(the iframe wrapper, the perchance engine, and the default Perchance <head>).
+
+internal-code/main.pjs      547 bytes
+internal-code/index.html    4363 bytes
+
+--- BEGIN internal-code/main.pjs ---
+$output(list, mapIndex) =>
+  if(!mapIndex) mapIndex = 0; 
+	if(!window.__230498575fixedUntilReloadPluginIdMapArr) window.__230498575fixedUntilReloadPluginIdMapArr = [];
+	let mapArr = window.__230498575fixedUntilReloadPluginIdMapArr;
+	if(!mapArr[mapIndex]) mapArr[mapIndex] = new Map();
+	let map = mapArr[mapIndex];
+	if(!map.has(list)) map.set(list, list.selectOne);
+	
+	return map.get(list);
+	 
+	
+animal
+	frog
+	mouse
+	cow
+	rabbit
+	moose
+	deer
+	chicken
+	rhino
+	elephant
+	zebra
+	lemur
+	llama
+	rat
+	duck
+	dove
+	pigeon
+	gorilla
+	
+letterPair
+  {A-Z}{A-Z}
+--- END internal-code/main.pjs ---
+
+--- BEGIN internal-code/index.html ---
+<h1>Fixed-Until-Reload Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:800px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p style="text-align:justify; margin-top:0;">This plugin allows you to output a random selection from a list that doesn't change then the user clicks the "randomize" button. Once it has been generated the first time, it stays on that value until they reload the page. To use this plugin, you'll first need to import the plugin by putting this code in your Perchance code panel:</p>
+	 
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+fixedUntilReload = \{import:fixed-until-reload-plugin\}
+</pre>
+	
+  <p>And here's a simple example of how to use it:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+output
+	The \[fixedUntilReload(animal)\] has befriended the \[animal\].
+	
+animal
+	frog
+	mouse
+	rabbit
+	cow
+	...
+</pre>
+
+	<p>and that would output this:</p>
+	
+	<p id="example1" style="padding:1rem; background:#efefef;">The [$output(animal)] has befriended the [animal].</p>
+	<button onclick="update(example1)">randomize</button>
+	
+	<p>Notice how the first animal doesn't change, but the second one does? That's because the first animal was permanently "fixed" on the very first random selection that it made. The only way to re-randomize it is to reload the page.</p>
+	
+	<p>Pretty easy, right?</p>
+	
+	<p>There is one catch though. Let's see what happens if we use <code>fixedUntilReload</code> on the <code>animal</code> list <b>twice</b>:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+output
+	The \[fixedUntilReload(animal)\] has befriended the \[fixedUntilReload(animal)\].
+</pre>
+	
+	<p id="example2" style="padding:1rem; background:#efefef;">The [$output(animal)] has befriended the [$output(animal)].</p>
+	<button onclick="update(example2)">randomize</button>
+	
+	<p>They're both fixed and thus don't change when we tap "randomize", which is expected, but notice that it selects the <u>same</u> animal both times? To avoid this, we need to pass in an "id" (identification) parameter after the list name:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+output
+	The \[fixedUntilReload(animal,1)\] has befriended the \[fixedUntilReload(animal,2)\].
+</pre>
+	
+	<p id="example3" style="padding:1rem; background:#efefef;">The [$output(animal,1)] has befriended the [$output(animal,2)].</p>
+	
+	<p>They may still select the same animal by coincidence (you could use a <code>consumableList</code> to prevent this), but now the selections are actully separate. The added benefit of this "id" stuff is that we can refer to the selected animals again later in our output text like this:</p>
+	
+<pre class="custom" style="margin:0; height:100%; box-sizing:border-box;">
+output
+	The \[fixedUntilReload(animal,1)\] has befriended the \[fixedUntilReload(animal,2)\]. The \[fixedUntilReload(animal,1)\] is happy.
+</pre>
+	
+	<p id="example4" style="padding:1rem; background:#efefef;">The [$output(animal,1)] has befriended the [$output(animal,2)]. The [$output(animal,1)] is happy.</p>
+	
+	<p>Notice that in the second sentence we're referring to the "id" (in this case, 1) of the first animal we generated? Not too complicated, right? Remember that you can ask for help on the <a href="https://www.reddit.com/r/perchance">forum</a> if needed.</p>
+	
+	<p><b>Notes:</b></p>
+	<ul class="dot-list">
+		<li><a href="https://perchance.org/fixed-until-reload-plugin-example#edit">Here's an example</a> of a generator that uses this plugin.</li>
+		<li>If you want to allow the users of your generator to "unlock" and "lock" the selections manually, check out the <a href="/lockable-list-plugin" target="_blank">lockable-list-plugin</a> and the <a href="/locker-plugin" target="_blank">locker-plugin</a>.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	p { text-align:left; }
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding: 0 0.2em;
+		white-space:nowrap;
+	}
+	ul.dot-list li {
+	  margin-top:0.5em;	
+	} 
+	pre.custom {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>
+--- END internal-code/index.html ---
+
+## Empty categories (verified)
+
+external-code/         0 files
+third-party-assets/    0 files
+project-assets/        0 files
+build-config/          0 files
+
+Verification method: grep for "<script src", "<link ", "import(" , "{import:", "<img",
+"fetch(" and "url(" across main.pjs and index.html. Zero external references found.
+The only outbound URLs in the project are <a href> documentation links
+(reddit.com/r/perchance, perchance.org/fixed-until-reload-plugin-example,
+perchance.org/lockable-list-plugin, perchance.org/locker-plugin, perchance.org/plugins),
+which are navigation links, not loaded assets.

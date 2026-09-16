@@ -1,0 +1,39 @@
+<h1>Lockable List Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:780px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>lockableList = \{import:lockable-list-plugin\}</code></p>
+	<br>
+	<p>Now if you write this:</p>
+	<p><code>That \[lockableList(animal)\] is \[lockableList(adjective)\].</code></p>
+	<p>You'll get something like this (see <a href="/lockable-list-plugin-example#edit">example</a>):</p>
+	<p id="example1El"><code>That [$output(animal)] is [$output(adjective)].</code></p>
+  <p><button onclick="update(example1El)">randomize</button></p>
+	<p>You can click on the lock to "lock" the list so that that specific list always returns that specific value.</p>
+	<br>
+	<p>By default the "lock" button is shown next to the list output, but you can put the lock button for a particular list anywhere you want:</p>
+	<p><code>\[lockableList(adjective, "button")\]</code></p>
+	<p>That'll output the lock button for the adjectives list (see <a href="/lockable-list-plugin-example-3#edit">example</a>).</p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><b style="color:red">Note:</b> You may want to check out the <a href="/locker-plugin">locker-plugin</a>, which is a more powerful (though slightly more complicated) version of this plugin. This plugin (lockable-list) doesn't work if your list items have curly/square blocks in them. It only works if your list items are just "plain old text". The locker-plugin has a bunch of other advantages too, including the ability to change the lock/unlock icons.</li>
+		<li>It combines nicely with the <a href="/make-table-plugin">makeTable</a> plugin: <a href="/lockable-list-plugin-example-2#edit">example</a></li>
+		<li>One potential weak-spot of this plugin is that it locks <b>lists</b>, so if you want to use a particular list <i>multiple times</i> and have the ability to lock them <b>independently</b>, then you'll need to make "duplicates" of that list - see <a href="/lockable-list-plugin-example-duplicates#edit">this example</a> (or use the <a href="/locker-plugin">locker-plugin</a> instead).</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.2em
+	}
+	ul li {
+		margin-top:0.5em;
+	}
+</style>

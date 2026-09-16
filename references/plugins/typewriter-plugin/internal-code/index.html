@@ -1,0 +1,41 @@
+<h1 style="display:none;">Typewriter Plugin</h1>
+<h1>[$output("Typewriter Plugin", 4, 1)]</h1>
+
+<div style="margin:0 auto;width:100%;max-width:720px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>type = \{import:typewriter-plugin\}</code></p>
+	<br>
+	<p>Now put this anywhere:</p>
+	<p><code>\[type("My example text!")\]</code></p>
+	<br>
+	<p>You can alter the <b>speed</b> (characters/second) and the <b>delay</b> before it starts (seconds):</p>
+	<p><code>\[type(myList, 5, 3)\]</code></p>
+	<br>
+	<p>So the format is:</p>
+	<p><code>\[type(text, speed, delay)\]</code></p>
+	<br>
+	<p>Remember, you can name plugins whatever you want:</p>
+	<p><code>typewriter = \{import:typewriter-plugin\}</code></p>
+	<p><code>\[typewriter(coolSentence, 2, 1.5)\]</code></p>
+	<br>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li>This plugin is experimental - it may be somewhat buggy</li>
+		<li>You cannot use line breaks (&lt;br&gt;) within the text to be typed</li>
+		<li><a href="https://perchance.org/computer-terminal-template#edit">Here's an example</a> of how you could use it.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.2em;
+	}
+	ul li { margin-top:0.4em; }
+</style>

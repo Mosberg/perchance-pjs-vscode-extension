@@ -1,0 +1,13 @@
+lockableList = {import:lockable-list-plugin}
+
+output 
+	Animal: [lockableList(animal)]<br> Button: [lockableList(animal, "button")]
+
+animal
+	pig
+	cow
+	chicken
+	zebra
+	crayfish
+	jellyfish
+	worm

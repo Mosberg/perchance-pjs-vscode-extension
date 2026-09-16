@@ -1,0 +1,10 @@
+navbar(options)
+
+title      = any string                     -> brand text, left of the bar
+titleUrl   = url                            -> brand link target
+theme      = dark | light | red | indigo | cyan | green | amber | brown | bluegrey
+             OR "backgroundColor hoverColor textColor"  (hex or named colors, mixable)
+alignment  = left | right
+placement  = default | static | fixed | fixed-bottom
+items      = list of "Item Name | https://url"
+             nested sub-items allowed (max 2 levels: item > subitem)

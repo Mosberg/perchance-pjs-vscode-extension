@@ -1,0 +1,6 @@
+Loaded at runtime by getPluginCss() via:
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+Family: "Open Sans" (weight 400)
+Served by: Google Fonts CDN (fonts.googleapis.com / fonts.gstatic.com)
+No font binaries are bundled in this project.

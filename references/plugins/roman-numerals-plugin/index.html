@@ -1,0 +1,40 @@
+<h1>Roman Numerals Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:750px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>roman = \{import:roman-numerals-plugin-plugin\}</code></p>
+	<br>
+	<p>Now you can convert a number into its roman numeral form:</p>
+	<p><code>\[roman(18)\]</code></p>
+	<p>That would generate <code>XVIII</code>.</p>
+	<br>
+	<p>You can of course use it with variables and other plugins:</p>
+	<p><code>\[roman(num)\]</code></p>
+	<p><code>\[roman( dice("2d6") )\]</code></p>
+	<p><code>\[roman( character.hitpoints )\]</code></p>
+	<br>
+	<p>Test out this plugin by typing in a number:</p>
+	<p><code>\[roman(<input id="userval" oninput="update()" style="width:50px; text-align:center;" value="786"/>)\]</code></p>
+	<p style="opacity:0.7; font-style:italic;">[$output(userval.value)]</p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><a href="https://perchance.org/roman-numerals-plugin-example-1#edit">Here's a simple example</a> of how to use it.</li>
+		<li><a href="https://perchance.org/roman-numerals-plugin-example-2#edit">Here's a a more complex example</a> that involves the dice plugin.</li>
+		<li><a href="https://perchance.org/lineage-of-kings-example#edit">It's used in this example</a> where we generate a lineage of kings.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<p style="text-align:center; font-size:200%; opacity:0.2; margin-top:0.5em;"><span>⚄&#xFE0E;</span></p>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.1em;
+	}
+	ul li { margin-top:0.4em; }
+</style>

@@ -1,0 +1,39 @@
+<h1>Numerals to Ordinal Words Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:650px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>numToOrdWord = \{import:numerals-to-ordinal-words-plugin\}</code></p>
+	<br>
+	<p>Now you can generate the "spelled out" version of a number with th/nd/st/rd/etc.</p>
+	<p><code>\[numToOrdWord(18)\]</code></p>
+	<p>That would generate <code>eighteen<u>th</u></code>.</p>
+	<br>
+	<p>You can of course use it with variables and other plugins:</p>
+	<p><code>\[numToOrdWord(num)\]</code></p>
+	<p><code>\[numToOrdWord( dice("2d6") )\]</code></p>
+	<p><code>\[numToOrdWord( character.hitpoints )\]</code></p>
+	<br>
+	<p>Test out this plugin by typing in a number:</p>
+	<p><code>\[numToOrdWord(<input id="userval" oninput="update()" style="width:50px; text-align:center;" value="786"/>)\]</code></p>
+	<p style="opacity:0.7; font-style:italic;">[$output(userval.value)]</p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><a href="/numerals-to-ordinal-words-example#edit">Here's a simple example</a> of how to use it.</li>
+		<li>Want <code>4th</code> instead of <code>fourth</code>? Check out <a href="/numerals-to-ordinals-plugin">numerals-to-ordinals-plugin</a></li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<p style="text-align:center; font-size:200%; opacity:0.2; margin-top:0.5em;"><span>⚄&#xFE0E;</span></p>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.1em 0.2em
+	}
+	ul li { margin-top:0.4em; }
+</style>

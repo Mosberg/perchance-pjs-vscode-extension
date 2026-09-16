@@ -1,0 +1,26 @@
+Adobe Blank - font license & provenance
+=======================================
+
+Asset:      AdobeBlank-Regular.otf   (19,120 bytes, OpenType/CFF, 10 tables)
+Identified: sfntVersion "OTTO"; tables: CFF, DSIG, OS/2, cmap, head, hhea,
+            hmtx, maxp, name, post
+Name table (extracted verbatim from the binary):
+            Family      : Adobe Blank
+            Subfamily   : Regular
+            Full name   : Adobe Blank
+            PostScript  : AdobeBlank
+            Version     : 1.045;ADBO;AdobeBlank;ADOBE; Version 1.045; PS 1.045;
+                          hotconv 1.0.82; makeotf.lib2.5.63406
+            Unique ID   : AdobeBlank-2049
+            Copyright   : Copyright 2013, 2015 Adobe Systems Incorporated
+                          (http://www.adobe.com/).
+            Trademark   : AdobeIdentity
+
+License:    SIL Open Font License, Version 1.1
+            A copy is included as LICENSE-OFL-1.1.txt in this directory.
+Source:     https://github.com/adobe-fonts/adobe-blank
+
+Note on use in this project: the font is embedded in index.html as a base64
+data: URI (@font-face, family "NotDef") so that the page can render a
+zero-width fallback glyph without loading an external file. The data URI in
+index.html is the authoritative copy; this .otf is that data URI decoded.

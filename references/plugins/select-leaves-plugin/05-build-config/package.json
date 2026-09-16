@@ -1,0 +1,71 @@
+{
+  "name": "select-leaves-plugin",
+  "version": "1.0.0",
+  "description": "Perchance plugin: select multiple 'leaf' items at once from a hierarchical Perchance list (selectMany, but using selectLeaf instead of selectOne).",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "keywords": [
+    "perchance",
+    "perchance-plugin",
+    "select-leaf",
+    "selectMany",
+    "list-tree",
+    "leaves"
+  ],
+  "homepage": "https://perchance.org/select-leaves-plugin",
+  "repository": {
+    "type": "perchance",
+    "url": "https://perchance.org/select-leaves-plugin"
+  },
+  "generator": {
+    "name": "select-leaves-plugin",
+    "publicId": "86ee688dc96be17847257c87a2b0e189",
+    "runtimeOrigin": "https://86ee688dc96be17847257c87a2b0e189.perchance.org/select-leaves-plugin",
+    "platform": "perchance",
+    "entryPoints": {
+      "listProgram": "01-internal-code/main.pjs",
+      "html": "01-internal-code/index.html"
+    },
+    "exports": {
+      "output": "$output(list, ...a) -> Array<leaf>",
+      "usage": "selectLeaves = {import:select-leaves-plugin}"
+    }
+  },
+  "files": [
+    "README.md",
+    "INVENTORY.md",
+    "01-internal-code/main.pjs",
+    "01-internal-code/index.html",
+    "02-dependencies/imports/select-leaf-plugin/main.pjs",
+    "03-external-generators/select-leaf-plugin/main.pjs",
+    "03-external-generators/select-leaf-plugin/index.html",
+    "03-external-generators/consumable-leaf-list-plugin/main.pjs",
+    "03-external-generators/consumable-leaf-list-plugin/index.html",
+    "03-external-generators/select-leaves-plugin-example/main.pjs",
+    "03-external-generators/select-leaves-plugin-example/index.html",
+    "04-assets/ASSETS.md",
+    "05-build-config/BUILD.md",
+    "05-build-config/package.json",
+    "05-build-config/tools/package.mjs",
+    "99-agent-instructions/AGENTS.md"
+  ],
+  "dependencies": {
+    "select-leaf-plugin": "{import:select-leaf-plugin}"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "echo \"no build step: Perchance saves main.pjs + index.html directly\"",
+    "package": "node 05-build-config/tools/package.mjs"
+  },
+  "assets": {
+    "images": 0,
+    "audio": 0,
+    "video": 0,
+    "models": 0,
+    "shaders": 0,
+    "animations": 0,
+    "dataFiles": 0,
+    "fonts": 0
+  }
+}

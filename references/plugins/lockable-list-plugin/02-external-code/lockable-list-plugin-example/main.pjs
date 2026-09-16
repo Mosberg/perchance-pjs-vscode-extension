@@ -1,0 +1,23 @@
+lockableList = {import:lockable-list-plugin}
+
+output 
+	That [lockableList(animal)] is [lockableList(adjective)].
+
+animal
+	pig
+	cow
+	chicken
+	zebra
+	crayfish
+	jellyfish
+	worm
+	
+adjective
+	small
+	big
+	cute
+	sneaky
+	unusual
+	helpful
+	unhelpful
+	mean

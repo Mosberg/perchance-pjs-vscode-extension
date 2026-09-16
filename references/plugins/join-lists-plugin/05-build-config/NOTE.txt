@@ -1,0 +1,9 @@
+NO BUILD PIPELINE OR CONFIGURATION.
+
+Perchance generators are not compiled. The platform loads `main.pjs` implicitly
+before `index.html` runs, then renders the template in-browser.
+
+Therefore there are no: package.json, lockfiles, bundler/rollup/vite/esbuild
+configs, tsconfig, Dockerfiles, CI definitions, env files, or dependency
+manifests. Adding an {import:...} line to main.pjs is the closest equivalent to
+declaring a dependency — and this generator has none.

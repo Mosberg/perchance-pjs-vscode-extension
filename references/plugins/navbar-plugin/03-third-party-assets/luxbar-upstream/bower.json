@@ -1,0 +1,25 @@
+{
+  "name": "luxbar",
+  "version": "0.3.2",
+  "homepage": "https://balzss.github.io/luxbar",
+  "authors": [
+    "balzss <balazs.saros@gmail.com>"
+  ],
+  "description": "Featherweight, Responsive, CSS Only Navigation Bar",
+  "main": "build/luxbar.css",
+  "keywords": [
+    "css",
+    "navbar",
+    "navigation bar",
+    "navigation",
+    "menu"
+  ],
+  "license": "MIT",
+  "ignore": [
+      "*", 
+      "!scss/*", 
+      "!build/*", 
+      "!README.md", 
+      "!LICENSE"
+  ]
+}

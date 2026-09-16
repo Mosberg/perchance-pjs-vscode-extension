@@ -1,0 +1,10 @@
+NO THIRD-PARTY ASSETS.
+
+This generator uses no images, audio, video, 3D models, textures, shaders,
+animations, fonts, sprite sheets, prefabs or external data files (JSON/CSV/etc).
+
+The only non-source resource in the project is the platform engine itself, which
+lives in ../02-external-code/ because it is a runtime dependency rather than a
+project asset.
+
+See ../04-project-resources/ for the captured rendered page.

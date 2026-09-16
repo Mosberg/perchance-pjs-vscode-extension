@@ -1,0 +1,90 @@
+{
+  "project": "numerals-to-ordinal-words-plugin",
+  "perchancePage": "https://perchance.org/numerals-to-ordinal-words-plugin",
+  "purpose": "Spell out a numeral as an English ordinal word (18 -> eighteenth, 786 -> seven hundred and eighty-sixth) with arbitrary precision.",
+  "generated": "2026-09-16T18:01:38.388Z",
+  "counts": {
+    "internalCodeFiles": 2,
+    "externalCodeDependencies": 0,
+    "thirdPartyAssets": 3,
+    "projectResourceAssets": 0,
+    "totalFiles": 7
+  },
+  "internalCode": [
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 37211,
+      "sha256": "93d14af1b03daee24f7b0736423bb93f05540d4e3ed44c30356d164d945a12d0",
+      "lines": 107,
+      "role": "Entire generator source: $output(n) entry point; chunk(), inEnglish(), appendScale() helpers; init() bootstrap (vendored big.js + digit/scale word tables on window)."
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 1620,
+      "sha256": "4f423c7c51b68c39d0eef9a84d45319d10b94f3c9e958e3382fe17ba855beed8",
+      "lines": 39,
+      "role": "Generator HTML body: heading, usage docs, live demo input (#userval) rendering [$output(userval.value)], inline <style>."
+    }
+  ],
+  "externalCode": {
+    "dependencies": [],
+    "note": "main.pjs contains no {import:...} statements, so this generator has zero Perchance dependency generators/plugins to bundle. (It is itself published as an importable plugin.)"
+  },
+  "thirdPartyAssets": [
+    {
+      "path": "third-party/big.js-4.0.2/big.js",
+      "name": "big.js",
+      "version": "4.0.2",
+      "license": "MIT Expat, (c) 2017 Michael Mclaughlin",
+      "upstream": "https://github.com/MikeMcl/big.js/",
+      "bytes": 23391,
+      "sha256": "a81c9bf2baec426e7c802c2e5a0c3a9e28fad89763609eedea180d42485b66d8",
+      "role": "Annotated upstream source of the arbitrary-precision decimal library."
+    },
+    {
+      "path": "third-party/big.js-4.0.2/big.min.js",
+      "name": "big.js",
+      "version": "4.0.2",
+      "license": "MIT Expat",
+      "upstream": "https://raw.githubusercontent.com/MikeMcl/big.js/v4.0.2/big.min.js",
+      "bytes": 6322,
+      "sha256": "fd50287a7ab0b0914aa87f938bbd36d57786e8464ce856729732a95b5391dffc",
+      "role": "Upstream minified build. This is the same code that is vendored inside main.pjs init()."
+    },
+    {
+      "path": "third-party/big.js-4.0.2/LICENCE",
+      "name": "big.js licence",
+      "license": "MIT Expat",
+      "bytes": 1087,
+      "sha256": "2d2a02e645ed015512089d3e6cd36d3206a79713c60a06ab0d226485f5cf866c",
+      "role": "Licence text, as required for redistribution of big.js."
+    }
+  ],
+  "vendoredThirdParty": [
+    {
+      "name": "big.js",
+      "version": "4.0.2",
+      "license": "MIT Expat, (c) 2017 Michael Mclaughlin",
+      "location": "main.pjs, inside init() (character offset 2936)",
+      "bytes": 6287,
+      "sha256": "9a4bf2c419a014aa49ff1cb3306cb8065c6fb9363cea54d4ffb0a5d483084cec",
+      "identicalToUpstreamMin": true,
+      "note": "Minified big.js v4.0.2 is embedded verbatim as a single line inside init(), defining the global Big. It matches third-party/big.js-4.0.2/big.min.js exactly once the upstream file's header comment and trailing //# sourceMappingURL comment are ignored (both are comment-only)."
+    }
+  ],
+  "projectResources": {
+    "assets": [],
+    "note": "No images, audio, models, shaders, animations, JSON data, prefabs or templates exist in or are referenced by this project. All styling is inline CSS in index.html; the only decorative graphic is the Unicode die-face character U+2684 followed by U+FE0E (text presentation selector), written directly in index.html."
+  },
+  "generatedAtRuntime": [
+    "Digit word table: window.digitsToWords_ONE_TO_NINETEEN (words one..nineteen)",
+    "Tens word table: window.digitsToWords_TENS (ten, twenty, ... ninety)",
+    "Scale word table: window.digitsToWords_SCALES (thousand ... novenonagintillion, ~600 entries generated into init())"
+  ],
+  "referencedExternalPages": [
+    "https://perchance.org/numerals-to-ordinal-words-example",
+    "https://perchance.org/numerals-to-ordinals-plugin",
+    "https://perchance.org/plugins",
+    "https://github.com/MikeMcl/big.js/LICENCE"
+  ]
+}

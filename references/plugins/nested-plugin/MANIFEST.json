@@ -1,0 +1,74 @@
+{
+  "generator": "nested-plugin",
+  "publicId": "55c8c065d32c1699783fe682490d194f",
+  "exportedAt": "2026-09-16T18:09:02.203Z",
+  "categories": {
+    "internal-code": [
+      "internal-code/main.pjs",
+      "internal-code/index.html"
+    ],
+    "project-resources": [
+      "project-resources/world-lists.pjs",
+      "project-resources/DATA-MODEL.md"
+    ],
+    "build-config": [
+      "build-config/DEPENDENCIES.md"
+    ],
+    "third-party-assets": [
+      "third-party-assets/alpine-forest-picture.png",
+      "third-party-assets/desert-region-picture.jpg"
+    ]
+  },
+  "files": [
+    {
+      "path": "internal-code/main.pjs",
+      "bytes": 5581,
+      "sha256": "c1a19fe9c85a2eb27d0d42a1950cb728a217514686e6db4d92ed4187596960ff"
+    },
+    {
+      "path": "internal-code/index.html",
+      "bytes": 3414,
+      "sha256": "831541fd5dd57a8180de11d560c40eeba992420c75421c69a3c998130a7662f0"
+    },
+    {
+      "path": "project-resources/world-lists.pjs",
+      "bytes": 1022,
+      "sha256": "e0ed2033c084455f3b7556a8ec60ebdd680cbb6b706a063f9d5afc6369bfd98d"
+    },
+    {
+      "path": "project-resources/DATA-MODEL.md",
+      "bytes": 1290,
+      "sha256": "168dd27d3124a1fc988d772e36df08c351f589aecaa36efd36c3faf6ef1378ad"
+    },
+    {
+      "path": "build-config/DEPENDENCIES.md",
+      "bytes": 1051,
+      "sha256": "033da037b1d658091706bff733b9e5c12f3602a875482cc8e481ddf366b1ce56"
+    },
+    {
+      "path": "third-party-assets/alpine-forest-picture.png",
+      "bytes": 308143,
+      "sha256": "0b8b7ecdbf11d6df19f0cd7502ac78c5a12e91157e152b7549d45bd86e2b5e1b"
+    },
+    {
+      "path": "third-party-assets/desert-region-picture.jpg",
+      "bytes": 3421303,
+      "sha256": "3186ad471ba4fef1225b45acb02348c6ab03d7e4529154f1badb265f953799eb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4425,
+      "sha256": "4fb0e57602499c60597c9330ba0494ae30a54f9acba00834ed427afb43650312"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": null,
+      "sha256": null,
+      "note": "this file"
+    },
+    {
+      "path": "README.md",
+      "note": "see files list above"
+    }
+  ]
+}

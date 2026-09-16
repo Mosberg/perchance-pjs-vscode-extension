@@ -1,0 +1,26 @@
+{
+  "project": "number-set-plugin",
+  "perchanceUrl": "https://perchance.org/number-set-plugin",
+  "generatorPublicId": "389281e141cb1913c2b20ea0ab284c96",
+  "saved": true,
+  "description": "Perchance plugin generator. Exports a single `$output` function that generates N whole numbers which sum to a target total, with optional per-number weights and optional boolean conditions.",
+  "capturedAt": "2026-09-16T17:51:49.965Z",
+  "internalCode": [
+    {
+      "path": "01-internal-code/main.pjs",
+      "bytes": 11358,
+      "lines": 229,
+      "sha256": "34f11daeb350a4502d9279121481ff5322be044d9d26fc538ce5449a72c5d60b"
+    },
+    {
+      "path": "01-internal-code/index.html",
+      "bytes": 5467,
+      "lines": 121,
+      "sha256": "6ae218d5b28b6cc9b41bb5d17d57940ff406be62a4607a960a67b8f065349100"
+    }
+  ],
+  "externalCode": [],
+  "thirdPartyAssets": [],
+  "projectResources": [],
+  "buildConfig": []
+}

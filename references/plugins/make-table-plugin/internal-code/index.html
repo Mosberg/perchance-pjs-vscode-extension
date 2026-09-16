@@ -1,0 +1,78 @@
+<h1>Make Table Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:850px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+<pre>makeTable = \{import:make-table-plugin\}</pre>
+	<br>
+	<p>Now create a list that looks like this:</p>
+<pre>
+myTable
+	cell | cell | cell | cell
+	cell | cell | cell | cell
+	cell | cell | cell | cell
+	cell | cell | cell | cell
+</pre>
+	<br>
+	<p>Now include this in your HTML panel (bottom-right):</p>
+<pre>\[makeTable(myTable)\]</pre>
+	<br>
+	<p>And it'll output this:</p>
+	[$output(myTable)]
+	<br>
+	<p>You can optionally change the widths and alignments of the columns like this:</p>
+<pre>
+myTable
+	columnWidths = 100|50|40|200
+	columnAlignments = right|left|center|right
+	cell | cell | cell | cell
+	cell | cell | cell | cell
+	cell | cell | cell | cell
+	...
+</pre>
+	[$output(myTable2)]
+	<p>You can add custom CSS styling to the table, rows, and cells as follows:</p>
+<pre>
+myTable
+	columnWidths = 100|50|40
+	tableStyle = table-layout:fixed; 
+	cellStyle = box-sizing:border-box; border: 1px dashed red; 
+	rowStyle = background:lightblue 
+	cell | cell | cell
+	cell | cell | cell
+	cell | cell | cell
+	...
+</pre>
+	[$output(myTable3)]
+<p>The <code>tableStyle = table-layout:fixed;</code> and <code>cellStyle = box-sizing:border-box;</code> properties makes the <code>columnWidth</code>s "strict". If you don't add them, the column widths will "flex" if the content is too big.</p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li>You can also change just the <b>overall</b> width of the table by setting the <code>width</code> property - e.g. <code>width = 800</code></li>
+		<li>You can make a bold header row by just wrapping the cell text with &lt;b&gt; tags like this: <code>&lt;b&gt;my cell text&lt;/b&gt;</code> (this is just regular HTML)</li>
+		<li>Have a play around with <a href="/make-table-plugin-example#edit">this example</a>.</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.1em 0.2em
+	}
+	pre {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+	ul li { margin-top:0.4em; }
+</style>

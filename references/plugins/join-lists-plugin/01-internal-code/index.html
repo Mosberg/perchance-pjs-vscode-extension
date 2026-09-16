@@ -1,0 +1,32 @@
+<h1>joinLists Plugin</h1>
+
+<div style="margin:0 auto;width:100%;max-width:700px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p>Put this in your Perchance code panel:</p>
+	<p><code>joinLists = \{import:join-lists-plugin\}</code></p>
+	<br>
+	<p>Now you can join lists together:</p>
+	<p><code>\[animal = joinLists(mammal, reptile)\]</code></p>
+	<br>
+	<p>It essentially creates a new list so you can do normal stuff to it:</p>
+	<p><code>\[joinLists(tree, shrub).selectMany(5)\]</code></p>
+	<p><code>\[plant = joinLists(tree, shrub), ""\]</code></p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li><a href="join-lists-example#edit">Here's an example</a> that combines it with <code>consumableList</code></li>
+		<li>Also check out the <a href="/exclude-items-plugin">excludeItems</a> plugin</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.1em
+	}
+	ul li { margin-top:0.4em; }
+</style>

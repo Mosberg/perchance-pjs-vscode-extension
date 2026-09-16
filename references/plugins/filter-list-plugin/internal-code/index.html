@@ -1,0 +1,80 @@
+<h1>Filter List Plugin</h1>
+
+<div style="text-align:left; margin:0 auto;width:100%;max-width:780px;background:white;border-radius:2px;padding:1em; box-sizing:border-box;">
+	<p style="margin-top:0;">Put this in your Perchance code panel:</p>
+	<pre>filterList = \{import:filter-list-plugin\}</pre>
+	<p>Now if you have a list like this:</p>
+<pre>
+animal
+  goat
+    height = 1
+    isMammal = true
+    coat = fur
+  ant
+    height = 0.001
+    isMammal = false
+    coat = carapace
+  horse
+    height = 1.8
+    isMammal = true
+    coat = fur
+  frog
+    height = 0.02
+    isMammal = false
+    coat = skin
+  ...
+</pre>
+  <p>Then you can filter items by their properties:</p>
+<pre>
+\[filterList(animal, item => item.height &gt; 1.2)\] <span style="opacity:0.5">// height greater than 1.2</span>
+\[filterList(animal, item => item.height == 1)\] <span style="opacity:0.5">// height is exactly 1</span>
+\[filterList(animal, item => item.coat == "skin")\] <span style="opacity:0.5">// notice the quotation marks for non-numbers</span>
+</pre>
+	<p>You just need to change <code>animal</code> to the name of your list, and the <code>item.height > 1.2</code> parts to suit your purpose.</p>
+	<p>If that part evaluates to <b>false</b> (or zero, or 'undefined'), then it is filtered out.</p>
+	<p>You can do multiple conditions like <code>item.mass > 2 <b>&amp;&amp;</b> item.shape == "round"</code>. For example, using the animal example above we could grab all animals with skin that are uner 0.3 height:</p>
+<pre>
+\[filterList(animal, item => item.coat == "skin" &amp;&amp; item.height &lt; 0.3)\]
+</pre>
+	<p><code>&amp;&amp;</code> (double ampersand) means AND, <code>||</code> means OR</p>
+	<p>Use brackets to group stuff: <code>(item.hasBones &amp;&amp; item.isFurry) || item.isMammal</code></p>
+	<br>
+  <p>You can use the resulting list just like you'd use any other list - i.e. you can reference it with a variable and then <code>selectOne</code> item from it, use <code>.joinItems(...)</code>, and so on:</p>
+<pre>
+output
+  \[bigAnimals = filterList(animal, item => item.height > 1.2), ""\]Here are three big animals: \[bigAnimals.selectUnique(3).joinItems(" ")\]
+</pre>
+	<p>You can actually shorten <code>item</code> to <code>i</code> (or any other letter):</p>
+<pre>\[filterList(animal, i => i.isMammal)\]</pre>
+	<p>It's just a "placeholder" for the item being "checked" by the filter.</p>
+	<br>
+	<p><b>Notes:</b></p>
+	<ul>
+		<li>This plugin is mainly for advanced users at the moment (until I write a tutorial on it)</li>
+		<li><a href="/filter-list-plugin-example#edit">Here's an example</a> of how to use it</li>
+		<li>Check out more plugins at <a href="/plugins">perchance.org/plugins</a></li>
+	</ul>
+</div>
+<br><br><br>
+
+<style>
+	body {
+			background:#eee;
+	}
+	code {
+		background-color:#eee;
+		padding:0.1em 0.2em;
+	}
+	ul li { margin-top:0.4em; }
+  pre {
+		text-align:left;
+		background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 2px;
+		tab-size: 2;
+		-moz-tab-size: 2;
+		-o-tab-size: 2;
+		-webkit-tab-size: 2;
+	}
+</style>

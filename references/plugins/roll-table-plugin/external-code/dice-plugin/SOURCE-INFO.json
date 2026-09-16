@@ -1,0 +1,7 @@
+{
+  "name": "dice-plugin",
+  "imports": [],
+  "lastEditTime": 1613507949526,
+  "retrievedVia": "https://perchance.org/api/getGeneratorsAndDependencies?generatorNames=dice-plugin",
+  "note": "Reference copy of the companion plugin used in this generator's documentation. Not imported by roll-table-plugin itself."
+}

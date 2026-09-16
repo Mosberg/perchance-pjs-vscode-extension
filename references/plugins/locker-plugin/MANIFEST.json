@@ -1,0 +1,104 @@
+{
+  "project": {
+    "generatorName": "locker-plugin",
+    "publicUrl": "https://perchance.org/locker-plugin",
+    "iframeOrigin": "https://fa0a486a4faac1ab9b787095b27a3b17.perchance.org/locker-plugin",
+    "generatorPublicId": "fa0a486a4faac1ab9b787095b27a3b17",
+    "platform": "Perchance",
+    "exportedAt": "2026-09-16T17:48:42.593Z",
+    "buildPipeline": "none (zero-build platform)",
+    "declaredImports": [],
+    "assetTypesLoaded": {
+      "images": 0,
+      "audio": 0,
+      "models": 0,
+      "shaders": 0,
+      "fonts": 0,
+      "stylesheets": 0,
+      "jsonData": 0
+    },
+    "runtimeNetworkRequests": [
+      "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js",
+      "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "https://perchance.org/api/securityData",
+      "https://perchance.org/api/clearCacheIfGeneratorOrImportsHaveBeenUpdated?generatorName=locker-plugin"
+    ]
+  },
+  "categories": {
+    "01-internal-code": [
+      {
+        "path": "main.pjs",
+        "bytes": 1998,
+        "sha256": "f9fa54cf00ee73418ec5762e7fd3a436ac20fefce8c5e00537529acd3778b6a1",
+        "role": "Generator source (root scope)",
+        "desc": "Perchance-JS generator code: $output(lockerName, value) locker implementation + example lists (animal, letterPair)."
+      },
+      {
+        "path": "index.html",
+        "bytes": 7868,
+        "sha256": "c7a6aac9f985cb75e8dbd243c697ba15bf3992a4e3e945d05c9108d582f77a44",
+        "role": "Generator source (page body)",
+        "desc": "Generator HTML body: documentation page, two live demo examples, inline CSS. Uses platform-provided update() helper on the randomize buttons."
+      }
+    ],
+    "02-external-code": [
+      {
+        "path": "perchance-engine-491bf81418aa4b69.js",
+        "bytes": 115369,
+        "sha256": "491bf81418aa4b691be009ce503200880cba472d287541db1950c4b02cc221ad",
+        "url": "https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js",
+        "role": "Platform runtime (external code)",
+        "desc": "Perchance runtime engine: DSL interpreter/renderer, list-tree node API (selectOne/evaluateItem), global update() and PERCH. Loaded by the platform into every generator; filename carries a content hash."
+      },
+      {
+        "path": "cloudflare-insights-beacon.min.js",
+        "bytes": 30294,
+        "sha256": "08c4fd72f9d96a7aa554510dff2c293973b1b092dff1b9b282bce9111b50ef41",
+        "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+        "role": "Platform analytics (external code)",
+        "desc": "Cloudflare Web Analytics beacon auto-injected by the host in production; no effect on generator behaviour."
+      }
+    ],
+    "03-project-resources": [
+      {
+        "path": "rendered-output.html",
+        "bytes": 124623,
+        "sha256": "ebd73c1fc4449eb8553347863ce70d929865cccc07edaa8240b3d7ff43f06de6",
+        "url": null,
+        "role": "Rendered artifact",
+        "desc": "Fully rendered live DOM (document.documentElement.outerHTML) of the generator iframe after pjs evaluation + script execution."
+      },
+      {
+        "path": "top-level-page.html",
+        "bytes": 84820,
+        "sha256": "8176fc6d30d8d57307e7aece184d978f4b9896a6994398554fb7b7d1d18600ac",
+        "url": "https://perchance.org/locker-plugin",
+        "role": "Rendered artifact",
+        "desc": "Top-level perchance.org wrapper page HTML (platform header/chrome + iframe embed markup)."
+      },
+      {
+        "path": "screenshot.png",
+        "bytes": 135109,
+        "sha256": "90bd9cb39670ccbf670877538e6355d44ff8f259b2351ad24e8c1c4e86c090b0",
+        "url": null,
+        "role": "Rendered artifact",
+        "desc": "Full-page screenshot of the rendered generator (live preview capture)."
+      }
+    ],
+    "04-build-config": [
+      {
+        "path": "BUILD.md",
+        "desc": "Build/deploy notes; documents that no build pipeline exists."
+      },
+      {
+        "path": "DEPENDENCIES.md",
+        "desc": "Complete dependency list incl. platform-provided runtime code."
+      },
+      {
+        "path": "MANIFEST.json",
+        "desc": "Machine-readable inventory (root of package)."
+      }
+    ]
+  },
+  "inventoryMarkdown": "# locker-plugin — Asset Inventory\n\nExported: 2026-09-16T17:48:42.593Z\n\n## 01-internal-code/ — the generator's own source\n- `01-internal-code/main.pjs` — 1998 bytes — sha256 `f9fa54cf00ee7341…`\n  - Perchance-JS generator code: $output(lockerName, value) locker implementation + example lists (animal, letterPair).\n  - role: Generator source (root scope)\n- `01-internal-code/index.html` — 7868 bytes — sha256 `c7a6aac9f985cb75…`\n  - Generator HTML body: documentation page, two live demo examples, inline CSS. Uses platform-provided update() helper on the randomize buttons.\n  - role: Generator source (page body)\n\n## 02-external-code/ — third-party & platform code loaded at runtime\n- `02-external-code/perchance-engine-491bf81418aa4b69.js` — 115369 bytes — sha256 `491bf81418aa4b69…`\n  - Perchance runtime engine: DSL interpreter/renderer, list-tree node API (selectOne/evaluateItem), global update() and PERCH. Loaded by the platform into every generator; filename carries a content hash.\n  - source: https://perchance.org/lib/perchance-engine-491bf81418aa4b69.js\n  - role: Platform runtime (external code)\n- `02-external-code/cloudflare-insights-beacon.min.js` — 30294 bytes — sha256 `08c4fd72f9d96a7a…`\n  - Cloudflare Web Analytics beacon auto-injected by the host in production; no effect on generator behaviour.\n  - source: https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495\n  - role: Platform analytics (external code)\n\n## 03-project-resources/ — rendered/generated artifacts\n- `03-project-resources/rendered-output.html` — 124623 bytes — sha256 `ebd73c1fc4449eb8…`\n  - Fully rendered live DOM (document.documentElement.outerHTML) of the generator iframe after pjs evaluation + script execution.\n  - role: Rendered artifact\n- `03-project-resources/top-level-page.html` — 84820 bytes — sha256 `8176fc6d30d8d573…`\n  - Top-level perchance.org wrapper page HTML (platform header/chrome + iframe embed markup).\n  - source: https://perchance.org/locker-plugin\n  - role: Rendered artifact\n- `03-project-resources/screenshot.png` — 135109 bytes — sha256 `90bd9cb39670ccbf…`\n  - Full-page screenshot of the rendered generator (live preview capture).\n  - role: Rendered artifact\n\n## 04-build-config/ — build & config files\n- `BUILD.md` — build/deploy notes (no build step exists).\n- `DEPENDENCIES.md` — complete dependency manifest.\n- `MANIFEST.json` (package root) — machine-readable inventory of every file."
+}
